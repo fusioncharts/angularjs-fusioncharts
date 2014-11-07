@@ -34,20 +34,18 @@ window.fcDemos = {};
 		<div ng-view></div>
 	</div>
 </div>
-<script type="text/ng-template" id="test1">
-	<fc-chart fc-width="{{width}}" fc-height="{{height}}" fc-type="mscolumn2d" fc-chart-attrs="{{chartAttrs}}" fc-categories="{{categories}}" fc-dataset="{{dataset}}" fc-chart-click="chartClicked"></fc-chart>
+<div class="row">
+	<div class="col-md-12">
+		<%- partial("_mdfiles/quickstart") %>
+	</div>
+</div>
+
+<% for (var index in public.demos._data) {
+	var item = public.demos._data[index];
+	var id = item['id'];
+	%>
+<script type="text/ng-template" id="<%= id %>">
+<%- partial('demos/_' + id, {type: 'html'}) %>
 </script>
-<script type="text/ng-template" id="test2">
-	<fc-chart 
-        fc-width="600" 
-        fc-height="400"
-        fc-type="column2d",
-        fc-datasource="{{dataSource}}"
-        fc-chart-click="chartClicked",
-        fc-chart-object="chartObj"
-        ></fc-chart>
-</script>
-<script type="text/ng-template" id="test3">
-	<fc-chart fc-json-url="data/data.json">
-</script>
+<% } %>
 <%- partial ('_footer') %>

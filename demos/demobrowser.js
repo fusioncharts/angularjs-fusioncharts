@@ -1,5 +1,5 @@
 (function () {
-    window.app = angular.module('demo_browser', ['ngRoute', 'ngFusionCharts', 'ui.bootstrap']);
+    window.app = angular.module('demo_browser', ['ngRoute', 'ng-fusioncharts', 'ui.bootstrap']);
 
     app.config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when ('/demos/:demoid', {

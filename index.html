@@ -8,7 +8,7 @@
     <script src="vendor/ui-bootstrap.js" type="text/javascript"></script>
     <script src="vendor/ui-bootstrap-tpls.js" type="text/javascript"></script>
     <script src="vendor/fusioncharts.js" type="text/javascript"></script>
-    <script src="src/ng-fusioncharts.js" type="text/javascript"></script>
+    <script src="src/angular-fusioncharts.js" type="text/javascript"></script>
     <script src="vendor/prism.js" type="text/javascript"></script>
     <script src="demos/demobrowser.js" type="text/javascript"></script>    
 
@@ -199,22 +199,92 @@ $scope.dataSource = {
 		<div ng-view></div>
 	</div>
 </div>
+<div class="row">
+	<div class="col-md-12">
+		<h2>QuickStart</h2>
+<h3>Step 1: Include angular-fusioncharts.js</h3>
+<p>In your HTML, include <code>angular-fusioncharts.js</code> after all other scripts:</p>
+<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;/path/to/fusioncharts.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/path/to/angular.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/path/to/angular-fusioncharts.js&quot;&gt;&lt;/script&gt;</code></pre>
+<h3>Step 2: Include <code>ng-fusioncharts</code> in your module</h3>
+<p>In the app, include <code>ng-fusioncharts</code> as a dependency. If you looking for where to add the dependency, look for the call to <code>angular.module</code> in your code.</p>
+<pre><code>angular.module(&quot;myApp&quot;, [&quot;ng-fusioncharts&quot;])</code></pre>
+<h3>Step 3: Add the <code>fc-chart</code> directive</h3>
+<p>In your HTML, find the section where you wish to add the chart and add a <code>&lt;div&gt;</code> with the <code>fc-chart</code> directive. We are assuming it&#39;s inside a controller called <code>MyController</code> which would change based on your usage.</p>
+<pre><code>&lt;div ng-controller=&quot;MyController&quot;&gt;
+  &lt;div fc-chart
+       fc-width=&quot;600&quot;
+       fc-height=&quot;400&quot;
+       fc-type=&quot;column2d&quot;
+       fc-dataSource=&quot;{{ myDataSource }}&quot; &gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<p>Now this is bound to a datasource with the <code>myDataSource</code> scope object.</p>
+<h3>Step 4: Populate required variables in controller</h3>
+<p>In the previous code, we are binding to a scope variable <code>myDataSource</code>, but that hasn&#39;t been defined yet.</p>
+<p>In your controller, set the DataSource as you would for a regular FusionCharts JSON Format DataSource (see <a href="http://docs.fusioncharts.com/tutorial-getting-started-your-first-charts-building-your-first-chart.html">this tutorial</a> for a general introduction to this format).</p>
+<pre><code>app.controller(&#39;MyController&#39;, function ($scope) {
+  $scope.myDataSource = {
+    chart: {
+        caption: &quot;Harry&#39;s SuperMart&quot;,
+        subCaption: &quot;Top 5 stores in last month by revenue&quot;,
+    },
+    data:[{
+        label: &quot;Bakersfield Central&quot;,
+        value: &quot;880000&quot;
+    },
+    {
+        label: &quot;Garden Groove harbour&quot;,
+        value: &quot;730000&quot;
+    },
+    {
+        label: &quot;Los Angeles Topanga&quot;,
+        value: &quot;590000&quot;
+    },
+    {
+        label: &quot;Compton-Rancho Dom&quot;,
+        value: &quot;520000&quot;
+    },
+    {
+        label: &quot;Daly City Serramonte&quot;,
+        value: &quot;330000&quot;
+    }]
+  };
+});</code></pre>
+<p>And your chart should display when you load the page. </p>
+<h3>Licensing</h3>
+<p>Angular-FusionCharts is open-source and distributed under the terms of the MIT/X11 License. You will still need to download and include FusionCharts in your page. This project provides no direct functionality. You can <a href="http://fusioncharts.com/download/">Download an evaluation</a>. You will still need to purchase a FusionCharts license to use in a commercial environment (FusionCharts is <a href="http://www.fusioncharts.com/download/free/">free for non-commercial and personal use</a>) .</p>
+
+	</div>
+</div>
+
+
 <script type="text/ng-template" id="test1">
-	<fc-chart fc-width="{{width}}" fc-height="{{height}}" fc-type="mscolumn2d" fc-chart-attrs="{{chartAttrs}}" fc-categories="{{categories}}" fc-dataset="{{dataset}}" fc-chart-click="chartClicked"></fc-chart>
+
+<fc-chart fc-width="{{width}}" fc-height="{{height}}" fc-type="mscolumn2d" fc-chart-attrs="{{chartAttrs}}" fc-categories="{{categories}}" fc-dataset="{{dataset}}" fc-chart-click="chartClicked"></fc-chart>
+
 </script>
+
 <script type="text/ng-template" id="test2">
-	<fc-chart 
-        fc-width="600" 
-        fc-height="400"
-        fc-type="column2d",
-        fc-datasource="{{dataSource}}"
-        fc-chart-click="chartClicked",
-        fc-chart-object="chartObj"
-        ></fc-chart>
+
+<fc-chart 
+    fc-width="600" 
+    fc-height="400"
+    fc-type="column2d",
+    fc-datasource="{{dataSource}}"
+    fc-chart-click="chartClicked",
+    fc-chart-object="chartObj"
+    ></fc-chart>
+
 </script>
+
 <script type="text/ng-template" id="test3">
-	<fc-chart fc-json-url="data/data.json">
+
+<fc-chart fc-json-url="data/data.json"></fc-chart>
+
 </script>
+
 </div>
 </body>
 </html>

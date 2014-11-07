@@ -1,5 +1,5 @@
 (function () {
-    var fc = angular.module('ngFusionCharts', []);
+    var fc = angular.module('ng-fusioncharts', []);
 
 
     fc.directive('fcChart', function ($http) {
