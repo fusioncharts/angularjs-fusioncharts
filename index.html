@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular FusionCharts</title>
+	<script src="vendor/jquery.min.js" type="text/javascript"></script>
+    <script src="vendor/angular.js" type="text/javascript"></script>
+    <script src="vendor/angular-route.min.js" type="text/javascript"></script>
+    <script src="vendor/ui-bootstrap.js" type="text/javascript"></script>
+    <script src="vendor/ui-bootstrap-tpls.js" type="text/javascript"></script>
+    <script src="vendor/fusioncharts.js" type="text/javascript"></script>
+    <script src="src/ng-fusioncharts.js" type="text/javascript"></script>
+    <script src="vendor/prism.js" type="text/javascript"></script>
+    <script src="demos/demobrowser.js" type="text/javascript"></script>    
+
+    <link rel="stylesheet" href="vendor/css/bootstrap.css" />
+    <link rel="stylesheet" href="demos/demobrowser.css" />
+    <link rel="stylesheet" href="vendor/prism.css" />
+</head>
+<body ng-app="demo_browser">
+<div class="container">
+
+<script>
+window.fcDemos = {};
+
+
+	window.fcDemos["test1"] = {
+		'js_code_text': "\n$scope.categories = [\n  {\n     \"category\": [\n        {\n           \"label\": \"Q1\"\n        },\n        {\n           \"label\": \"Q2\"\n        },\n        {\n           \"label\": \"Q3\"\n        },\n        {\n           \"label\": \"Q4\"\n        }\n     ]\n  }\n];\n\n$scope.chartAttrs = {\n  \"caption\": \"Comparison of Quarterly Revenue\",\n  \"xAxisname\": \"Quarter\",\n  \"yAxisName\": \"Revenues (In USD)\",\n  \"numberPrefix\": \"$\",\n  \"plotFillAlpha\": \"80\",\n  \"paletteColors\": \"#0075c2,#1aaf5d\",\n  \"baseFontColor\": \"#333333\",\n  \"baseFont\": \"Helvetica Neue,Arial\",\n  \"captionFontSize\": \"14\",\n  \"subcaptionFontSize\": \"14\",\n  \"subcaptionFontBold\": \"0\",\n  \"showBorder\": \"0\",\n  \"bgColor\": \"#ffffff\",\n  \"showShadow\": \"0\",\n  \"canvasBgColor\": \"#ffffff\",\n  \"canvasBorderAlpha\": \"0\",\n  \"divlineAlpha\": \"100\",\n  \"divlineColor\": \"#999999\",\n  \"divlineThickness\": \"1\",\n  \"divLineDashed\": \"1\",\n  \"divLineDashLen\": \"1\",\n  \"divLineGapLen\": \"1\",\n  \"usePlotGradientColor\": \"0\",\n  \"showplotborder\": \"0\",\n  \"valueFontColor\": \"#ffffff\",\n  \"placeValuesInside\": \"1\",\n  \"showHoverEffect\": \"1\",\n  \"rotateValues\": \"1\",\n  \"showXAxisLine\": \"1\",\n  \"xAxisLineThickness\": \"1\",\n  \"xAxisLineColor\": \"#999999\",\n  \"showAlternateHGridColor\": \"0\",\n  \"legendBgAlpha\": \"0\",\n  \"legendBorderAlpha\": \"0\",\n  \"legendShadow\": \"0\",\n  \"legendItemFontSize\": \"10\",\n  \"legendItemFontColor\": \"#666666\"\n};\n\n$scope.dataset = [\n    {\n     \"seriesname\": \"Previous Year\",\n     \"data\": [\n        {\n           \"value\": \"10000\"\n        },\n        {\n           \"value\": \"11500\"\n        },\n        {\n           \"value\": \"12500\"\n        },\n        {\n           \"value\": \"15000\"\n        }\n     ]\n  },\n  {\n     \"seriesname\": \"Current Year\",\n     \"data\": [\n        {\n           \"value\": \"25400\"\n        },\n        {\n           \"value\": \"29800\"\n        },\n        {\n           \"value\": \"21800\"\n        },\n        {\n           \"value\": \"26800\"\n        }\n     ]\n  }\n];\n$scope.width=\"600\";\n$scope.height=\"400\";\n\n",
+		'html_code_text': "\n<fc-chart fc-width=\"{{width}}\" fc-height=\"{{height}}\" fc-type=\"mscolumn2d\" fc-chart-attrs=\"{{chartAttrs}}\" fc-categories=\"{{categories}}\" fc-dataset=\"{{dataset}}\" fc-chart-click=\"chartClicked\"></fc-chart>\n",
+		'js_func': function ($scope) {
+			
+$scope.categories = [
+  {
+     "category": [
+        {
+           "label": "Q1"
+        },
+        {
+           "label": "Q2"
+        },
+        {
+           "label": "Q3"
+        },
+        {
+           "label": "Q4"
+        }
+     ]
+  }
+];
+
+$scope.chartAttrs = {
+  "caption": "Comparison of Quarterly Revenue",
+  "xAxisname": "Quarter",
+  "yAxisName": "Revenues (In USD)",
+  "numberPrefix": "$",
+  "plotFillAlpha": "80",
+  "paletteColors": "#0075c2,#1aaf5d",
+  "baseFontColor": "#333333",
+  "baseFont": "Helvetica Neue,Arial",
+  "captionFontSize": "14",
+  "subcaptionFontSize": "14",
+  "subcaptionFontBold": "0",
+  "showBorder": "0",
+  "bgColor": "#ffffff",
+  "showShadow": "0",
+  "canvasBgColor": "#ffffff",
+  "canvasBorderAlpha": "0",
+  "divlineAlpha": "100",
+  "divlineColor": "#999999",
+  "divlineThickness": "1",
+  "divLineDashed": "1",
+  "divLineDashLen": "1",
+  "divLineGapLen": "1",
+  "usePlotGradientColor": "0",
+  "showplotborder": "0",
+  "valueFontColor": "#ffffff",
+  "placeValuesInside": "1",
+  "showHoverEffect": "1",
+  "rotateValues": "1",
+  "showXAxisLine": "1",
+  "xAxisLineThickness": "1",
+  "xAxisLineColor": "#999999",
+  "showAlternateHGridColor": "0",
+  "legendBgAlpha": "0",
+  "legendBorderAlpha": "0",
+  "legendShadow": "0",
+  "legendItemFontSize": "10",
+  "legendItemFontColor": "#666666"
+};
+
+$scope.dataset = [
+    {
+     "seriesname": "Previous Year",
+     "data": [
+        {
+           "value": "10000"
+        },
+        {
+           "value": "11500"
+        },
+        {
+           "value": "12500"
+        },
+        {
+           "value": "15000"
+        }
+     ]
+  },
+  {
+     "seriesname": "Current Year",
+     "data": [
+        {
+           "value": "25400"
+        },
+        {
+           "value": "29800"
+        },
+        {
+           "value": "21800"
+        },
+        {
+           "value": "26800"
+        }
+     ]
+  }
+];
+$scope.width="600";
+$scope.height="400";
+
+
+		},
+		'name': "Text Example 1",
+		'desc': "This is the first test example"
+	}
+
+	window.fcDemos["test2"] = {
+		'js_code_text': "\n$scope.dataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n",
+		'html_code_text': "\n<fc-chart \n    fc-width=\"600\" \n    fc-height=\"400\"\n    fc-type=\"column2d\",\n    fc-datasource=\"{{dataSource}}\"\n    fc-chart-click=\"chartClicked\",\n    fc-chart-object=\"chartObj\"\n    ></fc-chart>\n",
+		'js_func': function ($scope) {
+			
+$scope.dataSource = {
+    chart: {
+        caption: "Harry's SuperMart",
+        subCaption: "Top 5 stores in last month by revenue",
+    },
+    data:[{
+        label: "Bakersfield Central",
+        value: "880000"
+    },
+    {
+        label: "Garden Groove harbour",
+        value: "730000"
+    },
+    {
+        label: "Los Angeles Topanga",
+        value: "590000"
+    },
+    {
+        label: "Compton-Rancho Dom",
+        value: "520000"
+    },
+    {
+        label: "Daly City Serramonte",
+        value: "330000"
+    }]
+};
+
+		},
+		'name': "Text Example 2",
+		'desc': "This is the second test example"
+	}
+
+	window.fcDemos["test3"] = {
+		'js_code_text': "\n\n",
+		'html_code_text': "\n<fc-chart fc-json-url=\"data/data.json\"></fc-chart>\n",
+		'js_func': function ($scope) {
+			
+
+
+		},
+		'name': "Text Example 3",
+		'desc': "This is the third test example"
+	}
+
+</script>
+<div class="row">
+	<div class="col-md-3">
+		<h2>Demos</h2>
+		<ul class="nav nav-pills nav-stacked" role="tablist">
+		
+			<li><a href="#/demos/test1">Text Example 1</a></li>
+		
+			<li><a href="#/demos/test2">Text Example 2</a></li>
+		
+			<li><a href="#/demos/test3">Text Example 3</a></li>
+		
+		</ul>
+	</div>
+	<div class="col-md-9">
+		<div ng-view></div>
+	</div>
+</div>
+<script type="text/ng-template" id="test1">
+	<fc-chart fc-width="{{width}}" fc-height="{{height}}" fc-type="mscolumn2d" fc-chart-attrs="{{chartAttrs}}" fc-categories="{{categories}}" fc-dataset="{{dataset}}" fc-chart-click="chartClicked"></fc-chart>
+</script>
+<script type="text/ng-template" id="test2">
+	<fc-chart 
+        fc-width="600" 
+        fc-height="400"
+        fc-type="column2d",
+        fc-datasource="{{dataSource}}"
+        fc-chart-click="chartClicked",
+        fc-chart-object="chartObj"
+        ></fc-chart>
+</script>
+<script type="text/ng-template" id="test3">
+	<fc-chart fc-json-url="data/data.json">
+</script>
+</div>
+</body>
+</html>
