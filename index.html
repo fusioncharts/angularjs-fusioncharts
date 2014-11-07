@@ -182,18 +182,69 @@ $scope.dataSource = {
 	}
 
 </script>
+	<div class="masthead">
+		<ul class="nav nav-pills pull-right">
+			<li><a href="http://fusioncharts.com/">FusionCharts Home</a></li>  </ul>
+			<h3><a href="http://fusioncharts.github.io/angular-fusioncharts/"><img src="http://www.fusioncharts.com/theme/210x38xlogo.png.pagespeed.ic.KZD9tJ7qIK.png" class="logo"></a></h3>
+	</div>
+	<div class="jumbotron">
+		<img src="images/ng-fc-logo.png" class="logo">
+		<h1>Angular-FusionCharts</h1>
+		<p>Simple and effective AngularJS bindings for FusionCharts JavaScript Charting Library.</p>
+		<p><a class="btn btn-primary btn-lg" href="javascript:alert('coming soon!')" role="button"><i class="glyphicon glyphicon-download"></i> Download (0.1-beta0)</a></p>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+		<h3>About Angular-FusionCharts</h3>
+		<p>
+		This project provides AngularJS bindings for <a href="http://fusioncharts.com">FusionCharts JavaScript Charting Library</a>. It makes adding rich, interactive charting to your Angular JS Projects easy and works in the <i>Angular Way</i>. This is an officially supported binding. If you have a valid support subscription for FusionCharts, you can contact support to have your queries answered.
+		</p>
+		</div>
+		<div class="col-md-4 ">
+		<h3>Features</h3>
+		<p>
+		<ul>
+			<li>Add a chart using just a single directive</li>
+			<li>Auto-updates your chart object on modifying scope</li>
+			<li>Angular-friendly events let you call controller functions directly from the chart</li>
+			<li>Offers advanced control by giving you access to full FusionCharts object</li>
+			<li>Has variety of ways to add a chart, from JSON URL to Scope Array Binding</li>
+			<li>Plenty of examples and good documentation (coming soon)</li>
+		</ul>
+		</p>
+		</div>
+		<div class="col-md-4">
+		<h3>Community</h3>
+		<p>
+		<ul>
+			<li><a href="http://github.com/fusioncharts/angular-fusioncharts">Github Repo</a></li>
+			<li><a href="http://github.com/fusioncharts/angular-fusioncharts/issues">Issues</a></li>
+			<li><a href="http://twitter.com/fusioncharts">FusionCharts Twitter</a></li>
+			<li><a href="http://stackoverflow.com/questions/tagged/fusioncharts">Stack Overflow</a></li>
+		</ul>
+
+		<h3>Support</h3>
+		<p>If you have a FusionCharts support subscription, you can <a href="http://www.fusioncharts.com/contact/support/">contact support</a> to request direct assistance with angular-fusioncharts.</p>
+		</div>
+	</div>
+
+
+<div class="row">
+<div class="col-md-12">
+<h1 style="border-bottom:1px solid #e3e3e3; padding-bottom: 10px">Demos</h1>
+</div>
+</div>
 <div class="row">
 	<div class="col-md-3">
-		<h2>Demos</h2>
-		<ul class="nav nav-pills nav-stacked" role="tablist">
+		<div class="list-group" role="tablist">
 		
-			<li><a href="#/demos/test1">Text Example 1</a></li>
+			<a href="#/demos/test1" class="list-group-item "><h4 class="list-group-item-heading">Text Example 1</h4><p class="list-group-item-text">This is the first test example</p></a>
 		
-			<li><a href="#/demos/test2">Text Example 2</a></li>
+			<a href="#/demos/test2" class="list-group-item "><h4 class="list-group-item-heading">Text Example 2</h4><p class="list-group-item-text">This is the second test example</p></a>
 		
-			<li><a href="#/demos/test3">Text Example 3</a></li>
+			<a href="#/demos/test3" class="list-group-item "><h4 class="list-group-item-heading">Text Example 3</h4><p class="list-group-item-text">This is the third test example</p></a>
 		
-		</ul>
+		</div>
 	</div>
 	<div class="col-md-9">
 		<div ng-view></div>
