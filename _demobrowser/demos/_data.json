@@ -1,17 +1,27 @@
 [
 	{
-		"id": "test1",
-		"name": "Text Example 1",
-		"desc": "This is the first test example"
+		"id": "ex01",
+		"name": "A simple chart",
+		"desc": "A simple chart with all data embedded into the directive"
 	},
 	{
-		"id": "test2",
-		"name": "Text Example 2",
+		"id": "ex02",
+		"name": "Different ways to use the directive",
 		"desc": "This is the second test example"
 	},
 	{
-		"id": "test3",
-		"name": "Text Example 3",
-		"desc": "This is the third test example"
+		"id": "ex03",
+		"name": "Fetch data from JSON URL",
+		"desc": "Fetch data remotely from a JSON file or URL."
+	},
+	{
+		"id": "ex04",
+		"name": "Update chart data from scope",
+		"desc": "Change the data dynamically in the scope and watch the chart update automatically."
+	},
+	{
+		"id": "ex05",
+		"name": "Trigger scope event from chart",
+		"desc": "Listen to scope functions in your controller very easily, and update the scope."
 	}
 ]

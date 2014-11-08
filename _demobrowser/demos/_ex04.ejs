@@ -25,13 +25,20 @@ $scope.dataSource = {
         value: "330000"
     }]
 };
+
+$scope.updateMyChartData = function () {
+    $scope.dataSource.data[2].label = "This Label is Updated";
+    $scope.dataSource.data[2].value = "420000";
+
+    $scope.dataSource.data[3].label = "This is updated as well";
+    $scope.dataSource.data[3].value = "210000";
+};
 <% } else { %>
-<fc-chart 
+<div fc-chart
     fc-width="600" 
     fc-height="400"
     fc-type="column2d",
     fc-datasource="{{dataSource}}"
-    fc-chart-click="chartClicked",
-    fc-chart-object="chartObj"
-    ></fc-chart>
+    ></div>
+<p><a class="btn btn-default" ng-click="updateMyChartData()">Click me to change data</a></p>
 <% } %>
