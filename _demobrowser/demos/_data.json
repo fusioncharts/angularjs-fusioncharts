@@ -23,5 +23,10 @@
 		"id": "ex05",
 		"name": "Trigger scope event from chart",
 		"desc": "Listen to scope functions in your controller very easily, and update the scope."
+	},
+	{
+		"id": "ex06",
+		"name": "Update chart attribute from scope",
+		"desc": "Change a parameter in the scope variable and see it automatically update the chart."
 	}
 ]
