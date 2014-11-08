@@ -27,7 +27,7 @@
     var fc = angular.module('ng-fusioncharts', []);
 
 
-    fc.directive('fcChart', function ($http) {
+    fc.directive('fcChart', ['$http', function ($http) {
         return {
             scope: {
                 fcWidth: '@',
@@ -120,7 +120,6 @@
                                 });
                             }, true);
                         }
-
                     }
 
                     var chart = new FusionCharts(chartConfigObject);
@@ -129,5 +128,6 @@
                 }
             }
         }
-    });
+    }
+    ]);
 }());
