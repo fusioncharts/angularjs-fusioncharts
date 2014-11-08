@@ -5,7 +5,7 @@
         $routeProvider.when ('/demos/:demoid', {
             templateUrl: 'demos/view.html',
             controller: 'DemoController'
-        }).otherwise('/demos/test1');
+        }).otherwise('/demos/ex01');
     }]);
 
 
