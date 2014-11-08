@@ -1,5 +1,5 @@
 (function () {
-    var fc = angular.module('ngFusionCharts', []);
+    var fc = angular.module('ng-fusioncharts', []);
 
 
     fc.directive('fcChart', function ($http) {
@@ -10,14 +10,16 @@
                 fcDataset: '@',
                 fcCategories: '@',
                 fcChartAttrs: '@',
-                fcChartClick: '@'
+                fcDataplotClick: '@'
             },
             link: function (scope, element, attrs) {
                 var chart = null,
                     events = {
-                        chartClick: function (ev, props) {
-                            if(attrs.fcChartClick) {
-                                scope.$parent[attrs.fcChartClick](ev, props);    
+                        dataplotClick: function (ev, props) {
+                            if(attrs.fcDataplotClick) {
+                                scope.$apply(function () {
+                                    scope.$parent[attrs.fcDataplotClick](ev, props);    
+                                })
                             }
                         }
                     };
