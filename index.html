@@ -195,6 +195,47 @@ $scope.onMyChartClick = function (event, props) {
 		'desc': "Listen to scope functions in your controller very easily, and update the scope."
 	}
 
+	window.fcDemos["ex06"] = {
+		'js_code_text': "\n$scope.dataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n\n$scope.updateMyChartData = function () {\n    $scope.dataSource.chart.bgColor = \"#ffffff\";\n};\n",
+		'html_code_text': "\n<div fc-chart\n    fc-width=\"600\" \n    fc-height=\"400\"\n    fc-type=\"column2d\",\n    fc-datasource=\"{{dataSource}}\"\n    ></div>\n<p><a class=\"btn btn-default\" ng-click=\"updateMyChartData()\">Change chart background color</a></p>\n",
+		'js_func': function ($scope) {
+			
+$scope.dataSource = {
+    chart: {
+        caption: "Harry's SuperMart",
+        subCaption: "Top 5 stores in last month by revenue",
+    },
+    data:[{
+        label: "Bakersfield Central",
+        value: "880000"
+    },
+    {
+        label: "Garden Groove harbour",
+        value: "730000"
+    },
+    {
+        label: "Los Angeles Topanga",
+        value: "590000"
+    },
+    {
+        label: "Compton-Rancho Dom",
+        value: "520000"
+    },
+    {
+        label: "Daly City Serramonte",
+        value: "330000"
+    }]
+};
+
+$scope.updateMyChartData = function () {
+    $scope.dataSource.chart.bgColor = "#ffffff";
+};
+
+		},
+		'name': "Update chart attribute from scope",
+		'desc': "Change a parameter in the scope variable and see it automatically update the chart."
+	}
+
 </script>
 	<div class="masthead">
 		<ul class="nav nav-pills pull-right">
@@ -261,6 +302,8 @@ $scope.onMyChartClick = function (event, props) {
 			<a href="#/demos/ex04" class="list-group-item "><h4 class="list-group-item-heading">Update chart data from scope</h4><p class="list-group-item-text">Change the data dynamically in the scope and watch the chart update automatically.</p></a>
 		
 			<a href="#/demos/ex05" class="list-group-item "><h4 class="list-group-item-heading">Trigger scope event from chart</h4><p class="list-group-item-text">Listen to scope functions in your controller very easily, and update the scope.</p></a>
+		
+			<a href="#/demos/ex06" class="list-group-item "><h4 class="list-group-item-heading">Update chart attribute from scope</h4><p class="list-group-item-text">Change a parameter in the scope variable and see it automatically update the chart.</p></a>
 		
 		</div>
 	</div>
@@ -388,6 +431,18 @@ $scope.onMyChartClick = function (event, props) {
     fc-dataplot-click="onMyChartClick"
     ></div>
 <p>The value that you have selected is: {{ selectedValue }}</p>
+
+</script>
+
+<script type="text/ng-template" id="ex06">
+
+<div fc-chart
+    fc-width="600" 
+    fc-height="400"
+    fc-type="column2d",
+    fc-datasource="{{dataSource}}"
+    ></div>
+<p><a class="btn btn-default" ng-click="updateMyChartData()">Change chart background color</a></p>
 
 </script>
 
