@@ -53,16 +53,18 @@
                     scope[attrs.fcChartObject] = chart;
                     chart.render ();
                 } else if(attrs.fcJsonUrl) {
-                    $http.get(attrs.fcJsonUrl)
-                        .success(function (data) {
-                            data.renderAt = element[0];
-                            chart = new FusionCharts(data);
-                            scope[attrs.fcChartObject] = chart;
-                            chart.render ();
-                        })
-                        .error(function (err) {
-                            throw err;
-                        });
+                    var chartConfigObject = {
+                        type: attrs.fcType,
+                        width: attrs.fcWidth,
+                        height: attrs.fcHeight,
+                        renderAt: element[0],
+                        dataFormat: 'json',
+                        events: events
+                    };
+                    chart = new FusionCharts(chartConfigObject);
+                    chart.setJSONUrl(attrs.fcJsonUrl);
+                    scope[attrs.fcChartObject] = chart;
+                    chart.render ();
                 } else {
                     var chartConfigObject = {
                         type: attrs.fcType,

@@ -22,7 +22,7 @@
 	{
 		"id": "ex05",
 		"name": "Trigger scope event from chart",
-		"desc": "Listen to scope functions in your controller very easily, and update the scope."
+		"desc": "Click on chart to trigger an event in the controller, and update the scope."
 	},
 	{
 		"id": "ex06",

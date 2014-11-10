@@ -3,6 +3,8 @@ $scope.dataSource = {
     chart: {
         caption: "Harry's SuperMart",
         subCaption: "Top 5 stores in last month by revenue",
+        numberPrefix: "$",
+        theme: "ocean"
     },
     data:[{
         label: "Bakersfield Central",
@@ -26,8 +28,12 @@ $scope.dataSource = {
     }]
 };
 
-$scope.updateMyChartData = function () {
-    $scope.dataSource.chart.bgColor = "#ffffff";
+$scope.changeBackgroundColor = function () {
+    $scope.dataSource.chart.bgColor = "#efefef";
+};
+
+$scope.changeCaptionTextAlignment = function () {
+    $scope.dataSource.chart.captionAlignment = "left";
 };
 <% } else { %>
 <div fc-chart
@@ -36,5 +42,7 @@ $scope.updateMyChartData = function () {
     fc-type="column2d",
     fc-datasource="{{dataSource}}"
     ></div>
-<p><a class="btn btn-default" ng-click="updateMyChartData()">Change chart background color</a></p>
+<p><a class="btn btn-default" ng-click="changeBackgroundColor()">Change chart background color</a>
+<a class="btn btn-default" ng-click="changeCaptionTextAlignment()">Make Caption text left-aligned</a>
+</p>
 <% } %>
