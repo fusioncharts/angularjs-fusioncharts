@@ -35,16 +35,24 @@
                 fcDataset: '@',
                 fcCategories: '@',
                 fcChartAttrs: '@',
-                fcDataplotClick: '@'
+                fcDataplotClick: '@',
+                fcChartClick: '@'
             },
             link: function (scope, element, attrs) {
                 var chart = null,
                     events = {
                         dataplotClick: function (ev, props) {
                             if(attrs.fcDataplotClick) {
-                                scope.$apply(function () {
+                                scope.$apply (function () {
                                     scope.$parent[attrs.fcDataplotClick](ev, props);    
-                                })
+                                });
+                            }
+                        },
+                        chartClick: function (ev, props) {
+                            if(attrs.fcChartClick) {
+                                scope.$apply (function () {
+                                    scope.$parent[attrs.fcChartClick](ev, props);
+                                });
                             }
                         }
                     };
@@ -88,7 +96,6 @@
                             chart.setJSONData (JSON.parse(newVal));
                         }, true);
                     } else {
-                        // chartConfigObject.dataSource.chart = scope[attrs.fcChartAttrs];
                         attrs.$observe('fcChartAttrs', function (newVal) {
                             setTimeout(function () {
                                 chartConfigObject.dataSource.chart = JSON.parse(newVal);
@@ -96,7 +103,6 @@
                             }, 0);
                         }, true)
                         if(attrs.fcData) {
-                            // chartConfigObject.data = scope[attrs.fcData];
                             attrs.$observe('fcData', function (newVal) {
                                 setTimeout(function () {
                                     chartConfigObject.dataSource.data = JSON.parse(newVal);
@@ -105,7 +111,6 @@
                             }, true);
                         }
                         if(attrs.fcCategories) {
-                            // chartConfigObject.dataSource.categories = scope[attrs.fcCategories];
                             attrs.$observe('fcCategories', function (newVal) {
                                 setTimeout(function () {
                                     chartConfigObject.dataSource.categories = JSON.parse(newVal);
@@ -114,7 +119,6 @@
                             }, true);
                         }
                         if(attrs.fcDataset) {
-                            // chartConfigObject.dataSource.dataset = scope[attrs.fcDataset];
                             attrs.$observe('fcDataset', function (newVal) { 
                                 setTimeout(function () {
                                     chartConfigObject.dataSource.dataset = JSON.parse(newVal);
