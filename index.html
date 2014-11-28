@@ -1,381 +1,283 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-	<title>Angular FusionCharts</title>
-	<script src="vendor/jquery.min.js" type="text/javascript"></script>
-    <script src="vendor/angular.js" type="text/javascript"></script>
-    <script src="vendor/angular-route.min.js" type="text/javascript"></script>
-    <script src="vendor/ui-bootstrap.js" type="text/javascript"></script>
-    <script src="vendor/ui-bootstrap-tpls.js" type="text/javascript"></script>
-    <script src="vendor/fusioncharts.js" type="text/javascript"></script>
-    <script src="vendor/themes/fusioncharts.theme.ocean.js" type="text/javascript"></script>
-    <script src="src/angular-fusioncharts.js" type="text/javascript"></script>
-    <script src="vendor/prism.js" type="text/javascript"></script>
-    <script src="demos/demobrowser.js" type="text/javascript"></script>    
+    <head>
+        <title>Angular FusionCharts Demos</title>
+        <script type="text/javascript" src="demos/bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="demos/bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="demos/bower_components/angular-route/angular-route.js"></script>
+        <script type="text/javascript" src="demos/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script type="text/javascript" src="demos/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <script type="text/javascript" src="demos/bower_components/prism/prism.js"></script>
+        <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+        <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.ocean.js"></script>
+        <script type="text/javascript" src="demos/js/angular-fusioncharts.min.js"></script>
+        <script type="text/javascript" src="demos/js/app.js"></script>
+        
+            <script type="text/javascript" src="js/demos/ex1.js"></script>
+        
+            <script type="text/javascript" src="js/demos/ex2.js"></script>
+        
+            <script type="text/javascript" src="js/demos/ex3.js"></script>
+        
+            <script type="text/javascript" src="js/demos/ex4.js"></script>
+        
+            <script type="text/javascript" src="js/demos/ex5.js"></script>
+        
+            <script type="text/javascript" src="js/demos/ex6.js"></script>
+        
+            <script type="text/javascript" src="js/demos/ex7.js"></script>
+        
+            <script type="text/javascript" src="js/demos/ex8.js"></script>
+        
+            <script type="text/javascript" src="js/demos/ex9.js"></script>
+        
+        <script type="text/javascript">
+            window.fcDemos = {};
+            
+                window.fcDemos['ex1'] =  {
+                    js: "\n$scope.myDataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n        numberPrefix: \"$\",\n        theme: \"ocean\"\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n",
+                    html: "\n    <fc-chart \n    fc-width=\"600\" \n    fc-height=\"400\"\n    fc-type=\"column2d\"\n    fc-datasource=\"{{myDataSource}}\"\n    fc-chart-click=\"chartClicked\"\n    ></fc-chart>\n"
+                };
+            
+                window.fcDemos['ex2'] =  {
+                    js: "\n$scope.myDataSource = {\n    chart: {\n        caption: \"Age profile of website visitors\",\n        subcaption: \"Last Year\",\n        startingangle: \"120\",\n        showlabels: \"0\",\n        showlegend: \"1\",\n        enablemultislicing: \"0\",\n        slicingdistance: \"15\",\n        showpercentvalues: \"1\",\n        showpercentintooltip: \"0\",\n        plottooltext: \"Age group : $label Total visit : $datavalue\",\n        theme: \"fint\"\n    },\n    data: [\n        {\n            label: \"Teenage\",\n            value: \"1250400\"\n        },\n        {\n            label: \"Adult\",\n            value: \"1463300\"\n        },\n        {\n            label: \"Mid-age\",\n            value: \"1050700\"\n        },\n        {\n            label: \"Senior\",\n            value: \"491000\"\n        }\n    ]\n}\n",
+                    html: "\n<fc-chart \n    fc-width=\"600\" \n    fc-height=\"400\"\n    fc-type=\"pie3d\",\n    fc-datasource=\"{{myDataSource}}\"\n></fc-chart>\n"
+                };
+            
+                window.fcDemos['ex3'] =  {
+                    js: "\n{\n    \"chart\": {\n        \"caption\": \"Actual Revenues, Targeted Revenues & Profits\",\n        \"subcaption\": \"Last year\",\n        \"xaxisname\": \"Month\",\n        \"yaxisname\": \"Amount (In USD)\",\n        \"numberprefix\": \"$\",\n        \"theme\": \"fint\"\n    },\n    \"categories\": [\n        {\n            \"category\": [\n                {\n                    \"label\": \"Jan\"\n                },\n                {\n                    \"label\": \"Feb\"\n                },\n                {\n                    \"label\": \"Mar\"\n                },\n                {\n                    \"label\": \"Apr\"\n                },\n                {\n                    \"label\": \"May\"\n                },\n                {\n                    \"label\": \"Jun\"\n                },\n                {\n                    \"label\": \"Jul\"\n                },\n                {\n                    \"label\": \"Aug\"\n                },\n                {\n                    \"label\": \"Sep\"\n                },\n                {\n                    \"label\": \"Oct\"\n                },\n                {\n                    \"label\": \"Nov\"\n                },\n                {\n                    \"label\": \"Dec\"\n                }\n            ]\n        }\n    ],\n    \"dataset\": [\n        {\n            \"seriesname\": \"Actual Revenue\",\n            \"data\": [\n                {\n                    \"value\": \"16000\"\n                },\n                {\n                    \"value\": \"20000\"\n                },\n                {\n                    \"value\": \"18000\"\n                },\n                {\n                    \"value\": \"19000\"\n                },\n                {\n                    \"value\": \"15000\"\n                },\n                {\n                    \"value\": \"21000\"\n                },\n                {\n                    \"value\": \"16000\"\n                },\n                {\n                    \"value\": \"20000\"\n                },\n                {\n                    \"value\": \"17000\"\n                },\n                {\n                    \"value\": \"25000\"\n                },\n                {\n                    \"value\": \"19000\"\n                },\n                {\n                    \"value\": \"23000\"\n                }\n            ]\n        },\n        {\n            \"seriesname\": \"Projected Revenue\",\n            \"renderas\": \"line\",\n            \"showvalues\": \"0\",\n            \"data\": [\n                {\n                    \"value\": \"15000\"\n                },\n                {\n                    \"value\": \"16000\"\n                },\n                {\n                    \"value\": \"17000\"\n                },\n                {\n                    \"value\": \"18000\"\n                },\n                {\n                    \"value\": \"19000\"\n                },\n                {\n                    \"value\": \"19000\"\n                },\n                {\n                    \"value\": \"19000\"\n                },\n                {\n                    \"value\": \"19000\"\n                },\n                {\n                    \"value\": \"20000\"\n                },\n                {\n                    \"value\": \"21000\"\n                },\n                {\n                    \"value\": \"22000\"\n                },\n                {\n                    \"value\": \"23000\"\n                }\n            ]\n        },\n        {\n            \"seriesname\": \"Profit\",\n            \"renderas\": \"area\",\n            \"showvalues\": \"0\",\n            \"data\": [\n                {\n                    \"value\": \"4000\"\n                },\n                {\n                    \"value\": \"5000\"\n                },\n                {\n                    \"value\": \"3000\"\n                },\n                {\n                    \"value\": \"4000\"\n                },\n                {\n                    \"value\": \"1000\"\n                },\n                {\n                    \"value\": \"7000\"\n                },\n                {\n                    \"value\": \"1000\"\n                },\n                {\n                    \"value\": \"4000\"\n                },\n                {\n                    \"value\": \"1000\"\n                },\n                {\n                    \"value\": \"8000\"\n                },\n                {\n                    \"value\": \"2000\"\n                },\n                {\n                    \"value\": \"7000\"\n                }\n            ]\n        }\n    ]\n}\n",
+                    html: "\n<div fc-chart\n    fc-width=\"600\" \n    fc-height=\"400\"\n    fc-type=\"mscombi2d\",\n    fc-datasource=\"{{dataSource}}\"\n    ></div>\n"
+                };
+            
+                window.fcDemos['ex4'] =  {
+                    js: "\n$scope.dataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n        numberPrefix: \"$\",\n        theme: \"ocean\"\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n",
+                    html: "\n<fc-chart \n    fc-width=\"300\" \n    fc-height=\"200\"\n    fc-type=\"column2d\",\n    fc-datasource=\"{{dataSource}}\"\n    ></fc-chart>\n<div fc-chart\n    fc-width=\"300\" \n    fc-height=\"200\"\n    fc-type=\"column2d\",\n    fc-datasource=\"{{dataSource}}\"\n    ></div>\n"
+                };
+            
+                window.fcDemos['ex5'] =  {
+                    js: "\n\n",
+                    html: "\n<fc-chart fc-json-url=\"data/data.json\" fc-type=\"column2d\" fc-width=\"600\" fc-height=\"400\"></fc-chart>\n"
+                };
+            
+                window.fcDemos['ex6'] =  {
+                    js: "\n$scope.dataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n        numberPrefix: \"$\",\n        theme: \"ocean\"\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n\n$scope.updateMyChartData = function () {\n    $scope.dataSource.data[2].label = \"This Label is Updated\";\n    $scope.dataSource.data[2].value = \"420000\";\n\n    $scope.dataSource.data[3].label = \"This is updated as well\";\n    $scope.dataSource.data[3].value = \"210000\";\n};\n",
+                    html: "\n<div fc-chart\n    fc-width=\"600\" \n    fc-height=\"400\"\n    fc-type=\"column2d\",\n    fc-datasource=\"{{dataSource}}\"\n    ></div>\n<p><a class=\"btn btn-default\" ng-click=\"updateMyChartData()\">Click me to change data</a></p>\n"
+                };
+            
+                window.fcDemos['ex7'] =  {
+                    js: "\n$scope.dataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n        numberPrefix: \"$\",\n        theme: \"ocean\"\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n$scope.selectedValue = \"nothing\";\n$scope.onMyChartClick = function (event, props) {\n    $scope.selectedValue = props.displayValue;\n};\n",
+                    html: "\n<div fc-chart\n    fc-width=\"600\" \n    fc-height=\"400\"\n    fc-type=\"column2d\",\n    fc-datasource=\"{{dataSource}}\"\n    fc-dataplot-click=\"onMyChartClick\"\n    ></div>\n<p>The value that you have selected is: {{ selectedValue }}</p>\n"
+                };
+            
+                window.fcDemos['ex8'] =  {
+                    js: "\n$scope.dataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n        numberPrefix: \"$\",\n        theme: \"ocean\"\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n\n$scope.changeBackgroundColor = function () {\n    $scope.dataSource.chart.bgColor = \"#efefef\";\n};\n\n$scope.changeCaptionTextAlignment = function () {\n    $scope.dataSource.chart.captionAlignment = \"left\";\n};\n",
+                    html: "\n<div fc-chart\n    fc-width=\"600\" \n    fc-height=\"400\"\n    fc-type=\"column2d\",\n    fc-datasource=\"{{dataSource}}\"\n    ></div>\n<p><a class=\"btn btn-default\" ng-click=\"changeBackgroundColor()\">Change chart background color</a>\n<a class=\"btn btn-default\" ng-click=\"changeCaptionTextAlignment()\">Make Caption text left-aligned</a>\n</p>\n"
+                };
+            
+                window.fcDemos['ex9'] =  {
+                    js: "\n$scope.attrs = {\n    \"caption\": \"Sales - 2012 v 2013\",\n    \"numberprefix\": \"$\",\n    \"plotgradientcolor\": \"\",\n    \"bgcolor\": \"FFFFFF\",\n    \"showalternatehgridcolor\": \"0\",\n    \"divlinecolor\": \"CCCCCC\",\n    \"showvalues\": \"0\",\n    \"showcanvasborder\": \"0\",\n    \"canvasborderalpha\": \"0\",\n    \"canvasbordercolor\": \"CCCCCC\",\n    \"canvasborderthickness\": \"1\",\n    \"yaxismaxvalue\": \"30000\",\n    \"captionpadding\": \"30\",\n    \"linethickness\": \"3\",\n    \"yaxisvaluespadding\": \"15\",\n    \"legendshadow\": \"0\",\n    \"legendborderalpha\": \"0\",\n    \"palettecolors\": \"#f8bd19,#008ee4,#33bdda,#e44a00,#6baa01,#583e78\",\n    \"showborder\": \"0\"\n};\n\n$scope.categories = [\n    {\n        \"category\": [\n            {\n                \"label\": \"Jan\"\n            },\n            {\n                \"label\": \"Feb\"\n            },\n            {\n                \"label\": \"Mar\"\n            },\n            {\n                \"label\": \"Apr\"\n            },\n            {\n                \"label\": \"May\"\n            },\n            {\n                \"label\": \"Jun\"\n            },\n            {\n                \"label\": \"Jul\"\n            },\n            {\n                \"label\": \"Aug\"\n            },\n            {\n                \"label\": \"Sep\"\n            },\n            {\n                \"label\": \"Oct\"\n            },\n            {\n                \"label\": \"Nov\"\n            },\n            {\n                \"label\": \"Dec\"\n            }\n        ]\n    }\n];\n\n$scope.dataset = [\n    {\n        \"seriesname\": \"2013\",\n        \"data\": [\n            {\n                \"value\": \"22400\"\n            },\n            {\n                \"value\": \"24800\"\n            },\n            {\n                \"value\": \"21800\"\n            },\n            {\n                \"value\": \"21800\"\n            },\n            {\n                \"value\": \"24600\"\n            },\n            {\n                \"value\": \"27600\"\n            },\n            {\n                \"value\": \"26800\"\n            },\n            {\n                \"value\": \"27700\"\n            },\n            {\n                \"value\": \"23700\"\n            },\n            {\n                \"value\": \"25900\"\n            },\n            {\n                \"value\": \"26800\"\n            },\n            {\n                \"value\": \"24800\"\n            }\n        ]\n    },\n    {\n        \"seriesname\": \"2012\",\n        \"data\": [\n            {\n                \"value\": \"10000\"\n            },\n            {\n                \"value\": \"11500\"\n            },\n            {\n                \"value\": \"12500\"\n            },\n            {\n                \"value\": \"15000\"\n            },\n            {\n                \"value\": \"16000\"\n            },\n            {\n                \"value\": \"17600\"\n            },\n            {\n                \"value\": \"18800\"\n            },\n            {\n                \"value\": \"19700\"\n            },\n            {\n                \"value\": \"21700\"\n            },\n            {\n                \"value\": \"21900\"\n            },\n            {\n                \"value\": \"22900\"\n            },\n            {\n                \"value\": \"20800\"\n            }\n        ]\n    }\n];\n",
+                    html: "\n<div fc-chart\n    fc-width=\"600\" \n    fc-height=\"400\"\n    fc-type=\"msline\"\n    fc-chart-attrs=\"{{attrs}}\"\n    fc-categories=\"{{categories}}\"\n    fc-dataset=\"{{dataset}}\"\n    ></div>\n"
+                };
+            
+        </script>
+        <link rel="stylesheet" href="demos/bower_components/bootstrap/dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="demos/bower_components/prism/themes/prism.css"/>
+        <style type="text/css">
+            pre {
+                max-height: 400px;
+            }
 
-    <link rel="stylesheet" href="vendor/css/bootstrap.css" />
-    <link rel="stylesheet" href="demos/demobrowser.css" />
-    <link rel="stylesheet" href="vendor/prism.css" />
-</head>
-<body ng-app="demo_browser">
-<div class="container">
+            /* From the passportjs.org website */
+            .masthead {
+              margin-bottom: 20px;
+              padding-bottom: 5px;
+              border-bottom: 1px solid #eeeeee;
+            }
 
-<script>
-window.fcDemos = {};
+            .masthead .logo {
+              height: 38px;
+              width: 210px;
+            }
 
+            .masthead h3 a {
+              color: #333333;;
+              text-decoration: none;
+            }
 
-	window.fcDemos["ex01"] = {
-		'js_code_text': "\n$scope.myDataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n        numberPrefix: \"$\",\n        theme: \"ocean\"\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n",
-		'html_code_text': "\n<fc-chart \n    fc-width=\"600\" \n    fc-height=\"400\"\n    fc-type=\"column2d\",\n    fc-datasource=\"{{myDataSource}}\"\n    fc-chart-click=\"chartClicked\",\n    fc-chart-object=\"chartObj\"\n    ></fc-chart>\n",
-		'js_func': function ($scope) {
-			
-$scope.myDataSource = {
-    chart: {
-        caption: "Harry's SuperMart",
-        subCaption: "Top 5 stores in last month by revenue",
-        numberPrefix: "$",
-        theme: "ocean"
-    },
-    data:[{
-        label: "Bakersfield Central",
-        value: "880000"
-    },
-    {
-        label: "Garden Groove harbour",
-        value: "730000"
-    },
-    {
-        label: "Los Angeles Topanga",
-        value: "590000"
-    },
-    {
-        label: "Compton-Rancho Dom",
-        value: "520000"
-    },
-    {
-        label: "Daly City Serramonte",
-        value: "330000"
-    }]
-};
+            .masthead h3 a:hover {
+              color: #333333;
+              text-decoration: none;
+            }
 
-		},
-		'name': "A simple chart",
-		'desc': "A simple chart with all data embedded into the directive"
-	}
+            .jumbotron .logo {
+              height: 60px;
+              width: 119px;
+              float: left;
+              margin-right: 15px;
+              margin-top: 26px;
+            }
 
-	window.fcDemos["ex02"] = {
-		'js_code_text': "\n$scope.dataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n        numberPrefix: \"$\",\n        theme: \"ocean\"\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n",
-		'html_code_text': "\n<fc-chart \n    fc-width=\"300\" \n    fc-height=\"200\"\n    fc-type=\"column2d\",\n    fc-datasource=\"{{dataSource}}\"\n    ></fc-chart>\n<div fc-chart\n    fc-width=\"300\" \n    fc-height=\"200\"\n    fc-type=\"column2d\",\n    fc-datasource=\"{{dataSource}}\"\n    ></div>\n\n",
-		'js_func': function ($scope) {
-			
-$scope.dataSource = {
-    chart: {
-        caption: "Harry's SuperMart",
-        subCaption: "Top 5 stores in last month by revenue",
-        numberPrefix: "$",
-        theme: "ocean"
-    },
-    data:[{
-        label: "Bakersfield Central",
-        value: "880000"
-    },
-    {
-        label: "Garden Groove harbour",
-        value: "730000"
-    },
-    {
-        label: "Los Angeles Topanga",
-        value: "590000"
-    },
-    {
-        label: "Compton-Rancho Dom",
-        value: "520000"
-    },
-    {
-        label: "Daly City Serramonte",
-        value: "330000"
-    }]
-};
+            .jumbotron p {
+                margin-left: 133px;
+            }
 
-		},
-		'name': "Different ways to use the directive",
-		'desc': "This is the second test example"
-	}
+            .jumbotron p {
+                margin-left: 133px;
+            }
+        </style>
+    </head>
+    <body ng-app="fusioncharts-demo">
+        <div class="container">
+            <div class="row">
+                <div class="masthead">
+                <ul class="nav nav-pills pull-right">
+                    <li><a href="http://fusioncharts.com/">FusionCharts Home</a></li>  </ul>
+                    <h3><a href="http://fusioncharts.github.io/angular-fusioncharts/"><img src="http://www.fusioncharts.com/theme/210x38xlogo.png.pagespeed.ic.KZD9tJ7qIK.png" class="logo"></a></h3>
+            </div>
+            <div class="jumbotron">
+                <img src="demos/images/ng-fc-logo.png" class="logo">
+                <h1>Angular-FusionCharts</h1>
+                <p>Simple and effective AngularJS bindings for FusionCharts JavaScript Charting Library.</p>
+                <p><a class="btn btn-primary btn-lg" href="https://github.com/fusioncharts/angular-fusioncharts/archive/v0.1-alpha2.zip" role="button"><i class="glyphicon glyphicon-download"></i> Download (0.0.1-alpha3)</a></p>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                <h3>About Angular-FusionCharts</h3>
+                <p>
+                This project provides AngularJS bindings for <a href="http://fusioncharts.com">FusionCharts JavaScript Charting Library</a>. It makes adding rich, interactive charting to your Angular JS Projects easy and works in the <i>Angular Way</i>.
+                </p>
+                </div>
+                <div class="col-md-4 ">
+                <h3>Features</h3>
+                <p>
+                <ul>
+                    <li>Add a chart using just a single directive</li>
+                    <li>Auto-updates your chart object on modifying scope</li>
+                    <li>Angular-friendly events let you call controller functions directly from the chart</li>
+                    <li>Offers advanced control by giving you access to full FusionCharts object</li>
+                    <li>Has variety of ways to add a chart, from JSON URL to Scope Array Binding</li>
+                    <li>Plenty of examples and good documentation (coming soon)</li>
+                </ul>
+                </p>
+                </div>
+                <div class="col-md-4">
+                <h3>Community</h3>
+                <p>
+                <ul>
+                    <li><a href="http://github.com/fusioncharts/angular-fusioncharts">Github Repo</a></li>
+                    <li><a href="http://github.com/fusioncharts/angular-fusioncharts/issues">Issues</a></li>
+                    <li><a href="http://twitter.com/fusioncharts">FusionCharts Twitter</a></li>
+                    <li><a href="http://stackoverflow.com/questions/tagged/fusioncharts">Stack Overflow</a></li>
+                </ul>
 
-	window.fcDemos["ex03"] = {
-		'js_code_text': "\n\n",
-		'html_code_text': "\n<fc-chart fc-json-url=\"data/data.json\" fc-type=\"column2d\" fc-width=\"600\" fc-height=\"400\"></fc-chart>\n",
-		'js_func': function ($scope) {
-			
-
-
-		},
-		'name': "Fetch data from JSON URL",
-		'desc': "Fetch data remotely from a JSON file or URL."
-	}
-
-	window.fcDemos["ex04"] = {
-		'js_code_text': "\n$scope.dataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n        numberPrefix: \"$\",\n        theme: \"ocean\"\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n\n$scope.updateMyChartData = function () {\n    $scope.dataSource.data[2].label = \"This Label is Updated\";\n    $scope.dataSource.data[2].value = \"420000\";\n\n    $scope.dataSource.data[3].label = \"This is updated as well\";\n    $scope.dataSource.data[3].value = \"210000\";\n};\n",
-		'html_code_text': "\n<div fc-chart\n    fc-width=\"600\" \n    fc-height=\"400\"\n    fc-type=\"column2d\",\n    fc-datasource=\"{{dataSource}}\"\n    ></div>\n<p><a class=\"btn btn-default\" ng-click=\"updateMyChartData()\">Click me to change data</a></p>\n",
-		'js_func': function ($scope) {
-			
-$scope.dataSource = {
-    chart: {
-        caption: "Harry's SuperMart",
-        subCaption: "Top 5 stores in last month by revenue",
-        numberPrefix: "$",
-        theme: "ocean"
-    },
-    data:[{
-        label: "Bakersfield Central",
-        value: "880000"
-    },
-    {
-        label: "Garden Groove harbour",
-        value: "730000"
-    },
-    {
-        label: "Los Angeles Topanga",
-        value: "590000"
-    },
-    {
-        label: "Compton-Rancho Dom",
-        value: "520000"
-    },
-    {
-        label: "Daly City Serramonte",
-        value: "330000"
-    }]
-};
-
-$scope.updateMyChartData = function () {
-    $scope.dataSource.data[2].label = "This Label is Updated";
-    $scope.dataSource.data[2].value = "420000";
-
-    $scope.dataSource.data[3].label = "This is updated as well";
-    $scope.dataSource.data[3].value = "210000";
-};
-
-		},
-		'name': "Update chart data from scope",
-		'desc': "Change the data dynamically in the scope and watch the chart update automatically."
-	}
-
-	window.fcDemos["ex05"] = {
-		'js_code_text': "\n$scope.dataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n        numberPrefix: \"$\",\n        theme: \"ocean\"\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n$scope.selectedValue = \"nothing\";\n$scope.onMyChartClick = function (event, props) {\n    $scope.selectedValue = props.displayValue;\n};\n",
-		'html_code_text': "\n<div fc-chart\n    fc-width=\"600\" \n    fc-height=\"400\"\n    fc-type=\"column2d\",\n    fc-datasource=\"{{dataSource}}\"\n    fc-dataplot-click=\"onMyChartClick\"\n    ></div>\n<p>The value that you have selected is: {{ selectedValue }}</p>\n",
-		'js_func': function ($scope) {
-			
-$scope.dataSource = {
-    chart: {
-        caption: "Harry's SuperMart",
-        subCaption: "Top 5 stores in last month by revenue",
-        numberPrefix: "$",
-        theme: "ocean"
-    },
-    data:[{
-        label: "Bakersfield Central",
-        value: "880000"
-    },
-    {
-        label: "Garden Groove harbour",
-        value: "730000"
-    },
-    {
-        label: "Los Angeles Topanga",
-        value: "590000"
-    },
-    {
-        label: "Compton-Rancho Dom",
-        value: "520000"
-    },
-    {
-        label: "Daly City Serramonte",
-        value: "330000"
-    }]
-};
-$scope.selectedValue = "nothing";
-$scope.onMyChartClick = function (event, props) {
-    $scope.selectedValue = props.displayValue;
-};
-
-		},
-		'name': "Trigger scope event from chart",
-		'desc': "Click on chart to trigger an event in the controller, and update the scope."
-	}
-
-	window.fcDemos["ex06"] = {
-		'js_code_text': "\n$scope.dataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n        numberPrefix: \"$\",\n        theme: \"ocean\"\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n\n$scope.changeBackgroundColor = function () {\n    $scope.dataSource.chart.bgColor = \"#efefef\";\n};\n\n$scope.changeCaptionTextAlignment = function () {\n    $scope.dataSource.chart.captionAlignment = \"left\";\n};\n",
-		'html_code_text': "\n<div fc-chart\n    fc-width=\"600\" \n    fc-height=\"400\"\n    fc-type=\"column2d\",\n    fc-datasource=\"{{dataSource}}\"\n    ></div>\n<p><a class=\"btn btn-default\" ng-click=\"changeBackgroundColor()\">Change chart background color</a>\n<a class=\"btn btn-default\" ng-click=\"changeCaptionTextAlignment()\">Make Caption text left-aligned</a>\n</p>\n",
-		'js_func': function ($scope) {
-			
-$scope.dataSource = {
-    chart: {
-        caption: "Harry's SuperMart",
-        subCaption: "Top 5 stores in last month by revenue",
-        numberPrefix: "$",
-        theme: "ocean"
-    },
-    data:[{
-        label: "Bakersfield Central",
-        value: "880000"
-    },
-    {
-        label: "Garden Groove harbour",
-        value: "730000"
-    },
-    {
-        label: "Los Angeles Topanga",
-        value: "590000"
-    },
-    {
-        label: "Compton-Rancho Dom",
-        value: "520000"
-    },
-    {
-        label: "Daly City Serramonte",
-        value: "330000"
-    }]
-};
-
-$scope.changeBackgroundColor = function () {
-    $scope.dataSource.chart.bgColor = "#efefef";
-};
-
-$scope.changeCaptionTextAlignment = function () {
-    $scope.dataSource.chart.captionAlignment = "left";
-};
-
-		},
-		'name': "Update chart attribute from scope",
-		'desc': "Change a parameter in the scope variable and see it automatically update the chart."
-	}
-
-</script>
-	<div class="masthead">
-		<ul class="nav nav-pills pull-right">
-			<li><a href="http://fusioncharts.com/">FusionCharts Home</a></li>  </ul>
-			<h3><a href="http://fusioncharts.github.io/angular-fusioncharts/"><img src="http://www.fusioncharts.com/theme/210x38xlogo.png.pagespeed.ic.KZD9tJ7qIK.png" class="logo"></a></h3>
-	</div>
-	<div class="jumbotron">
-		<img src="images/ng-fc-logo.png" class="logo">
-		<h1>Angular-FusionCharts</h1>
-		<p>Simple and effective AngularJS bindings for FusionCharts JavaScript Charting Library.</p>
-		<p><a class="btn btn-primary btn-lg" href="https://github.com/fusioncharts/angular-fusioncharts/archive/v0.1-alpha2.zip" role="button"><i class="glyphicon glyphicon-download"></i> Download (0.1-alpha2)</a></p>
-	</div>
-	<div class="row">
-		<div class="col-md-4">
-		<h3>About Angular-FusionCharts</h3>
-		<p>
-		This project provides AngularJS bindings for <a href="http://fusioncharts.com">FusionCharts JavaScript Charting Library</a>. It makes adding rich, interactive charting to your Angular JS Projects easy and works in the <i>Angular Way</i>.
-		</p>
-		</div>
-		<div class="col-md-4 ">
-		<h3>Features</h3>
-		<p>
-		<ul>
-			<li>Add a chart using just a single directive</li>
-			<li>Auto-updates your chart object on modifying scope</li>
-			<li>Angular-friendly events let you call controller functions directly from the chart</li>
-			<li>Offers advanced control by giving you access to full FusionCharts object</li>
-			<li>Has variety of ways to add a chart, from JSON URL to Scope Array Binding</li>
-			<li>Plenty of examples and good documentation (coming soon)</li>
-		</ul>
-		</p>
-		</div>
-		<div class="col-md-4">
-		<h3>Community</h3>
-		<p>
-		<ul>
-			<li><a href="http://github.com/fusioncharts/angular-fusioncharts">Github Repo</a></li>
-			<li><a href="http://github.com/fusioncharts/angular-fusioncharts/issues">Issues</a></li>
-			<li><a href="http://twitter.com/fusioncharts">FusionCharts Twitter</a></li>
-			<li><a href="http://stackoverflow.com/questions/tagged/fusioncharts">Stack Overflow</a></li>
-		</ul>
-
-		<h3>Support</h3>
-		<p>Simply open up <a href="https://github.com/fusioncharts/angular-fusioncharts/issues/new">a github issue</a> with your question/bug report/suggestion.</p>
-		</div>
-	</div>
-
-
-<div class="row">
-<div class="col-md-12">
-<h1 style="border-bottom:1px solid #e3e3e3; padding-bottom: 10px">Demos</h1>
-</div>
-</div>
-<div class="row">
-	<div class="col-md-3">
-		<div class="list-group" role="tablist">
-		
-			<a href="#/demos/ex01" class="list-group-item "><h4 class="list-group-item-heading">A simple chart</h4><p class="list-group-item-text">A simple chart with all data embedded into the directive</p></a>
-		
-			<a href="#/demos/ex02" class="list-group-item "><h4 class="list-group-item-heading">Different ways to use the directive</h4><p class="list-group-item-text">This is the second test example</p></a>
-		
-			<a href="#/demos/ex03" class="list-group-item "><h4 class="list-group-item-heading">Fetch data from JSON URL</h4><p class="list-group-item-text">Fetch data remotely from a JSON file or URL.</p></a>
-		
-			<a href="#/demos/ex04" class="list-group-item "><h4 class="list-group-item-heading">Update chart data from scope</h4><p class="list-group-item-text">Change the data dynamically in the scope and watch the chart update automatically.</p></a>
-		
-			<a href="#/demos/ex05" class="list-group-item "><h4 class="list-group-item-heading">Trigger scope event from chart</h4><p class="list-group-item-text">Click on chart to trigger an event in the controller, and update the scope.</p></a>
-		
-			<a href="#/demos/ex06" class="list-group-item "><h4 class="list-group-item-heading">Update chart attribute from scope</h4><p class="list-group-item-text">Change a parameter in the scope variable and see it automatically update the chart.</p></a>
-		
-		</div>
-	</div>
-	<div class="col-md-9">
-		<div ng-view></div>
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-12">
-		<h2>QuickStart</h2>
+                <h3>Support</h3>
+                <p>Simply open up <a href="https://github.com/fusioncharts/angular-fusioncharts/issues/new">a github issue</a> with your question/bug report/suggestion.</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-3">
+                <div class="list-group" role="tablist">
+                    
+                        <a href="#/demos/ex1" class="list-group-item">
+                            <h4>A Simple Chart</h4>
+                            <p>A simple chart with all data embedded into the directive</p>
+                        </a>
+                    
+                        <a href="#/demos/ex2" class="list-group-item">
+                            <h4>A 3D Pie Chart</h4>
+                            <p>A 3D pie chart using the datasource attribute from scope</p>
+                        </a>
+                    
+                        <a href="#/demos/ex3" class="list-group-item">
+                            <h4>A Column, Line and Area Combi Chart</h4>
+                            <p>A column, line and area combination chart using the datasource attribute</p>
+                        </a>
+                    
+                        <a href="#/demos/ex4" class="list-group-item">
+                            <h4>Different ways to use the directive</h4>
+                            <p>Use the fc-chart as a tag or as an attribute</p>
+                        </a>
+                    
+                        <a href="#/demos/ex5" class="list-group-item">
+                            <h4>Fetch data from a JSON URL</h4>
+                            <p>Fetch data remotely from a JSON file or URL</p>
+                        </a>
+                    
+                        <a href="#/demos/ex6" class="list-group-item">
+                            <h4>Update chart data from scope</h4>
+                            <p>Change the data dynamically in the scope and watch the chart update automatically</p>
+                        </a>
+                    
+                        <a href="#/demos/ex7" class="list-group-item">
+                            <h4>Trigger scope event from chart</h4>
+                            <p>Click on a chart to trigger an event in the controller, and update the scope</p>
+                        </a>
+                    
+                        <a href="#/demos/ex8" class="list-group-item">
+                            <h4>Update chart attribute from scope</h4>
+                            <p>Change a parameter in the scope variable and see it automatically update the chart</p>
+                        </a>
+                    
+                        <a href="#/demos/ex9" class="list-group-item">
+                            <h4>Separate objects for attributes</h4>
+                            <p>Separate objects for chart attributes, dataset and categories</p>
+                        </a>
+                    
+                </div>
+            </div>
+            <div class="col-md-9" ng-controller="DemoController">
+                <ng-view></ng-view>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+        <h2>QuickStart</h2>
 <h3>Step 1: Include angular-fusioncharts.js</h3>
 <p>In your HTML, include <code>angular-fusioncharts.js</code> after all other scripts:</p>
-<pre><code>&lt;script type=&quot;text/javascript&quot; src=&quot;/path/to/fusioncharts.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;/path/to/angular.js&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;/path/to/angular-fusioncharts.js&quot;&gt;&lt;/script&gt;</code></pre>
+<pre><code>&lt;script type="text/javascript" src="/path/to/fusioncharts.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/path/to/angular.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/path/to/angular-fusioncharts.js"&gt;&lt;/script&gt;</code></pre>
 <h3>Step 2: Include <code>ng-fusioncharts</code> in your module</h3>
 <p>In the app, include <code>ng-fusioncharts</code> as a dependency. If you looking for where to add the dependency, look for the call to <code>angular.module</code> in your code.</p>
-<pre><code>angular.module(&quot;myApp&quot;, [&quot;ng-fusioncharts&quot;])</code></pre>
+<pre><code>angular.module("myApp", ["ng-fusioncharts"])</code></pre>
 <h3>Step 3: Add the <code>fc-chart</code> directive</h3>
-<p>In your HTML, find the section where you wish to add the chart and add a <code>&lt;div&gt;</code> with the <code>fc-chart</code> directive. We are assuming it&#39;s inside a controller called <code>MyController</code> which would change based on your usage.</p>
-<pre><code>&lt;div ng-controller=&quot;MyController&quot;&gt;
+<p>In your HTML, find the section where you wish to add the chart and add a <code>&lt;div&gt;</code> with the <code>fc-chart</code> directive. We are assuming it's inside a controller called <code>MyController</code> which would change based on your usage.</p>
+<pre><code class="ng-binding">&lt;div ng-controller="MyController"&gt;
   &lt;div fc-chart
-       fc-width=&quot;600&quot;
-       fc-height=&quot;400&quot;
-       fc-type=&quot;column2d&quot;
-       fc-dataSource=&quot;{{ myDataSource }}&quot; &gt;
+       fc-width="600"
+       fc-height="400"
+       fc-type="column2d"
+       fc-dataSource="" &gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 <p>Now this is bound to a datasource with the <code>myDataSource</code> scope object.</p>
 <h3>Step 4: Populate required variables in controller</h3>
-<p>In the previous code, we are binding to a scope variable <code>myDataSource</code>, but that hasn&#39;t been defined yet.</p>
+<p>In the previous code, we are binding to a scope variable <code>myDataSource</code>, but that hasn't been defined yet.</p>
 <p>In your controller, set the DataSource as you would for a regular FusionCharts JSON Format DataSource (see <a href="http://docs.fusioncharts.com/tutorial-getting-started-your-first-charts-building-your-first-chart.html">this tutorial</a> for a general introduction to this format).</p>
-<pre><code>app.controller(&#39;MyController&#39;, function ($scope) {
+<pre><code>app.controller('MyController', function ($scope) {
   $scope.myDataSource = {
     chart: {
-        caption: &quot;Harry&#39;s SuperMart&quot;,
-        subCaption: &quot;Top 5 stores in last month by revenue&quot;,
+        caption: "Harry's SuperMart",
+        subCaption: "Top 5 stores in last month by revenue",
     },
     data:[{
-        label: &quot;Bakersfield Central&quot;,
-        value: &quot;880000&quot;
+        label: "Bakersfield Central",
+        value: "880000"
     },
     {
-        label: &quot;Garden Groove harbour&quot;,
-        value: &quot;730000&quot;
+        label: "Garden Groove harbour",
+        value: "730000"
     },
     {
-        label: &quot;Los Angeles Topanga&quot;,
-        value: &quot;590000&quot;
+        label: "Los Angeles Topanga",
+        value: "590000"
     },
     {
-        label: &quot;Compton-Rancho Dom&quot;,
-        value: &quot;520000&quot;
+        label: "Compton-Rancho Dom",
+        value: "520000"
     },
     {
-        label: &quot;Daly City Serramonte&quot;,
-        value: &quot;330000&quot;
+        label: "Daly City Serramonte",
+        value: "330000"
     }]
   };
 });</code></pre>
@@ -383,86 +285,8 @@ $scope.changeCaptionTextAlignment = function () {
 <h3>Licensing</h3>
 <p>Angular-FusionCharts is open-source and distributed under the terms of the MIT/X11 License. You will still need to download and include FusionCharts in your page. This project provides no direct functionality. You can <a href="http://fusioncharts.com/download/">Download an evaluation</a>. You will still need to purchase a FusionCharts license to use in a commercial environment (FusionCharts is <a href="http://www.fusioncharts.com/download/free/">free for non-commercial and personal use</a>) .</p>
 
-	</div>
-</div>
-
-
-<script type="text/ng-template" id="ex01">
-
-<fc-chart 
-    fc-width="600" 
-    fc-height="400"
-    fc-type="column2d",
-    fc-datasource="{{myDataSource}}"
-    fc-chart-click="chartClicked",
-    fc-chart-object="chartObj"
-    ></fc-chart>
-
-</script>
-
-<script type="text/ng-template" id="ex02">
-
-<fc-chart 
-    fc-width="300" 
-    fc-height="200"
-    fc-type="column2d",
-    fc-datasource="{{dataSource}}"
-    ></fc-chart>
-<div fc-chart
-    fc-width="300" 
-    fc-height="200"
-    fc-type="column2d",
-    fc-datasource="{{dataSource}}"
-    ></div>
-
-
-</script>
-
-<script type="text/ng-template" id="ex03">
-
-<fc-chart fc-json-url="data/data.json" fc-type="column2d" fc-width="600" fc-height="400"></fc-chart>
-
-</script>
-
-<script type="text/ng-template" id="ex04">
-
-<div fc-chart
-    fc-width="600" 
-    fc-height="400"
-    fc-type="column2d",
-    fc-datasource="{{dataSource}}"
-    ></div>
-<p><a class="btn btn-default" ng-click="updateMyChartData()">Click me to change data</a></p>
-
-</script>
-
-<script type="text/ng-template" id="ex05">
-
-<div fc-chart
-    fc-width="600" 
-    fc-height="400"
-    fc-type="column2d",
-    fc-datasource="{{dataSource}}"
-    fc-dataplot-click="onMyChartClick"
-    ></div>
-<p>The value that you have selected is: {{ selectedValue }}</p>
-
-</script>
-
-<script type="text/ng-template" id="ex06">
-
-<div fc-chart
-    fc-width="600" 
-    fc-height="400"
-    fc-type="column2d",
-    fc-datasource="{{dataSource}}"
-    ></div>
-<p><a class="btn btn-default" ng-click="changeBackgroundColor()">Change chart background color</a>
-<a class="btn btn-default" ng-click="changeCaptionTextAlignment()">Make Caption text left-aligned</a>
-</p>
-
-</script>
-
-</div>
-</body>
+    </div>
+            </div>
+        </div>
+    </body>
 </html>
