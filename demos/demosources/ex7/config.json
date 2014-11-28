@@ -1,0 +1,4 @@
+{
+    "title": "Trigger scope event from chart",
+    "desc": "Click on a chart to trigger an event in the controller, and update the scope"
+}

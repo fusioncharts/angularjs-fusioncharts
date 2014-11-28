@@ -1,0 +1,42 @@
+<% if(src=== "js") { %>
+$scope.myDataSource = {
+    chart: {
+        caption: "Age profile of website visitors",
+        subcaption: "Last Year",
+        startingangle: "120",
+        showlabels: "0",
+        showlegend: "1",
+        enablemultislicing: "0",
+        slicingdistance: "15",
+        showpercentvalues: "1",
+        showpercentintooltip: "0",
+        plottooltext: "Age group : $label Total visit : $datavalue",
+        theme: "fint"
+    },
+    data: [
+        {
+            label: "Teenage",
+            value: "1250400"
+        },
+        {
+            label: "Adult",
+            value: "1463300"
+        },
+        {
+            label: "Mid-age",
+            value: "1050700"
+        },
+        {
+            label: "Senior",
+            value: "491000"
+        }
+    ]
+}
+<% } else if(src==="html") { %>
+<fc-chart 
+    fc-width="600" 
+    fc-height="400"
+    fc-type="pie3d",
+    fc-datasource="{{myDataSource}}"
+></fc-chart>
+<% } %>

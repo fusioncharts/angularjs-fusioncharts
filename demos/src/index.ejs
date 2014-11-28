@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Angular FusionCharts Demos</title>
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+        <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <script type="text/javascript" src="bower_components/prism/prism.js"></script>
+        <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+        <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.ocean.js"></script>
+        <script type="text/javascript" src="js/angular-fusioncharts.min.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+        <% for(var i=0; i<demos.length; i++) { %>
+            <script type="text/javascript" src="<%= demos[i].script %>"></script>
+        <% } %>
+        <script type="text/javascript">
+            window.fcDemos = {};
+            <% for(var i=0; i<demos.length; i++) { %>
+                window.fcDemos['<%= demos[i].id %>'] =  {
+                    js: <%- demos[i].jsCode %>,
+                    html: <%- demos[i].htmlCode %>
+                };
+            <% } %>
+        </script>
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="bower_components/prism/themes/prism.css"/>
+        <style type="text/css">
+            pre {
+                max-height: 400px;
+            }
+        </style>
+    </head>
+    <body ng-app="fusioncharts-demo">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <a class="navbar-brand">Angular FusionCharts Demos</a>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="list-group" role="tablist">
+                        <% for(var i=0; i<demos.length; i++) { %>
+                            <a href="#/demos/<%=demos[i].id %>" class="list-group-item">
+                                <h4><%= demos[i].title %></h4>
+                                <p><%= demos[i].desc %></p>
+                            </a>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="col-md-9" ng-controller="DemoController">
+                    <ng-view></ng-view>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
