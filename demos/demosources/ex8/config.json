@@ -1,0 +1,4 @@
+{
+    "title": "Update chart attribute from scope",
+    "desc": "Change a parameter in the scope variable and see it automatically update the chart"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "angular-fusioncharts",
+  "version": "0.0.1-alpha.3",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fusioncharts/angular-fusioncharts.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fusioncharts/angular-fusioncharts/issues"
+  },
+  "homepage": "https://github.com/fusioncharts/angular-fusioncharts",
+  "dependencies": {
+    "ejs": "^1.0.0",
+    "grunt": "^0.4.5"
+  }
+}

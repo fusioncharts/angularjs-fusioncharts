@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Angular FusionCharts Demos</title>
+        <script type="text/javascript" src="demos/bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="demos/bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="demos/bower_components/angular-route/angular-route.js"></script>
+        <script type="text/javascript" src="demos/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script type="text/javascript" src="demos/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+        <script type="text/javascript" src="demos/bower_components/prism/prism.js"></script>
+        <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+        <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.ocean.js"></script>
+        <script type="text/javascript" src="demos/js/angular-fusioncharts.min.js"></script>
+        <script type="text/javascript" src="demos/js/app.js"></script>
+        <% for(var i=0; i<demos.length; i++) { %>
+            <script type="text/javascript" src="<%= demos[i].script %>"></script>
+        <% } %>
+        <script type="text/javascript">
+            window.fcDemos = {};
+            <% for(var i=0; i<demos.length; i++) { %>
+                window.fcDemos['<%= demos[i].id %>'] =  {
+                    js: <%- demos[i].jsCode %>,
+                    html: <%- demos[i].htmlCode %>
+                };
+            <% } %>
+        </script>
+        <link rel="stylesheet" href="demos/bower_components/bootstrap/dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="demos/bower_components/prism/themes/prism.css"/>
+        <style type="text/css">
+            pre {
+                max-height: 400px;
+            }
+
+            /* From the passportjs.org website */
+            .masthead {
+              margin-bottom: 20px;
+              padding-bottom: 5px;
+              border-bottom: 1px solid #eeeeee;
+            }
+
+            .masthead .logo {
+              height: 38px;
+              width: 210px;
+            }
+
+            .masthead h3 a {
+              color: #333333;;
+              text-decoration: none;
+            }
+
+            .masthead h3 a:hover {
+              color: #333333;
+              text-decoration: none;
+            }
+
+            .jumbotron .logo {
+              height: 60px;
+              width: 119px;
+              float: left;
+              margin-right: 15px;
+              margin-top: 26px;
+            }
+
+            .jumbotron p {
+                margin-left: 133px;
+            }
+
+            .jumbotron p {
+                margin-left: 133px;
+            }
+        </style>
+    </head>
+    <body ng-app="fusioncharts-demo">
+        <div class="container">
+            <div class="row">
+                <div class="masthead">
+                <ul class="nav nav-pills pull-right">
+                    <li><a href="http://fusioncharts.com/">FusionCharts Home</a></li>  </ul>
+                    <h3><a href="http://fusioncharts.github.io/angular-fusioncharts/"><img src="http://www.fusioncharts.com/theme/210x38xlogo.png.pagespeed.ic.KZD9tJ7qIK.png" class="logo"></a></h3>
+            </div>
+            <div class="jumbotron">
+                <img src="demos/images/ng-fc-logo.png" class="logo">
+                <h1>Angular-FusionCharts</h1>
+                <p>Simple and effective AngularJS bindings for FusionCharts JavaScript Charting Library.</p>
+                <p><a class="btn btn-primary btn-lg" href="https://github.com/fusioncharts/angular-fusioncharts/archive/v0.1-alpha2.zip" role="button"><i class="glyphicon glyphicon-download"></i> Download (0.0.1-alpha3)</a></p>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                <h3>About Angular-FusionCharts</h3>
+                <p>
+                This project provides AngularJS bindings for <a href="http://fusioncharts.com">FusionCharts JavaScript Charting Library</a>. It makes adding rich, interactive charting to your Angular JS Projects easy and works in the <i>Angular Way</i>.
+                </p>
+                </div>
+                <div class="col-md-4 ">
+                <h3>Features</h3>
+                <p>
+                <ul>
+                    <li>Add a chart using just a single directive</li>
+                    <li>Auto-updates your chart object on modifying scope</li>
+                    <li>Angular-friendly events let you call controller functions directly from the chart</li>
+                    <li>Offers advanced control by giving you access to full FusionCharts object</li>
+                    <li>Has variety of ways to add a chart, from JSON URL to Scope Array Binding</li>
+                    <li>Plenty of examples and good documentation (coming soon)</li>
+                </ul>
+                </p>
+                </div>
+                <div class="col-md-4">
+                <h3>Community</h3>
+                <p>
+                <ul>
+                    <li><a href="http://github.com/fusioncharts/angular-fusioncharts">Github Repo</a></li>
+                    <li><a href="http://github.com/fusioncharts/angular-fusioncharts/issues">Issues</a></li>
+                    <li><a href="http://twitter.com/fusioncharts">FusionCharts Twitter</a></li>
+                    <li><a href="http://stackoverflow.com/questions/tagged/fusioncharts">Stack Overflow</a></li>
+                </ul>
+
+                <h3>Support</h3>
+                <p>Simply open up <a href="https://github.com/fusioncharts/angular-fusioncharts/issues/new">a github issue</a> with your question/bug report/suggestion.</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-md-3">
+                <div class="list-group" role="tablist">
+                    <% for(var i=0; i<demos.length; i++) { %>
+                        <a href="#/demos/<%=demos[i].id %>" class="list-group-item">
+                            <h4><%= demos[i].title %></h4>
+                            <p><%= demos[i].desc %></p>
+                        </a>
+                    <% } %>
+                </div>
+            </div>
+            <div class="col-md-9" ng-controller="DemoController">
+                <ng-view></ng-view>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+        <h2>QuickStart</h2>
+<h3>Step 1: Include angular-fusioncharts.js</h3>
+<p>In your HTML, include <code>angular-fusioncharts.js</code> after all other scripts:</p>
+<pre><code>&lt;script type="text/javascript" src="/path/to/fusioncharts.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/path/to/angular.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/path/to/angular-fusioncharts.js"&gt;&lt;/script&gt;</code></pre>
+<h3>Step 2: Include <code>ng-fusioncharts</code> in your module</h3>
+<p>In the app, include <code>ng-fusioncharts</code> as a dependency. If you looking for where to add the dependency, look for the call to <code>angular.module</code> in your code.</p>
+<pre><code>angular.module("myApp", ["ng-fusioncharts"])</code></pre>
+<h3>Step 3: Add the <code>fc-chart</code> directive</h3>
+<p>In your HTML, find the section where you wish to add the chart and add a <code>&lt;div&gt;</code> with the <code>fc-chart</code> directive. We are assuming it's inside a controller called <code>MyController</code> which would change based on your usage.</p>
+<pre><code class="ng-binding">&lt;div ng-controller="MyController"&gt;
+  &lt;div fc-chart
+       fc-width="600"
+       fc-height="400"
+       fc-type="column2d"
+       fc-dataSource="" &gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+<p>Now this is bound to a datasource with the <code>myDataSource</code> scope object.</p>
+<h3>Step 4: Populate required variables in controller</h3>
+<p>In the previous code, we are binding to a scope variable <code>myDataSource</code>, but that hasn't been defined yet.</p>
+<p>In your controller, set the DataSource as you would for a regular FusionCharts JSON Format DataSource (see <a href="http://docs.fusioncharts.com/tutorial-getting-started-your-first-charts-building-your-first-chart.html">this tutorial</a> for a general introduction to this format).</p>
+<pre><code>app.controller('MyController', function ($scope) {
+  $scope.myDataSource = {
+    chart: {
+        caption: "Harry's SuperMart",
+        subCaption: "Top 5 stores in last month by revenue",
+    },
+    data:[{
+        label: "Bakersfield Central",
+        value: "880000"
+    },
+    {
+        label: "Garden Groove harbour",
+        value: "730000"
+    },
+    {
+        label: "Los Angeles Topanga",
+        value: "590000"
+    },
+    {
+        label: "Compton-Rancho Dom",
+        value: "520000"
+    },
+    {
+        label: "Daly City Serramonte",
+        value: "330000"
+    }]
+  };
+});</code></pre>
+<p>And your chart should display when you load the page. </p>
+<h3>Licensing</h3>
+<p>Angular-FusionCharts is open-source and distributed under the terms of the MIT/X11 License. You will still need to download and include FusionCharts in your page. This project provides no direct functionality. You can <a href="http://fusioncharts.com/download/">Download an evaluation</a>. You will still need to purchase a FusionCharts license to use in a commercial environment (FusionCharts is <a href="http://www.fusioncharts.com/download/free/">free for non-commercial and personal use</a>) .</p>
+
+    </div>
+            </div>
+        </div>
+    </body>
+</html>
