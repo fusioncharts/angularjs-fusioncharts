@@ -1,6 +1,6 @@
 {
   "name": "angular-fusioncharts",
-  "version": "0.0.1-alpha.3",
+  "version": "0.0.1-alpha.4",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -19,5 +19,9 @@
   "dependencies": {
     "ejs": "^1.0.0",
     "grunt": "^0.4.5"
+  },
+  "devDependencies": {
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-contrib-uglify": "^0.6.0"
   }
 }
