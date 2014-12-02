@@ -40,7 +40,7 @@
                     events = {
                         dataplotClick: function (ev, props) {
                             if(attrs.fcDataplotClick) {
-\                                scope.$apply (function () {
+                                scope.$apply (function () {
                                     scope.$parent[attrs.fcDataplotClick](ev, props);    
                                 });
                             }
