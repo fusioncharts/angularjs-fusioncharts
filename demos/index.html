@@ -23,6 +23,8 @@
         
             <script type="text/javascript" src="js/demos/ex5.js"></script>
         
+            <script type="text/javascript" src="js/demos/ex5a.js"></script>
+        
             <script type="text/javascript" src="js/demos/ex6.js"></script>
         
             <script type="text/javascript" src="js/demos/ex7.js"></script>
@@ -56,7 +58,12 @@
             
                 window.fcDemos['ex5'] =  {
                     js: "\n\n",
-                    html: "\n<fc-chart fc-json-url=\"data/data.json\" fc-type=\"column2d\" fc-width=\"600\" fc-height=\"400\"></fc-chart>\n"
+                    html: "\n<fc-chart fc-data-format=\"jsonurl\" fc-datasource=\"data/data.json\" fc-type=\"column2d\" fc-width=\"600\" fc-height=\"400\"></fc-chart>\n"
+                };
+            
+                window.fcDemos['ex5a'] =  {
+                    js: "\n\n",
+                    html: "\n<fc-chart fc-data-format=\"xmlurl\" fc-datasource=\"data/data.xml\" fc-type=\"column2d\" fc-width=\"600\" fc-height=\"400\"></fc-chart>\n"
                 };
             
                 window.fcDemos['ex6'] =  {
@@ -122,6 +129,11 @@
                             <a href="#/demos/ex5" class="list-group-item">
                                 <h4>Fetch data from a JSON URL</h4>
                                 <p>Fetch data remotely from a JSON file or URL</p>
+                            </a>
+                        
+                            <a href="#/demos/ex5a" class="list-group-item">
+                                <h4>Fetch data from a XML URL</h4>
+                                <p>Fetch data remotely from a XML file or URL</p>
                             </a>
                         
                             <a href="#/demos/ex6" class="list-group-item">

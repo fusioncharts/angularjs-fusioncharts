@@ -57,19 +57,6 @@
                     chart = new FusionCharts(scope[attrs.fcConfig]);
                     scope[attrs.fcChartObject] = chart;
                     chart.render ();
-                } else if(attrs.fcJsonUrl) {
-                    var chartConfigObject = {
-                        type: attrs.fcType,
-                        width: attrs.fcWidth,
-                        height: attrs.fcHeight,
-                        renderAt: element[0],
-                        dataFormat: 'json',
-                        events: events
-                    };
-                    chart = new FusionCharts(chartConfigObject);
-                    chart.setJSONUrl(attrs.fcJsonUrl);
-                    scope[attrs.fcChartObject] = chart;
-                    chart.render ();
                 } else {
                     var chartConfigObject = {
                         type: attrs.fcType,
@@ -86,11 +73,18 @@
                     attrs.$observe('fcHeight', function (newVal) {
                         chart.resizeTo (scope.fcWidth, scope.fcHeight);
                     });
-
                     if(attrs.fcDatasource) {
                         chartConfigObject.dataSource = scope[attrs.fcDatasource];
                         attrs.$observe('fcDatasource', function (newVal) {
-                            chart.setJSONData (JSON.parse(newVal));
+                            if(chartConfigObject.dataFormat === 'json') {
+                                chart.setChartData (JSON.parse(newVal));
+                            } else if(chartConfigObject.dataFormat === 'xml') {
+                                chart.setXMLData (newVal);
+                            } else if(chartConfigObject.dataFormat === 'jsonurl') {
+                                chart.setJSONUrl(newVal);
+                            } else if(chartConfigObject.dataFormat === 'xmlurl') {
+                                chart.setXMLUrl(newVal);
+                            }
                         }, true);
                     } else {
                         attrs.$observe('fcChartAttrs', function (newVal) {
