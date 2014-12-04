@@ -31,28 +31,36 @@
                 fcHeight: '@',
                 fcDataset: '@',
                 fcCategories: '@',
-                fcChartAttrs: '@',
-                fcDataplotClick: '@',
-                fcChartClick: '@'
+                fcChartAttrs: '@'
             },
             link: function (scope, element, attrs) {
-                var chart = null,
+                var eventsObj = {},
+                    attribs = Object.keys(attrs),
+                    chart = null,
                     events = {
-                        dataplotClick: function (ev, props) {
-                            if(attrs.fcDataplotClick) {
-                                scope.$apply (function () {
-                                    scope.$parent[attrs.fcDataplotClick](ev, props);    
-                                });
-                            }
-                        },
-                        chartClick: function (ev, props) {
-                            if(attrs.fcChartClick) {
-                                scope.$apply (function () {
-                                    scope.$parent[attrs.fcChartClick](ev, props);
-                                });
-                            }
+                        '*': function (ev, props) {
+                            if(eventsObj.hasOwnProperty(ev.eventType)) {
+                                eventsObj[ev.eventType](ev, props);
+                          }
                         }
                     };
+                if(attrs.fcEvents) {
+                    if(scope.$parent[attrs.fcEvents]) {
+                        var _eobj = scope.$parent[attrs.fcEvents];
+                        for(var key in _eobj) {
+                            if(_eobj.hasOwnProperty(key)) {
+                                eventsObj[key.toLowerCase()] = _eobj[key];
+                            }
+                        }
+                    }
+                }
+                for(var i=0; i<attribs.length; i++) {
+                    var attr = attribs[i];
+                    if(attr.match(/^on/i)) {
+                        var key = attr.slice(2).toLowerCase ();
+                        eventsObj[key] = scope.$parent[attrs[attr]];
+                    }
+                }
                 if(attrs.fcConfig) {
                     chart = new FusionCharts(scope[attrs.fcConfig]);
                     scope[attrs.fcChartObject] = chart;

@@ -28,16 +28,21 @@ $scope.dataSource = {
     }]
 };
 $scope.selectedValue = "nothing";
-$scope.onMyChartClick = function (event, props) {
-    $scope.selectedValue = props.displayValue;
-};
+
+$scope.events = {
+    dataplotclick: function (ev, props) {
+        $scope.$apply(function () {
+            $scope.selectedValue = props.displayValue;
+        });
+    }
+}
 <% } else if(src==="html") { %>
 <div fc-chart
     fc-width="600" 
     fc-height="400"
     fc-type="column2d",
     fc-datasource="{{dataSource}}"
-    fc-dataplot-click="onMyChartClick"
+    fc-events="events"
     ></div>
 <p>The value that you have selected is: {{ selectedValue }}</p>
 <% } %>

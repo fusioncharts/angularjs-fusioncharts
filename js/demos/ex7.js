@@ -39,9 +39,14 @@
             }]
         };
         $scope.selectedValue = "nothing";
-        $scope.onMyChartClick = function (event, props) {
-            $scope.selectedValue = props.displayValue;
-        };
+
+        $scope.events = {
+            dataplotclick: function (ev, props) {
+                $scope.$apply(function () {
+                    $scope.selectedValue = props.displayValue;
+                });
+            }
+        }
     });
         
 }());
