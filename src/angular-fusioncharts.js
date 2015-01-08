@@ -29,9 +29,26 @@
             scope: {
                 fcWidth: '@',
                 fcHeight: '@',
+                fcData: '@',
                 fcDataset: '@',
                 fcCategories: '@',
-                fcChartAttrs: '@'
+                fcChartAttrs: '@',
+                fcLinkeddata: '@',
+                fcTrendlines: '@',
+                fcVtrendlines: '@',
+                fcAnnotatations: '@',
+                fcColorrange: '@',
+                fcLineset: '@',
+                fcAxis: '@',
+                fcConnectors: '@',
+                fcPointers: '@',
+                fcValue: '@',
+                fcProcesses: '@',
+                fcTasks: '@',
+                fcRows: '@',
+                fcColumns: '@',
+                fcMap: '@',
+                fcMarkers: '@'
             },
             link: function (scope, element, attrs) {
                 var eventsObj = {},
@@ -121,6 +138,134 @@
                             attrs.$observe('fcDataset', function (newVal) { 
                                 setTimeout(function () {
                                     chartConfigObject.dataSource.dataset = JSON.parse(newVal);
+                                    chart.setJSONData (chartConfigObject.dataSource);
+                                });
+                            }, true);
+                        }
+                        if(attrs.fcLinkeddata) {
+                            attrs.$observe('fcLinkeddata', function (newVal) { 
+                                setTimeout(function () {
+                                    chartConfigObject.dataSource.linkeddata = JSON.parse(newVal);
+                                    chart.setJSONData (chartConfigObject.dataSource);
+                                });
+                            }, true);
+                        }
+                        if(attrs.fcTrendlines) {
+                            attrs.$observe('fcTrendlines', function (newVal) { 
+                                setTimeout(function () {
+                                    chartConfigObject.dataSource.trendlines = JSON.parse(newVal);
+                                    chart.setJSONData (chartConfigObject.dataSource);
+                                });
+                            }, true);
+                        }
+                        if(attrs.fcVtrendlines) {
+                            attrs.$observe('fcVtrendlines', function (newVal) { 
+                                setTimeout(function () {
+                                    chartConfigObject.dataSource.vtrendlines = JSON.parse(newVal);
+                                    chart.setJSONData (chartConfigObject.dataSource);
+                                });
+                            }, true);
+                        }
+                        if(attrs.fcAnnotations) {
+                            attrs.$observe('fcAnnotations', function (newVal) { 
+                                setTimeout(function () {
+                                    chartConfigObject.dataSource.annotations = JSON.parse(newVal);
+                                    chart.setJSONData (chartConfigObject.dataSource);
+                                });
+                            }, true);
+                        }
+                        if(attrs.fcColorrange) {
+                            attrs.$observe('fcColorrange', function (newVal) { 
+                                setTimeout(function () {
+                                    chartConfigObject.dataSource.colorrange = JSON.parse(newVal);
+                                    chart.setJSONData (chartConfigObject.dataSource);
+                                });
+                            }, true);
+                        }
+                        if(attrs.fcLineset) {
+                            attrs.$observe('fcLineset', function (newVal) { 
+                                setTimeout(function () {
+                                    chartConfigObject.dataSource.lineset = JSON.parse(newVal);
+                                    chart.setJSONData (chartConfigObject.dataSource);
+                                });
+                            }, true);
+                        }
+                        if(attrs.fcAxis) {
+                            attrs.$observe('fcAxis', function (newVal) { 
+                                setTimeout(function () {
+                                    chartConfigObject.dataSource.axis = JSON.parse(newVal);
+                                    chart.setJSONData (chartConfigObject.dataSource);
+                                });
+                            }, true);
+                        }
+                        if(attrs.fcConnectors) {
+                            attrs.$observe('fcConnectors', function (newVal) { 
+                                setTimeout(function () {
+                                    chartConfigObject.dataSource.connectors = JSON.parse(newVal);
+                                    chart.setJSONData (chartConfigObject.dataSource);
+                                });
+                            }, true);
+                        }
+                        if(attrs.fcPointers) {
+                            attrs.$observe('fcPointers', function (newVal) { 
+                                setTimeout(function () {
+                                    chartConfigObject.dataSource.pointers = JSON.parse(newVal);
+                                    chart.setJSONData (chartConfigObject.dataSource);
+                                });
+                            }, true);
+                        }
+                        if(attrs.fcValue) {
+                            attrs.$observe('fcValue', function (newVal) { 
+                                setTimeout(function () {
+                                    chartConfigObject.dataSource.value = JSON.parse(newVal);
+                                    chart.setJSONData (chartConfigObject.dataSource);
+                                });
+                            }, true);
+                        }
+                        if(attrs.fcProcesses) {
+                            attrs.$observe('fcProcesses', function (newVal) { 
+                                setTimeout(function () {
+                                    chartConfigObject.dataSource.processes = JSON.parse(newVal);
+                                    chart.setJSONData (chartConfigObject.dataSource);
+                                });
+                            }, true);
+                        }
+                        if(attrs.fcTasks) {
+                            attrs.$observe('fcTasks', function (newVal) { 
+                                setTimeout(function () {
+                                    chartConfigObject.dataSource.tasks = JSON.parse(newVal);
+                                    chart.setJSONData (chartConfigObject.dataSource);
+                                });
+                            }, true);
+                        }
+                        if(attrs.fcRows) {
+                            attrs.$observe('fcRows', function (newVal) { 
+                                setTimeout(function () {
+                                    chartConfigObject.dataSource.rows = JSON.parse(newVal);
+                                    chart.setJSONData (chartConfigObject.dataSource);
+                                });
+                            }, true);
+                        }
+                        if(attrs.fcColumns) {
+                            attrs.$observe('fcColumns', function (newVal) { 
+                                setTimeout(function () {
+                                    chartConfigObject.dataSource.columns = JSON.parse(newVal);
+                                    chart.setJSONData (chartConfigObject.dataSource);
+                                });
+                            }, true);
+                        }
+                        if(attrs.fcMap) {
+                            attrs.$observe('fcMap', function (newVal) { 
+                                setTimeout(function () {
+                                    chartConfigObject.dataSource.map = JSON.parse(newVal);
+                                    chart.setJSONData (chartConfigObject.dataSource);
+                                });
+                            }, true);
+                        }
+                        if(attrs.fcMarkers) {
+                            attrs.$observe('fcMarkers', function (newVal) { 
+                                setTimeout(function () {
+                                    chartConfigObject.dataSource.markers = JSON.parse(newVal);
                                     chart.setJSONData (chartConfigObject.dataSource);
                                 });
                             }, true);
