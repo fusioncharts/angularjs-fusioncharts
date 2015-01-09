@@ -28,11 +28,10 @@ $scope.myDataSource = {
     }]
 };
 <% } else if(src==="html") { %>
-    <fc-chart 
-    fc-width="600" 
-    fc-height="400"
-    fc-type="column2d"
-    fc-datasource="{{myDataSource}}"
-    fc-chart-click="chartClicked"
-    ></fc-chart>
+    <fusioncharts 
+    width="600" 
+    height="400"
+    type="column2d"
+    datasource="{{myDataSource}}"
+    ></fusioncharts>
 <% } %>
