@@ -37,12 +37,12 @@ $scope.events = {
     }
 }
 <% } else if(src==="html") { %>
-<div fc-chart
-    fc-width="600" 
-    fc-height="400"
-    fc-type="column2d",
-    fc-datasource="{{dataSource}}"
-    fc-events="events"
+<div fusioncharts
+    width="600" 
+    height="400"
+    type="column2d",
+    datasource="{{dataSource}}"
+    events="events"
     ></div>
 <p>The value that you have selected is: {{ selectedValue }}</p>
 <% } %>
