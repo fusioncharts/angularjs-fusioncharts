@@ -112,6 +112,18 @@
                             }
                         }, true);
                     } else {
+                        attrs.$observe('type', function (newVal) {
+                            setTimeout(function () {
+                                chartConfigObject.type = newVal;
+                                if (chart)
+                                {
+                                    chart.dispose();
+                                    chart = new FusionCharts(chartConfigObject);
+                                    scope[attrs.chartobject] = chart;
+                                    chart.render();
+                                }
+                            }, 0);
+                        }, true)
                         attrs.$observe('chart', function (newVal) {
                             setTimeout(function () {
                                 chartConfigObject.dataSource.chart = JSON.parse(newVal);
