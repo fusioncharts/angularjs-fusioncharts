@@ -33,7 +33,7 @@
                 dataset: '@',
                 categories: '@',
                 chart: '@',
-                linkdedata: '@',
+                linkeddata: '@',
                 trendlines: '@',
                 vtrendlines: '@',
                 annotations: '@',
