@@ -36,6 +36,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadTasks('./grunt-tasks');
-    //grunt.registerTask('default', ['makeDemos:demos', 'uglify', 'copy']); // For gh-pages branch only
-    grunt.registerTask('default', ['uglify', 'copy']); // For other branches
+    grunt.registerTask('default', ['makeDemos:demos', 'uglify', 'copy']); // For gh-pages branch only
+    //grunt.registerTask('default', ['uglify', 'copy']); // For other branches
 };
