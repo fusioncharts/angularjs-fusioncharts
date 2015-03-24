@@ -25,259 +25,361 @@
 
 
     fc.directive('fusioncharts', ['$http', function ($http) {
-        return {
-            scope: {
-                width: '@',
-                height: '@',
-                data: '@',
-                dataset: '@',
-                categories: '@',
-                chart: '@',
-                linkdedata: '@',
-                trendlines: '@',
-                vtrendlines: '@',
-                annotations: '@',
-                colorrange: '@',
-                lineset: '@',
-                axis: '@',
-                connectors: '@',
-                pointers: '@',
-                value: '@',
-                processes: '@',
-                tasks: '@',
-                rows: '@',
-                columns: '@',
-                map: '@',
-                markers: '@'
-            },
-            link: function (scope, element, attrs) {
-                var eventsObj = {},
+            return {
+                scope: {
+                    width: '@',
+                    height: '@',
+                    data: '@',
+                    dataset: '@',
+                    categories: '@',
+                    chart: '@',
+                    linkdedata: '@',
+                    trendlines: '@',
+                    vtrendlines: '@',
+                    annotations: '@',
+                    colorrange: '@',
+                    lineset: '@',
+                    axis: '@',
+                    connectors: '@',
+                    pointers: '@',
+                    value: '@',
+                    processes: '@',
+                    tasks: '@',
+                    rows: '@',
+                    columns: '@',
+                    map: '@',
+                    markers: '@'
+                },
+                link: function (scope, element, attrs) {
+                    var observeConf = {
+                        'width': {
+                            ifExist: false,
+                            observer: function (newVal) {
+                                chart.resizeTo(scope.width, scope.height);
+                            }
+                        },
+                        'height': {
+                            ifExist: false,
+                            observer: function (newVal) {
+                                chart.resizeTo(scope.width, scope.height);
+                            }
+                        },
+                        'chart': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.chart = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    }, 0);
+                                }
+                            }
+                        },
+                        'data': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.data = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    }, 0);
+                                }
+                            }
+                        },
+                        'categories': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.categories = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    }, 0);
+                                }
+                            }
+                        },
+                        'dataset': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.dataset = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    });
+                                }
+                            }
+                        },
+                        'linkeddata': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.linkeddata = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    });
+                                }
+                            }
+                        },
+                        'trendlines': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.trendlines = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    });
+                                }
+                            }
+                        },
+                        'vtrendlines': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.vtrendlines = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    });
+                                }
+                            }
+                        },
+                        'annotations': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.annotations = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    });
+                                }
+                            }
+                        },
+                        'colorrange': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.colorrange = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    });
+                                }
+                            }
+                        },
+                        'lineset': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.lineset = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    });
+                                }
+                            }
+                        },
+                        'axis': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.axis = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    });
+                                }
+                            }
+                        },
+                        'connectors': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.connectors = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    });
+                                }
+                            }
+                        },
+                        'pointers': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.pointers = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    });
+                                }
+                            }
+                        },
+                        'value': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.value = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    });
+                                }
+                            }
+                        },
+                        'processes': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.processes = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    });
+                                }
+                            }
+                        },
+                        'tasks': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.tasks = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    });
+                                }
+                            }
+                        },
+                        'rows': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.rows = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    });
+                                }
+                            }
+                        },
+                        'columns': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.columns = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    });
+                                }
+                            }
+                        },
+                        'map': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.map = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    });
+                                }
+                            },
+                        },
+                        'markers': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                if (chartConfigObject.dataFormat === 'json' && typeof chartConfigObject.dataSource == "object") {
+                                    setTimeout(function () {
+                                        chartConfigObject.dataSource.markers = JSON.parse(newVal);
+                                        chart.setJSONData(chartConfigObject.dataSource);
+                                    });
+                                }
+                            }
+                        },
+                        'datasource': {
+                            ifExist: true,
+                            observer: function (newVal) {
+                                chartConfigObject.dataSource = newVal;
+                                if (chartConfigObject.dataFormat === 'json') {
+                                    chartConfigObject.dataSource = JSON.parse(newVal);
+                                    chart.setChartData(chartConfigObject.dataSource);
+                                } else if (chartConfigObject.dataFormat === 'xml') {
+                                    chart.setXMLData(newVal);
+                                } else if (chartConfigObject.dataFormat === 'jsonurl') {
+                                    chart.setJSONUrl(newVal);
+                                } else if (chartConfigObject.dataFormat === 'xmlurl') {
+                                    chart.setXMLUrl(newVal);
+                                }
+                            }
+                        },
+                        'config': {
+                            ifExist: false,
+                            observer: function (newVal) {
+                                var configObj = JSON.parse(newVal),
+                                attr;
+                                for (attr in configObj) {
+                                    chartConfigObject[attr] = configObj[attr];
+                                }
+                                createFCChart();
+                            }
+                        }
+                    },
+                    eventsObj = {},
                     attribs = Object.keys(attrs),
                     chart = null,
                     events = {
                         '*': function (ev, props) {
-                            if(eventsObj.hasOwnProperty(ev.eventType)) {
+                            if (eventsObj.hasOwnProperty(ev.eventType)) {
                                 eventsObj[ev.eventType](ev, props);
-                          }
+                            }
                         }
-                    };
-                if(attrs.events) {
-                    if(scope.$parent[attrs.events]) {
-                        var _eobj = scope.$parent[attrs.events];
-                        for(var key in _eobj) {
-                            if(_eobj.hasOwnProperty(key)) {
-                                eventsObj[key.toLowerCase()] = _eobj[key];
+                    },
+                    createFCChart = function () {
+                        // dispose if previous chart exists
+                        if(chart && chart.dispose){
+                            chart.dispose();
+                        }
+                        chart = new FusionCharts(chartConfigObject);
+                        scope[attrs.chartobject] = chart;
+                        chart.render();
+                    },
+                    i,
+                    attr,
+                    _eobj,
+                    key,
+                    observableAttr,
+                    chartConfigObject,
+                    configObj;
+
+                    if (attrs.events) {
+                        if (scope.$parent[attrs.events]) {
+                            _eobj = scope.$parent[attrs.events];
+                            for (key in _eobj) {
+                                if (_eobj.hasOwnProperty(key)) {
+                                    eventsObj[key.toLowerCase()] = _eobj[key];
+                                }
                             }
                         }
                     }
-                }
-                for(var i=0; i<attribs.length; i++) {
-                    var attr = attribs[i];
-                    if(attr.match(/^on/i)) {
-                        var key = attr.slice(2).toLowerCase ();
-                        eventsObj[key] = scope.$parent[attrs[attr]];
+                    for (i = 0; i < attribs.length; i++) {
+                        attr = attribs[i];
+                        if (attr.match(/^on/i)) {
+                            key = attr.slice(2).toLowerCase();
+                            eventsObj[key] = scope.$parent[attrs[attr]];
+                        }
                     }
-                }
-                if(attrs.config) {
-                    chart = new FusionCharts(scope[attrs.config]);
-                    scope[attrs.chartobject] = chart;
-                    chart.render ();
-                } else {
-                    var chartConfigObject = {
+
+
+                    chartConfigObject = {
                         type: attrs.type,
                         width: attrs.width,
                         height: attrs.height,
                         renderAt: element[0],
+                        id: attrs.chartid,
                         dataFormat: attrs.dataformat || 'json',
                         dataSource: {},
                         events: events
                     };
-                    attrs.$observe('width', function (newVal) {
-                        chart.resizeTo (scope.width, scope.height);
-                    });
-                    attrs.$observe('height', function (newVal) {
-                        chart.resizeTo (scope.width, scope.height);
-                    });
-                    if(attrs.datasource) {
-                        chartConfigObject.dataSource = scope[attrs.datasource];
-                        attrs.$observe('datasource', function (newVal) {
-                            if(chartConfigObject.dataFormat === 'json') {
-                                chart.setChartData (JSON.parse(newVal));
-                            } else if(chartConfigObject.dataFormat === 'xml') {
-                                chart.setXMLData (newVal);
-                            } else if(chartConfigObject.dataFormat === 'jsonurl') {
-                                chart.setJSONUrl(newVal);
-                            } else if(chartConfigObject.dataFormat === 'xmlurl') {
-                                chart.setXMLUrl(newVal);
-                            }
-                        }, true);
-                    } else {
-                        attrs.$observe('chart', function (newVal) {
-                            setTimeout(function () {
-                                chartConfigObject.dataSource.chart = JSON.parse(newVal);
-                                chart.setJSONData (chartConfigObject.dataSource);
-                            }, 0);
-                        }, true)
-                        if(attrs.data) {
-                            attrs.$observe('data', function (newVal) {
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.data = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                }, 0);
-                            }, true);
-                        }
-                        if(attrs.categories) {
-                            attrs.$observe('categories', function (newVal) {
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.categories = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                }, 0);
-                            }, true);
-                        }
-                        if(attrs.dataset) {
-                            attrs.$observe('dataset', function (newVal) { 
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.dataset = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                });
-                            }, true);
-                        }
-                        if(attrs.linkeddata) {
-                            attrs.$observe('linkeddata', function (newVal) { 
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.linkeddata = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                });
-                            }, true);
-                        }
-                        if(attrs.trendlines) {
-                            attrs.$observe('trendlines', function (newVal) { 
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.trendlines = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                });
-                            }, true);
-                        }
-                        if(attrs.vtrendlines) {
-                            attrs.$observe('vtrendlines', function (newVal) { 
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.vtrendlines = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                });
-                            }, true);
-                        }
-                        if(attrs.annotations) {
-                            attrs.$observe('annotations', function (newVal) { 
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.annotations = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                });
-                            }, true);
-                        }
-                        if(attrs.colorrange) {
-                            attrs.$observe('colorrange', function (newVal) { 
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.colorrange = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                });
-                            }, true);
-                        }
-                        if(attrs.lineset) {
-                            attrs.$observe('lineset', function (newVal) { 
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.lineset = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                });
-                            }, true);
-                        }
-                        if(attrs.axis) {
-                            attrs.$observe('axis', function (newVal) { 
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.axis = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                });
-                            }, true);
-                        }
-                        if(attrs.connectors) {
-                            attrs.$observe('connectors', function (newVal) { 
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.connectors = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                });
-                            }, true);
-                        }
-                        if(attrs.pointers) {
-                            attrs.$observe('pointers', function (newVal) { 
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.pointers = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                });
-                            }, true);
-                        }
-                        if(attrs.value) {
-                            attrs.$observe('value', function (newVal) { 
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.value = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                });
-                            }, true);
-                        }
-                        if(attrs.processes) {
-                            attrs.$observe('processes', function (newVal) { 
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.processes = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                });
-                            }, true);
-                        }
-                        if(attrs.tasks) {
-                            attrs.$observe('tasks', function (newVal) { 
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.tasks = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                });
-                            }, true);
-                        }
-                        if(attrs.rows) {
-                            attrs.$observe('rows', function (newVal) { 
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.rows = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                });
-                            }, true);
-                        }
-                        if(attrs.columns) {
-                            attrs.$observe('columns', function (newVal) { 
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.columns = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                });
-                            }, true);
-                        }
-                        if(attrs.map) {
-                            attrs.$observe('map', function (newVal) { 
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.map = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                });
-                            }, true);
-                        }
-                        if(attrs.markers) {
-                            attrs.$observe('markers', function (newVal) { 
-                                setTimeout(function () {
-                                    chartConfigObject.dataSource.markers = JSON.parse(newVal);
-                                    chart.setJSONData (chartConfigObject.dataSource);
-                                });
-                            }, true);
+
+                    for (observableAttr in observeConf) {
+                        attrConfig = observeConf[observableAttr];
+                        if (attrConfig.ifExist === false || attrs[observableAttr]) {
+                            attrs.$observe(observableAttr, attrConfig.observer);
                         }
                     }
 
-                    var chart = new FusionCharts(chartConfigObject);
-                    scope[attrs.chartobject] = chart;
-                    chart.render ();
+
+                    createFCChart();
                 }
-            }
+            };
         }
-    }
     ]);
 }());
