@@ -303,12 +303,15 @@
                         'config': {
                             ifExist: false,
                             observer: function (newVal) {
-                                var configObj = JSON.parse(newVal),
-                                attr;
-                                for (attr in configObj) {
-                                    chartConfigObject[attr] = configObj[attr];
+                                var configObj;
+                                if (newVal) {
+                                    configObj = JSON.parse(newVal),
+                                    attr;
+                                    for (attr in configObj) {
+                                        chartConfigObject[attr] = configObj[attr];
+                                    }
+                                    createFCChart();
                                 }
-                                createFCChart();
                             }
                         }
                     },
