@@ -55,13 +55,19 @@
                         'width': {
                             ifExist: false,
                             observer: function (newVal) {
-                                chart.resizeTo(scope.width, scope.height);
+                                if (newVal) {
+                                    chartConfigObject.width = newVal;
+                                    chart.resizeTo(scope.width, scope.height);
+                                }
                             }
                         },
                         'height': {
                             ifExist: false,
                             observer: function (newVal) {
-                                chart.resizeTo(scope.width, scope.height);
+                                if (newVal){
+                                    chartConfigObject.height = newVal;
+                                    chart.resizeTo(scope.width, scope.height);
+                                }
                             }
                         },
                         'chart': {
