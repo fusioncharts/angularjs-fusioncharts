@@ -300,6 +300,15 @@
                                 }
                             }
                         },
+                        'type': {
+                            ifExist: false,
+                            observer: function (newVal) {
+                                if (newVal) {
+                                    chartConfigObject.type = newVal;
+                                    createFCChart();
+                                }
+                            }
+                        },
                         'config': {
                             ifExist: false,
                             observer: function (newVal) {
