@@ -33,7 +33,7 @@
                     dataset: '@',
                     categories: '@',
                     chart: '@',
-                    linkdedata: '@',
+                    linkeddata: '@',
                     trendlines: '@',
                     vtrendlines: '@',
                     annotations: '@',
@@ -55,13 +55,19 @@
                         'width': {
                             ifExist: false,
                             observer: function (newVal) {
-                                chart.resizeTo(scope.width, scope.height);
+                                if (newVal) {
+                                    chartConfigObject.width = newVal;
+                                    chart.resizeTo(scope.width, scope.height);
+                                }
                             }
                         },
                         'height': {
                             ifExist: false,
                             observer: function (newVal) {
-                                chart.resizeTo(scope.width, scope.height);
+                                if (newVal){
+                                    chartConfigObject.height = newVal;
+                                    chart.resizeTo(scope.width, scope.height);
+                                }
                             }
                         },
                         'chart': {
@@ -297,6 +303,15 @@
                                     chart.setJSONUrl(newVal);
                                 } else if (chartConfigObject.dataFormat === 'xmlurl') {
                                     chart.setXMLUrl(newVal);
+                                }
+                            }
+                        },
+                        'type': {
+                            ifExist: false,
+                            observer: function (newVal) {
+                                if (newVal) {
+                                    chartConfigObject.type = newVal;
+                                    createFCChart();
                                 }
                             }
                         },
