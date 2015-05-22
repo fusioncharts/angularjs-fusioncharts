@@ -369,11 +369,18 @@
                     observableAttr,
                     chartConfigObject,
                     configObj,
-                    dataComponent;
+                    dataComponent,
+                    eventScopeArr,
+                    l;
 
                 if (attrs.events) {
-                    if (scope.$parent[attrs.events]) {
-                        _eobj = scope.$parent[attrs.events];
+                    eventScopeArr = attrs.events.split(".");
+                    l = eventScopeArr.length;
+                    _eobj = scope.$parent;
+                    for (i = 0; i < l; i += 1){
+                        _eobj = _eobj && _eobj[eventScopeArr[i]];
+                    }
+                    if (_eobj) {
                         for (key in _eobj) {
                             if (_eobj.hasOwnProperty(key)) {
                                 eventsObj[key.toLowerCase()] = _eobj[key];
