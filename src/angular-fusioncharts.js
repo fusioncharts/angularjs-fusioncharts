@@ -358,7 +358,7 @@
                             chart.dispose();
                         }
                         chart = new FusionCharts(chartConfigObject);
-					    /* @todo validate the ready function whether it can be replaced in a better way */
+                        /* @todo validate the ready function whether it can be replaced in a better way */
                         angular.element(document).ready(function(){
                             element.ready(function(){
                                  // Render the chart only when angular is done compiling the element and DOM.
