@@ -19,7 +19,6 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE. 
-
 (function() {
     var fc = angular.module('ng-fusioncharts', []);
 
@@ -358,8 +357,15 @@
                         if (chart && chart.dispose) {
                             chart.dispose();
                         }
-                        chart = new FusionCharts(chartConfigObject).render();
-                        scope[attrs.chartobject] = chart;
+                        chart = new FusionCharts(chartConfigObject);
+                        /* @todo validate the ready function whether it can be replaced in a better way */
+                        angular.element(document).ready(function(){
+                            element.ready(function(){
+                                 // Render the chart only when angular is done compiling the element and DOM.
+                                chart = chart.render();
+                                scope[attrs.chartobject] = chart;
+                            });
+                        });
                     },
                     dataStringStore = {},
                     i,
