@@ -23,7 +23,8 @@
     var fc = angular.module('ng-fusioncharts', []);
 
 
-    fc.directive('fusioncharts', ['$http', function($http) {
+    fc.directive('fusioncharts', ['$http',function($http) {
+       
         return {
             scope: {
                 width: '@',
@@ -47,9 +48,11 @@
                 rows: '@',
                 columns: '@',
                 map: '@',
-                markers: '@'
+                markers: '@',
+                id:'@'
             },
             link: function(scope, element, attrs) {
+            
                 var observeConf = {
                         // non-data componenet observers
                         NDCObserver: {
@@ -360,10 +363,13 @@
                         chart = new FusionCharts(chartConfigObject);
                         /* @todo validate the ready function whether it can be replaced in a better way */
                         angular.element(document).ready(function(){
+                            console.log("Ready");
                             element.ready(function(){
+                                
                                  // Render the chart only when angular is done compiling the element and DOM.
+                                 debugger;
                                 chart = chart.render();
-                                scope[attrs.chartobject] = chart;
+                                scope[attrs.id] = chart;
                             });
                         });
                     },
@@ -401,8 +407,8 @@
                         eventsObj[key] = scope.$parent[attrs[attr]];
                     }
                 }
-
-
+                //fix for container id not compiled before rendering in dynamic templates issue RED-2012
+                element[0].id=scope.id===undefined?element[0].id:scope.id;
                 chartConfigObject = {
                     type: attrs.type,
                     width: attrs.width,
@@ -417,6 +423,7 @@
 
                 for (observableAttr in observeConf.NDCObserver) {
                     attrConfig = observeConf.NDCObserver[observableAttr];
+
                     if (attrConfig.ifExist === false || attrs[observableAttr]) {
                         attrs.$observe(observableAttr, attrConfig.observer);
                     }
@@ -449,8 +456,7 @@
                     }
                 }
 
-                createFCChart();
-
+            createFCChart();
             }
         };
     }]);
