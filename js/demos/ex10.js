@@ -11,9 +11,10 @@
 
     app.controller('ex10Controller', function ($scope, $rootScope) {
         $rootScope.demoId = 'ex10';
+
         var vm = this;
 
-        $scope.logMessage = 'Click on the  plot to see the percentage of a column wrt total';
+        $scope.logMessage = 'Click on the  plot to see the percentage value with respect to the total';
 
         // Save the function reference in global object so that FusionCharts link can call 
         // it when called

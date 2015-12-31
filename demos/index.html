@@ -2,7 +2,6 @@
 <html>
     <head>
         <title>Angular FusionCharts Demos</title>
-        <link rel="canonical" href="http://www.fusioncharts.com/angularjs-charts/">
         <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
         <script type="text/javascript" src="bower_components/angular/angular.js"></script>
         <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
@@ -15,6 +14,8 @@
         <script type="text/javascript" src="js/app.js"></script>
         
             <script type="text/javascript" src="js/demos/ex1.js"></script>
+        
+            <script type="text/javascript" src="js/demos/ex10.js"></script>
         
             <script type="text/javascript" src="js/demos/ex2.js"></script>
         
@@ -40,6 +41,11 @@
                 window.fcDemos['ex1'] =  {
                     js: "\n$scope.myDataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n        numberPrefix: \"$\",\n        theme: \"ocean\"\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n",
                     html: "\n    <fusioncharts \n    width=\"600\" \n    height=\"400\"\n    type=\"column2d\"\n    datasource=\"{{myDataSource}}\"\n    ></fusioncharts>\n"
+                };
+            
+                window.fcDemos['ex10'] =  {
+                    js: "\n     \n    globalContainer = {};\n\n    app.controller('ex10Controller',function ($scope, $rootScope) {\n    $rootScope.demoId = 'ex10';\n    var vm = this;\n\n    $scope.logMessage = 'Click on the  plot to see the percentage of a column wrt total';\n\n    // Save the function reference in global object so that FusionCharts link can call \n    // it when called\n    globalContainer.log = vm.log = function(msg){ \n        // Since the update is happening outside angular execution context we need \n        // the digest cycle to run to make sure that the view is updated.   \n        $scope.$apply(function(){\n            $scope.logMessage = \"Percentage is  \"+msg+\"% of the total\";                 \n        });\n    }\n    \n    var DataSource = {\n            \"chart\": {\n                \"caption\": \"Monthly revenue for last year\",\n                \"subCaption\": \"Harry's SuperMart\",\n                \"xAxisName\": \"Month\",\n                \"yAxisName\": \"Revenues (In USD)\",\n                \"numberPrefix\": \"$\",\n                \"paletteColors\": \"#0075c2\",\n                \"bgColor\": \"#ffffff\",\n                \"borderAlpha\": \"20\",\n                \"canvasBorderAlpha\": \"0\",\n                \"usePlotGradientColor\": \"0\",\n                \"plotBorderAlpha\": \"10\",\n                \"placevaluesInside\": \"1\",\n                \"rotatevalues\": \"1\",\n                \"valueFontColor\": \"#ffffff\",                \n                \"showXAxisLine\": \"1\",\n                \"xAxisLineColor\": \"#999999\",\n                \"divlineColor\": \"#999999\",               \n                \"divLineIsDashed\": \"1\",\n                \"showAlternateHGridColor\": \"0\",\n                \"subcaptionFontBold\": \"0\",\n                \"subcaptionFontSize\": \"14\"\n            },            \n            \"data\": [\n                {\n                    \"label\": \"Jan\",\n                    \"value\": \"42\"\n                }, \n                {\n                    \"label\": \"Feb\",\n                    \"value\": \"810000\"\n                }, \n                {\n                    \"label\": \"Mar\",\n                    \"value\": \"720000\"\n                }, \n                {\n                    \"label\": \"Apr\",\n                    \"value\": \"550000\"\n                }, \n                {\n                    \"label\": \"May\",\n                    \"value\": \"910000\"\n                }, \n                {\n                    \"label\": \"Jun\",\n                    \"value\": \"510000\"\n                }, \n                {\n                    \"label\": \"Jul\",\n                    \"value\": \"680000\"\n                }, \n                {\n                    \"label\": \"Aug\",\n                    \"value\": \"620000\"\n                }, \n                {\n                    \"label\": \"Sep\",\n                    \"value\": \"610000\"\n                }, \n                {\n                    \"label\": \"Oct\",\n                    \"value\": \"490000\"\n                }, \n                {\n                    \"label\": \"Nov\",\n                    \"value\": \"900000\"\n                }, \n                {\n                    \"label\": \"Dec\",\n                    \"value\": \"730000\"\n                }\n            ],\n            \"trendlines\": [\n                {\n                    \"line\": [\n                        {\n                            \"startvalue\": \"700000\",\n                            \"color\": \"#1aaf5d\",\n                            \"valueOnRight\": \"1\",\n                            \"displayvalue\": \"Monthly Target\"\n                        }\n                    ]\n                }\n            ]\n        }\n\n        var myData=DataSource.data,total=0;\n        for(var i=0;i<myData.length;i++)\n        {\n            total+=Number(myData[i].value);\n        }\n        for(var i=0;i<myData.length;i++)\n        {\n            var ratio=(parseFloat(myData[i].value/total)*100).toFixed(2);\n            var myString=\"Ratio is : \"+ratio+\" %\";\n            myData[i][\"link\"]=\"JavaScript:globalContainer.log(\"+ratio+\");\";\n        }\n                  \n        $scope.myDataSource=DataSource;\n           \n});\n\n",
+                    html: "\n<style type=\"text/css\">\n.log-pane{\n    padding-top: 10px;\n    padding-right: 10px;\n    padding-bottom: 10px;\n    padding-left: 10px;\n    border: 2px solid black;\n    font-size: 20px;\n}\n</style>\n<div fusionCharts\n             width=\"1000\"\n             height=\"550\"\n             id=\"ex10\"\n             type=\"column2d\"\n             datasource=\"{{myDataSource}}\">\n</div>\n\n<div class='log-pane'>{{logMessage}}</div>\n"
                 };
             
                 window.fcDemos['ex2'] =  {
@@ -110,6 +116,11 @@
                             <a href="#/demos/ex1" class="list-group-item">
                                 <h4>A Simple Chart</h4>
                                 <p>A simple chart with all data embedded into the directive</p>
+                            </a>
+                        
+                            <a href="#/demos/ex10" class="list-group-item">
+                                <h4>Percentage Calculation</h4>
+                                <p>A column chart with each column showing percentage of data with respect to the total</p>
                             </a>
                         
                             <a href="#/demos/ex2" class="list-group-item">
