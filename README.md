@@ -15,7 +15,7 @@ To learn what you can do using this Angular charts plugin, explore some [live de
 Following tutorials will help you get started:
 
 - Official blog post on using this plugin: [adding charts to your AngularJS app](http://www.fusioncharts.com/blog/2015/03/angular-fusioncharts/).
-- Tutorial by a user of this plugin: [Creating Interactive Charts in AngularJS](http://www.codediesel.com/javascript/creating-interactive-charts-in-angularjs/)
+- Tutorial by a user of this plugin: [How to Build Charts in Angular](https://davidwalsh.name/angular-charts)
 
 ###Documentation
 To dive deeper, please view the [official documentation](http://www.fusioncharts.com/dev/using-with-javascript-libraries/angularjs/introduction.html).
