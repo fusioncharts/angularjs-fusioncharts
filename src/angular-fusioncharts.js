@@ -363,11 +363,7 @@
                         chart = new FusionCharts(chartConfigObject);
                         /* @todo validate the ready function whether it can be replaced in a better way */
                         angular.element(document).ready(function(){
-                            console.log("Ready");
                             element.ready(function(){
-                                
-                                 // Render the chart only when angular is done compiling the element and DOM.
-                                 debugger;
                                 chart = chart.render();
                                 scope[attrs.id] = chart;
                             });
