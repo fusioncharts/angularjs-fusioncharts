@@ -25,7 +25,7 @@
 
     fc.directive('fusioncharts', ['$http', function($http) {
         return {
-            scope: {
+            scope: {                
                 width: '@',
                 height: '@',
                 data: '@',
@@ -73,21 +73,23 @@
                             },
 
                             'datasource': {
-                                ifExist: true,
+                                ifExist: false,
                                 observer: function(newVal) {
-                                    if (dataStringStore.dataSource != newVal) {
-                                        dataStringStore.dataSource = newVal;
-                                        if (chartConfigObject.dataFormat === 'json') {
-                                            chartConfigObject.dataSource = JSON.parse(newVal);
-                                            setChartData();
-                                        } else {
-                                            chartConfigObject.dataSource = newVal;
-                                            if (chartConfigObject.dataFormat === 'xml') {
-                                                chart.setXMLData(newVal);
-                                            } else if (chartConfigObject.dataFormat === 'jsonurl') {
-                                                chart.setJSONUrl(newVal);
-                                            } else if (chartConfigObject.dataFormat === 'xmlurl') {
-                                                chart.setXMLUrl(newVal);
+                                    if(typeof newVal !== "undefined" && newVal !== ""){
+                                        if (dataStringStore.dataSource != newVal) {
+                                            dataStringStore.dataSource = newVal;
+                                            if (chartConfigObject.dataFormat === 'json') {
+                                                chartConfigObject.dataSource = JSON.parse(newVal);
+                                                setChartData();
+                                            } else {
+                                                chartConfigObject.dataSource = newVal;
+                                                if (chartConfigObject.dataFormat === 'xml') {
+                                                    chart.setXMLData(newVal);
+                                                } else if (chartConfigObject.dataFormat === 'jsonurl') {
+                                                    chart.setJSONUrl(newVal);
+                                                } else if (chartConfigObject.dataFormat === 'xmlurl') {
+                                                    chart.setXMLUrl(newVal);
+                                                }
                                             }
                                         }
                                     }
@@ -407,7 +409,7 @@
                     type: attrs.type,
                     width: attrs.width,
                     height: attrs.height,
-                    renderAt: element[0],
+                    renderAt: element[0] || attrs.id,
                     id: attrs.chartid,
                     dataFormat: attrs.dataformat || 'json',
                     dataSource: {},
