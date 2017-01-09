@@ -37,7 +37,6 @@ module.exports = function (grunt) {
             grunt.file.write (path.join (options.out + '/views', '/' + demosList[i] + '.html'), htmlSrc);
         }
         grunt.file.copy ('./demos/src/data.json', options.out + '/data/data.json');
-        grunt.file.copy ('./demos/src/data.xml', options.out + '/data/data.xml');
         var mainHTML = ejs.render (mainTemplate, {demos: demosMeta});
         grunt.file.write (options.out + '/index.html' ,mainHTML);
     });

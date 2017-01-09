@@ -1,0 +1,12 @@
+<div fusioncharts
+    width="600" 
+    height="400"
+    type="column2d",
+    datasource="{{dataSource}}"
+    ></div>
+<p><a class="btn btn-default" ng-click="changeBackgroundColor()">Change chart background color</a>
+<a class="btn btn-default" ng-click="changeCaptionTextAlignment()">Make Caption text left-aligned</a>
+</p><tabset>
+    <tab heading="HTML"><ng-prism class="language-markup">{{ html }}</ng-prism></tab>
+    <tab heading="Javascript"><ng-prism class="language-javascript">{{ js }}</ng-prism></tab>
+</tabset>
