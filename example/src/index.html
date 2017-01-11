@@ -1,0 +1,23 @@
+<!doctype html>
+<head>
+	<title>angular-fusioncharts</title>
+	<link rel="stylesheet" href="example.css">
+</head>
+<body>
+
+	<div ng-app="myApp">
+	  	<div ng-controller="MyController">
+	    	<div fusioncharts
+	       		width="600"
+	       		height="400"
+	       		type="column2d"
+	       		dataFormat="json"
+	       		dataSource={{myDataSource}} >
+	    	</div>
+	  	</div>
+	</div>
+
+	<script src="common.js"></script>
+	<script src="bundle.js"></script>
+	<script src="example.js"></script>
+</body>

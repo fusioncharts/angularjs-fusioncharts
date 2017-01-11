@@ -2,7 +2,7 @@ var fs = require('fs');
 var path = require('path');
 var ejs = require('ejs');
 module.exports = function (grunt) {
-    var demosRoot = "./demos/demosources";
+    var demosRoot = './demos/demosources';
     var demosList = fs.readdirSync (demosRoot);
     
     

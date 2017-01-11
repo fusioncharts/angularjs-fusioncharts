@@ -1,0 +1,29 @@
+{
+  "name": "angular-fusioncharts",
+  "version": "0.0.0",
+  "description": "angular-fusioncharts",
+  "main": "dist/angular-fusioncharts.min.js",
+  "homepage": "https://github.com/fusioncharts/angular-fusioncharts",
+  "authors": [
+    "FusionCharts"
+  ],
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "react",
+    "react-component"
+  ],
+  "license": "MIT",
+  "ignore": [
+    ".editorconfig",
+    ".gitignore",
+    "package.json",
+    "src",
+    "node_modules",
+    "example",
+    "test"
+  ]
+}
