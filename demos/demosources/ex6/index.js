@@ -10,41 +10,37 @@
     app.controller('ex6Controller', function ($scope, $rootScope) {
         $rootScope.demoId = 'ex6';
 
+        let getRandomNumber = function () {
+            var max = 290, min = 30;
+            return Math.round(((max - min) * Math.random()) + min);
+        }
+
+
         $scope.dataSource = {
-            chart: {
-                caption: "Harry's SuperMart",
-                subCaption: "Top 5 stores in last month by revenue",
-                numberPrefix: "$",
-                theme: "ocean"
+            "chart": {
+              "caption": "Countries With Most Oil Reserves [2017-18]",
+              "subCaption": "In MMbbl = One Million barrels",
+              "xAxisName": "Country",
+              "yAxisName": "Reserves (MMbbl)",
+              "numberSuffix": "K",
+              "theme": "fusion",
+              "updateAnimDuration":"0.3"
             },
-            data:[{
-                label: "Bakersfield Central",
-                value: "880000"
-            },
-            {
-                label: "Garden Groove harbour",
-                value: "730000"
-            },
-            {
-                label: "Los Angeles Topanga",
-                value: "590000"
-            },
-            {
-                label: "Compton-Rancho Dom",
-                value: "520000"
-            },
-            {
-                label: "Daly City Serramonte",
-                value: "330000"
-            }]
+            "data": [
+                { "label": "Venezuela", "value": "290" },
+                { "label": "Saudi", "value": "260" },
+                { "label": "Canada", "value": "180" },
+                { "label": "Iran", "value": "140" },
+                { "label": "Russia", "value": "115" },
+                { "label": "UAE", "value": "100" },
+                { "label": "US", "value": "30" },
+                { "label": "China", "value": "30"}
+            ]
         };
 
         $scope.updateMyChartData = function () {
-            $scope.dataSource.data[2].label = "This Label is Updated";
-            $scope.dataSource.data[2].value = "420000";
-
-            $scope.dataSource.data[3].label = "This is updated as well";
-            $scope.dataSource.data[3].value = "210000";
+            $scope.dataSource.data[2].value = getRandomNumber();
+            $scope.dataSource.data[3].value = getRandomNumber();
         };
     });
 }());

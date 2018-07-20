@@ -4,6 +4,15 @@
         $routeProvider.otherwise ('/demos/ex1');
     }]);
     app.controller('DemoController', function ($scope, $routeParams, $rootScope) {
+        setTimeout(function(){
+            $scope.html = window.fcDemos[$rootScope.demoId].html;
+            $scope.js = window.fcDemos[$rootScope.demoId].js;
+            console.log($scope);
+            setTimeout(function () {
+                Prism.highlightAll ();
+            },1000);
+        }, 1000);
+        
         setTimeout(function () {
             $rootScope.$watch('demoId', function (newVal) {
                 $scope.html = window.fcDemos[newVal].html;

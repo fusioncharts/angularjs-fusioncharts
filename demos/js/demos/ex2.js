@@ -10,38 +10,32 @@
     app.controller('ex2Controller', function ($scope, $rootScope) {
         $rootScope.demoId = 'ex2';
         $scope.myDataSource = {
-            chart: {
-                caption: "Age profile of website visitors",
-                subcaption: "Last Year",
-                startingangle: "120",
-                showlabels: "0",
-                showlegend: "1",
-                enablemultislicing: "0",
-                slicingdistance: "15",
-                showpercentvalues: "1",
-                showpercentintooltip: "0",
-                plottooltext: "Age group : $label Total visit : $datavalue",
-                theme: "ocean"
+            "chart": {
+              "caption": "Recommended Portfolio Split",
+              "subCaption" : "For a net-worth of $1M",
+              "showValues":"1",
+              "showPercentInTooltip" : "0",
+              "numberPrefix" : "$",
+              "enableMultiSlicing":"1",
+              "theme": "fusion"
             },
-            data: [
-                {
-                    label: "Teenage",
-                    value: "1250400"
-                },
-                {
-                    label: "Adult",
-                    value: "1463300"
-                },
-                {
-                    label: "Mid-age",
-                    value: "1050700"
-                },
-                {
-                    label: "Senior",
-                    value: "491000"
-                }
-            ]
-        }
+            "data": [{
+              "label": "Equity",
+              "value": "300000"
+            }, {
+              "label": "Debt",
+              "value": "230000"
+            }, {
+              "label": "Bullion",
+              "value": "180000"
+            }, {
+              "label": "Real-estate",
+              "value": "270000"
+            }, {
+              "label": "Insurance",
+              "value": "20000"
+            }]
+        };
     });
         
 }());
