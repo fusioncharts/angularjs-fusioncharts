@@ -1,150 +1,58 @@
 <% if(src=== "js") { %>
 $scope.attrs = {
-    "caption": "Sales - 2012 v 2013",
-    "numberprefix": "$",
-    "plotgradientcolor": "",
-    "bgcolor": "FFFFFF",
-    "showalternatehgridcolor": "0",
-    "divlinecolor": "CCCCCC",
-    "showvalues": "0",
-    "showcanvasborder": "0",
-    "canvasborderalpha": "0",
-    "canvasbordercolor": "CCCCCC",
-    "canvasborderthickness": "1",
-    "yaxismaxvalue": "30000",
-    "captionpadding": "30",
-    "linethickness": "3",
-    "yaxisvaluespadding": "15",
-    "legendshadow": "0",
-    "legendborderalpha": "0",
-    "palettecolors": "#f8bd19,#008ee4,#33bdda,#e44a00,#6baa01,#583e78",
-    "showborder": "0"
+    "caption": "Twitter Mentions",
+    "yAxisName": "Number of mentions",
+    "subCaption": "(iPhone Vs Samsung)",
+    "numbersuffix": "M",
+    "yAxisMaxValue": "2",
+    "plottooltext": "$seriesName was mentioned <b>$dataValue</b> times on Twitter in $label",
+    "theme": "fusion"
 };
 
 $scope.categories = [
-    {
-        "category": [
-            {
-                "label": "Jan"
-            },
-            {
-                "label": "Feb"
-            },
-            {
-                "label": "Mar"
-            },
-            {
-                "label": "Apr"
-            },
-            {
-                "label": "May"
-            },
-            {
-                "label": "Jun"
-            },
-            {
-                "label": "Jul"
-            },
-            {
-                "label": "Aug"
-            },
-            {
-                "label": "Sep"
-            },
-            {
-                "label": "Oct"
-            },
-            {
-                "label": "Nov"
-            },
-            {
-                "label": "Dec"
-            }
+    { 
+        "category": 
+        [
+            { "label": "2007" },
+            { "label": "2008" },
+            { "label": "2009" },
+            { "label": "2010" },
+            { "label": "2011" },
+            { "label": "2012" },
+            { "label": "2013" },
+            { "label": "2014" },
+            { "label": "2015" }
         ]
     }
 ];
 
 $scope.dataset = [
     {
-        "seriesname": "2013",
+        "seriesname": "iPhone",
         "data": [
-            {
-                "value": "22400"
-            },
-            {
-                "value": "24800"
-            },
-            {
-                "value": "21800"
-            },
-            {
-                "value": "21800"
-            },
-            {
-                "value": "24600"
-            },
-            {
-                "value": "27600"
-            },
-            {
-                "value": "26800"
-            },
-            {
-                "value": "27700"
-            },
-            {
-                "value": "23700"
-            },
-            {
-                "value": "25900"
-            },
-            {
-                "value": "26800"
-            },
-            {
-                "value": "24800"
-            }
+        { "value": "1.90" },
+        { "value": "1.94" },
+        { "value": "1.69" },
+        { "value": "1.66" },
+        { "value": "1.43" },
+        { "value": "1.97" },
+        { "value": "1.78" },
+        { "value": "1.58" },
+        { "value": "1.55" }
         ]
     },
     {
-        "seriesname": "2012",
+        "seriesname": "Samsung",
         "data": [
-            {
-                "value": "10000"
-            },
-            {
-                "value": "11500"
-            },
-            {
-                "value": "12500"
-            },
-            {
-                "value": "15000"
-            },
-            {
-                "value": "16000"
-            },
-            {
-                "value": "17600"
-            },
-            {
-                "value": "18800"
-            },
-            {
-                "value": "19700"
-            },
-            {
-                "value": "21700"
-            },
-            {
-                "value": "21900"
-            },
-            {
-                "value": "22900"
-            },
-            {
-                "value": "20800"
-            }
+        { "value": "0.68" },
+        { "value": "0.74" },
+        { "value": "0.25" },
+        { "value": "0.64" },
+        { "value": "0.22" },
+        { "value": "0.74" },
+        { "value": "0.58" },
+        { "value": "0.15" },
+        { "value": "0.26" }
         ]
     }
 ];

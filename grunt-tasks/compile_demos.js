@@ -3,7 +3,7 @@ var path = require('path');
 var ejs = require('ejs');
 module.exports = function (grunt) {
     var demosRoot = "./demos/demosources";
-    var demosList = ['ex1', 'ex2', 'ex3' , 'ex4', 'ex5a', 'ex5','ex6', 'ex7', 'ex8', 'ex9', 'ex10'];
+    var demosList = ['ex1', 'ex2', 'ex3' , 'ex4', 'ex5a', 'ex5','ex6', 'ex7', 'ex8', 'ex9', 'ex10', 'ex12', 'ex13', 'ex14'];
     
     
     grunt.task.registerMultiTask('makeDemos', 'Makes the Demo Browser app', function () {
