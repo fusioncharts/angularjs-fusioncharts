@@ -4,10 +4,13 @@
     .btn.btn-primary:hover{ background: #5c62b5; }
     .btn.btn-primary:active{ background:#4a4d8c }
 </style>
-<div fusioncharts
+<div style="display: flex;justify-content: center">
+    <div fusioncharts
     width="600" 
     height="400"
     type="column2d",
     datasource="{{dataSource}}"
     ></div>
+</div>
+
 <div style='display: flex; justify-content: center'><a class="btn btn-primary" ng-click="updateMyChartData()">Click me to change data</a></div>

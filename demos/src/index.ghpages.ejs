@@ -138,7 +138,7 @@
                 <div class="col-md-12">
         <h2>QuickStart</h2>
 <h3>Step 1: Include angularjs-fusioncharts.js</h3>
-<p>In your HTML, include <code>angularjs-fusioncharts.js</code> after all other scripts:</p>
+<p>In your HTML, include <code>fusioncharts</code> library, <code>angularjs</code> core file, and <code>angularjs-fusioncharts</code> directive :</p>
 <pre><code>&lt;script type="text/javascript" src="/path/to/fusioncharts.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="/path/to/angular.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="/path/to/angularjs-fusioncharts.js"&gt;&lt;/script&gt;</code></pre>
@@ -146,7 +146,7 @@
 <p>In the app, include <code>ng-fusioncharts</code> as a dependency. If you looking for where to add the dependency, look for the call to <code>angular.module</code> in your code.</p>
 <pre><code>angular.module("myApp", ["ng-fusioncharts"])</code></pre>
 <h3>Step 3: Add the <code>fusioncharts</code> directive</h3>
-<p>In your HTML, find the section where you wish to add the chart and add a <code>&lt;div&gt;</code> with the <code>fc-chart</code> directive. We are assuming it's inside a controller called <code>MyController</code> which would change based on your usage.</p>
+<p>In your HTML, find the section where you wish to add the chart and add a <code>&lt;div&gt;</code> with the <code>fusioncharts</code> directive. We are assuming it's inside a controller called <code>MyController</code> which would change based on your usage.</p>
 <pre><code ng-non-bindable>&lt;div ng-controller="MyController"&gt;
   &lt;div fusioncharts
        width="600"
@@ -158,7 +158,7 @@
 <p>Now this is bound to a datasource with the <code>myDataSource</code> scope object.</p>
 <h3>Step 4: Populate required variables in controller</h3>
 <p>In the previous code, we are binding to a scope variable <code>myDataSource</code>, but that hasn't been defined yet.</p>
-<p>In your controller, set the DataSource as you would for a regular FusionCharts JSON Format DataSource (see <a href="http://docs.fusioncharts.com/tutorial-getting-started-your-first-charts-building-your-first-chart.html">this tutorial</a> for a general introduction to this format).</p>
+<p>In your controller, set the DataSource as you would for a regular FusionCharts JSON format DataSource (see <a href="http://docs.fusioncharts.com/tutorial-getting-started-your-first-charts-building-your-first-chart.html">this tutorial</a> for a general introduction to this format).</p>
 <pre><code>app.controller('MyController', function ($scope) {
         $scope.myDataSource = {
             "chart": {
@@ -183,7 +183,7 @@
 });</code></pre>
 <p>And your chart should display when you load the page. </p>
 <h3>Licensing</h3>
-<p>Angularjs-FusionCharts is open-source and distributed under the terms of the MIT/X11 License. You will still need to download and include FusionCharts in your page. This project provides no direct functionality. You can <a href="http://fusioncharts.com/download/">Download an evaluation</a>. You will still need to purchase a FusionCharts license to use in a commercial environment (FusionCharts is <a href="http://www.fusioncharts.com/download/free/">free for non-commercial and personal use</a>) .</p>
+<p>AngularJS-FusionCharts is open-source and distributed under the terms of the MIT/X11 License. You will still need to download and include FusionCharts in your page. This project provides no direct functionality. You can <a href="http://fusioncharts.com/download/">Download an evaluation</a>. You will still need to purchase a FusionCharts license to use in a commercial environment (FusionCharts is <a href="http://www.fusioncharts.com/download/free/">free for non-commercial and personal use</a>) .</p>
 
     </div>
             </div>
