@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>Angular FusionCharts Demos</title>
+        <title>AngularJS FusionCharts Demos</title>
         <script type="text/javascript" src="demos/bower_components/jquery/dist/jquery.js"></script>
         <script type="text/javascript" src="demos/bower_components/angular/angular.js"></script>
         <script type="text/javascript" src="demos/bower_components/angular-route/angular-route.js"></script>
@@ -83,15 +83,15 @@
             </div>
             <div class="jumbotron">
                 <img src="demos/images/ng-fc-logo.png" class="logo">
-                <h1>Angularjs FusionCharts</h1>
+                <h1>AngularJS FusionCharts</h1>
                 <p>Simple and effective AngularJS bindings for FusionCharts JavaScript Charting Library.</p>
                 <p><a class="btn btn-primary btn-lg" href="https://github.com/fusioncharts/angular-fusioncharts/archive/v2.0.zip" role="button"><i class="glyphicon glyphicon-download"></i> Download (2.0)</a></p>
             </div>
             <div class="row">
                 <div class="col-md-4">
-                <h3>About angularjs-fusionCharts</h3>
+                <h3>About angularjs-fusioncharts</h3>
                 <p>
-                This project provides AngularJS bindings for <a href="http://fusioncharts.com">FusionCharts JavaScript Charting Library</a>. It makes adding rich, interactive charting to your Angular JS Projects easy and works in the <i>Angular Way</i>.
+                This project provides AngularJS bindings for <a href="http://fusioncharts.com">FusionCharts JavaScript Charting Library</a>. It makes adding rich, interactive charting to your AngularJS projects easy and works in the <i>AngularJS way</i>.
                 </p>
                 </div>
                 <div class="col-md-4 ">
@@ -103,7 +103,6 @@
                     <li>Angular-friendly events let you call controller functions directly from the chart</li>
                     <li>Offers advanced control by giving you access to full FusionCharts object</li>
                     <li>Has variety of ways to add a chart, from JSON URL to Scope Array Binding</li>
-                    <li>Plenty of examples and good documentation (coming soon)</li>
                 </ul>
                 </p>
                 </div>
@@ -111,14 +110,14 @@
                 <h3>Community</h3>
                 <p>
                 <ul>
-                    <li><a href="http://github.com/fusioncharts/angular-fusioncharts">Github Repo</a></li>
-                    <li><a href="http://github.com/fusioncharts/angular-fusioncharts/issues">Issues</a></li>
+                    <li><a href="http://github.com/fusioncharts/angularjs-fusioncharts">Github Repo</a></li>
+                    <li><a href="http://github.com/fusioncharts/angularjs-fusioncharts/issues">Issues</a></li>
                     <li><a href="http://twitter.com/fusioncharts">FusionCharts Twitter</a></li>
                     <li><a href="http://stackoverflow.com/questions/tagged/fusioncharts">Stack Overflow</a></li>
                 </ul>
 
                 <h3>Support</h3>
-                <p>Simply open up <a href="https://github.com/fusioncharts/angular-fusioncharts/issues/new">a github issue</a> with your question/bug report/suggestion.</p>
+                <p>Simply open up <a href="https://github.com/fusioncharts/angularjs-fusioncharts/issues/new">a github issue</a> with your question/bug report/suggestion.</p>
                 </div>
             </div>
             </div>
@@ -148,12 +147,12 @@
 <pre><code>angular.module("myApp", ["ng-fusioncharts"])</code></pre>
 <h3>Step 3: Add the <code>fusioncharts</code> directive</h3>
 <p>In your HTML, find the section where you wish to add the chart and add a <code>&lt;div&gt;</code> with the <code>fc-chart</code> directive. We are assuming it's inside a controller called <code>MyController</code> which would change based on your usage.</p>
-<pre><code class="ng-binding">&lt;div ng-controller="MyController"&gt;
+<pre><code ng-non-bindable>&lt;div ng-controller="MyController"&gt;
   &lt;div fusioncharts
        width="600"
        height="400"
        type="column2d"
-       datasource="{{myDataSource}}" &gt;
+       datasoure="{{myDataSource}}" &gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 <p>Now this is bound to a datasource with the <code>myDataSource</code> scope object.</p>
