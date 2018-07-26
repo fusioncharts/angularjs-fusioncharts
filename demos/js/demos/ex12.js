@@ -17,8 +17,8 @@
 
     var DataSource = dataSource = {
       "chart": {
-        "caption": "Top 3 Juice Flavors",
-        "subcaption": "Last year",
+        "caption": "Sales of top 3 juice flavors last year",
+        "subcaption": "Click on a column to see details",
         "xaxisname": "Flavor",
         "yaxisname": "Amount (In USD)",
         "numberprefix": "$",
@@ -37,7 +37,7 @@
           "link": "newchart-xml-cranberry"
         },
         {
-          "label": "Grapes",
+          "label": "Grape",
           "value": "350000",
           "link": "newchart-xml-grapes"
         }
@@ -101,7 +101,7 @@
           "id": "grapes",
           "linkedchart": {
             "chart": {
-              "caption": "Grapes Juice - Quarterly Sales",
+              "caption": "Grape Juice - Quarterly Sales",
               "subcaption": "Last year",
               "numberprefix": "$",
               "theme": "fusion",
@@ -133,7 +133,7 @@
           type: "pie2d",
           renderAt: "myChart",
           overlayButton: {
-            message: 'close',
+            message: 'Back',
             fontColor: '880000',
             bgColor: 'FFEEEE',
             borderColor: '660000'

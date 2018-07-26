@@ -1,12 +1,14 @@
 <% if(src=== "js") { %>
-    $scope.dataSource = {
+var myApp = angular.module('myApp', ['ng-fusioncharts']);
+myApp.controller('MyController', ['$scope', function($scope){
+    $scope.myDataSource = {
         "chart": {
-          "caption": "Countries With Most Oil Reserves [2017-18]",
-          "subCaption": "In MMbbl = One Million barrels",
-          "xAxisName": "Country",
-          "yAxisName": "Reserves (MMbbl)",
-          "numberSuffix": "K",
-          "theme": "fusion",
+            "caption": "Countries With Most Oil Reserves [2017-18]",
+            "subCaption": "In MMbbl = One Million barrels",
+            "xAxisName": "Country",
+            "yAxisName": "Reserves (MMbbl)",
+            "numberSuffix": "K",
+            "theme": "fusion",
         },
         "data": [
             { "label": "Venezuela", "value": "290" },
@@ -19,20 +21,41 @@
             { "label": "China", "value": "30"}
         ]
     };
+}]);
 <% } else if(src==="html") { %>
-<fusioncharts
-    width="600" 
-    height="400"
-    type="column2d",
-    datasource="{{dataSource}}">
-</fusioncharts>
+<!-- 
+    Include script files in your index.html
+    ------------------------------------------
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/fusioncharts.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>
+    <script type="text/javascript" src="path/to/angularjs-fusioncharts.min.js"></script>
+   
+    Include Theme CSS File
+    ------------------------------------------
+    <link rel="stylesheet" href="path/to/fusioncharts/themes/fusioncharts.theme.fusion.css"/>
+-->
 
-<div
-    fusioncharts
-    width="600" 
-    height="400"
-    type="column2d",
-    datasource="{{dataSource}}">
-</div>
+<!-- In the HTML file -->
+<div ng-app='myApp'>
+    <div ng-controller='MyController'>
+        <!-- As Element directive -->
+        <fusioncharts
+            width="600" 
+            height="400"
+            type="column2d",
+            datasource="{{dataSource}}">
+        </fusioncharts>
+        <!-- As Attribute directive-->
+        <div
+            fusioncharts
+            width="600" 
+            height="400"
+            type="column2d",
+            datasource="{{dataSource}}">
+        </div>
+    </div>
+</div>     
+
 
 <% } %>

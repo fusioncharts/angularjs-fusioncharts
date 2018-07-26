@@ -28,7 +28,7 @@
                 { "label": "US", "value": "30" },
                 { "label": "China", "value": "30"}
             ]
-          };
+        };
     });
         
 }());

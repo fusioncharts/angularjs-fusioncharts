@@ -1,48 +1,63 @@
 <% if(src=== "js") { %>
-$scope.dataSource = {
-    chart: {
-        caption: "Harry's SuperMart",
-        subCaption: "Top 5 stores in last month by revenue",
-        numberPrefix: "$",
-        theme: "ocean"
-    },
-    data:[{
-        label: "Bakersfield Central",
-        value: "880000"
-    },
-    {
-        label: "Garden Groove harbour",
-        value: "730000"
-    },
-    {
-        label: "Los Angeles Topanga",
-        value: "590000"
-    },
-    {
-        label: "Compton-Rancho Dom",
-        value: "520000"
-    },
-    {
-        label: "Daly City Serramonte",
-        value: "330000"
-    }]
-};
-$scope.selectedValue = "nothing";
-
-$scope.events = {
-    dataplotclick: function (ev, props) {
-        $scope.$apply(function () {
-            $scope.selectedValue = props.displayValue;
-        });
-    }
-}
+var myApp = angular.module('myApp', ['ng-fusioncharts']);
+myApp.controller('MyController', ['$scope', function($scope){
+    $scope.dataSource = {
+        "chart": {
+          "caption": "Countries With Most Oil Reserves [2017-18]",
+          "subCaption": "In MMbbl = One Million barrels",
+          "xAxisName": "Country",
+          "yAxisName": "Reserves (MMbbl)",
+          "numberSuffix": "K",
+          "theme": "fusion",
+        },
+        "data": [
+            { "label": "Venezuela", "value": "290" },
+            { "label": "Saudi", "value": "260" },
+            { "label": "Canada", "value": "180" },
+            { "label": "Iran", "value": "140" },
+            { "label": "Russia", "value": "115" },
+            { "label": "UAE", "value": "100" },
+            { "label": "US", "value": "30" },
+            { "label": "China", "value": "30"}
+        ]
+    };
+    
+    $scope.events = {
+        dataplotrollover: function (ev, props) {
+            $scope.$apply(function () {
+                $scope.selectedValue = props.displayValue;
+                $scope.selectedLabel = props.categoryLabel;
+            });
+        }
+    };
+}]);
 <% } else if(src==="html") { %>
-<div fusioncharts
-    width="600" 
-    height="400"
-    type="column2d",
-    datasource="{{dataSource}}"
-    events="events"
-    ></div>
-<p>The value that you have selected is: {{ selectedValue }}</p>
+<!-- 
+    Include script files in your index.html
+    ------------------------------------------
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/fusioncharts.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>
+    <script type="text/javascript" src="path/to/angularjs-fusioncharts.min.js"></script>
+   
+    Include Theme CSS File
+    ------------------------------------------
+    <link rel="stylesheet" href="path/to/fusioncharts/themes/fusioncharts.theme.fusion.css"/>
+-->
+
+<!-- In the HTML file -->
+<div ng-app='myApp'>
+    <div ng-controller='MyController'>    
+        <div fusioncharts
+            width="600" 
+            height="400"
+            type="column2d",
+            datasource="{{dataSource}}"
+            events="events">
+        </div>
+        
+        <p style="font-size:20px;font-weight: 300;">You're are currently hovering over <u>{{selectedLabel || "______"}}</u> whose value is <u>{{selectedValue || "_______"}} </u></p>
+    </div>
+</div> 
+
 <% } %>

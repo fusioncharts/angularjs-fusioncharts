@@ -4,13 +4,25 @@
     .btn.btn-primary:hover{ background: #5c62b5; }
     .btn.btn-primary:active{ background:#4a4d8c }
 </style>
-<div fusioncharts
-    width="600" 
-    height="400"
-    type="column2d",
-    datasource="{{dataSource}}"
-    ></div>
-<div style='display: flex; justify-content: center'><a class="btn btn-primary" ng-click="updateMyChartData()">Click me to change data</a></div><tabset>
+
+<fusioncharts
+   width="700"
+   height="400"
+   type="column2D"
+   datasource="{{firstDataSource}}"
+   >
+</fusioncharts>
+
+<fusioncharts
+   width="600"
+   height="600"
+   type="stackedcolumn2d"
+   datasource="{{secondDataSource}}">
+</fusioncharts>
+
+<div style="display: flex;justify-content: center">
+    <button ng-click="exportChart()" class="btn btn-primary">Export both charts as a single PDF</button>
+</div><tabset>
     <tab heading="HTML"><ng-prism class="language-markup">{{ html }}</ng-prism></tab>
     <tab heading="Javascript"><ng-prism class="language-javascript">{{ js }}</ng-prism></tab>
 </tabset>

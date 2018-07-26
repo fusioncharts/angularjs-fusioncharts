@@ -1,4 +1,6 @@
 <% if(src=== "js") { %>
+var myApp = angular.module('myApp', ['ng-fusioncharts']);
+myApp.controller('MyController', ['$scope', function($scope){
   $scope.myDataSource = {
     "chart": {
       "caption": "Nordstorm's Customer Satisfaction Score for 2017",
@@ -30,12 +32,29 @@
       }]
     }
   };
-  <% } else if(src==="html") { %>
-  <fusioncharts
-    type="angulargauge"
-    width="450"
-    height="250"
-    dataFormat="json"
-    dataSource="{{myDataSource}}">
-  </fusioncharts>
-  <% } %>
+}]);
+<% } else if(src==="html") { %>
+<!-- 
+    Include script files in your index.html
+    ------------------------------------------
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/fusioncharts.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>
+    <script type="text/javascript" src="path/to/angularjs-fusioncharts.min.js"></script>
+   
+    Include Theme CSS File
+    ------------------------------------------
+    <link rel="stylesheet" href="path/to/fusioncharts/themes/fusioncharts.theme.fusion.css"/>
+-->
+<div ng-app='myApp'>
+  <div ng-controller='MyController'>
+    <fusioncharts
+      type="angulargauge"
+      width="450"
+      height="250"
+      dataFormat="json"
+      dataSource="{{myDataSource}}">
+    </fusioncharts>
+  </div>
+</div>
+<% } %>

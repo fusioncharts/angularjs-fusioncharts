@@ -12,16 +12,17 @@
     app.controller('ex10Controller', function ($scope, $rootScope) {
         $rootScope.demoId = 'ex10';
         var vm = this;
+        $scope.total = 0;
 
         $scope.logMessage = 'Click on the  plot to see the percentage of a column wrt total';
 
         // Save the function reference in global object so that FusionCharts link can call 
         // it when called
-        globalContainer.log = vm.log = function(msg){ 
+        $scope.log = function(label, value){ 
             // Since the update is happening outside angular execution context we need 
             // the digest cycle to run to make sure that the view is updated.   
             $scope.$apply(function(){
-                $scope.logMessage = "Percentage is  "+msg+"% of the total";                 
+                $scope.logMessage = `${label} is ${value}% of the total`;                 
             });
         }
         
@@ -51,11 +52,13 @@
         {
             total+=Number(myData[i].value);
         }
-        for(var i=0;i<myData.length;i++)
-        {
-            var ratio=(parseFloat(myData[i].value/total)*100).toFixed(2);
-            var myString="Ratio is : "+ratio+" %";
-            myData[i]["link"]="JavaScript:globalContainer.log("+ratio+");";
+        $scope.total = total;
+
+        $scope.events = {
+            dataplotclick: function(e,a){
+                var ratio=(parseFloat(a.dataValue/$scope.total)*100).toFixed(2);
+                $scope.log(a.categoryLabel, ratio);
+            }
         }
         
         $scope.myDataSource=DataSource;

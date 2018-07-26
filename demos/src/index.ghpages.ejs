@@ -11,6 +11,7 @@
         <script type="text/javascript" src="https://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
         <script type="text/javascript" src="https://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.ocean.js"></script>
         <script type="text/javascript" src="demos/themes/fusioncharts.theme.fusion.js"></script>
+        <script type="text/javascript" src="demos/themes/fusioncharts.theme.gammel.js"></script>
         <script type="text/javascript" src="demos/js/angular-fusioncharts.min.js"></script>
         <script type="text/javascript" src="demos/js/app.js"></script>
         <% for(var i=0; i<demos.length; i++) { %>
@@ -122,9 +123,9 @@
             </div>
             </div>
             <div class="col-md-3">
-                <div class="list-group" role="tablist">
+                <div class="list-group" role="tablist" style="height: 700px; overflow-y: scroll;border:1px solid lightgray; border-radius:5px">
                     <% for(var i=0; i<demos.length; i++) { %>
-                        <a href="#/demos/<%=demos[i].id %>" class="list-group-item">
+                        <a href="#/demos/<%=demos[i].id %>" class="list-group-item" ng-class="{ active : '<%=demos[i].id %>' === demoId}">
                             <h4><%= demos[i].title %></h4>
                             <p><%= demos[i].desc %></p>
                         </a>
@@ -145,14 +146,14 @@
 <h3>Step 2: Include <code>ng-fusioncharts</code> in your module</h3>
 <p>In the app, include <code>ng-fusioncharts</code> as a dependency. If you looking for where to add the dependency, look for the call to <code>angular.module</code> in your code.</p>
 <pre><code>angular.module("myApp", ["ng-fusioncharts"])</code></pre>
-<h3>Step 3: Add the <code>fc-chart</code> directive</h3>
+<h3>Step 3: Add the <code>fusioncharts</code> directive</h3>
 <p>In your HTML, find the section where you wish to add the chart and add a <code>&lt;div&gt;</code> with the <code>fc-chart</code> directive. We are assuming it's inside a controller called <code>MyController</code> which would change based on your usage.</p>
 <pre><code class="ng-binding">&lt;div ng-controller="MyController"&gt;
-  &lt;div fc-chart
-       fc-width="600"
-       fc-height="400"
-       fc-type="column2d"
-       fc-dataSource="" &gt;
+  &lt;div fusioncharts
+       width="600"
+       height="400"
+       type="column2d"
+       datasource="{{myDataSource}}" &gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
 <p>Now this is bound to a datasource with the <code>myDataSource</code> scope object.</p>
@@ -160,32 +161,26 @@
 <p>In the previous code, we are binding to a scope variable <code>myDataSource</code>, but that hasn't been defined yet.</p>
 <p>In your controller, set the DataSource as you would for a regular FusionCharts JSON Format DataSource (see <a href="http://docs.fusioncharts.com/tutorial-getting-started-your-first-charts-building-your-first-chart.html">this tutorial</a> for a general introduction to this format).</p>
 <pre><code>app.controller('MyController', function ($scope) {
-  $scope.myDataSource = {
-    chart: {
-        caption: "Harry's SuperMart",
-        subCaption: "Top 5 stores in last month by revenue",
-    },
-    data:[{
-        label: "Bakersfield Central",
-        value: "880000"
-    },
-    {
-        label: "Garden Groove harbour",
-        value: "730000"
-    },
-    {
-        label: "Los Angeles Topanga",
-        value: "590000"
-    },
-    {
-        label: "Compton-Rancho Dom",
-        value: "520000"
-    },
-    {
-        label: "Daly City Serramonte",
-        value: "330000"
-    }]
-  };
+        $scope.myDataSource = {
+            "chart": {
+              "caption": "Countries With Most Oil Reserves [2017-18]",
+              "subCaption": "In MMbbl = One Million barrels",
+              "xAxisName": "Country",
+              "yAxisName": "Reserves (MMbbl)",
+              "numberSuffix": "K",
+              "theme": "fusion",
+            },
+            "data": [
+                { "label": "Venezuela", "value": "290" },
+                { "label": "Saudi", "value": "260" },
+                { "label": "Canada", "value": "180" },
+                { "label": "Iran", "value": "140" },
+                { "label": "Russia", "value": "115" },
+                { "label": "UAE", "value": "100" },
+                { "label": "US", "value": "30" },
+                { "label": "China", "value": "30"}
+            ]
+        };
 });</code></pre>
 <p>And your chart should display when you load the page. </p>
 <h3>Licensing</h3>

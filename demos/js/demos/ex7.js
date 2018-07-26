@@ -31,12 +31,11 @@
             ]
         };
 
-        $scope.selectedValue = "nothing";
-
         $scope.events = {
             dataplotrollover: function (ev, props) {
                 $scope.$apply(function () {
                     $scope.selectedValue = props.displayValue;
+                    $scope.selectedLabel = props.categoryLabel;
                 });
             }
         }

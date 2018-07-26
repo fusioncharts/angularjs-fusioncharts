@@ -1,5 +1,27 @@
 <% if(src=== "js") { %>
-
+var myApp = angular.module('myApp', ['ng-fusioncharts']);
 <% } else if(src==="html") { %>
-<fusioncharts dataformat="xmlurl" datasource="data/data.xml" type="column2d" width="600" height="400"></fusioncharts>
+<!-- 
+    Include script files in your index.html
+    ------------------------------------------
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/fusioncharts.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>
+    <script type="text/javascript" src="path/to/angularjs-fusioncharts.min.js"></script>
+   
+    Include Theme CSS File
+    ------------------------------------------
+    <link rel="stylesheet" href="path/to/fusioncharts/themes/fusioncharts.theme.fusion.css"/>
+-->
+
+<!-- In the HTML file -->  
+<div ng-app='myApp'>
+  <fusioncharts
+    dataformat="xmlurl"
+    datasource="data/data.xml"
+    type="column2d"
+    width="600"
+    height="400">
+  </fusioncharts>
+</div>
 <% } %>
