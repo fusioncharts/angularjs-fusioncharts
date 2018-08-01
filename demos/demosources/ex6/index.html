@@ -1,16 +1,33 @@
-<style >
-    .btn { font-family: 'Source Sans Pro'; }
-    .btn.btn-primary { background: #4a4d8c;  transition: all 300ms;}
-    .btn.btn-primary:hover{ background: #5c62b5; }
-    .btn.btn-primary:active{ background:#4a4d8c }
-</style>
-<div style="display: flex;justify-content: center">
-    <div fusioncharts
-    width="600" 
-    height="400"
-    type="column2d",
-    datasource="{{dataSource}}"
-    ></div>
-</div>
+<style>
+    .btn {
+        font-family: 'Source Sans Pro';
+    }
 
-<div style='display: flex; justify-content: center'><a class="btn btn-primary" ng-click="updateMyChartData()">Click me to change data</a></div>
+    .btn.btn-primary {
+        background: #4a4d8c;
+        transition: all 300ms;
+    }
+
+    .btn.btn-primary:hover {
+        background: #5c62b5;
+    }
+
+    .btn.btn-primary:active {
+        background: #4a4d8c
+    }
+</style>
+<div class="card shadow">
+    <div class="card-body chart-wrapper">
+        <div class="chart-wrapper-inner">
+            <div id="chart-container">
+                <div style="display: flex;justify-content: center">
+                    <div fusioncharts width="600" height="400" type="column2d" , datasource="{{dataSource}}"></div>
+                </div>
+
+                <div style='display: flex; justify-content: center'>
+                    <a class="btn btn-outline-secondary btn-sm" ng-click="updateMyChartData()">Click me to change data</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

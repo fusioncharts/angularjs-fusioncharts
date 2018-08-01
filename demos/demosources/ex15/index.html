@@ -1,25 +1,37 @@
-<style >
-    .btn { font-family: 'Source Sans Pro'; }
-    .btn.btn-primary { background: #4a4d8c;  transition: all 300ms;}
-    .btn.btn-primary:hover{ background: #5c62b5; }
-    .btn.btn-primary:active{ background:#4a4d8c }
+<style>
+    .btn {
+        font-family: 'Source Sans Pro';
+    }
+
+    .btn.btn-primary {
+        background: #4a4d8c;
+        transition: all 300ms;
+    }
+
+    .btn.btn-primary:hover {
+        background: #5c62b5;
+    }
+
+    .btn.btn-primary:active {
+        background: #4a4d8c
+    }
 </style>
+<div class="card shadow">
+    <div class="card-body chart-wrapper">
+        <div class="chart-wrapper-inner">
+            <div id="chart-container">
 
-<fusioncharts
-   width="700"
-   height="400"
-   type="column2D"
-   datasource="{{firstDataSource}}"
-   >
-</fusioncharts>
 
-<fusioncharts
-   width="600"
-   height="600"
-   type="stackedcolumn2d"
-   datasource="{{secondDataSource}}">
-</fusioncharts>
+                <fusioncharts width="700" height="400" type="column2D" datasource="{{firstDataSource}}">
+                </fusioncharts>
 
-<div style="display: flex;justify-content: center">
-    <button ng-click="exportChart()" class="btn btn-primary">Export both charts as a single PDF</button>
+                <fusioncharts width="600" height="600" type="stackedcolumn2d" datasource="{{secondDataSource}}">
+                </fusioncharts>
+
+                <div style="display: flex;justify-content: center">
+                    <button ng-click="exportChart()" class="btn btn-outline-secondary btn-sm">Export both charts as a single PDF</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

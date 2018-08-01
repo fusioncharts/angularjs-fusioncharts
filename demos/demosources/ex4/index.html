@@ -1,12 +1,10 @@
-<fusioncharts
-    width="600" 
-    height="400"
-    type="column2d",
-    datasource="{{dataSource}}"
-    ></fusioncharts>
-<div fusioncharts
-    width="600" 
-    height="400"
-    type="column2d",
-    datasource="{{dataSource}}"
-    ></div>
+<div class="card shadow">
+    <div class="card-body chart-wrapper">
+        <div class="chart-wrapper-inner">
+            <div id="chart-container">
+                <fusioncharts width="600" height="400" type="column2d" , datasource="{{dataSource}}"></fusioncharts>
+                <div fusioncharts width="600" height="400" type="column2d" , datasource="{{dataSource}}"></div>
+            </div>
+        </div>
+    </div>
+</div>
