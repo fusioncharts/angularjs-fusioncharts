@@ -14,7 +14,7 @@
             theme:'dracula', 
             tabSize: '4',
             smartIndent: true,
-            readOnly: 'nocursor',
+            readOnly: true,
             mode:'javascript'
         };
         $scope.editorOptionsHTML = { 
@@ -22,7 +22,7 @@
             theme:'dracula', 
             tabSize: '4',
             smartIndent: true,
-            readOnly: 'nocursor',
+            readOnly: true,
             mode:'xml'
         };
 
@@ -98,7 +98,7 @@
                     theme:'dracula', 
                     tabSize: '4',
                     smartIndent: true,
-                    readOnly: 'nocursor',
+                    readOnly: true,
                     mode:'javascript'
                 };
                 scope.editorOptionsHTML = { 
@@ -106,7 +106,7 @@
                     theme:'dracula', 
                     tabSize: '4',
                     smartIndent: true,
-                    readOnly: 'nocursor',
+                    readOnly: true,
                     mode:'xml'
                 };
 
