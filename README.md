@@ -38,8 +38,9 @@ To learn what you can do using this Angular charts plugin, explore some [live de
 In your index.html
 ```xml
   <script type="text/javascript" src="node_modules/fusioncharts/fusioncharts.js"></script>
-  <script type="text/javascript" src="/path/to/angular.js"></script>
-  <script type="text/javascript" src="/path/to/angularjs-fusioncharts.js"></script>
+  <script type="text/javascript" src="node_modules/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>
+  <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+  <script type="text/javascript" src="node_modules/angularjs-fusioncharts/angularjs-fusioncharts.js"></script>
 ```
 
 ### Step 2: Include ng-fusioncharts in your module
@@ -110,8 +111,14 @@ require('angular-fusioncharts');
 // Require Chart modules 
 var Charts = require('fusioncharts/fusioncharts.charts');
 
+// Require Fusion theme
+var FusionTheme = require('fusioncharts/themes/fusioncharts.theme.fusion');
+
 // Initialize Charts with FusionCharts instance
 Charts(FusionCharts);
+
+// Initialize FusionTheme with FusionCharts instance
+FusionTheme(FusionCharts);
 
 var app = angular.module('myApp', [ 'ng-fusioncharts' ]);
 
