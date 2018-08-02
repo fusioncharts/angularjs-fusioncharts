@@ -15,7 +15,7 @@ To learn what you can do using this Angular charts plugin, explore some [live de
 In your index.html
 ```xml
   <script type="text/javascript" src="/path/to/fusioncharts/fusioncharts.js"></script>
-  <script type="text/javascript" src="/path/to/fusioncharts/themes/fusioncharts.fusion.js"></script>
+  <script type="text/javascript" src="/path/to/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>
   <script type="text/javascript" src="/path/to/angular.js"></script>
   <script type="text/javascript" src="/path/to/angularjs-fusioncharts.js"></script>
 ```
