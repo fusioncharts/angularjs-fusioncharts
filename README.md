@@ -34,13 +34,13 @@ Use this AngularJS charts plugin to add interactive charts to your web and mobil
 To learn what you can do using this Angular charts plugin, explore some [live demos](http://www.fusioncharts.com/angularjs-charts/).
 
 ### Usage
-#### Step 1: Include angularjs-fusioncharts.js and fusioncharts
+#### Step 1: Include angular-fusioncharts.js and fusioncharts
 In your index.html
 ```xml
   <script type="text/javascript" src="node_modules/fusioncharts/fusioncharts.js"></script>
   <script type="text/javascript" src="node_modules/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>
   <script type="text/javascript" src="node_modules/angular/angular.js"></script>
-  <script type="text/javascript" src="node_modules/angularjs-fusioncharts/angularjs-fusioncharts.js"></script>
+  <script type="text/javascript" src="node_modules/angularjs-fusioncharts/dist/angular-fusioncharts.js"></script>
 ```
 
 ### Step 2: Include ng-fusioncharts in your module
@@ -106,7 +106,7 @@ var angular = require('angular');
 var FusionCharts = require('fusioncharts');
 
 // Include angularjs-fusioncharts 
-require('angular-fusioncharts');
+require('angularjs-fusioncharts');
 
 // Require Chart modules 
 var Charts = require('fusioncharts/fusioncharts.charts');
@@ -181,7 +181,6 @@ Load  it in browser , Chart should get displayed
 
 Following tutorials will help you get started:
 
-- Official blog post on using this plugin: [adding charts to your AngularJS app](http://www.fusioncharts.com/blog/2015/03/angular-fusioncharts/).
 - Tutorial by a user of this plugin: [How to Build Charts in Angular](https://davidwalsh.name/angular-charts)
 
 ### Documentation
