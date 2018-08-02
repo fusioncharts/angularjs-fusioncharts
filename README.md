@@ -7,6 +7,29 @@ Use this AngularJS charts plugin to add interactive charts to your web and mobil
 
  You can access all the rich charting features like events, annotations, macros, themes, image-export etc. to make your visualizations stand-out.
 
+ ### Installation
+ 
+
+ Install fusioncharts library
+ ```bash
+ $ npm install fusioncharts --save
+ ```  
+ Alternatively you can use downloaded fusioncharts files.
+
+
+ Install angular 1.x.x 
+ ```bash
+ # Any angular 1.x version is compatible
+ $ npm install angular@1.7.2 --save 
+ ```
+ 
+ Install angularjs-fusioncharts module
+ ```bash
+ $ npm install angularjs-fusioncharts --save
+ ```
+ Alternatively you can use downloaded angularjs-fusioncharts wrapper.
+ 
+
 ### Demos
 To learn what you can do using this Angular charts plugin, explore some [live demos](http://www.fusioncharts.com/angularjs-charts/).
 
@@ -14,7 +37,7 @@ To learn what you can do using this Angular charts plugin, explore some [live de
 #### Step 1: Include angularjs-fusioncharts.js and fusioncharts
 In your index.html
 ```xml
-  <script type="text/javascript" src="/path/to/fusioncharts.js"></script>
+  <script type="text/javascript" src="node_modules/fusioncharts/fusioncharts.js"></script>
   <script type="text/javascript" src="/path/to/angular.js"></script>
   <script type="text/javascript" src="/path/to/angularjs-fusioncharts.js"></script>
 ```
@@ -72,6 +95,80 @@ app.controller('MyController', function($scope){
 ```
 And your chart should display when you load the page.
 
+### Using `require()` syntax
+In script.js
+```javascript
+//  Require AngularJS 
+var angular = require('angular');
+
+// Require FusionCharts 
+var FusionCharts = require('fusioncharts');
+
+// Include angularjs-fusioncharts 
+require('angular-fusioncharts');
+
+// Require Chart modules 
+var Charts = require('fusioncharts/fusioncharts.charts');
+
+// Initialize Charts with FusionCharts instance
+Charts(FusionCharts);
+
+var app = angular.module('myApp', [ 'ng-fusioncharts' ]);
+
+app.controller('MyController', ['$scope', function($scope) {
+  $scope.dataSource = {
+    "chart": {
+      "caption": "Countries With Most Oil Reserves [2017-18]",
+      "subCaption": "In MMbbl = One Million barrels",
+      "xAxisName": "Country",
+      "yAxisName": "Reserves (MMbbl)",
+      "numberSuffix": "K",
+      "theme": "fusion"
+    },
+    "data": [
+      { "label": "Venezuela", "value": "290" },
+      { "label": "Saudi", "value": "260" },
+      { "label": "Canada", "value": "180" },
+      { "label": "Iran", "value": "140" },
+      { "label": "Russia", "value": "115" },
+      { "label": "UAE", "value": "100" },
+      { "label": "US", "value": "30" },
+      { "label": "China", "value": "30" }
+    ]
+  };
+}]);
+```
+Use a bundler like `browserify` to bundle the script   
+See the installation docs [here](http://browserify.org/)
+
+```bash
+$ browserify script.js -o bundle.js
+```
+In `index.html`
+```xml
+<html>
+  <head>
+
+    <!-- Include compiled bundle in script tag -->
+    <script type="text/javascript" src="./bundle.js"></script>
+  </head>
+
+  <body ng-app="myApp">
+    <div ng-controller="MyController">
+      <div
+        fusioncharts
+        width="600"
+        height="400"
+        type="column2d"
+        datasource="{{myDataSource}}">
+      </div>
+    </div>
+  </body>
+</html>
+
+
+```
+Load  it in browser , Chart should get displayed
 
 ### Tutorial
 
