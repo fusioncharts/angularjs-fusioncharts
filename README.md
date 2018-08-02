@@ -10,6 +10,69 @@ Use this AngularJS charts plugin to add interactive charts to your web and mobil
 ### Demos
 To learn what you can do using this Angular charts plugin, explore some [live demos](http://www.fusioncharts.com/angularjs-charts/).
 
+### Usage
+#### Step 1: Include angularjs-fusioncharts.js and fusioncharts
+In your index.html
+```xml
+  <script type="text/javascript" src="/path/to/fusioncharts.js"></script>
+  <script type="text/javascript" src="/path/to/angular.js"></script>
+  <script type="text/javascript" src="/path/to/angularjs-fusioncharts.js"></script>
+```
+
+### Step 2: Include ng-fusioncharts in your module
+In the app, include ng-fusioncharts as a dependency. If you looking for where to add the dependency, look for the call to angular.module in your code.
+
+```javascript
+angular.module("myApp", ["ng-fusioncharts"]);
+```
+
+### Step 3: Add the fusioncharts directive
+In your HTML, find the section where you wish to add the chart and add a <div> with the fusioncharts directive. We are assuming it's inside a controller called MyController which would change based on your usage.
+
+```xml
+  <div ng-controller="MyController">
+    <div
+      fusioncharts
+      width="600"
+      height="400"
+      type="column2d"
+      datasource="{{myDataSource}}">
+    </div>
+  </div>
+```
+
+### Step 4:Populate required variables in controller
+In the previous code, we are binding to a scope variable myDataSource, but that hasn't been defined yet. In your controller, set the DataSource as you would for a regular FusionCharts JSON format DataSource ([see this](http://docs.fusioncharts.com/tutorial-getting-started-your-first-charts-building-your-first-chart.html) tutorial for a general introduction to this format).
+
+
+```javascript
+app.controller('MyController', function($scope){
+  $scope.dataSource = {
+    "chart": {
+      "caption": "Countries With Most Oil Reserves [2017-18]",
+      "subCaption": "In MMbbl = One Million barrels",
+      "xAxisName": "Country",
+      "yAxisName": "Reserves (MMbbl)",
+      "numberSuffix": "K",
+      "theme": "fusion"
+    },
+    "data": [
+      { "label": "Venezuela", "value": "290" },
+      { "label": "Saudi", "value": "260" },
+      { "label": "Canada", "value": "180" },
+      { "label": "Iran", "value": "140" },
+      { "label": "Russia", "value": "115" },
+      { "label": "UAE", "value": "100" },
+      { "label": "US", "value": "30" },
+      { "label": "China", "value": "30" }
+    ]
+  };
+
+});
+```
+And your chart should display when you load the page.
+
+
 ### Tutorial
 
 Following tutorials will help you get started:
