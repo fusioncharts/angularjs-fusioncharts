@@ -19,6 +19,23 @@
     div.demo8-controls>a.btn.btn-primary {
         margin: 10px
     }
+
+    .demo8-controls{
+        display: flex;
+        justify-content: center;
+    }
+
+    .demo8-controls > a{
+        margin:5px;
+    }
+    @media (max-width: 460px){
+        .demo8-controls {
+            flex-direction: column;
+        }
+        .demo8-controls > a{
+            margin-bottom: 10px;
+        }
+    }
 </style>
 
 <div class="card shadow">
@@ -26,15 +43,16 @@
         <div class="chart-wrapper-inner">
             <div id="chart-container">
                 <div style="display: flex;justify-content: center">
-                    <div fusioncharts width="600" height="400" type="column2d" , datasource="{{dataSource}}">
+                    <div fusioncharts width="100%" height="400" type="column2d" , datasource="{{dataSource}}">
                     </div>
                 </div>
 
-                <div style="display: flex; justify-content: center" class='demo8-controls'>
+                
+            </div>
+            <div class='demo8-controls'>
                     <a class="btn btn-outline-secondary btn-sm" ng-click="changeBackgroundColor()">Change chart background color</a>
                     <a class="btn btn-outline-secondary btn-sm" ng-click="changeCaptionTextAlignment()">Make Caption text left-aligned</a>
                 </div>
-            </div>
         </div>
     </div>
 </div><!--

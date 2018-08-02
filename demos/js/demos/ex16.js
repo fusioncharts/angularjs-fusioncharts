@@ -12,6 +12,7 @@
   app.controller('ex16Controller', function ($scope, $rootScope) {
     $rootScope.demoId = 'ex16';
     var vm = this;
+    $rootScope.currentTitle = 'Applying a different theme';        
    
     $scope.myDataSource = {
       "chart": {

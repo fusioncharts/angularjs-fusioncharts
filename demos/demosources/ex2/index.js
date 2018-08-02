@@ -9,6 +9,7 @@
 
     app.controller('ex2Controller', function ($scope, $rootScope) {
         $rootScope.demoId = 'ex2';
+        $rootScope.currentTitle = 'A 3D Pie Chart';
         $scope.myDataSource = {
             "chart": {
               "caption": "Recommended Portfolio Split",

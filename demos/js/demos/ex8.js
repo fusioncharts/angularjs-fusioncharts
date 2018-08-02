@@ -9,6 +9,7 @@
 
     app.controller('ex8Controller', function ($scope, $rootScope) {
         $rootScope.demoId = 'ex8';
+        $rootScope.currentTitle = 'Update chart attribute from scope';        
 
         $scope.dataSource = {
             "chart": {

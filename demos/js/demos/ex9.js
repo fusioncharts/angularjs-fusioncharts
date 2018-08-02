@@ -9,6 +9,8 @@
 
     app.controller('ex9Controller', function ($scope, $rootScope) {
         $rootScope.demoId = 'ex9';
+        $rootScope.currentTitle = 'Separate objects for attributes';        
+
         $scope.attrs = {
             "caption": "Twitter Mentions",
             "yAxisName": "Number of mentions",

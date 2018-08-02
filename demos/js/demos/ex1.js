@@ -9,6 +9,7 @@
 
     app.controller('ex1Controller', function ($scope, $rootScope) {
         $rootScope.demoId = 'ex1';
+        $rootScope.currentTitle = 'A Simple Chart';
         $scope.myDataSource = {
             "chart": {
               "caption": "Countries With Most Oil Reserves [2017-18]",

@@ -9,6 +9,7 @@
 
     app.controller('ex3Controller', function ($scope, $rootScope) {
         $rootScope.demoId = 'ex3';
+        $rootScope.currentTitle = 'A Column, Line and Area Combi Chart';
         $scope.dataSource =  {
             "chart": {
                 "caption": "Expense Analysis",

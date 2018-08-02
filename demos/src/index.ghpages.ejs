@@ -199,8 +199,8 @@
                     <!-- Chart selection for mobile devices - start -->
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center d-md-none">
-                            <div id="mobileChart-selector" class="base-dropdown chart-selector">
-                                <div class="selector">A Simple Column Chart</div>
+                            <div id="mobileChart-selector" class="base-dropdown chart-selector" ng-click='toggleModal(true)'>
+                                <div class="selector">{{currentTitle}}</div>
                                 <div class="placeholder">Quick Demo:</div>
                                 <div class="caret">
                                     <i class="fc_dropdown"></i>
@@ -209,29 +209,19 @@
                         </div>
                     </div>
                     <!-- Modal for selection (Only for Mobile Devices) -->
-                    <div id="myModal" class="modal">
+                    <div id="myModal" class="modal" ng-class="isModalOpen ? modalClasses : 'fade'"   ng-style="isModalOpen ? { display:'block', 'padding-left': '0px'} : {display:'none'}">
 
                         <!-- Modal content -->
                         <div class="modal-content">
                             <div class="nav-list">
-                                <div class="nav-item selected">
-                                    <div class="p">A Simple Column Chart</div>
-                                </div>
-                                <div class="nav-item">
-                                    <div class="p">A 3D Pie Chart</div>
-                                </div>
-                                <div class="nav-item">
-                                    <div class="p">A Column, Area and Line Combi Chart</div>
-                                </div>
-                                <div class="nav-item">
-                                    <div class="p">Fetch data from JSON URL</div>
-                                </div>
-                                <div class="nav-item">
-                                    <div class="p">Update chart data from component</div>
-                                </div>
-                                <div class="nav-item">
-                                    <div class="p">Trigger events from chart</div>
-                                </div>
+                                <% for(var i=0; i<demos.length; i++) { %>
+                                    <a href="#/demos/<%=demos[i].id %>" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : '<%=demos[i].id %>' === demoId}">
+                                            <div class="p"><%= demos[i].title %></div>
+                                        </div>
+                                    </a>
+                                <% } %>
+
                             </div>
                         </div>
 
@@ -396,7 +386,7 @@
                     <div class="col-12 pt-3">
                         <div class="h5">Support</div>
                         <p>
-                            <a class="ref-link" href="//github.com/fusioncharts/react-fusioncharts-component/issues" target="_blank">GitHub Issues</a> |
+                            <a class="ref-link" href="//github.com/fusioncharts/angularjs-fusioncharts/issues" target="_blank">GitHub Issues</a> |
                             <a class="ref-link" href="mailto:support@fusioncharts.com" target="_blank">Contact FusionCharts Support</a>
                         </p>
                     </div>

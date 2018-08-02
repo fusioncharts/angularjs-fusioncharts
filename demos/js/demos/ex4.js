@@ -9,6 +9,7 @@
 
     app.controller('ex4Controller', function ($scope, $rootScope) {
         $rootScope.demoId = 'ex4';
+        $rootScope.currentTitle = 'Different ways to use the directive';        
         $scope.dataSource = {
             "chart": {
               "caption": "Countries With Most Oil Reserves [2017-18]",

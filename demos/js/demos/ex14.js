@@ -12,6 +12,7 @@
   app.controller('ex14Controller', function ($scope, $rootScope) {
     $rootScope.demoId = 'ex14';
     var vm = this;
+    $rootScope.currentTitle = 'World Map';        
 
 
 

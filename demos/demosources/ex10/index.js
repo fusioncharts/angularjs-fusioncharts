@@ -11,6 +11,8 @@
 
     app.controller('ex10Controller', function ($scope, $rootScope) {
         $rootScope.demoId = 'ex10';
+        $rootScope.currentTitle = 'Percentage Calculation';        
+
         var vm = this;
         $scope.total = 0;
 

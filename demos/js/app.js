@@ -30,6 +30,13 @@
         $scope.injectScript = injectScript;
         $scope.directiveUsage = directiveUsage;
         $scope.controllerCode = controllerCode;
+        // Modal Controls
+        $scope.modalClasses = 'show fade in';
+        $scope.isModalOpen = false;
+        
+        $scope.toggleModal = function(status){
+            $scope.isModalOpen = status;
+        };
     });
     app.controller('DemoController', function ($scope, $routeParams, $rootScope) {
         setTimeout(function(){

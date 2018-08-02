@@ -11,6 +11,8 @@
 
   app.controller('ex12Controller', function ($scope, $rootScope) {
     $rootScope.demoId = 'ex12';
+    $rootScope.currentTitle = 'Add drill-down to chart';        
+
     var vm = this;
 
 

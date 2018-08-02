@@ -12,6 +12,8 @@
   app.controller('ex15Controller', function ($scope, $rootScope) {
     $rootScope.demoId = 'ex15';
     var vm = this;
+    $rootScope.currentTitle = 'Export multiple charts';        
+
     $scope.firstDataSource  = {
       "chart": {
         "caption": "Countries With Most Oil Reserves [2017-18]",

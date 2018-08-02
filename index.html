@@ -304,8 +304,8 @@
                     <!-- Chart selection for mobile devices - start -->
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center d-md-none">
-                            <div id="mobileChart-selector" class="base-dropdown chart-selector">
-                                <div class="selector">A Simple Column Chart</div>
+                            <div id="mobileChart-selector" class="base-dropdown chart-selector" ng-click='toggleModal(true)'>
+                                <div class="selector">{{currentTitle}}</div>
                                 <div class="placeholder">Quick Demo:</div>
                                 <div class="caret">
                                     <i class="fc_dropdown"></i>
@@ -314,29 +314,109 @@
                         </div>
                     </div>
                     <!-- Modal for selection (Only for Mobile Devices) -->
-                    <div id="myModal" class="modal">
+                    <div id="myModal" class="modal" ng-class="isModalOpen ? modalClasses : 'fade'"   ng-style="isModalOpen ? { display:'block', 'padding-left': '0px'} : {display:'none'}">
 
                         <!-- Modal content -->
                         <div class="modal-content">
                             <div class="nav-list">
-                                <div class="nav-item selected">
-                                    <div class="p">A Simple Column Chart</div>
-                                </div>
-                                <div class="nav-item">
-                                    <div class="p">A 3D Pie Chart</div>
-                                </div>
-                                <div class="nav-item">
-                                    <div class="p">A Column, Area and Line Combi Chart</div>
-                                </div>
-                                <div class="nav-item">
-                                    <div class="p">Fetch data from JSON URL</div>
-                                </div>
-                                <div class="nav-item">
-                                    <div class="p">Update chart data from component</div>
-                                </div>
-                                <div class="nav-item">
-                                    <div class="p">Trigger events from chart</div>
-                                </div>
+                                
+                                    <a href="#/demos/ex1" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex1' === demoId}">
+                                            <div class="p">A Simple Chart</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex2" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex2' === demoId}">
+                                            <div class="p">A 3D Pie Chart</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex3" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex3' === demoId}">
+                                            <div class="p">A Column, Line and Area Combi Chart</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex4" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex4' === demoId}">
+                                            <div class="p">Different ways to use the directive</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex5a" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex5a' === demoId}">
+                                            <div class="p">Fetch data from a XML URL</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex5" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex5' === demoId}">
+                                            <div class="p">Fetch data from a JSON URL</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex6" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex6' === demoId}">
+                                            <div class="p">Update chart data from scope</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex7" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex7' === demoId}">
+                                            <div class="p">Trigger scope event from chart</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex8" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex8' === demoId}">
+                                            <div class="p">Update chart attribute from scope</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex9" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex9' === demoId}">
+                                            <div class="p">Separate objects for attributes</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex15" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex15' === demoId}">
+                                            <div class="p">Export multiple charts</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex12" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex12' === demoId}">
+                                            <div class="p">Add drill-down to chart</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex13" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex13' === demoId}">
+                                            <div class="p">A simple gauge</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex14" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex14' === demoId}">
+                                            <div class="p">World Map</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex10" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex10' === demoId}">
+                                            <div class="p">Percentage Calculation</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex16" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex16' === demoId}">
+                                            <div class="p">Applying a different theme</div>
+                                        </div>
+                                    </a>
+                                
+
                             </div>
                         </div>
 
@@ -621,7 +701,7 @@
                     <div class="col-12 pt-3">
                         <div class="h5">Support</div>
                         <p>
-                            <a class="ref-link" href="//github.com/fusioncharts/react-fusioncharts-component/issues" target="_blank">GitHub Issues</a> |
+                            <a class="ref-link" href="//github.com/fusioncharts/angularjs-fusioncharts/issues" target="_blank">GitHub Issues</a> |
                             <a class="ref-link" href="mailto:support@fusioncharts.com" target="_blank">Contact FusionCharts Support</a>
                         </p>
                     </div>

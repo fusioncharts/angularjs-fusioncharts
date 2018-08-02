@@ -9,6 +9,8 @@
 
     app.controller('ex7Controller', function ($scope, $rootScope) {
         $rootScope.demoId = 'ex7';
+        $rootScope.currentTitle = 'Trigger scope event from chart';        
+
 
         $scope.dataSource = {
             "chart": {

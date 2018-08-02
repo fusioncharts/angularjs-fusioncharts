@@ -9,6 +9,7 @@
 
     app.controller('ex6Controller', function ($scope, $rootScope) {
         $rootScope.demoId = 'ex6';
+        $rootScope.currentTitle = 'Update chart data from scope';        
 
         let getRandomNumber = function () {
             var max = 290, min = 30;

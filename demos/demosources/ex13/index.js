@@ -12,7 +12,7 @@
   app.controller('ex13Controller', function ($scope, $rootScope) {
     $rootScope.demoId = 'ex13';
     var vm = this;
-
+    $rootScope.currentTitle = 'A simple gauge';        
 
 
     var DataSource = dataSource = {
