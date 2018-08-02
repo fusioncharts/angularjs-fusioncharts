@@ -13,7 +13,9 @@
     "url": "https://github.com/fusioncharts/angular-fusioncharts/issues"
   },
   "homepage": "https://www.fusioncharts.com/angularjs-charts/",
-  "dependencies": {},
+  "dependencies": {
+    "fusioncharts": "^3.13.0"
+  },
   "devDependencies": {
     "ejs": "^1.0.0",
     "grunt": "^0.4.5",
