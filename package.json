@@ -1,5 +1,5 @@
 {
-  "name": "angular-fusioncharts",
+  "name": "angularjs-fusioncharts",
   "version": "3.1.1",
   "description": "Angular plugin for FusionCharts",
   "main": "dist/angular-fusioncharts.js",
@@ -14,7 +14,6 @@
   },
   "homepage": "https://www.fusioncharts.com/angularjs-charts/",
   "dependencies": {
-    "fusioncharts": "^3.13.0"
   },
   "devDependencies": {
     "ejs": "^1.0.0",
