@@ -1,16 +1,16 @@
 {
-  "name": "angular-fusioncharts",
-  "version": "3.1.1",
+  "name": "angularjs-fusioncharts",
+  "version": "4.0.0",
   "description": "Angular plugin for FusionCharts",
   "main": "dist/angular-fusioncharts.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/fusioncharts/angular-fusioncharts.git"
+    "url": "git://github.com/fusioncharts/angularjs-fusioncharts.git"
   },
   "author": "FusionCharts",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fusioncharts/angular-fusioncharts/issues"
+    "url": "https://github.com/fusioncharts/angularjs-fusioncharts/issues"
   },
   "homepage": "https://www.fusioncharts.com/angularjs-charts/",
   "dependencies": {},

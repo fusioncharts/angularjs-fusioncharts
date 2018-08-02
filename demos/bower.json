@@ -1,10 +1,8 @@
 {
-  "name": "angular-fusioncharts-demos",
+  "name": "angularjs-fusioncharts-demos",
   "version": "0.0.1",
-  "homepage": "https://github.com/fusioncharts/angular-fusioncharts",
-  "authors": [
-    "Ameen Ahmed <ameen.ahmed.b@gmail.com>"
-  ],
+  "homepage": "https://github.com/fusioncharts/angularjs-fusioncharts",
+  "author": "FusionCharts Technologies  <support@fusioncharts.com>",
   "license": "MIT",
   "ignore": [
     "**/.*",
