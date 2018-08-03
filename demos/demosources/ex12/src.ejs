@@ -1,0 +1,146 @@
+<% if(src=== "js") { %>
+var myApp = angular.module('myApp', ['ng-fusioncharts']);
+myApp.controller('MyController', ['$scope', function($scope){
+    var DataSource = {
+        "chart": {
+            "caption": "Sales of top 3 juice flavors last year",
+            "subcaption": "Click on a column to see details",
+            "xaxisname": "Flavor",
+            "yaxisname": "Amount (In USD)",
+            "numberprefix": "$",
+            "theme": "fusion",
+            "rotateValues": "0",
+            "id": "myChart"
+        },
+        "data": [
+            { 
+                "label": "Apple", 
+                "value": "810000", 
+                "link": "newchart-xml-apple"
+            },
+            {
+                "label": "Cranberry",
+                "value": "620000",
+                "link": "newchart-xml-cranberry"
+            },
+            {
+                "label": "Grape",
+                "value": "350000",
+                "link": "newchart-xml-grapes"
+            }
+        ],
+        "linkeddata": [
+            {
+                "id": "apple",
+                "linkedchart": {
+                    "chart": {
+                        "caption": "Apple Juice - Quarterly Sales",
+                        "subcaption": "Last year",
+                        "numberprefix": "$",
+                        "theme": "fusion",
+                        "rotateValues": "0",
+                        "plottooltext": "$label, $dataValue,  $percentValue"
+                    },
+                    "data": [
+                        { 
+                            "label": "Q1",
+                            "value": "157000"
+                        },
+                        {
+                            "label": "Q2",
+                            "value": "172000"
+                        },
+                        {
+                            "label": "Q3",
+                            "value": "206000"
+                        },
+                        {
+                            "label": "Q4",
+                            "value": "275000"
+                        }
+                    ]
+                }
+            },
+            {
+                "id": "cranberry",
+                "linkedchart": {
+                    "chart": {
+                        "caption": "Cranberry Juice - Quarterly Sales",
+                        "subcaption": "Last year",
+                        "numberprefix": "$",
+                        "theme": "fusion",
+                        "plottooltext": "$label, $dataValue,  $percentValue"
+                    },
+                    "data": [
+                        { "label": "Q1", "value": "102000" },
+                        { "label": "Q2", "value": "142000" },
+                        { "label": "Q3", "value": "187000" },
+                        { "label": "Q4", "value": "189000" }
+                    ]
+                }
+            },
+            {
+                "id": "grapes",
+                "linkedchart": {
+                    "chart": {
+                        "caption": "Grape Juice - Quarterly Sales",
+                        "subcaption": "Last year",
+                        "numberprefix": "$",
+                        "theme": "fusion",
+                        "rotateValues": "0",
+                        "plottooltext": "$label, $dataValue,  $percentValue"
+                    },
+                    "data": [
+                        { "label": "Q1", "value": "45000" },
+                        { "label": "Q2", "value": "72000" },
+                        { "label": "Q3", "value": "95000" },
+                        { "label": "Q4", "value": "108000" }
+                    ]
+                }
+            }
+        ]
+    };
+    $scope.myDataSource = DataSource;
+
+    $scope.events = {
+        renderComplete: function (e, a) {
+            e.sender.configureLink({
+            type: "pie2d",
+            renderAt: "myChart",
+            overlayButton: {
+                message: 'Back',
+                fontColor: '880000',
+                bgColor: 'FFEEEE',
+                borderColor: '660000'
+            }
+            }, 0)
+        }
+    };
+}]);
+<% } else if(src==="html") { %>
+<!-- 
+    Include script files in your index.html
+    ------------------------------------------
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/fusioncharts.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>
+    <script type="text/javascript" src="path/to/angularjs-fusioncharts.min.js"></script>
+   
+    Include Theme CSS File
+    ------------------------------------------
+    <link rel="stylesheet" href="path/to/fusioncharts/themes/fusioncharts.theme.fusion.css"/>
+-->
+<div ng-app='myApp'>
+    <div ng-controller='MyController'> 
+        <fusioncharts
+            type="column2d"
+            width="700"
+            height="400"
+            dataformat="json"
+            datasource="{{myDataSource}}"
+            events="events"
+            id="myChart">
+        </fusioncharts>
+    </div>
+</div>
+  <% } %>

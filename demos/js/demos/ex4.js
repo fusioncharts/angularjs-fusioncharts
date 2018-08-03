@@ -9,33 +9,26 @@
 
     app.controller('ex4Controller', function ($scope, $rootScope) {
         $rootScope.demoId = 'ex4';
+        $rootScope.currentTitle = 'Different ways to use the directive';        
         $scope.dataSource = {
-            chart: {
-                caption: "Harry's SuperMart",
-                subCaption: "Top 5 stores in last month by revenue",
-                numberPrefix: "$",
-                theme: "ocean"
+            "chart": {
+              "caption": "Countries With Most Oil Reserves [2017-18]",
+              "subCaption": "In MMbbl = One Million barrels",
+              "xAxisName": "Country",
+              "yAxisName": "Reserves (MMbbl)",
+              "numberSuffix": "K",
+              "theme": "fusion",
             },
-            data:[{
-                label: "Bakersfield Central",
-                value: "880000"
-            },
-            {
-                label: "Garden Groove harbour",
-                value: "730000"
-            },
-            {
-                label: "Los Angeles Topanga",
-                value: "590000"
-            },
-            {
-                label: "Compton-Rancho Dom",
-                value: "520000"
-            },
-            {
-                label: "Daly City Serramonte",
-                value: "330000"
-            }]
+            "data": [
+                { "label": "Venezuela", "value": "290" },
+                { "label": "Saudi", "value": "260" },
+                { "label": "Canada", "value": "180" },
+                { "label": "Iran", "value": "140" },
+                { "label": "Russia", "value": "115" },
+                { "label": "UAE", "value": "100" },
+                { "label": "US", "value": "30" },
+                { "label": "China", "value": "30"}
+            ]
         };
     });
         

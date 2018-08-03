@@ -8,6 +8,7 @@
 
 
     app.controller('ex5Controller', function ($scope, $rootScope) {
+        $rootScope.currentTitle = 'Fetch data from a JSON URL';        
         $rootScope.demoId = 'ex5';
     });
         

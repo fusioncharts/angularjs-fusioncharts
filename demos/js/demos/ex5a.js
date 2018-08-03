@@ -7,6 +7,8 @@
     }]);
 
     app.controller('ex5aController', function ($scope, $rootScope) {
+        $rootScope.currentTitle = 'Fetch data from a XML URL';        
+
         $rootScope.demoId = 'ex5a';
     });
 }());

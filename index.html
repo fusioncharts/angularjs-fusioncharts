@@ -1,317 +1,736 @@
 <!doctype html>
 <html>
-    <head>
-        <title>Angular FusionCharts Demos</title>
-        <link rel="canonical" href="http://www.fusioncharts.com/angularjs-charts/">
-        <script type="text/javascript" src="demos/bower_components/jquery/dist/jquery.js"></script>
-        <script type="text/javascript" src="demos/bower_components/angular/angular.js"></script>
-        <script type="text/javascript" src="demos/bower_components/angular-route/angular-route.js"></script>
-        <script type="text/javascript" src="demos/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-        <script type="text/javascript" src="demos/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-        <script type="text/javascript" src="demos/bower_components/prism/prism.js"></script>
-        <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
-        <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.ocean.js"></script>
-        <script type="text/javascript" src="demos/js/angular-fusioncharts.min.js"></script>
-        <script type="text/javascript" src="demos/js/app.js"></script>
-        
-            <script type="text/javascript" src="js/demos/ex1.js"></script>
-        
-            <script type="text/javascript" src="js/demos/ex2.js"></script>
-        
-            <script type="text/javascript" src="js/demos/ex3.js"></script>
-        
-            <script type="text/javascript" src="js/demos/ex4.js"></script>
-        
-            <script type="text/javascript" src="js/demos/ex5.js"></script>
-        
-            <script type="text/javascript" src="js/demos/ex5a.js"></script>
-        
-            <script type="text/javascript" src="js/demos/ex6.js"></script>
-        
-            <script type="text/javascript" src="js/demos/ex7.js"></script>
-        
-            <script type="text/javascript" src="js/demos/ex8.js"></script>
-        
-            <script type="text/javascript" src="js/demos/ex9.js"></script>
 
-            <script type="text/javascript" src="js/demos/ex10.js"></script>
+<head>
+    <title>AngularJS FusionCharts Demos</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS Resources -->
+    <link rel="stylesheet" href="//s3-eu-west-1.amazonaws.com/fcdesignsystem/1.0.0/css/fusionDesign.css">
+    <link rel="stylesheet" href="demos/assets/css/style.css">
+    <link rel="stylesheet" href="demos/assets/css/codemirror.css">
+    <link rel="stylesheet" href="demos/assets/css/dracula.css">
+
+    <!-- JS Resources -->
+    <script type="text/javascript" src="demos/bower_components/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="demos/bower_components/codemirror/lib/codemirror.js"></script>
+    <script type="text/javascript" src="demos/bower_components/codemirror/addon/mode/multiplex.js"></script>
+    <script type="text/javascript" src="demos/bower_components/codemirror/mode/javascript/javascript.js"></script>
+    <script type="text/javascript" src="demos/bower_components/codemirror/mode/htmlembedded/htmlembedded.js"></script>
+    <script type="text/javascript" src="demos/bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+    <script type="text/javascript" src="demos/bower_components/codemirror/mode/xml/xml.js"></script>
+
+    <script type="text/javascript" src="demos/bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="demos/bower_components/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="demos/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="demos/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="demos/bower_components/prism/prism.js"></script>
+    <script type="text/javascript" src="https://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+    <script type="text/javascript" src="https://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.ocean.js"></script>
+    <script type="text/javascript" src="demos/themes/fusioncharts.theme.fusion.js"></script>
+    <script type="text/javascript" src="demos/themes/fusioncharts.theme.gammel.js"></script>
+    <script type="text/javascript" src="demos/js/angular-fusioncharts.min.js"></script>
+    <script type="text/javascript" src="demos/bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+    <script type="text/javascript" src="demos/js/app.js"></script>
+    
+        <script type="text/javascript" src="js/demos/ex1.js"></script>
         
-        <script type="text/javascript">
-            window.fcDemos = {};
-            
-                window.fcDemos['ex1'] =  {
-                    js: "\n$scope.myDataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n        numberPrefix: \"$\",\n        theme: \"ocean\"\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n",
-                    html: "\n    <fusioncharts \n    width=\"60\" \n    height=\"400\"\n    type=\"column2d\"\n    datasource=\"{{myDataSource}}\"\n    ></fusioncharts>\n"
+        <script type="text/javascript" src="js/demos/ex2.js"></script>
+        
+        <script type="text/javascript" src="js/demos/ex3.js"></script>
+        
+        <script type="text/javascript" src="js/demos/ex4.js"></script>
+        
+        <script type="text/javascript" src="js/demos/ex5a.js"></script>
+        
+        <script type="text/javascript" src="js/demos/ex5.js"></script>
+        
+        <script type="text/javascript" src="js/demos/ex6.js"></script>
+        
+        <script type="text/javascript" src="js/demos/ex7.js"></script>
+        
+        <script type="text/javascript" src="js/demos/ex8.js"></script>
+        
+        <script type="text/javascript" src="js/demos/ex9.js"></script>
+        
+        <script type="text/javascript" src="js/demos/ex15.js"></script>
+        
+        <script type="text/javascript" src="js/demos/ex12.js"></script>
+        
+        <script type="text/javascript" src="js/demos/ex13.js"></script>
+        
+        <script type="text/javascript" src="js/demos/ex14.js"></script>
+        
+        <script type="text/javascript" src="js/demos/ex10.js"></script>
+        
+        <script type="text/javascript" src="js/demos/ex16.js"></script>
+        
+            <script type="text/javascript">
+                window.fcDemos = {};
+                
+                window.fcDemos['ex1'] = {
+                    js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n    $scope.myDataSource = {\n        \"chart\": {\n            \"caption\": \"Countries With Most Oil Reserves [2017-18]\",\n            \"subCaption\": \"In MMbbl = One Million barrels\",\n            \"xAxisName\": \"Country\",\n            \"yAxisName\": \"Reserves (MMbbl)\",\n            \"numberSuffix\": \"K\",\n            \"theme\": \"fusion\",\n        },\n        \"data\": [\n            { \"label\": \"Venezuela\", \"value\": \"290\" },\n            { \"label\": \"Saudi\", \"value\": \"260\" },\n            { \"label\": \"Canada\", \"value\": \"180\" },\n            { \"label\": \"Iran\", \"value\": \"140\" },\n            { \"label\": \"Russia\", \"value\": \"115\" },\n            { \"label\": \"UAE\", \"value\": \"100\" },\n            { \"label\": \"US\", \"value\": \"30\" },\n            { \"label\": \"China\", \"value\": \"30\"}\n        ]\n    };\n}]);\n",
+                    html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n\n<!-- In the HTML file -->\n<div ng-app='myApp'>\n    <div ng-controller='MyController'>\n        <fusioncharts \n            width=\"600\" \n            height=\"400\"\n            type=\"column2d\"\n            datasource=\"{{myDataSource}}\">\n        </fusioncharts>\n    </div>\n</div>\n\n"
                 };
-            
-                window.fcDemos['ex2'] =  {
-                    js: "\n$scope.myDataSource = {\n    chart: {\n        caption: \"Age profile of website visitors\",\n        subcaption: \"Last Year\",\n        startingangle: \"120\",\n        showlabels: \"0\",\n        showlegend: \"1\",\n        enablemultislicing: \"0\",\n        slicingdistance: \"15\",\n        showpercentvalues: \"1\",\n        showpercentintooltip: \"0\",\n        plottooltext: \"Age group : $label Total visit : $datavalue\",\n        theme: \"fint\"\n    },\n    data: [\n        {\n            label: \"Teenage\",\n            value: \"1250400\"\n        },\n        {\n            label: \"Adult\",\n            value: \"1463300\"\n        },\n        {\n            label: \"Mid-age\",\n            value: \"1050700\"\n        },\n        {\n            label: \"Senior\",\n            value: \"491000\"\n        }\n    ]\n}\n",
-                    html: "\n<fusioncharts \n    width=\"600\" \n    height=\"400\"\n    type=\"pie3d\",\n    datasource=\"{{myDataSource}}\"\n></fusioncharts>\n"
+                
+                window.fcDemos['ex2'] = {
+                    js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n    $scope.myDataSource = {\n        \"chart\": {\n            \"caption\": \"Recommended Portfolio Split\",\n            \"subCaption\" : \"For a net-worth of $1M\",\n            \"showValues\":\"1\",\n            \"showPercentInTooltip\" : \"0\",\n            \"numberPrefix\" : \"$\",\n            \"enableMultiSlicing\":\"1\",\n            \"theme\": \"fusion\"\n        },\n        \"data\": [{\n            \"label\": \"Equity\",\n            \"value\": \"300000\"\n        }, {\n            \"label\": \"Debt\",\n            \"value\": \"230000\"\n        }, {\n            \"label\": \"Bullion\",\n            \"value\": \"180000\"\n        }, {\n            \"label\": \"Real-estate\",\n            \"value\": \"270000\"\n        }, {\n            \"label\": \"Insurance\",\n            \"value\": \"20000\"\n        }]\n    };\n}]);\n\n",
+                    html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n\n<!-- In the HTML file -->\n<div ng-app='myApp'>\n        <div ng-controller='MyController'>\n            <fusioncharts \n                width=\"600\" \n                height=\"400\"\n                type=\"pie3d\",\n                datasource=\"{{myDataSource}}\">\n            </fusioncharts>\n        </div>\n</div>    \n\n"
                 };
-            
-                window.fcDemos['ex3'] =  {
-                    js: "\n{\n    \"chart\": {\n        \"caption\": \"Actual Revenues, Targeted Revenues & Profits\",\n        \"subcaption\": \"Last year\",\n        \"xaxisname\": \"Month\",\n        \"yaxisname\": \"Amount (In USD)\",\n        \"numberprefix\": \"$\",\n        \"theme\": \"fint\"\n    },\n    \"categories\": [\n        {\n            \"category\": [\n                {\n                    \"label\": \"Jan\"\n                },\n                {\n                    \"label\": \"Feb\"\n                },\n                {\n                    \"label\": \"Mar\"\n                },\n                {\n                    \"label\": \"Apr\"\n                },\n                {\n                    \"label\": \"May\"\n                },\n                {\n                    \"label\": \"Jun\"\n                },\n                {\n                    \"label\": \"Jul\"\n                },\n                {\n                    \"label\": \"Aug\"\n                },\n                {\n                    \"label\": \"Sep\"\n                },\n                {\n                    \"label\": \"Oct\"\n                },\n                {\n                    \"label\": \"Nov\"\n                },\n                {\n                    \"label\": \"Dec\"\n                }\n            ]\n        }\n    ],\n    \"dataset\": [\n        {\n            \"seriesname\": \"Actual Revenue\",\n            \"data\": [\n                {\n                    \"value\": \"16000\"\n                },\n                {\n                    \"value\": \"20000\"\n                },\n                {\n                    \"value\": \"18000\"\n                },\n                {\n                    \"value\": \"19000\"\n                },\n                {\n                    \"value\": \"15000\"\n                },\n                {\n                    \"value\": \"21000\"\n                },\n                {\n                    \"value\": \"16000\"\n                },\n                {\n                    \"value\": \"20000\"\n                },\n                {\n                    \"value\": \"17000\"\n                },\n                {\n                    \"value\": \"25000\"\n                },\n                {\n                    \"value\": \"19000\"\n                },\n                {\n                    \"value\": \"23000\"\n                }\n            ]\n        },\n        {\n            \"seriesname\": \"Projected Revenue\",\n            \"renderas\": \"line\",\n            \"showvalues\": \"0\",\n            \"data\": [\n                {\n                    \"value\": \"15000\"\n                },\n                {\n                    \"value\": \"16000\"\n                },\n                {\n                    \"value\": \"17000\"\n                },\n                {\n                    \"value\": \"18000\"\n                },\n                {\n                    \"value\": \"19000\"\n                },\n                {\n                    \"value\": \"19000\"\n                },\n                {\n                    \"value\": \"19000\"\n                },\n                {\n                    \"value\": \"19000\"\n                },\n                {\n                    \"value\": \"20000\"\n                },\n                {\n                    \"value\": \"21000\"\n                },\n                {\n                    \"value\": \"22000\"\n                },\n                {\n                    \"value\": \"23000\"\n                }\n            ]\n        },\n        {\n            \"seriesname\": \"Profit\",\n            \"renderas\": \"area\",\n            \"showvalues\": \"0\",\n            \"data\": [\n                {\n                    \"value\": \"4000\"\n                },\n                {\n                    \"value\": \"5000\"\n                },\n                {\n                    \"value\": \"3000\"\n                },\n                {\n                    \"value\": \"4000\"\n                },\n                {\n                    \"value\": \"1000\"\n                },\n                {\n                    \"value\": \"7000\"\n                },\n                {\n                    \"value\": \"1000\"\n                },\n                {\n                    \"value\": \"4000\"\n                },\n                {\n                    \"value\": \"1000\"\n                },\n                {\n                    \"value\": \"8000\"\n                },\n                {\n                    \"value\": \"2000\"\n                },\n                {\n                    \"value\": \"7000\"\n                }\n            ]\n        }\n    ]\n}\n",
-                    html: "\n<div fusioncharts\n    width=\"600\" \n    height=\"400\"\n    type=\"mscombi2d\",\n    datasource=\"{{dataSource}}\"\n    ></div>\n"
+                
+                window.fcDemos['ex3'] = {
+                    js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n    $scope.dataSource =  {\n        \"chart\": {\n            \"caption\": \"Expense Analysis\",\n            \"subCaption\": \"ACME Inc.\",\n            \"xAxisname\": \"Region\",\n            \"yAxisName\": \"Amount (In USD)\",\n            \"numberPrefix\": \"$\",\n            \"exportenabled\": \"1\",\n            \"theme\": \"fusion\"\n        },\n        \"categories\": [\n            {\n                \"category\": [\n                    { \"label\": \"East\" },\n                    { \"label\": \"West\" },\n                    { \"label\": \"South\" },\n                    { \"label\": \"North\" }\n                ]\n            }\n        ],\n        \"dataset\": [\n            {\n                \"seriesName\": \"Actual Expenses\",\n                \"data\": [\n                    { \"value\": \"1441290\" },\n                    { \"value\": \"855912\" },\n                    { \"value\": \"911404\" },\n                    { \"value\": \"648136\" }\n                ]\n            },\n            {\n                \"seriesName\": \"Budgeted Expenses\",\n                \"renderAs\": \"line\",\n                \"data\": [\n                    { \"value\": \"1297430\" },\n                    { \"value\": \"776485\" },\n                    { \"value\": \"685352\" },\n                    { \"value\": \"726791\" }\n                ]\n            },\n            {\n                \"seriesName\": \"Unknown liabilities\",\n                \"renderAs\": \"area\",\n                \"showAnchors\" : \"0\",\n                \"data\": [\n                    { \"value\": \"143860\" },\n                    { \"value\": \"79427\" },\n                    { \"value\": \"226052\" },\n                    { \"value\": \"78655\" }\n                ]\n            }\n        ]\n    };\n}]);\n",
+                    html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n\n<!-- In the HTML file -->\n<div ng-app='myApp'>\n    <div ng-controller='MyController'>\n        <div fusioncharts\n            width=\"600\" \n            height=\"400\"\n            type=\"mscombi2d\",\n            datasource=\"{{dataSource}}\">\n        </div>\n    </div>\n</div>        \n"
                 };
-            
-                window.fcDemos['ex4'] =  {
-                    js: "\n$scope.dataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n        numberPrefix: \"$\",\n        theme: \"ocean\"\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n",
-                    html: "\n<fusioncharts\n    width=\"300\" \n    height=\"200\"\n    type=\"column2d\",\n    datasource=\"{{dataSource}}\"\n    ></fusioncharts>\n<div fusioncharts\n    width=\"300\" \n    height=\"200\"\n    type=\"column2d\",\n    datasource=\"{{dataSource}}\"\n    ></div>\n"
+                
+                window.fcDemos['ex4'] = {
+                    js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n    $scope.myDataSource = {\n        \"chart\": {\n            \"caption\": \"Countries With Most Oil Reserves [2017-18]\",\n            \"subCaption\": \"In MMbbl = One Million barrels\",\n            \"xAxisName\": \"Country\",\n            \"yAxisName\": \"Reserves (MMbbl)\",\n            \"numberSuffix\": \"K\",\n            \"theme\": \"fusion\",\n        },\n        \"data\": [\n            { \"label\": \"Venezuela\", \"value\": \"290\" },\n            { \"label\": \"Saudi\", \"value\": \"260\" },\n            { \"label\": \"Canada\", \"value\": \"180\" },\n            { \"label\": \"Iran\", \"value\": \"140\" },\n            { \"label\": \"Russia\", \"value\": \"115\" },\n            { \"label\": \"UAE\", \"value\": \"100\" },\n            { \"label\": \"US\", \"value\": \"30\" },\n            { \"label\": \"China\", \"value\": \"30\"}\n        ]\n    };\n}]);\n",
+                    html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n\n<!-- In the HTML file -->\n<div ng-app='myApp'>\n    <div ng-controller='MyController'>\n        <!-- As Element directive -->\n        <fusioncharts\n            width=\"600\" \n            height=\"400\"\n            type=\"column2d\",\n            datasource=\"{{dataSource}}\">\n        </fusioncharts>\n        <!-- As Attribute directive-->\n        <div\n            fusioncharts\n            width=\"600\" \n            height=\"400\"\n            type=\"column2d\",\n            datasource=\"{{dataSource}}\">\n        </div>\n    </div>\n</div>     \n\n\n"
                 };
-            
-                window.fcDemos['ex5'] =  {
-                    js: "\n\n",
-                    html: "\n<fusioncharts dataformat=\"jsonurl\" datasource=\"data/data.json\" type=\"column2d\" width=\"600\" height=\"400\"></fusioncharts>\n"
+                
+                window.fcDemos['ex5a'] = {
+                    js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\n",
+                    html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n\n<!-- In the HTML file -->  \n<div ng-app='myApp'>\n  <fusioncharts\n    dataformat=\"xmlurl\"\n    datasource=\"data/data.xml\"\n    type=\"column2d\"\n    width=\"600\"\n    height=\"400\">\n  </fusioncharts>\n</div>\n"
                 };
-            
-                window.fcDemos['ex5a'] =  {
-                    js: "\n\n",
-                    html: "\n<fusioncharts dataformat=\"xmlurl\" datasource=\"data/data.xml\" type=\"column2d\" width=\"600\" height=\"400\"></fusioncharts>\n"
+                
+                window.fcDemos['ex5'] = {
+                    js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\n\n",
+                    html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n\n<!-- In the HTML file -->\n<div ng-app='myApp'>\n  <fusioncharts\n    dataformat=\"jsonurl\"\n    datasource=\"data/data.json\"\n    type=\"column2d\"\n    width=\"600\"\n    height=\"400\">\n  </fusioncharts>\n</div>  \n"
                 };
-            
-                window.fcDemos['ex6'] =  {
-                    js: "\n$scope.dataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n        numberPrefix: \"$\",\n        theme: \"ocean\"\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n\n$scope.updateMyChartData = function () {\n    $scope.dataSource.data[2].label = \"This Label is Updated\";\n    $scope.dataSource.data[2].value = \"420000\";\n\n    $scope.dataSource.data[3].label = \"This is updated as well\";\n    $scope.dataSource.data[3].value = \"210000\";\n};\n",
-                    html: "\n<div fusioncharts\n    width=\"600\" \n    height=\"400\"\n    type=\"column2d\",\n    datasource=\"{{dataSource}}\"\n    ></div>\n<p><a class=\"btn btn-default\" ng-click=\"updateMyChartData()\">Click me to change data</a></p>\n"
+                
+                window.fcDemos['ex6'] = {
+                    js: "\n\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n    \n    $scope.dataSource = {\n        \"chart\": {\n            \"caption\": \"Countries With Most Oil Reserves [2017-18]\",\n            \"subCaption\": \"In MMbbl = One Million barrels\",\n            \"xAxisName\": \"Country\",\n            \"yAxisName\": \"Reserves (MMbbl)\",\n            \"numberSuffix\": \"K\",\n            \"theme\": \"fusion\",\n            \"updateAnimDuration\":\"0.3\"\n        },\n        \"data\": [\n        { \"label\": \"Venezuela\", \"value\": \"290\" },\n        { \"label\": \"Saudi\", \"value\": \"260\" },\n        { \"label\": \"Canada\", \"value\": \"180\" },\n        { \"label\": \"Iran\", \"value\": \"140\" },\n        { \"label\": \"Russia\", \"value\": \"115\" },\n        { \"label\": \"UAE\", \"value\": \"100\" },\n        { \"label\": \"US\", \"value\": \"30\" },\n        { \"label\": \"China\", \"value\": \"30\"}\n        ]\n    };\n    \n    let getRandomNumber = function () {\n        var max = 290, min = 30;\n        return Math.round(((max - min) * Math.random()) + min);\n    }\n    \n    $scope.updateMyChartData = function () {\n        $scope.dataSource.data[2].value = getRandomNumber();\n        $scope.dataSource.data[3].value = getRandomNumber();\n    };\n}]);\n",
+                    html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n\n<!-- In the HTML file -->\n\n<style >\n    .btn { font-family: 'Source Sans Pro'; }\n    .btn.btn-primary { background: #4a4d8c;  transition: all 300ms;}\n    .btn.btn-primary:hover{ background: #5c62b5; }\n    .btn.btn-primary:active{ background:#4a4d8c }\n</style>\n<div ng-app='myApp'>\n    <div ng-controller='MyController'>    \n        <div\n            fusioncharts\n            width=\"600\" \n            height=\"400\"\n            type=\"column2d\"\n            datasource=\"{{dataSource}}\">\n        </div>\n        <div style='display: flex; justify-content: center'>\n            <a class=\"btn btn-primary\" ng-click=\"updateMyChartData()\">Click me to change data</a>\n        </div>\n    </div>\n</div>     \n   \n"
                 };
-            
-                window.fcDemos['ex7'] =  {
-                    js: "\n$scope.dataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n        numberPrefix: \"$\",\n        theme: \"ocean\"\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n$scope.selectedValue = \"nothing\";\n\n$scope.events = {\n    dataplotclick: function (ev, props) {\n        $scope.$apply(function () {\n            $scope.selectedValue = props.displayValue;\n        });\n    }\n}\n",
-                    html: "\n<div fusioncharts\n    width=\"600\" \n    height=\"400\"\n    type=\"column2d\",\n    datasource=\"{{dataSource}}\"\n    events=\"events\"\n    ></div>\n<p>The value that you have selected is: {{ selectedValue }}</p>\n"
+                
+                window.fcDemos['ex7'] = {
+                    js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n    $scope.dataSource = {\n        \"chart\": {\n          \"caption\": \"Countries With Most Oil Reserves [2017-18]\",\n          \"subCaption\": \"In MMbbl = One Million barrels\",\n          \"xAxisName\": \"Country\",\n          \"yAxisName\": \"Reserves (MMbbl)\",\n          \"numberSuffix\": \"K\",\n          \"theme\": \"fusion\",\n        },\n        \"data\": [\n            { \"label\": \"Venezuela\", \"value\": \"290\" },\n            { \"label\": \"Saudi\", \"value\": \"260\" },\n            { \"label\": \"Canada\", \"value\": \"180\" },\n            { \"label\": \"Iran\", \"value\": \"140\" },\n            { \"label\": \"Russia\", \"value\": \"115\" },\n            { \"label\": \"UAE\", \"value\": \"100\" },\n            { \"label\": \"US\", \"value\": \"30\" },\n            { \"label\": \"China\", \"value\": \"30\"}\n        ]\n    };\n    \n    $scope.events = {\n        dataplotrollover: function (ev, props) {\n            $scope.$apply(function () {\n                $scope.selectedValue = props.displayValue;\n                $scope.selectedLabel = props.categoryLabel;\n            });\n        }\n    };\n}]);\n",
+                    html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n\n<!-- In the HTML file -->\n<div ng-app='myApp'>\n    <div ng-controller='MyController'>    \n        <div fusioncharts\n            width=\"600\" \n            height=\"400\"\n            type=\"column2d\",\n            datasource=\"{{dataSource}}\"\n            events=\"events\">\n        </div>\n        \n        <p style=\"font-size:20px;font-weight: 300;\">You're are currently hovering over <u>{{selectedLabel || \"______\"}}</u> whose value is <u>{{selectedValue || \"_______\"}} </u></p>\n    </div>\n</div> \n\n"
                 };
-            
-                window.fcDemos['ex8'] =  {
-                    js: "\n$scope.dataSource = {\n    chart: {\n        caption: \"Harry's SuperMart\",\n        subCaption: \"Top 5 stores in last month by revenue\",\n        numberPrefix: \"$\",\n        theme: \"ocean\"\n    },\n    data:[{\n        label: \"Bakersfield Central\",\n        value: \"880000\"\n    },\n    {\n        label: \"Garden Groove harbour\",\n        value: \"730000\"\n    },\n    {\n        label: \"Los Angeles Topanga\",\n        value: \"590000\"\n    },\n    {\n        label: \"Compton-Rancho Dom\",\n        value: \"520000\"\n    },\n    {\n        label: \"Daly City Serramonte\",\n        value: \"330000\"\n    }]\n};\n\n$scope.changeBackgroundColor = function () {\n    $scope.dataSource.chart.bgColor = \"#efefef\";\n};\n\n$scope.changeCaptionTextAlignment = function () {\n    $scope.dataSource.chart.captionAlignment = \"left\";\n};\n",
-                    html: "\n<div fusioncharts\n    width=\"600\" \n    height=\"400\"\n    type=\"column2d\",\n    datasource=\"{{dataSource}}\"\n    ></div>\n<p><a class=\"btn btn-default\" ng-click=\"changeBackgroundColor()\">Change chart background color</a>\n<a class=\"btn btn-default\" ng-click=\"changeCaptionTextAlignment()\">Make Caption text left-aligned</a>\n</p>\n"
+                
+                window.fcDemos['ex8'] = {
+                    js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n    $scope.dataSource = {\n        \"chart\": {\n            \"caption\": \"Countries With Most Oil Reserves [2017-18]\",\n            \"subCaption\": \"In MMbbl = One Million barrels\",\n            \"xAxisName\": \"Country\",\n            \"yAxisName\": \"Reserves (MMbbl)\",\n            \"numberSuffix\": \"K\",\n            \"theme\": \"fusion\"\n        },\n        \"data\": [\n            { \"label\": \"Venezuela\", \"value\": \"290\" },\n            { \"label\": \"Saudi\", \"value\": \"260\" },\n            { \"label\": \"Canada\", \"value\": \"180\" },\n            { \"label\": \"Iran\", \"value\": \"140\" },\n            { \"label\": \"Russia\", \"value\": \"115\" },\n            { \"label\": \"UAE\", \"value\": \"100\" },\n            { \"label\": \"US\", \"value\": \"30\" },\n            { \"label\": \"China\", \"value\": \"30\"}\n        ]\n    };\n\n    $scope.changeBackgroundColor = function () {\n        $scope.dataSource.chart.bgColor = '#efefef';\n    };\n\n    $scope.changeCaptionTextAlignment = function () {\n        $scope.dataSource.chart.captionAlignment = 'left';\n    };\n}]);\n",
+                    html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n\n<style >\n    .btn { font-family: 'Source Sans Pro'; }\n    .btn.btn-primary { background: #4a4d8c;  transition: all 300ms;}\n    .btn.btn-primary:hover{ background: #5c62b5; }\n    .btn.btn-primary:active{ background:#4a4d8c }\n    div.demo8-controls > a.btn.btn-primary { margin : 10px }\n</style>\n<div ng-app='myApp'>\n    <div ng-controller='MyController'> \n        <div style=\"display: flex;justify-content: center\">\n            <div fusioncharts\n                width=\"600\" \n                height=\"400\"\n                type=\"column2d\",\n                datasource=\"{{dataSource}}\"\n                >\n            </div>\n        </div>\n\n        <div style=\"display: flex; justify-content: center\" class='demo8-controls'>\n            <a class=\"btn btn-primary\" ng-click=\"changeBackgroundColor()\">Change chart background color</a>\n            <a class=\"btn btn-primary\" ng-click=\"changeCaptionTextAlignment()\">Make Caption text left-aligned</a>\n        </div>\n    </div>\n</div>\n"
                 };
-            
-                window.fcDemos['ex9'] =  {
-                    js: "\n$scope.attrs = {\n    \"caption\": \"Sales - 2012 v 2013\",\n    \"numberprefix\": \"$\",\n    \"plotgradientcolor\": \"\",\n    \"bgcolor\": \"FFFFFF\",\n    \"showalternatehgridcolor\": \"0\",\n    \"divlinecolor\": \"CCCCCC\",\n    \"showvalues\": \"0\",\n    \"showcanvasborder\": \"0\",\n    \"canvasborderalpha\": \"0\",\n    \"canvasbordercolor\": \"CCCCCC\",\n    \"canvasborderthickness\": \"1\",\n    \"yaxismaxvalue\": \"30000\",\n    \"captionpadding\": \"30\",\n    \"linethickness\": \"3\",\n    \"yaxisvaluespadding\": \"15\",\n    \"legendshadow\": \"0\",\n    \"legendborderalpha\": \"0\",\n    \"palettecolors\": \"#f8bd19,#008ee4,#33bdda,#e44a00,#6baa01,#583e78\",\n    \"showborder\": \"0\"\n};\n\n$scope.categories = [\n    {\n        \"category\": [\n            {\n                \"label\": \"Jan\"\n            },\n            {\n                \"label\": \"Feb\"\n            },\n            {\n                \"label\": \"Mar\"\n            },\n            {\n                \"label\": \"Apr\"\n            },\n            {\n                \"label\": \"May\"\n            },\n            {\n                \"label\": \"Jun\"\n            },\n            {\n                \"label\": \"Jul\"\n            },\n            {\n                \"label\": \"Aug\"\n            },\n            {\n                \"label\": \"Sep\"\n            },\n            {\n                \"label\": \"Oct\"\n            },\n            {\n                \"label\": \"Nov\"\n            },\n            {\n                \"label\": \"Dec\"\n            }\n        ]\n    }\n];\n\n$scope.dataset = [\n    {\n        \"seriesname\": \"2013\",\n        \"data\": [\n            {\n                \"value\": \"22400\"\n            },\n            {\n                \"value\": \"24800\"\n            },\n            {\n                \"value\": \"21800\"\n            },\n            {\n                \"value\": \"21800\"\n            },\n            {\n                \"value\": \"24600\"\n            },\n            {\n                \"value\": \"27600\"\n            },\n            {\n                \"value\": \"26800\"\n            },\n            {\n                \"value\": \"27700\"\n            },\n            {\n                \"value\": \"23700\"\n            },\n            {\n                \"value\": \"25900\"\n            },\n            {\n                \"value\": \"26800\"\n            },\n            {\n                \"value\": \"24800\"\n            }\n        ]\n    },\n    {\n        \"seriesname\": \"2012\",\n        \"data\": [\n            {\n                \"value\": \"10000\"\n            },\n            {\n                \"value\": \"11500\"\n            },\n            {\n                \"value\": \"12500\"\n            },\n            {\n                \"value\": \"15000\"\n            },\n            {\n                \"value\": \"16000\"\n            },\n            {\n                \"value\": \"17600\"\n            },\n            {\n                \"value\": \"18800\"\n            },\n            {\n                \"value\": \"19700\"\n            },\n            {\n                \"value\": \"21700\"\n            },\n            {\n                \"value\": \"21900\"\n            },\n            {\n                \"value\": \"22900\"\n            },\n            {\n                \"value\": \"20800\"\n            }\n        ]\n    }\n];\n",
-                    html: "\n<div fusioncharts\n    width=\"600\" \n    height=\"400\"\n    type=\"msline\"\n    chart=\"{{attrs}}\"\n    categories=\"{{categories}}\"\n    dataset=\"{{dataset}}\"\n    ></div>\n"
+                
+                window.fcDemos['ex9'] = {
+                    js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n    $scope.attrs = {\n        \"caption\": \"Twitter Mentions\",\n        \"yAxisName\": \"Number of mentions\",\n        \"subCaption\": \"(iPhone Vs Samsung)\",\n        \"numbersuffix\": \"M\",\n        \"yAxisMaxValue\": \"2\",\n        \"plottooltext\": \"$seriesName was mentioned <b>$dataValue</b> times on Twitter in $label\",\n        \"theme\": \"fusion\"\n    };\n\n    $scope.categories = [\n        { \n            \"category\": \n            [\n                { \"label\": \"2007\" },\n                { \"label\": \"2008\" },\n                { \"label\": \"2009\" },\n                { \"label\": \"2010\" },\n                { \"label\": \"2011\" },\n                { \"label\": \"2012\" },\n                { \"label\": \"2013\" },\n                { \"label\": \"2014\" },\n                { \"label\": \"2015\" }\n            ]\n        }\n    ];\n\n    $scope.dataset = [\n        {\n            \"seriesname\": \"iPhone\",\n            \"data\": [\n            { \"value\": \"1.90\" },\n            { \"value\": \"1.94\" },\n            { \"value\": \"1.69\" },\n            { \"value\": \"1.66\" },\n            { \"value\": \"1.43\" },\n            { \"value\": \"1.97\" },\n            { \"value\": \"1.78\" },\n            { \"value\": \"1.58\" },\n            { \"value\": \"1.55\" }\n            ]\n        },\n        {\n            \"seriesname\": \"Samsung\",\n            \"data\": [\n            { \"value\": \"0.68\" },\n            { \"value\": \"0.74\" },\n            { \"value\": \"0.25\" },\n            { \"value\": \"0.64\" },\n            { \"value\": \"0.22\" },\n            { \"value\": \"0.74\" },\n            { \"value\": \"0.58\" },\n            { \"value\": \"0.15\" },\n            { \"value\": \"0.26\" }\n            ]\n        }\n    ];\n}]);\n",
+                    html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n<div ng-app='myApp'>\n    <div ng-controller='MyController'> \n        <div\n            fusioncharts\n            width=\"600\" \n            height=\"400\"\n            type=\"msline\"\n            chart=\"{{attrs}}\"\n            categories=\"{{categories}}\"\n            dataset=\"{{dataset}}\">\n        </div>\n    </div>\n</div>\n\n\n"
                 };
+                
+                window.fcDemos['ex15'] = {
+                    js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n  $scope.myDataSource = {\n    \"chart\": {\n      \"caption\": \"Average Annual Population Growth\",\n      \"subcaption\": \" 1955-2015\",\n      \"numbersuffix\": \"%\",\n      \"includevalueinlabels\": \"1\",\n      \"labelsepchar\": \": \",\n      \"entityFillHoverColor\": \"#FFF9C4\",\n      \"theme\": \"fusion\"\n    },\n    \"colorrange\": {\n      \"minvalue\": \"0\",\n      \"code\": \"#FFE0B2\",\n      \"gradient\": \"1\",\n      \"color\": [\n  \n        {\n          \"minvalue\": \"0.5\",\n          \"maxvalue\": \"1.0\",\n          \"color\": \"#FFD74D\"\n        },\n        {\n          \"minvalue\": \"1.0\",\n          \"maxvalue\": \"2.0\",\n          \"color\": \"#FB8C00\"\n        },\n        {\n          \"minvalue\": \"2.0\",\n          \"maxvalue\": \"3.0\",\n          \"color\": \"#E65100\"\n        }\n      ]\n    },\n    \"data\": [{\n        \"id\": \"NA\",\n        \"value\": \".82\",\n        \"showLabel\": \"1\"\n        \n      },\n      {\n        \"id\": \"SA\",\n        \"value\": \"2.04\",\n        \"showLabel\": \"1\"\n      },\n      {\n        \"id\": \"AS\",\n        \"value\": \"1.78\",\n        \"showLabel\": \"1\"\n        \n      },\n      {\n        \"id\": \"EU\",\n        \"value\": \".40\",\n        \"showLabel\": \"1\"\n      },\n      {\n        \"id\": \"AF\",\n        \"value\": \"2.58\",\n        \"showLabel\": \"1\"\n      },\n      {\n        \"id\": \"AU\",\n        \"value\": \"1.30\",\n        \"showLabel\": \"1\"\n      }\n    ]\n  };\n}]);\n",
+                    html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n<style >\n    .btn { font-family: 'Source Sans Pro'; }\n    .btn.btn-primary { background: #4a4d8c;  transition: all 300ms;}\n    .btn.btn-primary:hover{ background: #5c62b5; }\n    .btn.btn-primary:active{ background:#4a4d8c }\n</style>\n<div ng-app='myApp'>\n  <div ng-controller='MyController'> \n    <fusioncharts\n        width=\"700\"\n        height=\"400\"\n        type=\"column2D\"\n        datasource=\"{{firstDataSource}}\"\n        >\n    </fusioncharts>\n      \n    <fusioncharts\n        width=\"600\"\n        height=\"600\"\n        type=\"stackedcolumn2d\"\n        datasource=\"{{secondDataSource}}\">\n    </fusioncharts>\n      \n    <div style=\"display: flex;justify-content: center\">\n        <button ng-click=\"exportChart()\" class=\"btn btn-primary\">Export both charts as a single PDF</button>\n    </div>\n  </div>\n</div>\n\n"
+                };
+                
+                window.fcDemos['ex12'] = {
+                    js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n    var DataSource = {\n        \"chart\": {\n            \"caption\": \"Sales of top 3 juice flavors last year\",\n            \"subcaption\": \"Click on a column to see details\",\n            \"xaxisname\": \"Flavor\",\n            \"yaxisname\": \"Amount (In USD)\",\n            \"numberprefix\": \"$\",\n            \"theme\": \"fusion\",\n            \"rotateValues\": \"0\",\n            \"id\": \"myChart\"\n        },\n        \"data\": [\n            { \n                \"label\": \"Apple\", \n                \"value\": \"810000\", \n                \"link\": \"newchart-xml-apple\"\n            },\n            {\n                \"label\": \"Cranberry\",\n                \"value\": \"620000\",\n                \"link\": \"newchart-xml-cranberry\"\n            },\n            {\n                \"label\": \"Grape\",\n                \"value\": \"350000\",\n                \"link\": \"newchart-xml-grapes\"\n            }\n        ],\n        \"linkeddata\": [\n            {\n                \"id\": \"apple\",\n                \"linkedchart\": {\n                    \"chart\": {\n                        \"caption\": \"Apple Juice - Quarterly Sales\",\n                        \"subcaption\": \"Last year\",\n                        \"numberprefix\": \"$\",\n                        \"theme\": \"fusion\",\n                        \"rotateValues\": \"0\",\n                        \"plottooltext\": \"$label, $dataValue,  $percentValue\"\n                    },\n                    \"data\": [\n                        { \n                            \"label\": \"Q1\",\n                            \"value\": \"157000\"\n                        },\n                        {\n                            \"label\": \"Q2\",\n                            \"value\": \"172000\"\n                        },\n                        {\n                            \"label\": \"Q3\",\n                            \"value\": \"206000\"\n                        },\n                        {\n                            \"label\": \"Q4\",\n                            \"value\": \"275000\"\n                        }\n                    ]\n                }\n            },\n            {\n                \"id\": \"cranberry\",\n                \"linkedchart\": {\n                    \"chart\": {\n                        \"caption\": \"Cranberry Juice - Quarterly Sales\",\n                        \"subcaption\": \"Last year\",\n                        \"numberprefix\": \"$\",\n                        \"theme\": \"fusion\",\n                        \"plottooltext\": \"$label, $dataValue,  $percentValue\"\n                    },\n                    \"data\": [\n                        { \"label\": \"Q1\", \"value\": \"102000\" },\n                        { \"label\": \"Q2\", \"value\": \"142000\" },\n                        { \"label\": \"Q3\", \"value\": \"187000\" },\n                        { \"label\": \"Q4\", \"value\": \"189000\" }\n                    ]\n                }\n            },\n            {\n                \"id\": \"grapes\",\n                \"linkedchart\": {\n                    \"chart\": {\n                        \"caption\": \"Grape Juice - Quarterly Sales\",\n                        \"subcaption\": \"Last year\",\n                        \"numberprefix\": \"$\",\n                        \"theme\": \"fusion\",\n                        \"rotateValues\": \"0\",\n                        \"plottooltext\": \"$label, $dataValue,  $percentValue\"\n                    },\n                    \"data\": [\n                        { \"label\": \"Q1\", \"value\": \"45000\" },\n                        { \"label\": \"Q2\", \"value\": \"72000\" },\n                        { \"label\": \"Q3\", \"value\": \"95000\" },\n                        { \"label\": \"Q4\", \"value\": \"108000\" }\n                    ]\n                }\n            }\n        ]\n    };\n    $scope.myDataSource = DataSource;\n\n    $scope.events = {\n        renderComplete: function (e, a) {\n            e.sender.configureLink({\n            type: \"pie2d\",\n            renderAt: \"myChart\",\n            overlayButton: {\n                message: 'Back',\n                fontColor: '880000',\n                bgColor: 'FFEEEE',\n                borderColor: '660000'\n            }\n            }, 0)\n        }\n    };\n}]);\n",
+                    html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n<div ng-app='myApp'>\n    <div ng-controller='MyController'> \n        <fusioncharts\n            type=\"column2d\"\n            width=\"700\"\n            height=\"400\"\n            dataformat=\"json\"\n            datasource=\"{{myDataSource}}\"\n            events=\"events\"\n            id=\"myChart\">\n        </fusioncharts>\n    </div>\n</div>\n  "
+                };
+                
+                window.fcDemos['ex13'] = {
+                    js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n  $scope.myDataSource = {\n    \"chart\": {\n      \"caption\": \"Nordstorm's Customer Satisfaction Score for 2017\",\n      \"lowerLimit\": \"0\",\n      \"upperLimit\": \"100\",\n      \"showValue\": \"1\",\n      \"numberSuffix\": \"%\",\n      \"theme\": \"fusion\",\n      \"showToolTip\": \"0\"\n    },\n    \"colorRange\": {\n      \"color\": [{\n        \"minValue\": \"0\",\n        \"maxValue\": \"50\",\n        \"code\": \"#F2726F\"\n      }, {\n        \"minValue\": \"50\",\n        \"maxValue\": \"75\",\n        \"code\": \"#FFC533\"\n      }, {\n        \"minValue\": \"75\",\n        \"maxValue\": \"100\",\n        \"code\": \"#62B58F\"\n      }]\n    },\n    \"dials\": {\n      \"dial\": [{\n        \"value\": \"81\"\n      }]\n    }\n  };\n}]);\n",
+                    html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n<div ng-app='myApp'>\n  <div ng-controller='MyController'>\n    <fusioncharts\n      type=\"angulargauge\"\n      width=\"450\"\n      height=\"250\"\n      dataFormat=\"json\"\n      dataSource=\"{{myDataSource}}\">\n    </fusioncharts>\n  </div>\n</div>\n"
+                };
+                
+                window.fcDemos['ex14'] = {
+                    js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n  $scope.myDataSource = {\n    \"chart\": {\n      \"caption\": \"Average Annual Population Growth\",\n      \"subcaption\": \" 1955-2015\",\n      \"numbersuffix\": \"%\",\n      \"includevalueinlabels\": \"1\",\n      \"labelsepchar\": \": \",\n      \"entityFillHoverColor\": \"#FFF9C4\",\n      \"theme\": \"fusion\"\n    },\n    \"colorrange\": {\n      \"minvalue\": \"0\",\n      \"code\": \"#FFE0B2\",\n      \"gradient\": \"1\",\n      \"color\": [\n  \n        {\n          \"minvalue\": \"0.5\",\n          \"maxvalue\": \"1.0\",\n          \"color\": \"#FFD74D\"\n        },\n        {\n          \"minvalue\": \"1.0\",\n          \"maxvalue\": \"2.0\",\n          \"color\": \"#FB8C00\"\n        },\n        {\n          \"minvalue\": \"2.0\",\n          \"maxvalue\": \"3.0\",\n          \"color\": \"#E65100\"\n        }\n      ]\n    },\n    \"data\": [{\n        \"id\": \"NA\",\n        \"value\": \".82\",\n        \"showLabel\": \"1\"\n        \n      },\n      {\n        \"id\": \"SA\",\n        \"value\": \"2.04\",\n        \"showLabel\": \"1\"\n      },\n      {\n        \"id\": \"AS\",\n        \"value\": \"1.78\",\n        \"showLabel\": \"1\"\n        \n      },\n      {\n        \"id\": \"EU\",\n        \"value\": \".40\",\n        \"showLabel\": \"1\"\n      },\n      {\n        \"id\": \"AF\",\n        \"value\": \"2.58\",\n        \"showLabel\": \"1\"\n      },\n      {\n        \"id\": \"AU\",\n        \"value\": \"1.30\",\n        \"showLabel\": \"1\"\n      }\n    ]\n  };\n}]);\n",
+                    html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n<div ng-app='myApp'>\n  <div ng-controller='MyController'>\n    <fusioncharts\n      type=\"world\"\n      width=\"800\"\n      height=\"400\"\n      dataFormat=\"json\"\n      dataSource=\"{{myDataSource}}\">\n    </fusioncharts>\n  </div>\n</div>\n  \n"
+                };
+                
+                window.fcDemos['ex10'] = {
+                    js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n\n    $scope.total = 0;\n\n    $scope.logMessage = 'Click on the  plot to see the percentage of a column wrt total';\n\n    \n    $scope.log = function(label, value){ \n        // Since the update is happening outside angular execution context we need \n        // the digest cycle to run to make sure that the view is updated.   \n        $scope.$apply(function(){\n            $scope.logMessage = `${label} is ${value}% of the total`;                 \n        });\n    }\n    \n    var DataSource = {\n        \"chart\": {\n            \"caption\": \"Countries With Most Oil Reserves [2017-18]\",\n            \"subCaption\": \"In MMbbl = One Million barrels\",\n            \"xAxisName\": \"Country\",\n            \"yAxisName\": \"Reserves (MMbbl)\",\n            \"numberSuffix\": \"K\",\n            \"theme\": \"fusion\",\n        },\n        \"data\": [\n            { \"label\": \"Venezuela\", \"value\": \"290\" },\n            { \"label\": \"Saudi\", \"value\": \"260\" },\n            { \"label\": \"Canada\", \"value\": \"180\" },\n            { \"label\": \"Iran\", \"value\": \"140\" },\n            { \"label\": \"Russia\", \"value\": \"115\" },\n            { \"label\": \"UAE\", \"value\": \"100\" },\n            { \"label\": \"US\", \"value\": \"30\" },\n            { \"label\": \"China\", \"value\": \"30\"}\n        ]\n    };\n\n    var myData=DataSource.data,total=0;\n    for(var i=0;i<myData.length;i++)\n    {\n        total+=Number(myData[i].value);\n    }\n    $scope.total = total;\n\n    $scope.events = {\n        dataplotclick: function(e,a){\n            var ratio=(parseFloat(a.dataValue/$scope.total)*100).toFixed(2);\n            $scope.log(a.categoryLabel, ratio);\n        }\n    }\n    \n    $scope.myDataSource=DataSource;\n}]);\n\n",
+                    html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->    \n<style type=\"text/css\">\n.log-pane{\n    padding-top: 10px;\n    padding-right: 10px;\n    padding-bottom: 10px;\n    padding-left: 10px;\n    border: 2px solid black;\n    font-size: 20px;\n}\n</style>\n<div ng-app='myApp'>\n    <div ng-controller='MyController'> \n        <div \n            fusionCharts\n            width=\"600\"\n            height=\"400\"\n            id=\"ex10\"\n            type=\"column2d\"\n            datasource=\"{{myDataSource}}\"\n            events=\"events\">\n        </div>\n        <div class='log-pane'>{{logMessage}}</div>\n    </div>\n</div>\n"
+                };
+                
+                window.fcDemos['ex16'] = {
+                    js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n  $scope.myDataSource = {\n    \"chart\": {\n      \"caption\": \"Countries With Most Oil Reserves [2017-18]\",\n      \"subCaption\": \"In MMbbl = One Million barrels\",\n      \"xAxisName\": \"Country\",\n      \"yAxisName\": \"Reserves (MMbbl)\",\n      \"numberSuffix\": \"K\",\n      \"theme\": \"gammel\" // <- add theme here\n    },\n    \"data\": [\n        { \"label\": \"Venezuela\", \"value\": \"290\" },\n        { \"label\": \"Saudi\", \"value\": \"260\" },\n        { \"label\": \"Canada\", \"value\": \"180\" },\n        { \"label\": \"Iran\", \"value\": \"140\" },\n        { \"label\": \"Russia\", \"value\": \"115\" },\n        { \"label\": \"UAE\", \"value\": \"100\" },\n        { \"label\": \"US\", \"value\": \"30\" },\n        { \"label\": \"China\", \"value\": \"30\"}\n    ]\n  };\n}]);\n",
+                    html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.gammel.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    \n-->\n<div ng-app='myApp'>\n  <div ng-controller='MyController'> \n    <fusioncharts\n      type=\"column2d\"\n      width=\"700\"\n      height=\"500\"\n      dataFormat=\"json\"\n      datasource=\"{{myDataSource}}\">\n    </fusioncharts>\n  </div>\n</div>\n"
+                };
+                
+            </script>
+            <!-- <link rel="stylesheet" href="demos/bower_components/bootstrap/dist/css/bootstrap.css"/> -->
+            <!-- <link rel="stylesheet" href="demos/bower_components/prism/themes/prism.css"/> -->
+            <link rel="stylesheet" href="demos/themes/fusioncharts.theme.fusion.css" />
+            <style type="text/css">
+                pre {
+                    max-height: 400px;
+                }
 
-                window.fcDemos['ex10'] =  {
-                    js: "\n     \n    globalContainer = {};\n\n    app.controller('ex10Controller',function ($scope, $rootScope) {\n    $rootScope.demoId = 'ex10';\n    var vm = this;\n\n    $scope.logMessage = 'Click on the  plot to see the percentage value with respect to the total';\n\n    // Save the function reference in global object so that FusionCharts link can call \n    // it when called\n    globalContainer.log = vm.log = function(msg){ \n        // Since the update is happening outside angular execution context we need \n        // the digest cycle to run to make sure that the view is updated.   \n        $scope.$apply(function(){\n            $scope.logMessage = \"Percentage is  \"+msg+\"% of the total\";                 \n        });\n    }\n    \n    var DataSource = {\n            \"chart\": {\n                \"caption\": \"Monthly revenue for last year\",\n                \"subCaption\": \"Harry's SuperMart\",\n                \"xAxisName\": \"Month\",\n                \"yAxisName\": \"Revenues (In USD)\",\n                \"numberPrefix\": \"$\",\n                \"paletteColors\": \"#0075c2\",\n                \"bgColor\": \"#ffffff\",\n                \"borderAlpha\": \"20\",\n                \"canvasBorderAlpha\": \"0\",\n                \"usePlotGradientColor\": \"0\",\n                \"plotBorderAlpha\": \"10\",\n                \"placevaluesInside\": \"1\",\n                \"rotatevalues\": \"1\",\n                \"valueFontColor\": \"#ffffff\",                \n                \"showXAxisLine\": \"1\",\n                \"xAxisLineColor\": \"#999999\",\n                \"divlineColor\": \"#999999\",               \n                \"divLineIsDashed\": \"1\",\n                \"showAlternateHGridColor\": \"0\",\n                \"subcaptionFontBold\": \"0\",\n                \"subcaptionFontSize\": \"14\"\n            },            \n            \"data\": [\n                {\n                    \"label\": \"Jan\",\n                    \"value\": \"42\"\n                }, \n                {\n                    \"label\": \"Feb\",\n                    \"value\": \"810000\"\n                }, \n                {\n                    \"label\": \"Mar\",\n                    \"value\": \"720000\"\n                }, \n                {\n                    \"label\": \"Apr\",\n                    \"value\": \"550000\"\n                }, \n                {\n                    \"label\": \"May\",\n                    \"value\": \"910000\"\n                }, \n                {\n                    \"label\": \"Jun\",\n                    \"value\": \"510000\"\n                }, \n                {\n                    \"label\": \"Jul\",\n                    \"value\": \"680000\"\n                }, \n                {\n                    \"label\": \"Aug\",\n                    \"value\": \"620000\"\n                }, \n                {\n                    \"label\": \"Sep\",\n                    \"value\": \"610000\"\n                }, \n                {\n                    \"label\": \"Oct\",\n                    \"value\": \"490000\"\n                }, \n                {\n                    \"label\": \"Nov\",\n                    \"value\": \"900000\"\n                }, \n                {\n                    \"label\": \"Dec\",\n                    \"value\": \"730000\"\n                }\n            ],\n            \"trendlines\": [\n                {\n                    \"line\": [\n                        {\n                            \"startvalue\": \"700000\",\n                            \"color\": \"#1aaf5d\",\n                            \"valueOnRight\": \"1\",\n                            \"displayvalue\": \"Monthly Target\"\n                        }\n                    ]\n                }\n            ]\n        }\n\n        var myData=DataSource.data,total=0;\n        for(var i=0;i<myData.length;i++)\n        {\n            total+=Number(myData[i].value);\n        }\n        for(var i=0;i<myData.length;i++)\n        {\n            var ratio=(parseFloat(myData[i].value/total)*100).toFixed(2);\n            var myString=\"Ratio is : \"+ratio+\" %\";\n            myData[i][\"link\"]=\"JavaScript:globalContainer.log(\"+ratio+\");\";\n        }\n                  \n        $scope.myDataSource=DataSource;\n           \n});\n\n",
-                    html: "\n<style type=\"text/css\">\n.log-pane{\n    padding-top: 10px;\n    padding-right: 10px;\n    padding-bottom: 10px;\n    padding-left: 10px;\n    border: 2px solid black;\n    font-size: 20px;\n}\n</style>\n<div fusionCharts\n             width=\"1000\"\n             height=\"550\"\n             id=\"ex10\"\n             type=\"column2d\"\n             datasource=\"{{myDataSource}}\">\n</div>\n\n<div class='log-pane'>{{logMessage}}</div>\n"
-                };
-            
-        </script>
-        <link rel="stylesheet" href="demos/bower_components/bootstrap/dist/css/bootstrap.css"/>
-        <link rel="stylesheet" href="demos/bower_components/prism/themes/prism.css"/>
-        <style type="text/css">
-            pre {
-                max-height: 400px;
-            }
+                /* From the passportjs.org website */
 
-            /* From the passportjs.org website */
-            .masthead {
-              margin-bottom: 20px;
-              padding-bottom: 5px;
-              border-bottom: 1px solid #eeeeee;
-            }
+                .masthead {
+                    margin-bottom: 20px;
+                    padding-bottom: 5px;
+                    border-bottom: 1px solid #eeeeee;
+                }
 
-            .masthead .logo {
-              height: 38px;
-              width: 210px;
-            }
+                .masthead .logo {
+                    height: 38px;
+                    width: 210px;
+                }
 
-            .masthead h3 a {
-              color: #333333;;
-              text-decoration: none;
-            }
+                .masthead h3 a {
+                    color: #333333;
+                    ;
+                    text-decoration: none;
+                }
 
-            .masthead h3 a:hover {
-              color: #333333;
-              text-decoration: none;
-            }
+                .masthead h3 a:hover {
+                    color: #333333;
+                    text-decoration: none;
+                }
 
-            .jumbotron .logo {
-              height: 60px;
-              width: 119px;
-              float: left;
-              margin-right: 15px;
-              margin-top: 26px;
-            }
+                .jumbotron .logo {
+                    height: 60px;
+                    width: 119px;
+                    float: left;
+                    margin-right: 15px;
+                    margin-top: 26px;
+                }
 
-            .jumbotron p {
-                margin-left: 133px;
-            }
+                .jumbotron p {
+                    margin-left: 133px;
+                }
 
-            .jumbotron p {
-                margin-left: 133px;
-            }
-        </style>
-    </head>
-    <body ng-app="fusioncharts-demo">
-        <div class="container">
-            <div class="row">
-                <div class="masthead">
-                <ul class="nav nav-pills pull-right">
-                    <li><a href="http://fusioncharts.com/">FusionCharts Home</a></li>  </ul>
-                    <h3><a href="http://fusioncharts.github.io/angular-fusioncharts/"><img src="http://www.fusioncharts.com/theme/210x38xlogo.png.pagespeed.ic.KZD9tJ7qIK.png" class="logo"></a></h3>
-            </div>
-            <div class="jumbotron">
-                <img src="demos/images/ng-fc-logo.png" class="logo">
-                <h1>Angular-FusionCharts</h1>
-                <p>Simple and effective AngularJS bindings for FusionCharts JavaScript Charting Library.</p>
-                <p><a class="btn btn-primary btn-lg" href="https://github.com/fusioncharts/angular-fusioncharts/archive/V3.1.zip" role="button"><i class="glyphicon glyphicon-download"></i> Download (3.1)</a></p>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                <h3>About Angular-FusionCharts</h3>
-                <p>
-                This project provides AngularJS bindings for <a href="http://fusioncharts.com">FusionCharts JavaScript Charting Library</a>. It makes adding rich, interactive charting to your Angular JS Projects easy and works in the <i>Angular Way</i>.
-                </p>
+                .jumbotron p {
+                    margin-left: 133px;
+                }
+            </style>
+</head>
+
+<body ng-app="fusioncharts-demo" ng-controller='AppController'>
+    <!-- navbar start -->
+    <nav id="navbar" class="navbar navbar-light navbar-expand-lg bg-light">
+        <!-- logo -->
+        <a href="/" target="_self" class="navbar-brand active">
+            <img src="demos/assets/images/fc-logo.svg" width="149" height="27" alt="FusionCharts" class="img-circle">
+        </a>
+        <!-- FC home -->
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="header-link" href="//github.com/fusioncharts/react-fusioncharts" target="_blank">GitHub Repository</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- navbar end -->
+    <div class="page-container">
+        <div id="mainContainer" class="main-container">
+            <div class="content-container">
+                <!-- Banner start -->
+                <div class="jumbotron banner-bg-3 heroContainer fixed-bg home-banner pl-2 pr-2 pl-sm-3 pr-sm-3 pl-md-3 pr-md-3 pl-lg-6 pr-lg-6 pb-4 pt-4">
+                    <div class="container container-1440 info-wrapper">
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2">
+                                <div class="h1 text-white text-center">
+                                    <img id="lang-logo" class="img-valign" src="demos/images/angularjs.png" width="50" height="50" alt="React" />
+                                    <img id="fc-logo" class="img-valign" src="demos/assets/images/fc-min-logo.svg" width="40" height="40" alt="FusionCharts"
+                                    />
+                                    <span class="title pl-1">AngularJS FusionCharts</span>
+                                </div>
+                                <div class="h3 text-white text-center mt-2">
+                                    <span class="sub-title primary">
+                                        Simple and effective AngularJS bindings for FusionCharts JavaScript Charting Library.
+                                    </span>
+                                </div>
+                                <div class="p text-white text-center mt-2">
+                                    <span class="sub-title secondary">
+                                        The Angular JS module lets you easily include FusionCharts in your AngularJS projects and add interactive charts to your
+                                        AngularJS applications.
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-4 ">
-                <h3>Features</h3>
-                <p>
-                <ul>
-                    <li>Add a chart using just a single directive</li>
-                    <li>Auto-updates your chart object on modifying scope</li>
-                    <li>Angular-friendly events let you call controller functions directly from the chart</li>
-                    <li>Offers advanced control by giving you access to full FusionCharts object</li>
-                    <li>Has variety of ways to add a chart, from JSON URL to Scope Array Binding</li>
-                    <li>Plenty of examples and good documentation (coming soon)</li>
-                </ul>
-                </p>
-                </div>
-                <div class="col-md-4">
-                <h3>Community</h3>
-                <p>
-                <ul>
-                    <li><a href="http://github.com/fusioncharts/angular-fusioncharts">Github Repo</a></li>
-                    <li><a href="http://github.com/fusioncharts/angular-fusioncharts/issues">Issues</a></li>
-                    <li><a href="http://twitter.com/fusioncharts">FusionCharts Twitter</a></li>
-                    <li><a href="http://stackoverflow.com/questions/tagged/fusioncharts">Stack Overflow</a></li>
-                </ul>
-
-                <h3>Support</h3>
-                <p>Simply open up <a href="https://github.com/fusioncharts/angular-fusioncharts/issues/new">a github issue</a> with your question/bug report/suggestion.</p>
-                </div>
+                <!-- Banner end -->
             </div>
-            </div>
-            <div class="col-md-3">
-                <div class="list-group" role="tablist">
-                    
-                        <a href="#/demos/ex1" class="list-group-item">
-                            <h4>A Simple Chart</h4>
-                            <p>A simple chart with all data embedded into the directive</p>
-                        </a>
-                    
-                        <a href="#/demos/ex2" class="list-group-item">
-                            <h4>A 3D Pie Chart</h4>
-                            <p>A 3D pie chart using the datasource attribute from scope</p>
-                        </a>
-                    
-                        <a href="#/demos/ex3" class="list-group-item">
-                            <h4>A Column, Line and Area Combi Chart</h4>
-                            <p>A column, line and area combination chart using the datasource attribute</p>
-                        </a>
-                    
-                        <a href="#/demos/ex4" class="list-group-item">
-                            <h4>Different ways to use the directive</h4>
-                            <p>Use the fc-chart as a tag or as an attribute</p>
-                        </a>
-                    
-                        <a href="#/demos/ex5" class="list-group-item">
-                            <h4>Fetch data from a JSON URL</h4>
-                            <p>Fetch data remotely from a JSON file or URL</p>
-                        </a>
-                    
-                        <a href="#/demos/ex5a" class="list-group-item">
-                            <h4>Fetch data from a XML URL</h4>
-                            <p>Fetch data remotely from a XML file or URL</p>
-                        </a>
-                    
-                        <a href="#/demos/ex6" class="list-group-item">
-                            <h4>Update chart data from scope</h4>
-                            <p>Change the data dynamically in the scope and watch the chart update automatically</p>
-                        </a>
-                    
-                        <a href="#/demos/ex7" class="list-group-item">
-                            <h4>Trigger scope event from chart</h4>
-                            <p>Click on a chart to trigger an event in the controller, and update the scope</p>
-                        </a>
-                    
-                        <a href="#/demos/ex8" class="list-group-item">
-                            <h4>Update chart attribute from scope</h4>
-                            <p>Change a parameter in the scope variable and see it automatically update the chart</p>
-                        </a>
-                    
-                        <a href="#/demos/ex9" class="list-group-item">
-                            <h4>Separate objects for attributes</h4>
-                            <p>Separate objects for chart attributes, dataset and categories</p>
-                        </a>
 
-                        <a href="#/demos/ex10" class="list-group-item">
-                            <h4>Percentage Calculation</h4>
-                            <p>Click on a plot to see the percentage value with respect to total</p>
-                        </a>
-                    
+
+
+            <!-- Feature Section start -->
+            <div class="container container-1200 info-wrapper pb-3">
+                <div class="row">
+                    <div class="col">
+                        <div class="h2 mt-2">Features</div>
+                        <!-- list start -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="feature-list">
+                                    <li>
+                                        <span>
+                                            <i class="icn-inline icn-success fc_select"></i>
+                                        </span>
+                                        <div>Adds a chart using just one single directive.</div>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <i class="icn-inline icn-success fc_select"></i>
+                                        </span>
+                                        <div>Auto-updates the chart object when the data source is modified.</div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="feature-list">
+                                    <li>
+                                        <span>
+                                            <i class="icn-inline icn-success fc_select"></i>
+                                        </span>
+                                        <div>Allows you to enable interactivity between Javascript charts</div>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <i class="icn-inline icn-success fc_select"></i>
+                                        </span>
+                                        <div>Adds a chart from a JSON URL, from a XML URL, or using props Binding.</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- list end -->
+                    </div>
                 </div>
             </div>
-            <div class="col-md-9" ng-controller="DemoController">
-                <ng-view></ng-view>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-        <h2>QuickStart</h2>
-<h3>Step 1: Include angular-fusioncharts.js</h3>
-<p>In your HTML, include <code>angular-fusioncharts.js</code> after all other scripts:</p>
-<pre><code>&lt;script type="text/javascript" src="/path/to/fusioncharts.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="/path/to/angular.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="/path/to/angular-fusioncharts.js"&gt;&lt;/script&gt;</code></pre>
-<h3>Step 2: Include <code>ng-fusioncharts</code> in your module</h3>
-<p>In the app, include <code>ng-fusioncharts</code> as a dependency. If you looking for where to add the dependency, look for the call to <code>angular.module</code> in your code.</p>
-<pre><code>angular.module("myApp", ["ng-fusioncharts"])</code></pre>
-<h3>Step 3: Add the <code>fusioncharts</code> directive</h3>
-<p>In your HTML, find the section where you wish to add the chart and add a <code>&lt;div&gt;</code> with the <code>fc-chart</code> directive. We are assuming it's inside a controller called <code>MyController</code> which would change based on your usage.</p>
-<pre><code class="ng-binding">&lt;div ng-controller="MyController"&gt;
-  &lt;div fusioncharts
-       width="600"
-       height="400"
-       type="column2d"
-       dataSource="" &gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-<p>Now this is bound to a datasource with the <code>myDataSource</code> scope object.</p>
-<h3>Step 4: Populate required variables in controller</h3>
-<p>In the previous code, we are binding to a scope variable <code>myDataSource</code>, but that hasn't been defined yet.</p>
-<p>In your controller, set the DataSource as you would for a regular FusionCharts JSON Format DataSource (see <a href="http://docs.fusioncharts.com/tutorial-getting-started-your-first-charts-building-your-first-chart.html">this tutorial</a> for a general introduction to this format).</p>
-<pre><code>app.controller('MyController', function ($scope) {
-  $scope.myDataSource = {
-    chart: {
-        caption: "Harry's SuperMart",
-        subCaption: "Top 5 stores in last month by revenue",
-    },
-    data:[{
-        label: "Bakersfield Central",
-        value: "880000"
-    },
-    {
-        label: "Garden Groove harbour",
-        value: "730000"
-    },
-    {
-        label: "Los Angeles Topanga",
-        value: "590000"
-    },
-    {
-        label: "Compton-Rancho Dom",
-        value: "520000"
-    },
-    {
-        label: "Daly City Serramonte",
-        value: "330000"
-    }]
-  };
-});</code></pre>
-<p>And your chart should display when you load the page. </p>
-<h3>Licensing</h3>
-<p>Angular-FusionCharts is open-source and distributed under the terms of the MIT/X11 License. You will still need to download and include FusionCharts in your page. This project provides no direct functionality. You can <a href="http://fusioncharts.com/download/">Download an evaluation</a>. You will still need to purchase a FusionCharts license to use in a commercial environment (FusionCharts is <a href="http://www.fusioncharts.com/download/free/">free for non-commercial and personal use</a>) .</p>
+            <!-- Feature Section end -->
 
-    </div>
+
+            <!-- Demo Section start -->
+            <div class="demo bg-light-purple pt-4 pb-4">
+                <div class="container container-1200 info-wrapper">
+                    <!-- Chart selection for mobile devices - start -->
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center d-md-none">
+                            <div id="mobileChart-selector" class="base-dropdown chart-selector" ng-click='toggleModal(true)'>
+                                <div class="selector">{{currentTitle}}</div>
+                                <div class="placeholder">Quick Demo:</div>
+                                <div class="caret">
+                                    <i class="fc_dropdown"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal for selection (Only for Mobile Devices) -->
+                    <div id="myModal" class="modal" ng-class="isModalOpen ? modalClasses : 'fade'"   ng-style="isModalOpen ? { display:'block', 'padding-left': '0px'} : {display:'none'}">
+
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <div class="nav-list">
+                                
+                                    <a href="#/demos/ex1" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex1' === demoId}">
+                                            <div class="p">A Simple Chart</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex2" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex2' === demoId}">
+                                            <div class="p">A 3D Pie Chart</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex3" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex3' === demoId}">
+                                            <div class="p">A Column, Line and Area Combi Chart</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex4" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex4' === demoId}">
+                                            <div class="p">Different ways to use the directive</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex5a" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex5a' === demoId}">
+                                            <div class="p">Fetch data from a XML URL</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex5" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex5' === demoId}">
+                                            <div class="p">Fetch data from a JSON URL</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex6" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex6' === demoId}">
+                                            <div class="p">Update chart data from scope</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex7" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex7' === demoId}">
+                                            <div class="p">Trigger scope event from chart</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex8" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex8' === demoId}">
+                                            <div class="p">Update chart attribute from scope</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex9" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex9' === demoId}">
+                                            <div class="p">Separate objects for attributes</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex15" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex15' === demoId}">
+                                            <div class="p">Export multiple charts</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex12" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex12' === demoId}">
+                                            <div class="p">Add drill-down to chart</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex13" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex13' === demoId}">
+                                            <div class="p">A simple gauge</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex14" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex14' === demoId}">
+                                            <div class="p">World Map</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex10" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex10' === demoId}">
+                                            <div class="p">Percentage Calculation</div>
+                                        </div>
+                                    </a>
+                                
+                                    <a href="#/demos/ex16" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex16' === demoId}">
+                                            <div class="p">Applying a different theme</div>
+                                        </div>
+                                    </a>
+                                
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Chart selection for mobile devices - end -->
+
+                    <div class="row">
+                        <div class="side-nav col-3 d-none d-md-block">
+                            <div class="nav-heading">Quick Demo:</div>
+
+                            <div class="nav-list">
+                                
+                                    <a href="#/demos/ex1" >
+                                        <div class="nav-item" ng-class="{ selected : 'ex1' === demoId}">
+                                            <div class="h5">A Simple Chart</div>
+                                            <div class="p item-desc">A simple chart with all data embedded into the directive</div>
+                                        </div>
+
+                                    </a>
+                                
+                                    <a href="#/demos/ex2" >
+                                        <div class="nav-item" ng-class="{ selected : 'ex2' === demoId}">
+                                            <div class="h5">A 3D Pie Chart</div>
+                                            <div class="p item-desc">A 3D pie chart using the datasource attribute from scope</div>
+                                        </div>
+
+                                    </a>
+                                
+                                    <a href="#/demos/ex3" >
+                                        <div class="nav-item" ng-class="{ selected : 'ex3' === demoId}">
+                                            <div class="h5">A Column, Line and Area Combi Chart</div>
+                                            <div class="p item-desc">A column, line and area combination chart using the datasource attribute</div>
+                                        </div>
+
+                                    </a>
+                                
+                                    <a href="#/demos/ex4" >
+                                        <div class="nav-item" ng-class="{ selected : 'ex4' === demoId}">
+                                            <div class="h5">Different ways to use the directive</div>
+                                            <div class="p item-desc">Use the fc-chart as a tag or as an attribute</div>
+                                        </div>
+
+                                    </a>
+                                
+                                    <a href="#/demos/ex5a" >
+                                        <div class="nav-item" ng-class="{ selected : 'ex5a' === demoId}">
+                                            <div class="h5">Fetch data from a XML URL</div>
+                                            <div class="p item-desc">Fetch data remotely from a XML file or URL</div>
+                                        </div>
+
+                                    </a>
+                                
+                                    <a href="#/demos/ex5" >
+                                        <div class="nav-item" ng-class="{ selected : 'ex5' === demoId}">
+                                            <div class="h5">Fetch data from a JSON URL</div>
+                                            <div class="p item-desc">Fetch data remotely from a JSON file or URL</div>
+                                        </div>
+
+                                    </a>
+                                
+                                    <a href="#/demos/ex6" >
+                                        <div class="nav-item" ng-class="{ selected : 'ex6' === demoId}">
+                                            <div class="h5">Update chart data from scope</div>
+                                            <div class="p item-desc">Change the data dynamically in the scope and watch the chart update automatically</div>
+                                        </div>
+
+                                    </a>
+                                
+                                    <a href="#/demos/ex7" >
+                                        <div class="nav-item" ng-class="{ selected : 'ex7' === demoId}">
+                                            <div class="h5">Trigger scope event from chart</div>
+                                            <div class="p item-desc">Click on a chart to trigger an event in the controller, and update the scope</div>
+                                        </div>
+
+                                    </a>
+                                
+                                    <a href="#/demos/ex8" >
+                                        <div class="nav-item" ng-class="{ selected : 'ex8' === demoId}">
+                                            <div class="h5">Update chart attribute from scope</div>
+                                            <div class="p item-desc">Change a parameter in the scope variable and see it automatically update the chart</div>
+                                        </div>
+
+                                    </a>
+                                
+                                    <a href="#/demos/ex9" >
+                                        <div class="nav-item" ng-class="{ selected : 'ex9' === demoId}">
+                                            <div class="h5">Separate objects for attributes</div>
+                                            <div class="p item-desc">Separate objects for chart attributes, dataset and categories</div>
+                                        </div>
+
+                                    </a>
+                                
+                                    <a href="#/demos/ex15" >
+                                        <div class="nav-item" ng-class="{ selected : 'ex15' === demoId}">
+                                            <div class="h5">Export multiple charts</div>
+                                            <div class="p item-desc">Use Batch Export to export multiple charts as a single image/PDF</div>
+                                        </div>
+
+                                    </a>
+                                
+                                    <a href="#/demos/ex12" >
+                                        <div class="nav-item" ng-class="{ selected : 'ex12' === demoId}">
+                                            <div class="h5">Add drill-down to chart</div>
+                                            <div class="p item-desc">Use LinkedCharts to quickly add drill-down to charts</div>
+                                        </div>
+
+                                    </a>
+                                
+                                    <a href="#/demos/ex13" >
+                                        <div class="nav-item" ng-class="{ selected : 'ex13' === demoId}">
+                                            <div class="h5">A simple gauge</div>
+                                            <div class="p item-desc">A simple gauge to show customer satisfaction score</div>
+                                        </div>
+
+                                    </a>
+                                
+                                    <a href="#/demos/ex14" >
+                                        <div class="nav-item" ng-class="{ selected : 'ex14' === demoId}">
+                                            <div class="h5">World Map</div>
+                                            <div class="p item-desc">World map showing data for different continents</div>
+                                        </div>
+
+                                    </a>
+                                
+                                    <a href="#/demos/ex10" >
+                                        <div class="nav-item" ng-class="{ selected : 'ex10' === demoId}">
+                                            <div class="h5">Percentage Calculation</div>
+                                            <div class="p item-desc">A column chart with each column showing percentage of data with respect to the total</div>
+                                        </div>
+
+                                    </a>
+                                
+                                    <a href="#/demos/ex16" >
+                                        <div class="nav-item" ng-class="{ selected : 'ex16' === demoId}">
+                                            <div class="h5">Applying a different theme</div>
+                                            <div class="p item-desc">Choosing from different themes available in FusionCharts Suite</div>
+                                        </div>
+
+                                    </a>
+                                
+                                <!-- <div class="nav-item selected">
+                                    <div class="h5">A Simple Column Chart</div>
+                                    <div class="p item-desc">A simple chart with all data embedded into the directive</div>
+                                </div> -->
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-9 col-12" ng-controller="DemoController">
+                                <ng-view></ng-view>
+                           
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!-- Demo Section end -->
+
+            <!-- info section start -->
+            <div class="container container-1200 info-wrapper pt-4">
+                <div class="row">
+                    <div class="col">
+                        <div class="h2 mt-2">Quick Start</div>
+                    </div>
+                </div>
+                <!-- steps -->
+                <div class="row">
+                    <div class="col-12 pt-3">
+                        <div class="h5">
+                            <span>Step 1: Include angularjs-fusioncharts.js</span>
+                        </div>
+                        <p class="code-desc">
+                            In your HTML, include
+                            <code>fusioncharts</code> library,
+                            <code>angularjs</code> core file, and
+                            <code>angularjs-fusioncharts</code> directive :
+                        </p>
+                        <div class="code-view mt-2">
+                            <div class="card-shadow">
+                                <div class="card-body p-0">
+                                    <div class="code-panel">
+                                        <div class="codeMirrorDiv" id="c1">
+                                            <div ui-codemirror ui-codemirror-opts="{
+                                                    lineNumbers: true,
+                                                    theme:'dracula',
+                                                    readOnly: 'nocursor',
+                                                    lineWrapping : true,
+                                                    mode: 'htmlembedded'
+                                                  }" ng-model="includeScript"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- steps -->
+                <div class="row">
+                    <div class="col-12 pt-3">
+                        <div class="h5">
+                            <span>Step 2: Include
+                                <code>ng-fusioncharts</code> in your module</span>
+                        </div>
+                        <p class="code-desc">In the app, include
+                            <code>ng-fusioncharts</code> as a dependency. If you looking for where to add the dependency, look
+                            for the call to
+                            <code>angular.module</code> in your code.</p>
+                        <div class="code-view mt-2">
+                            <div class="card-shadow">
+                                <div class="card-body p-0">
+                                    <div class="code-panel">
+                                        <div class="codeMirrorDiv" id="c3">
+                                            <div ui-codemirror ui-codemirror-opts="editorOptionsJs" ng-model="injectScript"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- steps end -->
+                <!-- steps -->
+                <div class="row">
+                    <div class="col-12 pt-3">
+                        <div class="h5">
+                            <span>Step 3: Add the
+                                <code>fusioncharts</code> directive</span>
+                        </div>
+                        <p class="code-desc">
+                            In your HTML, find the section where you wish to add the chart and add a
+                            <code>&lt;div&gt;</code> with the
+                            <code>fusioncharts</code> directive. We are assuming it's inside a controller called
+                            <code>MyController</code> which would change based on your usage.
+
+                        </p>
+                        <div class="code-view mt-2">
+                            <div class="card-shadow">
+                                <div class="card-body p-0">
+                                    <div class="code-panel">
+                                        <div class="codeMirrorDiv" id="c3">
+                                            <div ui-codemirror ui-codemirror-opts="editorOptionsHTML" ng-model="directiveUsage"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- steps end -->
+                <!-- steps -->
+                <div class="row">
+                    <div class="col-12 pt-3">
+                        <div class="h5">
+                            <span>Step 4: Populate required variables in controller</span>
+                        </div>
+                        <p class="code-desc">
+                            In the previous code, we are binding to a scope variable myDataSource, but that hasn't been defined yet. In your controller,
+                            set the DataSource as you would for a regular FusionCharts JSON format DataSource (see
+                            <a
+                                href="http://docs.fusioncharts.com/tutorial-getting-started-your-first-charts-building-your-first-chart.html">this tutorial</a> for a general introduction to this format).
+                        </p>
+                        <div class="code-view mt-2">
+                            <div class="card-shadow">
+                                <div class="card-body p-0">
+                                    <div class="code-panel">
+                                        <div class="codeMirrorDiv" id="c3">
+                                            <div ui-codemirror ui-codemirror-opts="editorOptionsJs" ng-model="controllerCode"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="code-desc">And your chart should display when you load the page.</p>
+
+                    </div>
+                </div>
+                <!-- steps end -->
+
+
+                <div class="row">
+                    <div class="col-12 pt-3">
+                        <div class="h5">Support</div>
+                        <p>
+                            <a class="ref-link" href="//github.com/fusioncharts/angularjs-fusioncharts/issues" target="_blank">GitHub Issues</a> |
+                            <a class="ref-link" href="mailto:support@fusioncharts.com" target="_blank">Contact FusionCharts Support</a>
+                        </p>
+                    </div>
+                </div>
+                <!-- licensing footer starts -->
+                <div class="row">
+                    <div class="col-12 pt-3">
+                        <div class="h5">Licensing</div>
+                        <p>React-FusionCharts module is licensed under open-source, distributed under the terms of the MIT/X11
+                            License. You will still need to include FusionCharts in your page, as this project provides no
+                            direct functionality. You can download a free evaluation version
+                            <a class="ref-link" href="//www.fusioncharts.com/download/" target="_blank">here</a>. To use in a commercial environment, please
+                            <a class="ref-link" href="//www.fusioncharts.com/buy/" target="_blank">purchase a FusionCharts license</a>.</p>
+                    </div>
+                </div>
+                <!-- licensing footer ends -->
+                <!-- info section end -->
+            </div>
+
+            <!-- footer start -->
+            <div id="footbar" class="row text-center mt-2">
+                <div class="col-12">
+                    <p class="foot-item pt-4">© 2002-2018 InfoSoft Global Private Limited. All Rights Reserved.</p>
+                </div>
+            </div>
+            <!-- footer end -->
         </div>
-    </body>
+    </div>
+    
+</body>
+
 </html>

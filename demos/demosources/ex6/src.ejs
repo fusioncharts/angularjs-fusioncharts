@@ -1,46 +1,75 @@
 <% if(src=== "js") { %>
-$scope.dataSource = {
-    chart: {
-        caption: "Harry's SuperMart",
-        subCaption: "Top 5 stores in last month by revenue",
-        numberPrefix: "$",
-        theme: "ocean"
-    },
-    data:[{
-        label: "Bakersfield Central",
-        value: "880000"
-    },
-    {
-        label: "Garden Groove harbour",
-        value: "730000"
-    },
-    {
-        label: "Los Angeles Topanga",
-        value: "590000"
-    },
-    {
-        label: "Compton-Rancho Dom",
-        value: "520000"
-    },
-    {
-        label: "Daly City Serramonte",
-        value: "330000"
-    }]
-};
 
-$scope.updateMyChartData = function () {
-    $scope.dataSource.data[2].label = "This Label is Updated";
-    $scope.dataSource.data[2].value = "420000";
-
-    $scope.dataSource.data[3].label = "This is updated as well";
-    $scope.dataSource.data[3].value = "210000";
-};
+var myApp = angular.module('myApp', ['ng-fusioncharts']);
+myApp.controller('MyController', ['$scope', function($scope){
+    
+    $scope.dataSource = {
+        "chart": {
+            "caption": "Countries With Most Oil Reserves [2017-18]",
+            "subCaption": "In MMbbl = One Million barrels",
+            "xAxisName": "Country",
+            "yAxisName": "Reserves (MMbbl)",
+            "numberSuffix": "K",
+            "theme": "fusion",
+            "updateAnimDuration":"0.3"
+        },
+        "data": [
+        { "label": "Venezuela", "value": "290" },
+        { "label": "Saudi", "value": "260" },
+        { "label": "Canada", "value": "180" },
+        { "label": "Iran", "value": "140" },
+        { "label": "Russia", "value": "115" },
+        { "label": "UAE", "value": "100" },
+        { "label": "US", "value": "30" },
+        { "label": "China", "value": "30"}
+        ]
+    };
+    
+    let getRandomNumber = function () {
+        var max = 290, min = 30;
+        return Math.round(((max - min) * Math.random()) + min);
+    }
+    
+    $scope.updateMyChartData = function () {
+        $scope.dataSource.data[2].value = getRandomNumber();
+        $scope.dataSource.data[3].value = getRandomNumber();
+    };
+}]);
 <% } else if(src==="html") { %>
-<div fusioncharts
-    width="600" 
-    height="400"
-    type="column2d",
-    datasource="{{dataSource}}"
-    ></div>
-<p><a class="btn btn-default" ng-click="updateMyChartData()">Click me to change data</a></p>
+<!-- 
+    Include script files in your index.html
+    ------------------------------------------
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/fusioncharts.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>
+    <script type="text/javascript" src="path/to/angularjs-fusioncharts.min.js"></script>
+   
+    Include Theme CSS File
+    ------------------------------------------
+    <link rel="stylesheet" href="path/to/fusioncharts/themes/fusioncharts.theme.fusion.css"/>
+-->
+
+<!-- In the HTML file -->
+
+<style >
+    .btn { font-family: 'Source Sans Pro'; }
+    .btn.btn-primary { background: #4a4d8c;  transition: all 300ms;}
+    .btn.btn-primary:hover{ background: #5c62b5; }
+    .btn.btn-primary:active{ background:#4a4d8c }
+</style>
+<div ng-app='myApp'>
+    <div ng-controller='MyController'>    
+        <div
+            fusioncharts
+            width="600" 
+            height="400"
+            type="column2d"
+            datasource="{{dataSource}}">
+        </div>
+        <div style='display: flex; justify-content: center'>
+            <a class="btn btn-primary" ng-click="updateMyChartData()">Click me to change data</a>
+        </div>
+    </div>
+</div>     
+   
 <% } %>

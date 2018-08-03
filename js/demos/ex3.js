@@ -9,183 +9,56 @@
 
     app.controller('ex3Controller', function ($scope, $rootScope) {
         $rootScope.demoId = 'ex3';
-        $scope.dataSource = {
+        $rootScope.currentTitle = 'A Column, Line and Area Combi Chart';
+        $scope.dataSource =  {
             "chart": {
-                "caption": "Actual Revenues, Targeted Revenues & Profits",
-                "subcaption": "Last year",
-                "xaxisname": "Month",
-                "yaxisname": "Amount (In USD)",
-                "numberprefix": "$",
-                "theme": "ocean",
+                "caption": "Expense Analysis",
+                "subCaption": "ACME Inc.",
+                "xAxisname": "Region",
+                "yAxisName": "Amount (In USD)",
+                "numberPrefix": "$",
+                "exportenabled": "1",
+                "theme": "fusion"
             },
             "categories": [
                 {
                     "category": [
-                        {
-                            "label": "Jan"
-                        },
-                        {
-                            "label": "Feb"
-                        },
-                        {
-                            "label": "Mar"
-                        },
-                        {
-                            "label": "Apr"
-                        },
-                        {
-                            "label": "May"
-                        },
-                        {
-                            "label": "Jun"
-                        },
-                        {
-                            "label": "Jul"
-                        },
-                        {
-                            "label": "Aug"
-                        },
-                        {
-                            "label": "Sep"
-                        },
-                        {
-                            "label": "Oct"
-                        },
-                        {
-                            "label": "Nov"
-                        },
-                        {
-                            "label": "Dec"
-                        }
+                        { "label": "East" },
+                        { "label": "West" },
+                        { "label": "South" },
+                        { "label": "North" }
                     ]
                 }
             ],
             "dataset": [
                 {
-                    "seriesname": "Actual Revenue",
+                    "seriesName": "Actual Expenses",
                     "data": [
-                        {
-                            "value": "16000"
-                        },
-                        {
-                            "value": "20000"
-                        },
-                        {
-                            "value": "18000"
-                        },
-                        {
-                            "value": "19000"
-                        },
-                        {
-                            "value": "15000"
-                        },
-                        {
-                            "value": "21000"
-                        },
-                        {
-                            "value": "16000"
-                        },
-                        {
-                            "value": "20000"
-                        },
-                        {
-                            "value": "17000"
-                        },
-                        {
-                            "value": "25000"
-                        },
-                        {
-                            "value": "19000"
-                        },
-                        {
-                            "value": "23000"
-                        }
+                        { "value": "1441290" },
+                        { "value": "855912" },
+                        { "value": "911404" },
+                        { "value": "648136" }
                     ]
                 },
                 {
-                    "seriesname": "Projected Revenue",
-                    "renderas": "line",
-                    "showvalues": "0",
+                    "seriesName": "Budgeted Expenses",
+                    "renderAs": "line",
                     "data": [
-                        {
-                            "value": "15000"
-                        },
-                        {
-                            "value": "16000"
-                        },
-                        {
-                            "value": "17000"
-                        },
-                        {
-                            "value": "18000"
-                        },
-                        {
-                            "value": "19000"
-                        },
-                        {
-                            "value": "19000"
-                        },
-                        {
-                            "value": "19000"
-                        },
-                        {
-                            "value": "19000"
-                        },
-                        {
-                            "value": "20000"
-                        },
-                        {
-                            "value": "21000"
-                        },
-                        {
-                            "value": "22000"
-                        },
-                        {
-                            "value": "23000"
-                        }
+                        { "value": "1297430" },
+                        { "value": "776485" },
+                        { "value": "685352" },
+                        { "value": "726791" }
                     ]
                 },
                 {
-                    "seriesname": "Profit",
-                    "renderas": "area",
-                    "showvalues": "0",
+                    "seriesName": "Unknown liabilities",
+                    "renderAs": "area",
+                    "showAnchors" : "0",
                     "data": [
-                        {
-                            "value": "4000"
-                        },
-                        {
-                            "value": "5000"
-                        },
-                        {
-                            "value": "3000"
-                        },
-                        {
-                            "value": "4000"
-                        },
-                        {
-                            "value": "1000"
-                        },
-                        {
-                            "value": "7000"
-                        },
-                        {
-                            "value": "1000"
-                        },
-                        {
-                            "value": "4000"
-                        },
-                        {
-                            "value": "1000"
-                        },
-                        {
-                            "value": "8000"
-                        },
-                        {
-                            "value": "2000"
-                        },
-                        {
-                            "value": "7000"
-                        }
+                        { "value": "143860" },
+                        { "value": "79427" },
+                        { "value": "226052" },
+                        { "value": "78655" }
                     ]
                 }
             ]

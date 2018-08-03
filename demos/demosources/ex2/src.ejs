@@ -1,42 +1,59 @@
 <% if(src=== "js") { %>
-$scope.myDataSource = {
-    chart: {
-        caption: "Age profile of website visitors",
-        subcaption: "Last Year",
-        startingangle: "120",
-        showlabels: "0",
-        showlegend: "1",
-        enablemultislicing: "0",
-        slicingdistance: "15",
-        showpercentvalues: "1",
-        showpercentintooltip: "0",
-        plottooltext: "Age group : $label Total visit : $datavalue",
-        theme: "fint"
-    },
-    data: [
-        {
-            label: "Teenage",
-            value: "1250400"
+var myApp = angular.module('myApp', ['ng-fusioncharts']);
+myApp.controller('MyController', ['$scope', function($scope){
+    $scope.myDataSource = {
+        "chart": {
+            "caption": "Recommended Portfolio Split",
+            "subCaption" : "For a net-worth of $1M",
+            "showValues":"1",
+            "showPercentInTooltip" : "0",
+            "numberPrefix" : "$",
+            "enableMultiSlicing":"1",
+            "theme": "fusion"
         },
-        {
-            label: "Adult",
-            value: "1463300"
-        },
-        {
-            label: "Mid-age",
-            value: "1050700"
-        },
-        {
-            label: "Senior",
-            value: "491000"
-        }
-    ]
-}
+        "data": [{
+            "label": "Equity",
+            "value": "300000"
+        }, {
+            "label": "Debt",
+            "value": "230000"
+        }, {
+            "label": "Bullion",
+            "value": "180000"
+        }, {
+            "label": "Real-estate",
+            "value": "270000"
+        }, {
+            "label": "Insurance",
+            "value": "20000"
+        }]
+    };
+}]);
+
 <% } else if(src==="html") { %>
-<fusioncharts 
-    width="600" 
-    height="400"
-    type="pie3d",
-    datasource="{{myDataSource}}"
-></fusioncharts>
+<!-- 
+    Include script files in your index.html
+    ------------------------------------------
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/fusioncharts.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>
+    <script type="text/javascript" src="path/to/angularjs-fusioncharts.min.js"></script>
+   
+    Include Theme CSS File
+    ------------------------------------------
+    <link rel="stylesheet" href="path/to/fusioncharts/themes/fusioncharts.theme.fusion.css"/>
+-->
+
+<!-- In the HTML file -->
+<div ng-app='myApp'>
+        <div ng-controller='MyController'>
+            <fusioncharts 
+                width="600" 
+                height="400"
+                type="pie3d",
+                datasource="{{myDataSource}}">
+            </fusioncharts>
+        </div>
+</div>    
+
 <% } %>

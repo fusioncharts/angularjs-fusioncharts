@@ -1,23 +1,29 @@
 <style type="text/css">
-.log-pane{
-	padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    border: 2px solid black;
-    font-size: 20px;
-}
+	.log-pane {
+		padding-top: 10px;
+		padding-right: 10px;
+		padding-bottom: 10px;
+		padding-left: 10px;
+		border: 2px solid black;
+		font-size: 20px;
+	}
 </style>
-<div fusionCharts
-	         width="1000"
-	         height="550"
-	         id="ex10"
-	         type="column2d"
-	         datasource="{{myDataSource}}">
-</div>
 
-<div class='log-pane'>{{logMessage}}</div>
-<tabset>
-    <tab heading="HTML"><ng-prism class="language-markup">{{ html }}</ng-prism></tab>
-    <tab heading="Javascript"><ng-prism class="language-javascript">{{ js }}</ng-prism></tab>
-</tabset>
+<div class="card shadow">
+	<div class="card-body chart-wrapper">
+		<div class="chart-wrapper-inner">
+			<div id="chart-container">
+				<div fusionCharts width="100%" height="400" id="ex10" type="column2d" datasource="{{myDataSource}}" events="events">
+				</div>
+
+				<div class='log-pane'>{{logMessage}}</div>
+			</div>
+		</div>
+	</div>
+</div><!--
+    <tabset>
+        <tab heading="HTML"><ng-prism class="language-markup">{{ html }}</ng-prism></tab>
+        <tab heading="Javascript"><ng-prism class="language-javascript">{{ js }}</ng-prism></tab>
+    </tabset>
+-->
+<tabbed-code ></tabbed-code>
