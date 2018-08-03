@@ -1,4 +1,4 @@
-# AngularJS Charts Plugin
+# angularjs-fusioncharts
 
 Simple and effective AngularJS charts plugin for FusionCharts.
 
