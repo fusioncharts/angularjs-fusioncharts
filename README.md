@@ -233,7 +233,7 @@ Get the list of fusioncharts' [events](https://www.fusioncharts.com/dev/advanced
 
 ### Chart API
 
-Using api of charts involves getting the FusionCharts chart instance from the ```initialized``` event. It provides the chart object as a parameter which can be operated upon later.
+FusionCharts chart instance is made available from the ```initialized``` event. It provides the chart instance as a parameter which can be used to call FusionCharts methods.
 
 In template, we add ```initialized``` event
 
@@ -248,7 +248,7 @@ In template, we add ```initialized``` event
 <button ng-click="changeCaption()">Change Chart Caption</button>
 ```
 
-In order to use the chart instance , we need to store it.
+In order to use the chart instance, we need to store it.
 
 ```
 var app = angular.module('myApp', ['ng-fusioncharts']);
@@ -268,7 +268,7 @@ app.controller('MyController', function($scope){
       }
 });
 ```
-In the given above example clicking on the button changes the caption of the chart to ```Caption changed```
+In the given above example, clicking the button changes the caption text to ```Caption changed```
 
 Get the list of fusioncharts' [methods](https://www.fusioncharts.com/dev/api/fusioncharts/fusioncharts-methods)
 
