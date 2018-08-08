@@ -12,25 +12,25 @@
         <script type="text/javascript" src="http://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.ocean.js"></script>
         <script type="text/javascript" src="js/angular-fusioncharts.min.js"></script>
         <script type="text/javascript" src="js/app.js"></script>
-        
+
             <script type="text/javascript" src="js/demos/ex1.js"></script>
-        
+
             <script type="text/javascript" src="js/demos/ex2.js"></script>
-        
+
             <script type="text/javascript" src="js/demos/ex3.js"></script>
-        
+
             <script type="text/javascript" src="js/demos/ex4.js"></script>
-        
-            <script type="text/javascript" src="js/demos/ex5a.js"></script>
-        
+
             <script type="text/javascript" src="js/demos/ex5.js"></script>
-        
+
+            <script type="text/javascript" src="js/demos/ex5a.js"></script>
+
             <script type="text/javascript" src="js/demos/ex6.js"></script>
-        
+
             <script type="text/javascript" src="js/demos/ex7.js"></script>
-        
+
             <script type="text/javascript" src="js/demos/ex8.js"></script>
-        
+
             <script type="text/javascript" src="js/demos/ex9.js"></script>
         
             <script type="text/javascript" src="js/demos/ex15.js"></script>
@@ -47,22 +47,22 @@
         
         <script type="text/javascript">
             window.fcDemos = {};
-            
+
                 window.fcDemos['ex1'] =  {
                     js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n    $scope.myDataSource = {\n        \"chart\": {\n            \"caption\": \"Countries With Most Oil Reserves [2017-18]\",\n            \"subCaption\": \"In MMbbl = One Million barrels\",\n            \"xAxisName\": \"Country\",\n            \"yAxisName\": \"Reserves (MMbbl)\",\n            \"numberSuffix\": \"K\",\n            \"theme\": \"fusion\",\n        },\n        \"data\": [\n            { \"label\": \"Venezuela\", \"value\": \"290\" },\n            { \"label\": \"Saudi\", \"value\": \"260\" },\n            { \"label\": \"Canada\", \"value\": \"180\" },\n            { \"label\": \"Iran\", \"value\": \"140\" },\n            { \"label\": \"Russia\", \"value\": \"115\" },\n            { \"label\": \"UAE\", \"value\": \"100\" },\n            { \"label\": \"US\", \"value\": \"30\" },\n            { \"label\": \"China\", \"value\": \"30\"}\n        ]\n    };\n}]);\n",
                     html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n\n<!-- In the HTML file -->\n<div ng-app='myApp'>\n    <div ng-controller='MyController'>\n        <fusioncharts \n            width=\"600\" \n            height=\"400\"\n            type=\"column2d\"\n            datasource=\"{{myDataSource}}\">\n        </fusioncharts>\n    </div>\n</div>\n\n"
                 };
-            
+
                 window.fcDemos['ex2'] =  {
                     js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n    $scope.myDataSource = {\n        \"chart\": {\n            \"caption\": \"Recommended Portfolio Split\",\n            \"subCaption\" : \"For a net-worth of $1M\",\n            \"showValues\":\"1\",\n            \"showPercentInTooltip\" : \"0\",\n            \"numberPrefix\" : \"$\",\n            \"enableMultiSlicing\":\"1\",\n            \"theme\": \"fusion\"\n        },\n        \"data\": [{\n            \"label\": \"Equity\",\n            \"value\": \"300000\"\n        }, {\n            \"label\": \"Debt\",\n            \"value\": \"230000\"\n        }, {\n            \"label\": \"Bullion\",\n            \"value\": \"180000\"\n        }, {\n            \"label\": \"Real-estate\",\n            \"value\": \"270000\"\n        }, {\n            \"label\": \"Insurance\",\n            \"value\": \"20000\"\n        }]\n    };\n}]);\n\n",
                     html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n\n<!-- In the HTML file -->\n<div ng-app='myApp'>\n        <div ng-controller='MyController'>\n            <fusioncharts \n                width=\"600\" \n                height=\"400\"\n                type=\"pie3d\",\n                datasource=\"{{myDataSource}}\">\n            </fusioncharts>\n        </div>\n</div>    \n\n"
                 };
-            
+
                 window.fcDemos['ex3'] =  {
                     js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n    $scope.dataSource =  {\n        \"chart\": {\n            \"caption\": \"Expense Analysis\",\n            \"subCaption\": \"ACME Inc.\",\n            \"xAxisname\": \"Region\",\n            \"yAxisName\": \"Amount (In USD)\",\n            \"numberPrefix\": \"$\",\n            \"exportenabled\": \"1\",\n            \"theme\": \"fusion\"\n        },\n        \"categories\": [\n            {\n                \"category\": [\n                    { \"label\": \"East\" },\n                    { \"label\": \"West\" },\n                    { \"label\": \"South\" },\n                    { \"label\": \"North\" }\n                ]\n            }\n        ],\n        \"dataset\": [\n            {\n                \"seriesName\": \"Actual Expenses\",\n                \"data\": [\n                    { \"value\": \"1441290\" },\n                    { \"value\": \"855912\" },\n                    { \"value\": \"911404\" },\n                    { \"value\": \"648136\" }\n                ]\n            },\n            {\n                \"seriesName\": \"Budgeted Expenses\",\n                \"renderAs\": \"line\",\n                \"data\": [\n                    { \"value\": \"1297430\" },\n                    { \"value\": \"776485\" },\n                    { \"value\": \"685352\" },\n                    { \"value\": \"726791\" }\n                ]\n            },\n            {\n                \"seriesName\": \"Unknown liabilities\",\n                \"renderAs\": \"area\",\n                \"showAnchors\" : \"0\",\n                \"data\": [\n                    { \"value\": \"143860\" },\n                    { \"value\": \"79427\" },\n                    { \"value\": \"226052\" },\n                    { \"value\": \"78655\" }\n                ]\n            }\n        ]\n    };\n}]);\n",
                     html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n\n<!-- In the HTML file -->\n<div ng-app='myApp'>\n    <div ng-controller='MyController'>\n        <div fusioncharts\n            width=\"600\" \n            height=\"400\"\n            type=\"mscombi2d\",\n            datasource=\"{{dataSource}}\">\n        </div>\n    </div>\n</div>        \n"
                 };
-            
+
                 window.fcDemos['ex4'] =  {
                     js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n    $scope.myDataSource = {\n        \"chart\": {\n            \"caption\": \"Countries With Most Oil Reserves [2017-18]\",\n            \"subCaption\": \"In MMbbl = One Million barrels\",\n            \"xAxisName\": \"Country\",\n            \"yAxisName\": \"Reserves (MMbbl)\",\n            \"numberSuffix\": \"K\",\n            \"theme\": \"fusion\",\n        },\n        \"data\": [\n            { \"label\": \"Venezuela\", \"value\": \"290\" },\n            { \"label\": \"Saudi\", \"value\": \"260\" },\n            { \"label\": \"Canada\", \"value\": \"180\" },\n            { \"label\": \"Iran\", \"value\": \"140\" },\n            { \"label\": \"Russia\", \"value\": \"115\" },\n            { \"label\": \"UAE\", \"value\": \"100\" },\n            { \"label\": \"US\", \"value\": \"30\" },\n            { \"label\": \"China\", \"value\": \"30\"}\n        ]\n    };\n}]);\n",
                     html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n\n<!-- In the HTML file -->\n<div ng-app='myApp'>\n    <div ng-controller='MyController'>\n        <!-- As Element directive -->\n        <fusioncharts\n            width=\"600\" \n            height=\"400\"\n            type=\"column2d\",\n            datasource=\"{{dataSource}}\">\n        </fusioncharts>\n        <!-- As Attribute directive-->\n        <div\n            fusioncharts\n            width=\"600\" \n            height=\"400\"\n            type=\"column2d\",\n            datasource=\"{{dataSource}}\">\n        </div>\n    </div>\n</div>     \n\n\n"
@@ -77,22 +77,22 @@
                     js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\n\n",
                     html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n\n<!-- In the HTML file -->\n<div ng-app='myApp'>\n  <fusioncharts\n    dataformat=\"jsonurl\"\n    datasource=\"data/data.json\"\n    type=\"column2d\"\n    width=\"600\"\n    height=\"400\">\n  </fusioncharts>\n</div>  \n"
                 };
-            
+
                 window.fcDemos['ex6'] =  {
                     js: "\n\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n    \n    $scope.dataSource = {\n        \"chart\": {\n            \"caption\": \"Countries With Most Oil Reserves [2017-18]\",\n            \"subCaption\": \"In MMbbl = One Million barrels\",\n            \"xAxisName\": \"Country\",\n            \"yAxisName\": \"Reserves (MMbbl)\",\n            \"numberSuffix\": \"K\",\n            \"theme\": \"fusion\",\n            \"updateAnimDuration\":\"0.3\"\n        },\n        \"data\": [\n        { \"label\": \"Venezuela\", \"value\": \"290\" },\n        { \"label\": \"Saudi\", \"value\": \"260\" },\n        { \"label\": \"Canada\", \"value\": \"180\" },\n        { \"label\": \"Iran\", \"value\": \"140\" },\n        { \"label\": \"Russia\", \"value\": \"115\" },\n        { \"label\": \"UAE\", \"value\": \"100\" },\n        { \"label\": \"US\", \"value\": \"30\" },\n        { \"label\": \"China\", \"value\": \"30\"}\n        ]\n    };\n    \n    let getRandomNumber = function () {\n        var max = 290, min = 30;\n        return Math.round(((max - min) * Math.random()) + min);\n    }\n    \n    $scope.updateMyChartData = function () {\n        $scope.dataSource.data[2].value = getRandomNumber();\n        $scope.dataSource.data[3].value = getRandomNumber();\n    };\n}]);\n",
                     html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n\n<!-- In the HTML file -->\n\n<style >\n    .btn { font-family: 'Source Sans Pro'; }\n    .btn.btn-primary { background: #4a4d8c;  transition: all 300ms;}\n    .btn.btn-primary:hover{ background: #5c62b5; }\n    .btn.btn-primary:active{ background:#4a4d8c }\n</style>\n<div ng-app='myApp'>\n    <div ng-controller='MyController'>    \n        <div\n            fusioncharts\n            width=\"600\" \n            height=\"400\"\n            type=\"column2d\"\n            datasource=\"{{dataSource}}\">\n        </div>\n        <div style='display: flex; justify-content: center'>\n            <a class=\"btn btn-primary\" ng-click=\"updateMyChartData()\">Click me to change data</a>\n        </div>\n    </div>\n</div>     \n   \n"
                 };
-            
+
                 window.fcDemos['ex7'] =  {
                     js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n    $scope.dataSource = {\n        \"chart\": {\n          \"caption\": \"Countries With Most Oil Reserves [2017-18]\",\n          \"subCaption\": \"In MMbbl = One Million barrels\",\n          \"xAxisName\": \"Country\",\n          \"yAxisName\": \"Reserves (MMbbl)\",\n          \"numberSuffix\": \"K\",\n          \"theme\": \"fusion\",\n        },\n        \"data\": [\n            { \"label\": \"Venezuela\", \"value\": \"290\" },\n            { \"label\": \"Saudi\", \"value\": \"260\" },\n            { \"label\": \"Canada\", \"value\": \"180\" },\n            { \"label\": \"Iran\", \"value\": \"140\" },\n            { \"label\": \"Russia\", \"value\": \"115\" },\n            { \"label\": \"UAE\", \"value\": \"100\" },\n            { \"label\": \"US\", \"value\": \"30\" },\n            { \"label\": \"China\", \"value\": \"30\"}\n        ]\n    };\n    \n    $scope.events = {\n        dataplotrollover: function (ev, props) {\n            $scope.$apply(function () {\n                $scope.selectedValue = props.displayValue;\n                $scope.selectedLabel = props.categoryLabel;\n            });\n        }\n    };\n}]);\n",
                     html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n\n<!-- In the HTML file -->\n<div ng-app='myApp'>\n    <div ng-controller='MyController'>    \n        <div fusioncharts\n            width=\"600\" \n            height=\"400\"\n            type=\"column2d\",\n            datasource=\"{{dataSource}}\"\n            events=\"events\">\n        </div>\n        \n        <p style=\"font-size:20px;font-weight: 300;\">You're are currently hovering over <u>{{selectedLabel || \"______\"}}</u> whose value is <u>{{selectedValue || \"_______\"}} </u></p>\n    </div>\n</div> \n\n"
                 };
-            
+
                 window.fcDemos['ex8'] =  {
                     js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n    $scope.dataSource = {\n        \"chart\": {\n            \"caption\": \"Countries With Most Oil Reserves [2017-18]\",\n            \"subCaption\": \"In MMbbl = One Million barrels\",\n            \"xAxisName\": \"Country\",\n            \"yAxisName\": \"Reserves (MMbbl)\",\n            \"numberSuffix\": \"K\",\n            \"theme\": \"fusion\"\n        },\n        \"data\": [\n            { \"label\": \"Venezuela\", \"value\": \"290\" },\n            { \"label\": \"Saudi\", \"value\": \"260\" },\n            { \"label\": \"Canada\", \"value\": \"180\" },\n            { \"label\": \"Iran\", \"value\": \"140\" },\n            { \"label\": \"Russia\", \"value\": \"115\" },\n            { \"label\": \"UAE\", \"value\": \"100\" },\n            { \"label\": \"US\", \"value\": \"30\" },\n            { \"label\": \"China\", \"value\": \"30\"}\n        ]\n    };\n\n    $scope.changeBackgroundColor = function () {\n        $scope.dataSource.chart.bgColor = '#efefef';\n    };\n\n    $scope.changeCaptionTextAlignment = function () {\n        $scope.dataSource.chart.captionAlignment = 'left';\n    };\n}]);\n",
                     html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n\n<style >\n    .btn { font-family: 'Source Sans Pro'; }\n    .btn.btn-primary { background: #4a4d8c;  transition: all 300ms;}\n    .btn.btn-primary:hover{ background: #5c62b5; }\n    .btn.btn-primary:active{ background:#4a4d8c }\n    div.demo8-controls > a.btn.btn-primary { margin : 10px }\n</style>\n<div ng-app='myApp'>\n    <div ng-controller='MyController'> \n        <div style=\"display: flex;justify-content: center\">\n            <div fusioncharts\n                width=\"600\" \n                height=\"400\"\n                type=\"column2d\",\n                datasource=\"{{dataSource}}\"\n                >\n            </div>\n        </div>\n\n        <div style=\"display: flex; justify-content: center\" class='demo8-controls'>\n            <a class=\"btn btn-primary\" ng-click=\"changeBackgroundColor()\">Change chart background color</a>\n            <a class=\"btn btn-primary\" ng-click=\"changeCaptionTextAlignment()\">Make Caption text left-aligned</a>\n        </div>\n    </div>\n</div>\n"
                 };
-            
+
                 window.fcDemos['ex9'] =  {
                     js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n    $scope.attrs = {\n        \"caption\": \"Twitter Mentions\",\n        \"yAxisName\": \"Number of mentions\",\n        \"subCaption\": \"(iPhone Vs Samsung)\",\n        \"numbersuffix\": \"M\",\n        \"yAxisMaxValue\": \"2\",\n        \"plottooltext\": \"$seriesName was mentioned <b>$dataValue</b> times on Twitter in $label\",\n        \"theme\": \"fusion\"\n    };\n\n    $scope.categories = [\n        { \n            \"category\": \n            [\n                { \"label\": \"2007\" },\n                { \"label\": \"2008\" },\n                { \"label\": \"2009\" },\n                { \"label\": \"2010\" },\n                { \"label\": \"2011\" },\n                { \"label\": \"2012\" },\n                { \"label\": \"2013\" },\n                { \"label\": \"2014\" },\n                { \"label\": \"2015\" }\n            ]\n        }\n    ];\n\n    $scope.dataset = [\n        {\n            \"seriesname\": \"iPhone\",\n            \"data\": [\n            { \"value\": \"1.90\" },\n            { \"value\": \"1.94\" },\n            { \"value\": \"1.69\" },\n            { \"value\": \"1.66\" },\n            { \"value\": \"1.43\" },\n            { \"value\": \"1.97\" },\n            { \"value\": \"1.78\" },\n            { \"value\": \"1.58\" },\n            { \"value\": \"1.55\" }\n            ]\n        },\n        {\n            \"seriesname\": \"Samsung\",\n            \"data\": [\n            { \"value\": \"0.68\" },\n            { \"value\": \"0.74\" },\n            { \"value\": \"0.25\" },\n            { \"value\": \"0.64\" },\n            { \"value\": \"0.22\" },\n            { \"value\": \"0.74\" },\n            { \"value\": \"0.58\" },\n            { \"value\": \"0.15\" },\n            { \"value\": \"0.26\" }\n            ]\n        }\n    ];\n}]);\n",
                     html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    Include Theme CSS File\n    ------------------------------------------\n    <link rel=\"stylesheet\" href=\"path/to/fusioncharts/themes/fusioncharts.theme.fusion.css\"/>\n-->\n<div ng-app='myApp'>\n    <div ng-controller='MyController'> \n        <div\n            fusioncharts\n            width=\"600\" \n            height=\"400\"\n            type=\"msline\"\n            chart=\"{{attrs}}\"\n            categories=\"{{categories}}\"\n            dataset=\"{{dataset}}\">\n        </div>\n    </div>\n</div>\n\n\n"
@@ -127,7 +127,7 @@
                     js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n  $scope.myDataSource = {\n    \"chart\": {\n      \"caption\": \"Countries With Most Oil Reserves [2017-18]\",\n      \"subCaption\": \"In MMbbl = One Million barrels\",\n      \"xAxisName\": \"Country\",\n      \"yAxisName\": \"Reserves (MMbbl)\",\n      \"numberSuffix\": \"K\",\n      \"theme\": \"gammel\" // <- add theme here\n    },\n    \"data\": [\n        { \"label\": \"Venezuela\", \"value\": \"290\" },\n        { \"label\": \"Saudi\", \"value\": \"260\" },\n        { \"label\": \"Canada\", \"value\": \"180\" },\n        { \"label\": \"Iran\", \"value\": \"140\" },\n        { \"label\": \"Russia\", \"value\": \"115\" },\n        { \"label\": \"UAE\", \"value\": \"100\" },\n        { \"label\": \"US\", \"value\": \"30\" },\n        { \"label\": \"China\", \"value\": \"30\"}\n    ]\n  };\n}]);\n",
                     html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.gammel.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    \n-->\n<div ng-app='myApp'>\n  <div ng-controller='MyController'> \n    <fusioncharts\n      type=\"column2d\"\n      width=\"700\"\n      height=\"500\"\n      dataFormat=\"json\"\n      datasource=\"{{myDataSource}}\">\n    </fusioncharts>\n  </div>\n</div>\n"
                 };
-            
+
         </script>
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
         <link rel="stylesheet" href="bower_components/prism/themes/prism.css"/>
@@ -147,22 +147,22 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="list-group" role="tablist">
-                        
+
                             <a href="#/demos/ex1" class="list-group-item">
                                 <h4>A Simple Chart</h4>
                                 <p>A simple chart with all data embedded into the directive</p>
                             </a>
-                        
+
                             <a href="#/demos/ex2" class="list-group-item">
                                 <h4>A 3D Pie Chart</h4>
                                 <p>A 3D pie chart using the datasource attribute from scope</p>
                             </a>
-                        
+
                             <a href="#/demos/ex3" class="list-group-item">
                                 <h4>A Column, Line and Area Combi Chart</h4>
                                 <p>A column, line and area combination chart using the datasource attribute</p>
                             </a>
-                        
+
                             <a href="#/demos/ex4" class="list-group-item">
                                 <h4>Different ways to use the directive</h4>
                                 <p>Use the fc-chart as a tag or as an attribute</p>
@@ -182,17 +182,17 @@
                                 <h4>Update chart data from scope</h4>
                                 <p>Change the data dynamically in the scope and watch the chart update automatically</p>
                             </a>
-                        
+
                             <a href="#/demos/ex7" class="list-group-item">
                                 <h4>Trigger scope event from chart</h4>
                                 <p>Click on a chart to trigger an event in the controller, and update the scope</p>
                             </a>
-                        
+
                             <a href="#/demos/ex8" class="list-group-item">
                                 <h4>Update chart attribute from scope</h4>
                                 <p>Change a parameter in the scope variable and see it automatically update the chart</p>
                             </a>
-                        
+
                             <a href="#/demos/ex9" class="list-group-item">
                                 <h4>Separate objects for attributes</h4>
                                 <p>Separate objects for chart attributes, dataset and categories</p>

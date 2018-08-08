@@ -28,7 +28,8 @@ module.exports = function(grunt) {
         copy: {
             core: {
                 files: [
-                    {src:'dist/angular-fusioncharts.min.js', dest: 'demos/js/angular-fusioncharts.min.js'}
+					{src:'dist/angular-fusioncharts.min.js', dest: 'demos/js/angular-fusioncharts.min.js'},
+					{src:'src/angular-fusioncharts.js', dest: 'dist/angular-fusioncharts.js'}
                 ]
             }
         }

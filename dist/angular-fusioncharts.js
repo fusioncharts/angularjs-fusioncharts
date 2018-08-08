@@ -20,45 +20,35 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 (function() {
-    var fc = angular.module('ng-fusioncharts', []),
-    scope = {
-        width: '@',
-        height: '@',
-        data: '@',
-        dataset: '@',
-        categories: '@',
-        chart: '@',
-        linkeddata: '@',
-        trendlines: '@',
-        vtrendlines: '@',
-        annotations: '@',
-        colorrange: '@',
-        lineset: '@',
-        axis: '@',
-        connectors: '@',
-        pointers: '@',
-        value: '@',
-        processes: '@',
-        tasks: '@',
-        rows: '@',
-        columns: '@',
-        map: '@',
-        markers: '@',
-        initialized:'&'
-    },
-    fcEvents = ['beforelinkeditemopen','linkeditemopened','beforelinkeditemclose','linkeditemclosed','printreadystatechange','dataloadrequestcompleted','dataloaderror','dataloadcancelled','dataloadrequestcancelled','dataupdated','dataupdatecancelled','dataloadrequested','beforedataupdate','realtimeupdatecomplete','chartcleared','slicingend','slicingstart','entityrollout','entityrollover','entityclick','connectorrollover','connectorrollout','connectorclick','markerrollover','markerrollout','markerclick','pagenavigated','rotationend','rotationstart','centerlabelrollover','centerlabelrollout','centerlabelclick','centerlabelchanged','chartclick','chartmousemove','chartrollover','chartrollout','backgroundloaded','backgroundloaderror','legenditemclicked','legenditemrollover','legenditemrollout','logorollover','logorollout','logoclick','logoloaded','logoloaderror','beforeexport','exported','exportcancelled','beforeprint','printcomplete','printcancelled','datalabelclick','datalabelrollover','datalabelrollout','scrollstart','scrollend','onscroll','zoomreset','zoomedout','zoomedin','zoomed','zoommodechanged','pinned','datarestored','beforedatasubmit','datasubmiterror','datasubmitted','datasubmitcancelled','chartupdated','nodeadded','nodeupdated','nodedeleted','connectoradded','connectorupdated','connectordeleted','labeladded','labeldeleted','selectionremoved','selectionstart','selectionend','labelclick','labelrollover','labelrollout','labeldragstart','labeldragend','dataplotdragstart','dataplotdragend','processclick','processrollover','processrollout','categoryclick','categoryrollover','categoryrollout','milestoneclick','milestonerollover','milestonerollout','charttypechanged','overlaybuttonclick','loaded','rendered','drawcomplete','rendercomplete','datainvalid','dataxmlinvalid','dataloaded','nodatatodisplay','legendpointerdragstart','legendpointerdragstop','legendrangeupdated','alertcomplete','realtimeupdateerror','dataplotrollover','dataplotrollout','dataplotclick','linkclicked','beforerender','rendercancelled','beforeresize','resized','resizecancelled','beforedispose','disposed','disposecancelled','linkedchartinvoked','beforedrilldown','drilldown','beforedrillup','drillup','drilldowncancelled','drillupcancelled'],
-    currIndex,
-    eventName,
-    eventsLen = fcEvents.length;
-    for (currIndex = 0; currIndex < eventsLen; currIndex++){
-        eventName = 'fcevent' + fcEvents[currIndex][0].toUpperCase() + fcEvents[currIndex].slice(1);
-      scope[eventName] = '&';
-    }
+    var fc = angular.module('ng-fusioncharts', []);
 
 
     fc.directive('fusioncharts', ['$http', function($http) {
         return {
-            scope: scope,
+            scope: {
+                width: '@',
+                height: '@',
+                data: '@',
+                dataset: '@',
+                categories: '@',
+                chart: '@',
+                linkeddata: '@',
+                trendlines: '@',
+                vtrendlines: '@',
+                annotations: '@',
+                colorrange: '@',
+                lineset: '@',
+                axis: '@',
+                connectors: '@',
+                pointers: '@',
+                value: '@',
+                processes: '@',
+                tasks: '@',
+                rows: '@',
+                columns: '@',
+                map: '@',
+                markers: '@'
+            },
             link: function(scope, element, attrs) {
                 var observeConf = {
                         // non-data componenet observers
@@ -371,16 +361,6 @@
                             chart.dispose();
                         }
                         chart = new FusionCharts(chartConfigObject);
-                        scope.initialized && scope.initialized({ chart: chart });
-                        for(currIndex = 0; currIndex < eventsLen ; currIndex++){
-                            eventName = 'fcevent' + fcEvents[currIndex][0].toUpperCase() + fcEvents[currIndex].slice(1);
-                            // assign all events on chart instance
-                            (function(eventName){
-                                chart.addEventListener(fcEvents[currIndex], function(event, args){
-                                    scope[eventName] && scope[eventName]({ event:event, args: args }); 
-                                }); 
-                            })(eventName);
-                        }
                         /* @todo validate the ready function whether it can be replaced in a better way */
                         angular.element(document).ready(function(){
                             element.ready(function(){
