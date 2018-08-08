@@ -177,6 +177,102 @@ In `index.html`
 ```
 Load  it in browser , Chart should get displayed
 
+### Listening to events
+
+Fusincharts events can be subscribed by attaching scope functions to event attributes.
+All the events attributes start with `fcevent-`
+followed by the event name in lowercase  
+
+Usage in template :
+
+```xml
+<fusioncharts 
+  width="400"
+  height="400"
+  type="column2d"
+  datasource="{{myDataSource}}"
+  fcevent-dataplotrollover="rollover(event, args)">
+</fusioncharts>
+```
+In the given above template, `rollover` is the scope function that needs to be defined in the controller's code.
+
+For more on this read [here](https://www.fusioncharts.com/dev/api/fusioncharts/fusioncharts-events)
+
+```
+var app = angular.module('myApp', ['ng-fusioncharts']);
+
+app.controller('MyController', function($scope){
+    $scope.myDataSource = {
+        "chart": {
+          "caption": "Countries With Most Oil Reserves [2017-18]",
+          "subCaption": "In MMbbl = One Million barrels",
+          "xAxisName": "Country",
+          "yAxisName": "Reserves (MMbbl)",
+          "numberSuffix": "K",
+          "theme": "fusion"
+        },
+        "data": [
+          { "label": "Venezuela", "value": "290" },
+          { "label": "Saudi", "value": "260" },
+          { "label": "Canada", "value": "180" },
+          { "label": "Iran", "value": "140" },
+          { "label": "Russia", "value": "115" },
+          { "label": "UAE", "value": "100" },
+          { "label": "US", "value": "30" },
+          { "label": "China", "value": "30" }
+        ]
+      };
+
+      $scope.rollover = function(event, name){
+          console.log(event, name);
+      }
+});
+```
+
+Get the list of fusioncharts' [events](https://www.fusioncharts.com/dev/advanced-chart-configurations/events/classifying-events)
+
+### Chart API
+
+Using api of charts involves getting the FusionCharts chart instance from the ```initialized``` event. It provides the chart object as a parameter which can be operated upon later.
+
+In template, we add ```initialized``` event
+
+```xml
+<fusioncharts
+  width="400"
+  height="400"
+  type="column2d"
+  datasource="{{myDataSource}}"
+  initialized="onInitialized(chart)">
+</fusioncharts>
+<button ng-click="changeCaption()">Change Chart Caption</button>
+```
+
+In order to use the chart instance , we need to store it.
+
+```
+var app = angular.module('myApp', ['ng-fusioncharts']);
+
+app.controller('MyController', function($scope){
+    var chart; 
+    $scope.datasource = {
+       ...// same data as above
+      };
+
+      $scope.onInitialized = function(chartObj){
+        chart = chartObj;
+      }
+
+      $scope.changeCaption = function(){
+          chart.setChartAttribute('caption', 'Caption changed');
+      }
+});
+```
+In the given above example clicking on the button changes the caption of the chart to ```Caption changed```
+
+Get the list of fusioncharts' [methods](https://www.fusioncharts.com/dev/api/fusioncharts/fusioncharts-methods)
+
+
 ### Tutorial
 
 Following tutorials will help you get started:
