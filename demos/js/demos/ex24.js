@@ -1,21 +1,23 @@
 (function () {
   app.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/demos/ex22', {
-      templateUrl: 'views/ex22.html',
-      controller: 'ex22Controller'
+    $routeProvider.when('/demos/ex24', {
+      templateUrl: 'views/ex24.html',
+      controller: 'ex24Controller'
     });
   }]);
 
 
 
 
-  app.controller('ex22Controller', function ($scope, $rootScope) {
-    $rootScope.demoId = 'ex22';
+  app.controller('ex24Controller', function ($scope, $rootScope) {
+    $rootScope.demoId = 'ex24';
     var vm = this,
     chart;
-    $rootScope.currentTitle = 'Change chart type at run time';
-    $scope.chartType = 'column2d'; 
-
+    $rootScope.currentTitle = 'Update chart attribute through methods';
+    $scope.themeName = 'fusion'; 
+    $scope.initialized = function(chartObj){
+      chart = chartObj;
+    }
     $scope.myDataSource = {
       "chart": {
         "caption": "Countries With Most Oil Reserves [2017-18]",
@@ -40,7 +42,7 @@
       chart = chartObj;
     };
     $scope.buttonClick = function(e){
-        chart.chartType(e.target.value);
+        chart.setChartAttribute('theme', e.target.value);
     }
   });
 

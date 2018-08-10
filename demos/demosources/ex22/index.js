@@ -41,7 +41,6 @@
     };
     $scope.buttonClick = function(e){
         chart.chartType(e.target.value);
-        $scope.selected = e.target.value;
     }
   });
 

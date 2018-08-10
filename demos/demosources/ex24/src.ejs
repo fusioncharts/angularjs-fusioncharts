@@ -1,0 +1,93 @@
+<% if(src=== "js") { %>
+var myApp = angular.module('myApp', ['ng-fusioncharts']);
+myApp.controller('MyController', ['$scope', function($scope){
+    var chart;
+    $scope.themeName = 'fusion'; 
+    $scope.initialized = function(chartObj){
+      chart = chartObj;
+    }
+    $scope.myDataSource = {
+      "chart": {
+        "caption": "Countries With Most Oil Reserves [2017-18]",
+        "subCaption": "In MMbbl = One Million barrels",
+        "xAxisName": "Country",
+        "yAxisName": "Reserves (MMbbl)",
+        "numberSuffix": "K",
+        "theme": "fusion"
+      },
+      "data": [
+          { "label": "Venezuela", "value": "290" },
+          { "label": "Saudi", "value": "260" },
+          { "label": "Canada", "value": "180" },
+          { "label": "Iran", "value": "140" },
+          { "label": "Russia", "value": "115" },
+          { "label": "UAE", "value": "100" },
+          { "label": "US", "value": "30" },
+          { "label": "China", "value": "30"}
+      ]
+    };
+    $scope.initialized = function(chartObj){
+      chart = chartObj;
+    };
+    $scope.buttonClick = function(e){
+        chart.setChartAttribute('theme', e.target.value);
+    }
+}]);
+<% } else if(src==="html") { %>
+<!-- 
+    Include script files in your index.html
+    ------------------------------------------
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/fusioncharts.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/themes/fusioncharts.theme.gammel.js"></script>
+    <script type="text/javascript" src="path/to/angularjs-fusioncharts.min.js"></script>
+   
+    
+-->
+<div ng-app='myApp'>
+  <div ng-controller='MyController'> 
+        <div id="chart-container">
+                <fusioncharts
+                  type="column2d"
+                  width="100%"
+                  id="id1"
+                  height=500
+                  initialized="initialized(chart)"
+                  dataFormat="json"
+                  initialized="initialized(chart)"
+                  datasource="{{myDataSource}}">
+                </fusioncharts>
+        </div></br>
+        <div style='display: flex; justify-content: center'>
+            <span id="select-text">Choose a theme:</span>
+                <div class="change-type">
+                    <div>
+                        <input type="radio" value="fusion" ng-click="buttonClick($event)" ng-model="themeName"/>
+                        <label>Fusion</label>
+                    </div>
+                    <div>
+                        <input type="radio" value="gammel" ng-click="buttonClick($event)" ng-model="themeName"/>
+                        <label>Gammel</label>
+                    </div>
+                    <div>
+                        <input type="radio" value="candy" ng-click="buttonClick($event)" ng-model="themeName"/>
+                        <label>Candy</label>
+                    </div>
+                    <div>
+                        <input type="radio" value="zune" ng-click="buttonClick($event)" ng-model="themeName"/>
+                        <label>Zune</label>
+                    </div>
+                    <div>
+                        <input type="radio" value="ocean" ng-click="buttonClick($event)" ng-model="themeName"/>
+                        <label>Ocean</label>
+                    </div>
+                    <div>
+                        <input type="radio" value="carbon" ng-click="buttonClick($event)" ng-model="themeName"/>
+                        <label>Carbon</label>
+                    </div>
+                </div>
+            </span>
+        </div>
+  </div>
+</div>
+<% } %>

@@ -4,7 +4,7 @@
     }
     .change-type {
     display: inline-block;
-    margin: 0 10px;
+    margin: 0 6px;
     }
     .change-type > div {
     display: inline-flex;
@@ -71,25 +71,38 @@
               width="100%"
               id="id1"
               height=500
+              initialized="initialized(chart)"
               dataFormat="json"
               initialized="initialized(chart)"
               datasource="{{myDataSource}}">
             </fusioncharts>
         </div></br>
         <div style='display: flex; justify-content: center'>
-            <span id="select-text">Choose a chart type:</span>
+            <span id="select-text">Choose a theme:</span>
                 <div class="change-type">
                     <div>
-                        <input type="radio" value="column2d" ng-click="buttonClick($event)" ng-model="chartType"/>
-                        <label>Column 2D Chart</label>
+                        <input type="radio" value="fusion" ng-click="buttonClick($event)" ng-model="themeName"/>
+                        <label>Fusion</label>
                     </div>
                     <div>
-                        <input type="radio" value="bar2d" ng-click="buttonClick($event)" ng-model="chartType"/>
-                        <label>Bar 2D Chart</label>
+                        <input type="radio" value="gammel" ng-click="buttonClick($event)" ng-model="themeName"/>
+                        <label>Gammel</label>
                     </div>
                     <div>
-                        <input type="radio" value="line" ng-click="buttonClick($event)" ng-model="chartType"/>
-                        <label>Line 2D Chart</label>
+                        <input type="radio" value="candy" ng-click="buttonClick($event)" ng-model="themeName"/>
+                        <label>Candy</label>
+                    </div>
+                    <div>
+                        <input type="radio" value="zune" ng-click="buttonClick($event)" ng-model="themeName"/>
+                        <label>Zune</label>
+                    </div>
+                    <div>
+                        <input type="radio" value="ocean" ng-click="buttonClick($event)" ng-model="themeName"/>
+                        <label>Ocean</label>
+                    </div>
+                    <div>
+                        <input type="radio" value="carbon" ng-click="buttonClick($event)" ng-model="themeName"/>
+                        <label>Carbon</label>
                     </div>
                 </div>
             </span>

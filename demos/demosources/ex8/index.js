@@ -38,11 +38,11 @@
         }
 
         $scope.changeBackgroundColor = function () {
-            chart.setChartAttribute('bgColor', '#efefef');
+            $scope.dataSource.chart.bgColor = '#efefef';
         };
 
         $scope.changeCaptionTextAlignment = function () {
-            chart.setChartAttribute('captionAlignment', 'left');
+            $scope.dataSource.chart.captionAlignment = 'left';
         };
     });
         

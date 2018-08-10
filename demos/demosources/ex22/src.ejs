@@ -28,7 +28,6 @@ myApp.controller('MyController', ['$scope', function($scope){
     };
     $scope.buttonClick = function(e){
         chart.chartType(e.target.value);
-        $scope.selected = e.target.value;
     }
 }]);
 <% } else if(src==="html") { %>
@@ -56,7 +55,7 @@ myApp.controller('MyController', ['$scope', function($scope){
             </fusioncharts>
         </div></br>
         <div style='display: flex; justify-content: center'>
-            <span>Chose a chart type:</span>
+            <span>Choose a chart type:</span>
                 <div class="change-type">
                     <div>
                         <input type="radio" value="column2d" ng-click="buttonClick($event)" ng-model="chartType"/>
