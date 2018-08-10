@@ -1,26 +1,32 @@
 <% if(src=== "js") { %>
 var myApp = angular.module('myApp', ['ng-fusioncharts']);
 myApp.controller('MyController', ['$scope', function($scope){
-  $scope.myDataSource = {
-    "chart": {
-      "caption": "Countries With Most Oil Reserves [2017-18]",
-      "subCaption": "In MMbbl = One Million barrels",
-      "xAxisName": "Country",
-      "yAxisName": "Reserves (MMbbl)",
-      "numberSuffix": "K",
-      "theme": "gammel" // <- add theme here
-    },
-    "data": [
-        { "label": "Venezuela", "value": "290" },
-        { "label": "Saudi", "value": "260" },
-        { "label": "Canada", "value": "180" },
-        { "label": "Iran", "value": "140" },
-        { "label": "Russia", "value": "115" },
-        { "label": "UAE", "value": "100" },
-        { "label": "US", "value": "30" },
-        { "label": "China", "value": "30"}
-    ]
-  };
+  $scope.message = 'You will see a notification here after chart completes rendering';
+    $scope.myDataSource = {
+      "chart": {
+        "caption": "Countries With Most Oil Reserves [2017-18]",
+        "subCaption": "In MMbbl = One Million barrels",
+        "xAxisName": "Country",
+        "yAxisName": "Reserves (MMbbl)",
+        "numberSuffix": "K",
+        "theme": "fusion"
+      },
+      "data": [
+          { "label": "Venezuela", "value": "290" },
+          { "label": "Saudi", "value": "260" },
+          { "label": "Canada", "value": "180" },
+          { "label": "Iran", "value": "140" },
+          { "label": "Russia", "value": "115" },
+          { "label": "UAE", "value": "100" },
+          { "label": "US", "value": "30" },
+          { "label": "China", "value": "30"}
+      ]
+    };
+    $scope.renderComplete = function(){
+      $scope.$apply(function(){
+        $scope.message = 'Chart has completed rendering';
+      });
+    }
 }]);
 <% } else if(src==="html") { %>
 <!-- 
@@ -35,13 +41,15 @@ myApp.controller('MyController', ['$scope', function($scope){
 -->
 <div ng-app='myApp'>
   <div ng-controller='MyController'> 
-    <fusioncharts
-      type="column2d"
-      width="700"
-      height="500"
-      dataFormat="json"
-      datasource="{{myDataSource}}">
-    </fusioncharts>
+      <fusioncharts 
+        type="column2d" 
+        width="100%" 
+        height="500" 
+        dataFormat="json" 
+        fcevent-rendered="renderComplete()" 
+        datasource="{{myDataSource}}">
+      </fusioncharts>
+      <p style='padding: 10px; background: #f5f2f0'>{{message}}</p>
   </div>
 </div>
 <% } %>

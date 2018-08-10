@@ -72,6 +72,8 @@
         
         <script type="text/javascript" src="js/demos/ex17.js"></script>
         
+        <script type="text/javascript" src="js/demos/ex18.js"></script>
+        
         <script type="text/javascript" src="js/demos/ex19.js"></script>
         
         <script type="text/javascript" src="js/demos/ex20.js"></script>
@@ -168,6 +170,11 @@
                 window.fcDemos['ex17'] = {
                     js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n  var startValue;\n  $scope.myDataSource = {\n    \"chart\": {\n      \"caption\": \"App Publishing Trend\",\n      \"subCaption\": \"2012-2016\",\n      \"xAxisName\": \"Years\",\n      \"yAxisName\" : \"Total number of apps in store\",\n      \"formatnumberscale\": \"1\",\n      \"drawCrossLine\":\"1\",\n      \"plotToolText\" : \"<b>$dataValue</b> apps on $seriesName in $label\",\n      \"theme\": \"fusion\"\n    },\n\n    \"categories\": [{\n      \"category\": [{\n        \"label\": \"2012\"\n      }, {\n        \"label\": \"2013\"\n      }, {\n        \"label\": \"2014\"\n      }, {\n        \"label\": \"2015\"\n      },{\n      \"label\": \"2016\"\n      }\n      ]\n    }],\n    \"dataset\": [{\n      \"seriesname\": \"iOS App Store\",\n      \"data\": [{\n        \"value\": \"125000\"\n      }, {\n        \"value\": \"300000\"\n      }, {\n        \"value\": \"480000\"\n      }, {\n        \"value\": \"800000\"\n      }, {\n        \"value\": \"1100000\"\n      }]\n    }, {\n      \"seriesname\": \"Google Play Store\",\n      \"data\": [{\n        \"value\": \"70000\"\n      }, {\n        \"value\": \"150000\"\n      }, {\n        \"value\": \"350000\"\n      }, {\n        \"value\": \"600000\"\n      },{\n        \"value\": \"1400000\"\n      }]\n    }, {\n      \"seriesname\": \"Amazon AppStore\",\n      \"data\": [{\n        \"value\": \"10000\"\n      }, {\n        \"value\": \"100000\"\n      }, {\n        \"value\": \"300000\"\n      }, {\n        \"value\": \"600000\"\n      },{\n        \"value\": \"900000\"\n      }]\n    }]\n  };\n  $scope.dataPlotDragstart = function(event){\n     startValue = event.data.startValue; \n  }\n  $scope.dataPlotDragend = function(event){ \n    $scope.$apply(function(){\n       $scope.selectedDataset = event.data.datasetName;\n       $scope.selectedStartValue= FusionCharts.formatNumber(startValue);\n       $scope.selectedEndValue = FusionCharts.formatNumber(event.data.endValue);\n    });\n  }\n}]);\n",
                     html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.gammel.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    \n-->\n<div ng-app='myApp'>\n  <div ng-controller='MyController'> \n      <fusioncharts\n      type=\"dragcolumn2d\"\n      width=\"100%\"\n      height=\"500\"\n      dataFormat=\"json\"\n      fcevent-dataplotdragstart=\"dataPlotDragstart(event)\"\n      fcevent-dataplotdragend=\"dataPlotDragend(event)\"\n      datasource=\"{{myDataSource}}\">\n    </fusioncharts>\n    <p style=\"font-size:16px;font-weight: 300;\">\n      You have dragged a plot of {{selectedDataset || \"______\"}} dataset, its previous value was {{selectedStartValue || \"_______\"}} and its current value is {{selectedEndValue || \"_______\"}} \n    </p>\n  </div>\n</div>\n"
+                };
+                
+                window.fcDemos['ex18'] = {
+                    js: "\nvar myApp = angular.module('myApp', ['ng-fusioncharts']);\nmyApp.controller('MyController', ['$scope', function($scope){\n  $scope.message = 'You will see a notification here after chart completes rendering';\n    $scope.myDataSource = {\n      \"chart\": {\n        \"caption\": \"Countries With Most Oil Reserves [2017-18]\",\n        \"subCaption\": \"In MMbbl = One Million barrels\",\n        \"xAxisName\": \"Country\",\n        \"yAxisName\": \"Reserves (MMbbl)\",\n        \"numberSuffix\": \"K\",\n        \"theme\": \"fusion\"\n      },\n      \"data\": [\n          { \"label\": \"Venezuela\", \"value\": \"290\" },\n          { \"label\": \"Saudi\", \"value\": \"260\" },\n          { \"label\": \"Canada\", \"value\": \"180\" },\n          { \"label\": \"Iran\", \"value\": \"140\" },\n          { \"label\": \"Russia\", \"value\": \"115\" },\n          { \"label\": \"UAE\", \"value\": \"100\" },\n          { \"label\": \"US\", \"value\": \"30\" },\n          { \"label\": \"China\", \"value\": \"30\"}\n      ]\n    };\n    $scope.renderComplete = function(){\n      $scope.$apply(function(){\n        $scope.message = 'Chart has completed rendering';\n      });\n    }\n}]);\n",
+                    html: "\n<!-- \n    Include script files in your index.html\n    ------------------------------------------\n    <script type=\"text/javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/fusioncharts.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/fusioncharts/themes/fusioncharts.theme.gammel.js\"></script>\n    <script type=\"text/javascript\" src=\"path/to/angularjs-fusioncharts.min.js\"></script>\n   \n    \n-->\n<div ng-app='myApp'>\n  <div ng-controller='MyController'> \n      <fusioncharts \n        type=\"column2d\" \n        width=\"100%\" \n        height=\"500\" \n        dataFormat=\"json\" \n        fcevent-rendered=\"renderComplete()\" \n        datasource=\"{{myDataSource}}\">\n      </fusioncharts>\n      <p style='padding: 10px; background: #f5f2f0'>{{message}}</p>\n  </div>\n</div>\n"
                 };
                 
                 window.fcDemos['ex19'] = {
@@ -467,6 +474,12 @@
                                         </div>
                                     </a>
                                 
+                                    <a href="#/demos/ex18" ng-click="toggleModal(false)">
+                                        <div class="nav-item" ng-class="{ selected : 'ex18' === demoId}">
+                                            <div class="p">Render Alert</div>
+                                        </div>
+                                    </a>
+                                
                                     <a href="#/demos/ex19" ng-click="toggleModal(false)">
                                         <div class="nav-item" ng-class="{ selected : 'ex19' === demoId}">
                                             <div class="p">Dynamically add chart event listener</div>
@@ -642,6 +655,14 @@
                                         <div class="nav-item" ng-class="{ selected : 'ex17' === demoId}">
                                             <div class="h5">Special Events</div>
                                             <div class="p item-desc">Drag a column column to see its change</div>
+                                        </div>
+
+                                    </a>
+                                
+                                    <a href="#/demos/ex18" >
+                                        <div class="nav-item" ng-class="{ selected : 'ex18' === demoId}">
+                                            <div class="h5">Render Alert</div>
+                                            <div class="p item-desc">Show a message that the chart is rendered on the &#39;rendered&#39; event</div>
                                         </div>
 
                                     </a>

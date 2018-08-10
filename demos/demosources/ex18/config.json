@@ -1,4 +1,4 @@
 {
-  "title": "Applying a different theme",
-  "desc": "Choosing from different themes available in FusionCharts Suite"
+  "title": "Render Alert",
+  "desc": "Show a message that the chart is rendered on the 'rendered' event"
 }

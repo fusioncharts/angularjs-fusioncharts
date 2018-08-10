@@ -1,25 +1,21 @@
 (function () {
   app.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/demos/ex16', {
-      templateUrl: 'views/ex16.html',
-      controller: 'ex16Controller'
+    $routeProvider.when('/demos/ex18', {
+      templateUrl: 'views/ex18.html',
+      controller: 'ex18Controller'
     });
   }]);
 
 
 
 
-  app.controller('ex16Controller', function ($scope, $rootScope) {
-    $rootScope.demoId = 'ex16';
+  app.controller('ex18Controller', function ($scope, $rootScope) {
+    $rootScope.demoId = 'ex18';
     var vm = this;
-    $rootScope.currentTitle = 'Applying a different theme';        
-    $scope.variable = 'hello world';
-    setTimeout(function(){
-      $scope.$apply(function(){
-        $scope.variable = "MyWorld";
-      })
-    }, 2000);
+    $rootScope.currentTitle = 'Render Alert';
     
+    $scope.message = 'You will see a notification here after chart completes rendering';
+
     $scope.myDataSource = {
       "chart": {
         "caption": "Countries With Most Oil Reserves [2017-18]",
@@ -27,7 +23,7 @@
         "xAxisName": "Country",
         "yAxisName": "Reserves (MMbbl)",
         "numberSuffix": "K",
-        "theme": "gammel"
+        "theme": "fusion"
       },
       "data": [
           { "label": "Venezuela", "value": "290" },
@@ -40,6 +36,11 @@
           { "label": "China", "value": "30"}
       ]
     };
+    $scope.renderComplete = function(){
+      $scope.$apply(function(){
+        $scope.message = 'Chart has completed rendering';
+      });
+    }
 
 
   });

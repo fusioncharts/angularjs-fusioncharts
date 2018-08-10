@@ -1,4 +1,7 @@
 <style>
+    #select-text{
+        margin: 5px;
+    }
     .change-type {
     display: inline-block;
     margin: 0 10px;
@@ -74,7 +77,7 @@
             </fusioncharts>
         </div></br>
         <div style='display: flex; justify-content: center'>
-            <span>Chose a chart type:</span>
+            <span id="select-text">Chose a chart type:</span>
                 <div class="change-type">
                     <div>
                         <input type="radio" value="column2d" ng-click="buttonClick($event)" ng-model="chartType"/>
