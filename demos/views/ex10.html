@@ -13,7 +13,7 @@
 	<div class="card-body chart-wrapper">
 		<div class="chart-wrapper-inner">
 			<div id="chart-container">
-				<div fusionCharts width="100%" height="400" id="ex10" type="column2d" datasource="{{myDataSource}}" events="events">
+				<div fusionCharts width="100%" height="400" id="ex10" type="column2d" datasource="{{myDataSource}}" fcevent-dataplotclick="dataPlotClick(event, args)">
 				</div>
 
 				<div class='log-pane'>{{logMessage}}</div>

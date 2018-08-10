@@ -2,12 +2,11 @@
     <div class="card-body chart-wrapper">
         <div class="chart-wrapper-inner">
             <div id="chart-container">
-                <div fusioncharts width="100%" height="400" type="column2d" , datasource="{{dataSource}}" events="events"></div>
+                <div fusioncharts width="100%" height="400" type="column2d" , datasource="{{dataSource}}" fcevent-dataplotrollover="plotRollOver(event)"></div>
                 <p style="font-size:20px;font-weight: 300;">
                     You're are currently hovering over
                     <span style="font-weight: 400">{{selectedLabel || "______"}}</span> whose value is
                     <span style="font-weight: 400">{{selectedValue || "_______"}}</span>
-                    </b>
                 </p>
 
             </div>

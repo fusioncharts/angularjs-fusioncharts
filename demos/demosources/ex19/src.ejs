@@ -1,0 +1,73 @@
+<% if(src=== "js") { %>
+var myApp = angular.module('myApp', ['ng-fusioncharts']);
+myApp.controller('MyController', ['$scope', function($scope){
+  var chart;
+  $scope.message = 'Click on <b>TRACK DATA PLOT CLICK</b>  button to listen to dataplotclick event';
+  $scope.myDataSource = {
+    "chart": {
+      "caption": "Countries With Most Oil Reserves [2017-18]",
+      "subCaption": "In MMbbl = One Million barrels",
+      "xAxisName": "Country",
+      "yAxisName": "Reserves (MMbbl)",
+      "numberSuffix": "K",
+      "theme": "fusion"
+    },
+    "data": [
+        { "label": "Venezuela", "value": "290" },
+        { "label": "Saudi", "value": "260" },
+        { "label": "Canada", "value": "180" },
+        { "label": "Iran", "value": "140" },
+        { "label": "Russia", "value": "115" },
+        { "label": "UAE", "value": "100" },
+        { "label": "US", "value": "30" },
+        { "label": "China", "value": "30"}
+    ]
+  };
+  
+  $scope.clickHandler = function(e){
+    $scope.$apply(function(){
+      $scope.message = 'You have clicked on plot '+  e.data.categoryLabel + ' whose value is ' + e.data.displayValue;
+    });
+  };
+  $scope.track = function(){
+    FusionCharts.addEventListener('dataplotclick', $scope.clickHandler);
+    $scope.message = 'Click on the plot to see the value along with the label';
+  };
+  $scope.reset = function(){
+    FusionCharts.removeEventListener('dataplotclick', $scope.clickHandler);
+    $scope.message = 'Click on <b>TRACK DATA PLOT CLICK</b>  button to listen to dataplotclick event';
+  }
+  $scope.$on('$destroy', function() {
+    FusionCharts.removeEventListener('dataplotclick', $scope.clickHandler);
+  });
+}]);
+<% } else if(src==="html") { %>
+<!-- 
+    Include script files in your index.html
+    ------------------------------------------
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/fusioncharts.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/themes/fusioncharts.theme.gammel.js"></script>
+    <script type="text/javascript" src="path/to/angularjs-fusioncharts.min.js"></script>
+   
+    
+-->
+<div ng-app='myApp'>
+  <div ng-controller='MyController'> 
+      <div id="chart-container">
+          <fusioncharts
+              type="column2d"
+              width="100%"
+              height="500"
+              dataFormat="json"
+              datasource="{{myDataSource}}">
+            </fusioncharts>
+      </div>
+      <p ng-bind-html="message" style='padding: 10px; background: #f5f2f0'></p>
+      <div style='display: flex; justify-content: center'>
+          <a class="btn btn-outline-secondary btn-sm" ng-click="track()">Track Data Plot Clicks</a>
+          <a class="btn btn-outline-secondary btn-sm" ng-click="reset()">Reset</a>
+      </div>
+  </div>
+</div>
+<% } %>

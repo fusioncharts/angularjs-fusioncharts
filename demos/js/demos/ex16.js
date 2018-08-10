@@ -13,7 +13,13 @@
     $rootScope.demoId = 'ex16';
     var vm = this;
     $rootScope.currentTitle = 'Applying a different theme';        
-   
+    $scope.variable = 'hello world';
+    setTimeout(function(){
+      $scope.$apply(function(){
+        $scope.variable = "MyWorld";
+      })
+    }, 2000);
+    
     $scope.myDataSource = {
       "chart": {
         "caption": "Countries With Most Oil Reserves [2017-18]",

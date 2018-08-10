@@ -56,12 +56,10 @@
         }
         $scope.total = total;
 
-        $scope.events = {
-            dataplotclick: function(e,a){
+        $scope.dataPlotClick = function(e,a){
                 var ratio=(parseFloat(a.dataValue/$scope.total)*100).toFixed(2);
                 $scope.log(a.categoryLabel, ratio);
-            }
-        }
+        };
         
         $scope.myDataSource=DataSource;
     

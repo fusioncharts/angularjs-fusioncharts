@@ -1,7 +1,8 @@
 <% if(src=== "js") { %>
 var myApp = angular.module('myApp', ['ng-fusioncharts']);
 myApp.controller('MyController', ['$scope', function($scope){
-    var DataSource = {
+    var chart,
+        DataSource = {
         "chart": {
             "caption": "Sales of top 3 juice flavors last year",
             "subcaption": "Click on a column to see details",
@@ -102,20 +103,21 @@ myApp.controller('MyController', ['$scope', function($scope){
     };
     $scope.myDataSource = DataSource;
 
-    $scope.events = {
-        renderComplete: function (e, a) {
-            e.sender.configureLink({
+    $scope.initialized = function(chartObj){
+        chart = chartObj;
+      }
+      $scope.renderComplete = function () {
+          chart.configureLink({
             type: "pie2d",
             renderAt: "myChart",
             overlayButton: {
-                message: 'Back',
-                fontColor: '880000',
-                bgColor: 'FFEEEE',
-                borderColor: '660000'
+              message: 'Back',
+              fontColor: '880000',
+              bgColor: 'FFEEEE',
+              borderColor: '660000'
             }
-            }, 0)
-        }
-    };
+          }, 0)
+      };
 }]);
 <% } else if(src==="html") { %>
 <!-- 
@@ -138,7 +140,8 @@ myApp.controller('MyController', ['$scope', function($scope){
             height="400"
             dataformat="json"
             datasource="{{myDataSource}}"
-            events="events"
+            initialized="initialized(chart)" 
+            fcevent-rendercomplete="renderComplete()"
             id="myChart">
         </fusioncharts>
     </div>

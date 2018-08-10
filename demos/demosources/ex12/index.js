@@ -13,7 +13,8 @@
     $rootScope.demoId = 'ex12';
     $rootScope.currentTitle = 'Add drill-down to chart';        
 
-    var vm = this;
+    var vm = this,
+    chart;
 
 
 
@@ -128,10 +129,12 @@
       ]
     };
     $scope.myDataSource = DataSource;
-
-    $scope.events = {
-      renderComplete: function (e, a) {
-        e.sender.configureLink({
+    
+    $scope.initialized = function(chartObj){
+      chart = chartObj;
+    }
+    $scope.renderComplete = function () {
+        chart.configureLink({
           type: "pie2d",
           renderAt: "myChart",
           overlayButton: {
@@ -142,7 +145,6 @@
           }
         }, 0)
       }
-    };
   });
 
 }());

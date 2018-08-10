@@ -1,0 +1,39 @@
+<style>
+    .btn {
+         font-family: 'Source Sans Pro';
+     }
+ 
+     .btn.btn-primary {
+         background: #4a4d8c;
+         transition: all 300ms;
+     }
+ 
+     .btn.btn-primary:hover {
+         background: #5c62b5;
+     }
+ 
+     .btn.btn-primary:active {
+         background: #4a4d8c
+     }
+ </style>
+ <div class="card shadow">
+   <div class="card-body chart-wrapper">
+     <div class="chart-wrapper-inner">
+       <div id="chart-container">
+         <fusioncharts
+           type="pie2d"
+           width="100%"
+           height="500"
+           dataFormat="json"
+           initialized="initialized(chart)"
+           datasource="{{myDataSource}}">
+         </fusioncharts>
+         </div>
+         <div style='display: flex; justify-content: center'>
+             <a class="btn btn-outline-secondary btn-sm" ng-click="slice()">SLICE OUT MICROSOFT</a>
+             <a class="btn btn-outline-secondary btn-sm" ng-click="reset()">RESET</a>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>

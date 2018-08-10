@@ -21,15 +21,12 @@ myApp.controller('MyController', ['$scope', function($scope){
             { "label": "China", "value": "30"}
         ]
     };
-    
-    $scope.events = {
-        dataplotrollover: function (ev, props) {
-            $scope.$apply(function () {
-                $scope.selectedValue = props.displayValue;
-                $scope.selectedLabel = props.categoryLabel;
-            });
-        }
-    };
+    $scope.plotRollOver = function(event){
+        $scope.$apply(function () {
+            $scope.selectedValue = event.data.displayValue;
+            $scope.selectedLabel = event.data.categoryLabel;
+        });
+    }
 }]);
 <% } else if(src==="html") { %>
 <!-- 
@@ -48,15 +45,12 @@ myApp.controller('MyController', ['$scope', function($scope){
 <!-- In the HTML file -->
 <div ng-app='myApp'>
     <div ng-controller='MyController'>    
-        <div fusioncharts
-            width="600" 
-            height="400"
-            type="column2d",
-            datasource="{{dataSource}}"
-            events="events">
-        </div>
-        
-        <p style="font-size:20px;font-weight: 300;">You're are currently hovering over <u>{{selectedLabel || "______"}}</u> whose value is <u>{{selectedValue || "_______"}} </u></p>
+        <div fusioncharts width="100%" height="400" type="column2d" , datasource="{{dataSource}}" fcevent-dataplotrollover="plotRollOver(event)"></div>
+        <p style="font-size:20px;font-weight: 300;">
+            You're are currently hovering over
+            <span style="font-weight: 400">{{selectedLabel || "______"}}</span> whose value is
+            <span style="font-weight: 400">{{selectedValue || "_______"}}</span>
+        </p>
     </div>
 </div> 
 

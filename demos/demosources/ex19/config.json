@@ -1,0 +1,4 @@
+{
+  "title": "Dynamically add chart event listener",
+  "desc": "On clicking a button add an event listener to a chart to track ‘dataplotClick’"
+}

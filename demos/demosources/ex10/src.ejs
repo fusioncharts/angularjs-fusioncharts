@@ -6,7 +6,8 @@ myApp.controller('MyController', ['$scope', function($scope){
 
     $scope.logMessage = 'Click on the  plot to see the percentage of a column wrt total';
 
-    
+    // Save the function reference in global object so that FusionCharts link can call 
+    // it when called
     $scope.log = function(label, value){ 
         // Since the update is happening outside angular execution context we need 
         // the digest cycle to run to make sure that the view is updated.   
@@ -43,12 +44,10 @@ myApp.controller('MyController', ['$scope', function($scope){
     }
     $scope.total = total;
 
-    $scope.events = {
-        dataplotclick: function(e,a){
+    $scope.dataPlotClick = function(e,a){
             var ratio=(parseFloat(a.dataValue/$scope.total)*100).toFixed(2);
             $scope.log(a.categoryLabel, ratio);
-        }
-    }
+    };
     
     $scope.myDataSource=DataSource;
 }]);
@@ -78,16 +77,16 @@ myApp.controller('MyController', ['$scope', function($scope){
 </style>
 <div ng-app='myApp'>
     <div ng-controller='MyController'> 
-        <div 
-            fusionCharts
-            width="600"
-            height="400"
-            id="ex10"
-            type="column2d"
-            datasource="{{myDataSource}}"
-            events="events">
-        </div>
-        <div class='log-pane'>{{logMessage}}</div>
+            <div fusionCharts 
+                 width="100%"
+                 height="400" 
+                 id="ex10" 
+                 type="column2d" 
+                 datasource="{{myDataSource}}" 
+                 fcevent-dataplotclick="dataPlotClick(event, args)">
+			</div>
+
+			<div class='log-pane'>{{logMessage}}</div>
     </div>
 </div>
 <% } %>
