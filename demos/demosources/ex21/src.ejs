@@ -1,8 +1,23 @@
 <% if(src=== "js") { %>
 var myApp = angular.module('myApp', ['ng-fusioncharts']);
 myApp.controller('MyController', ['$scope', function($scope){
-  var chart;
-  $scope.message = 'Click on <b>TRACK DATA PLOT CLICK</b>  button to listen to dataplotclick event';
+  var selectedDimension,
+      dimensionMap = {
+        '400X250': {
+          width: '400px',
+          height: '250px'
+        },
+        '600X350': {
+          width: '600px',
+          height: '350px'
+        },
+        '700X400': {
+          width: '700px',
+          height: '400px'
+        }
+      };
+  $scope.dimensionType = '600X350';    
+  $scope.containerStyle = {height: '350px', width: '600px'};   
   $scope.myDataSource = {
     "chart": {
       "caption": "Countries With Most Oil Reserves [2017-18]",
@@ -23,22 +38,10 @@ myApp.controller('MyController', ['$scope', function($scope){
         { "label": "China", "value": "30"}
     ]
   };
-  
-  $scope.clickHandler = function(e){
-    $scope.$apply(function(){
-      $scope.message = 'You have clicked on plot '+  e.data.categoryLabel + ' whose value is ' + e.data.displayValue;
-    });
-  };
-  $scope.initialized = function(chartObj){
-    chart = chartObj;
-  };
-  $scope.track = function(){
-    chart.addEventListener('dataplotclick', $scope.clickHandler);
-    $scope.message = 'Click on the plot to see the value along with the label';
-  };
-  $scope.reset = function(){
-    chart.removeEventListener('dataplotclick', $scope.clickHandler);
-    $scope.message = 'Click on <b>TRACK DATA PLOT CLICK</b>  button to listen to dataplotclick event';
+  $scope.buttonClick = function(e){
+    selectedDimension = dimensionMap[e.target.value];
+    $scope.containerStyle.width = selectedDimension.width;
+    $scope.containerStyle.height = selectedDimension.height;
   }
 }]);
 <% } else if(src==="html") { %>
@@ -54,20 +57,32 @@ myApp.controller('MyController', ['$scope', function($scope){
 -->
 <div ng-app='myApp'>
   <div ng-controller='MyController'> 
-      <div id="chart-container">
+      <div id="chart-container" ng-style="containerStyle">
           <fusioncharts
             type="column2d"
             width="100%"
-            height="500"
+            height="100%"
             dataFormat="json"
-            initialized="initialized(chart)"
             datasource="{{myDataSource}}">
           </fusioncharts>
       </div>
-      <p ng-bind-html="message" style='padding: 10px; background: #f5f2f0'></p>
       <div style='display: flex; justify-content: center'>
-          <a class="btn btn-outline-secondary btn-sm" ng-click="track()">Track Data Plot Clicks</a>
-          <a class="btn btn-outline-secondary btn-sm" ng-click="reset()">Reset</a>
+          <span id="select-text">Choose a dimension:</span>
+              <div class="change-type">
+                  <div>
+                      <input type="radio" value="400X250" ng-click="buttonClick($event)" ng-model="dimensionType"/>
+                      <label>400 X 250</label>
+                  </div>
+                  <div>
+                      <input type="radio" value="600X350" ng-click="buttonClick($event)" ng-model="dimensionType"/>
+                      <label>600 X 350</label>
+                  </div>
+                  <div>
+                      <input type="radio" value="700X400" ng-click="buttonClick($event)" ng-model="dimensionType"/>
+                      <label>700 X 400</label>
+                  </div>
+              </div>
+          </span>
       </div>
   </div>
 </div>
