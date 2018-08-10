@@ -12,6 +12,10 @@
   "bugs": {
     "url": "https://github.com/fusioncharts/angularjs-fusioncharts/issues"
   },
+  "scripts": {
+    "makedemos": "npx grunt makeDemos",
+    "build": "npx grunt buildCode && npx grunt makeDemos"
+  },
   "homepage": "https://www.fusioncharts.com/angularjs-charts/",
   "dependencies": {},
   "devDependencies": {
