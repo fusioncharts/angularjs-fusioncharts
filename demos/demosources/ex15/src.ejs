@@ -1,6 +1,7 @@
 <% if(src=== "js") { %>
 var myApp = angular.module('myApp', ['ng-fusioncharts']);
 myApp.controller('MyController', ['$scope', function($scope){
+  // datasource for first chart
   $scope.firstDataSource  = {
     "chart": {
       "caption": "Countries With Most Oil Reserves [2017-18]",
@@ -36,7 +37,7 @@ myApp.controller('MyController', ['$scope', function($scope){
       "value": "30"
     }]
   };
-
+  //datasource for second chart 
   $scope.secondDataSource  = {
     chart: {
       caption: "Yearly Energy Production Rate",
@@ -190,6 +191,7 @@ myApp.controller('MyController', ['$scope', function($scope){
   };
 
   $scope.exportChart = function(){
+    // export charts
     FusionCharts.batchExport({
       exportFormat:'pdf'
     })

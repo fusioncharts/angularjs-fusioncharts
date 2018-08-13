@@ -3,9 +3,7 @@ var myApp = angular.module('myApp', ['ng-fusioncharts']);
 myApp.controller('MyController', ['$scope', function($scope){
     var chart;
     $scope.themeName = 'fusion'; 
-    $scope.initialized = function(chartObj){
-      chart = chartObj;
-    }
+    // datasource
     $scope.myDataSource = {
       "chart": {
         "caption": "Countries With Most Oil Reserves [2017-18]",
@@ -26,10 +24,13 @@ myApp.controller('MyController', ['$scope', function($scope){
           { "label": "China", "value": "30"}
       ]
     };
+    // initialized event handler
     $scope.initialized = function(chartObj){
+       // store the reference of chart instance for further usage
       chart = chartObj;
     };
     $scope.buttonClick = function(e){
+        // using the stored chart instance reference to change the theme of the chart.
         chart.setChartAttribute('theme', e.target.value);
     }
 }]);
@@ -47,12 +48,12 @@ myApp.controller('MyController', ['$scope', function($scope){
 <div ng-app='myApp'>
   <div ng-controller='MyController'> 
         <div id="chart-container">
+            <!--To get the reference of chart instance listen to initialized event-->
                 <fusioncharts
                   type="column2d"
                   width="100%"
                   id="id1"
                   height=500
-                  initialized="initialized(chart)"
                   dataFormat="json"
                   initialized="initialized(chart)"
                   datasource="{{myDataSource}}">

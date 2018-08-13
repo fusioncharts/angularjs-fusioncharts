@@ -8,7 +8,6 @@
 
 
     app.controller('ex8Controller', function ($scope, $rootScope) {
-        var chart;
         $rootScope.demoId = 'ex8';
         $rootScope.currentTitle = 'Update chart attribute from scope';        
 
@@ -31,11 +30,7 @@
                 { "label": "US", "value": "30" },
                 { "label": "China", "value": "30"}
             ]
-          };
-        
-        $scope.initialized = function(chartObj){
-           chart = chartObj;
-        }
+          };      
 
         $scope.changeBackgroundColor = function () {
             $scope.dataSource.chart.bgColor = '#efefef';

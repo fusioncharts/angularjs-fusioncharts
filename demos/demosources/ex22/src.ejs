@@ -3,6 +3,7 @@ var myApp = angular.module('myApp', ['ng-fusioncharts']);
 myApp.controller('MyController', ['$scope', function($scope){
     var chart;
     $scope.chartType = 'column2d'; 
+    // datasource
     $scope.myDataSource = {
         "chart": {
         "caption": "Countries With Most Oil Reserves [2017-18]",
@@ -23,10 +24,13 @@ myApp.controller('MyController', ['$scope', function($scope){
             { "label": "China", "value": "30"}
         ]
     };
+    // handler for initialized event
     $scope.initialized = function(chartObj){
+        // store the reference of chart instance for further usage
         chart = chartObj;
     };
     $scope.buttonClick = function(e){
+        // using the stored chart instance reference to change the chart type
         chart.chartType(e.target.value);
     }
 }]);
@@ -44,6 +48,7 @@ myApp.controller('MyController', ['$scope', function($scope){
 <div ng-app='myApp'>
   <div ng-controller='MyController'> 
         <div id="chart-container">
+            <!--To get the reference of chart instance listen to initialized event-->
             <fusioncharts
                 type="column2d"
                 width="100%"

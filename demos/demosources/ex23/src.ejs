@@ -1,6 +1,7 @@
 <% if(src=== "js") { %>
 var myApp = angular.module('myApp', ['ng-fusioncharts']);
 myApp.controller('MyController', ['$scope', function($scope){
+  // datasource
   $scope.myDataSource = {
     "chart": {
         "caption": "Bakersfield Central - Total footfalls",
@@ -41,6 +42,7 @@ myApp.controller('MyController', ['$scope', function($scope){
         }
     ]
   };
+  // annotations object
   $scope.annotations = {
     "groups": [
         {
@@ -83,6 +85,7 @@ myApp.controller('MyController', ['$scope', function($scope){
 -->
 <div ng-app='myApp'>
   <div ng-controller='MyController'> 
+    <!--Add annotations to the chart through annotations attribute-->
     <fusioncharts
         type="spline"
         width="100%"

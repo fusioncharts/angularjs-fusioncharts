@@ -2,6 +2,7 @@
 var myApp = angular.module('myApp', ['ng-fusioncharts']);
 myApp.controller('MyController', ['$scope', function($scope){
   var startValue;
+  // datasource
   $scope.myDataSource = {
     "chart": {
       "caption": "App Publishing Trend",
@@ -69,9 +70,11 @@ myApp.controller('MyController', ['$scope', function($scope){
       }]
     }]
   };
+  // handler for dataplotdragstart event
   $scope.dataPlotDragstart = function(event){
      startValue = event.data.startValue; 
   }
+  // handler for dataplotdragend event
   $scope.dataPlotDragend = function(event){ 
     $scope.$apply(function(){
        $scope.selectedDataset = event.data.datasetName;
@@ -92,7 +95,8 @@ myApp.controller('MyController', ['$scope', function($scope){
     
 -->
 <div ng-app='myApp'>
-  <div ng-controller='MyController'> 
+  <div ng-controller='MyController'>
+  <!--Listen to FusionCharts events by using "fcevent-<fc-event-name>" attribute. In this case the events used are dataplotdragstart and dataplotdragend-->   
       <fusioncharts
       type="dragcolumn2d"
       width="100%"

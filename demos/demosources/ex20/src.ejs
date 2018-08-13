@@ -2,6 +2,7 @@
 var myApp = angular.module('myApp', ['ng-fusioncharts']);
 myApp.controller('MyController', ['$scope', function($scope){
   var chart;
+  // datasource
   $scope.myDataSource = {
     "chart": {
       "caption": "Market Share of Web Servers",
@@ -26,13 +27,17 @@ myApp.controller('MyController', ['$scope', function($scope){
       "value": "18674221"
     }]
   };
+  // handler for initialzed event
   $scope.initialized = function(chartObj){
+    // store the reference of chart instance for further usage
     chart = chartObj;
   };
   $scope.slice = function(){
+    // using the stored chart instance reference to call slicePlotItem API.
     chart.slicePlotItem(1,true);
   }
   $scope.reset = function(){
+    // using the stored chart instance reference to call slicePlotItem API.
     chart.slicePlotItem(1,false);
   }
 }]);
@@ -49,6 +54,7 @@ myApp.controller('MyController', ['$scope', function($scope){
 -->
 <div ng-app='myApp'>
   <div ng-controller='MyController'> 
+    <!--To get the reference of chart instance listen to initialized event-->
       <div>
           <fusioncharts
             type="pie2d"

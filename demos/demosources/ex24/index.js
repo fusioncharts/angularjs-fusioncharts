@@ -15,9 +15,6 @@
     chart;
     $rootScope.currentTitle = 'Update chart attribute through methods';
     $scope.themeName = 'fusion'; 
-    $scope.initialized = function(chartObj){
-      chart = chartObj;
-    }
     $scope.myDataSource = {
       "chart": {
         "caption": "Countries With Most Oil Reserves [2017-18]",

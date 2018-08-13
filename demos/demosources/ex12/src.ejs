@@ -101,12 +101,16 @@ myApp.controller('MyController', ['$scope', function($scope){
             }
         ]
     };
+    // datasource
     $scope.myDataSource = DataSource;
-
+    // handler for initialized event
     $scope.initialized = function(chartObj){
+        // store the reference of chart instance for further usage
         chart = chartObj;
       }
+      // handler for rendercomplete event
       $scope.renderComplete = function () {
+          // using the stored chart instance reference
           chart.configureLink({
             type: "pie2d",
             renderAt: "myChart",
@@ -134,6 +138,7 @@ myApp.controller('MyController', ['$scope', function($scope){
 -->
 <div ng-app='myApp'>
     <div ng-controller='MyController'> 
+        <!--To get the reference of chart instance listen to initialized event-->
         <fusioncharts
             type="column2d"
             width="700"

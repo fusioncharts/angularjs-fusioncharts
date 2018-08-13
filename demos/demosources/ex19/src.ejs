@@ -3,6 +3,7 @@ var myApp = angular.module('myApp', ['ng-fusioncharts']);
 myApp.controller('MyController', ['$scope', function($scope){
   var chart;
   $scope.message = 'Click on <b>TRACK DATA PLOT CLICK</b>  button to listen to dataplotclick event';
+  // datasource
   $scope.myDataSource = {
     "chart": {
       "caption": "Countries With Most Oil Reserves [2017-18]",
@@ -30,14 +31,17 @@ myApp.controller('MyController', ['$scope', function($scope){
     });
   };
   $scope.track = function(){
+    // listen to dataplotclick event
     FusionCharts.addEventListener('dataplotclick', $scope.clickHandler);
     $scope.message = 'Click on the plot to see the value along with the label';
   };
   $scope.reset = function(){
+    // unlisten dataplotclick event
     FusionCharts.removeEventListener('dataplotclick', $scope.clickHandler);
     $scope.message = 'Click on <b>TRACK DATA PLOT CLICK</b>  button to listen to dataplotclick event';
   }
   $scope.$on('$destroy', function() {
+    // unlisten dataplotclick event when the view gets destroyed
     FusionCharts.removeEventListener('dataplotclick', $scope.clickHandler);
   });
 }]);

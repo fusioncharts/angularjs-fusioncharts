@@ -1,6 +1,7 @@
 <% if(src=== "js") { %>
 var myApp = angular.module('myApp', ['ng-fusioncharts']);
 myApp.controller('MyController', ['$scope', function($scope){
+    // the chart object in datasource
     $scope.attrs = {
         "caption": "Twitter Mentions",
         "yAxisName": "Number of mentions",
@@ -10,7 +11,7 @@ myApp.controller('MyController', ['$scope', function($scope){
         "plottooltext": "$seriesName was mentioned <b>$dataValue</b> times on Twitter in $label",
         "theme": "fusion"
     };
-
+    // the categories object in datasource
     $scope.categories = [
         { 
             "category": 
@@ -27,7 +28,7 @@ myApp.controller('MyController', ['$scope', function($scope){
             ]
         }
     ];
-
+    // the dataset object in datasource
     $scope.dataset = [
         {
             "seriesname": "iPhone",

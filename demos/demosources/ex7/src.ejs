@@ -1,6 +1,7 @@
 <% if(src=== "js") { %>
 var myApp = angular.module('myApp', ['ng-fusioncharts']);
 myApp.controller('MyController', ['$scope', function($scope){
+    // datasource
     $scope.dataSource = {
         "chart": {
           "caption": "Countries With Most Oil Reserves [2017-18]",
@@ -21,6 +22,7 @@ myApp.controller('MyController', ['$scope', function($scope){
             { "label": "China", "value": "30"}
         ]
     };
+    // handler for dataplotrollover event.
     $scope.plotRollOver = function(event){
         $scope.$apply(function () {
             $scope.selectedValue = event.data.displayValue;
@@ -44,7 +46,8 @@ myApp.controller('MyController', ['$scope', function($scope){
 
 <!-- In the HTML file -->
 <div ng-app='myApp'>
-    <div ng-controller='MyController'>    
+    <div ng-controller='MyController'>  
+        <!--Listen to FusionCharts events by using "fcevent-<fc-event-name>" attribute. In this case the event name is dataplotrollover-->  
         <div fusioncharts width="100%" height="400" type="column2d" , datasource="{{dataSource}}" fcevent-dataplotrollover="plotRollOver(event)"></div>
         <p style="font-size:20px;font-weight: 300;">
             You are currently hovering over

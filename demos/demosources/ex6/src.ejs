@@ -2,7 +2,7 @@
 
 var myApp = angular.module('myApp', ['ng-fusioncharts']);
 myApp.controller('MyController', ['$scope', function($scope){
-    
+    // datasource
     $scope.dataSource = {
         "chart": {
             "caption": "Countries With Most Oil Reserves [2017-18]",
@@ -31,6 +31,7 @@ myApp.controller('MyController', ['$scope', function($scope){
     }
     
     $scope.updateMyChartData = function () {
+        // update chart by changing the scope
         $scope.dataSource.data[2].value = getRandomNumber();
         $scope.dataSource.data[3].value = getRandomNumber();
     };

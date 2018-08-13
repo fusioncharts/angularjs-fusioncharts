@@ -15,7 +15,7 @@ myApp.controller('MyController', ['$scope', function($scope){
             $scope.logMessage = `${label} is ${value}% of the total`;                 
         });
     }
-    
+    // datasource
     var DataSource = {
         "chart": {
             "caption": "Countries With Most Oil Reserves [2017-18]",
@@ -43,7 +43,7 @@ myApp.controller('MyController', ['$scope', function($scope){
         total+=Number(myData[i].value);
     }
     $scope.total = total;
-
+    // handler for dataplotclick event
     $scope.dataPlotClick = function(e,a){
             var ratio=(parseFloat(a.dataValue/$scope.total)*100).toFixed(2);
             $scope.log(a.categoryLabel, ratio);
@@ -76,7 +76,8 @@ myApp.controller('MyController', ['$scope', function($scope){
 }
 </style>
 <div ng-app='myApp'>
-    <div ng-controller='MyController'> 
+    <div ng-controller='MyController'>
+    <!--Listen to FusionCharts events by using "fcevent-<fc-event-name>" attribute. In this case the event name is dataplotclick-->   
             <div fusionCharts 
                  width="100%"
                  height="400" 
