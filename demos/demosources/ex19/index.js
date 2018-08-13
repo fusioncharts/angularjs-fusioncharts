@@ -36,7 +36,6 @@
     };
     
     $scope.clickHandler = function(e){
-      console.log('clicked');
       $scope.$apply(function(){
         $scope.message = 'You have clicked on plot '+  e.data.categoryLabel + ' whose value is ' + e.data.displayValue;
       });
