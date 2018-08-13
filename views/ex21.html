@@ -64,13 +64,13 @@
     #chart-container{
         width: 600px;
         height: 350px;
-        margin: auto;
+        /* margin: auto; */
 
     }
 </style>
 <div class="card shadow">
   <div class="card-body chart-wrapper">
-    <div class="chart-wrapper-inner">
+    <div class="chart-wrapper-inner" style="height:400px">
         <div id="chart-container" ng-style="containerStyle">
             <fusioncharts
               type="column2d"
@@ -80,7 +80,7 @@
               datasource="{{myDataSource}}">
             </fusioncharts>
         </div>
-        <div style='display: flex; justify-content: center'>
+        <div style='display: flex; justify-content:center;position:absolute;bottom:2px;left:100px'>
                 <span id="select-text">Choose a dimension:</span>
                     <div class="change-type">
                         <div>
