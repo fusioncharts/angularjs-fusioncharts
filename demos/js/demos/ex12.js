@@ -132,19 +132,17 @@
     
     $scope.initialized = function(chartObj){
       chart = chartObj;
-    }
-    $scope.renderComplete = function () {
-        chart.configureLink({
-          type: "pie2d",
-          renderAt: "myChart",
-          overlayButton: {
-            message: 'Back',
-            fontColor: '880000',
-            bgColor: 'FFEEEE',
-            borderColor: '660000'
-          }
-        }, 0)
-      }
+      chart.configureLink({
+        type: "pie2d",
+        renderAt: "myChart",
+        overlayButton: {
+          message: 'Back',
+          fontColor: '880000',
+          bgColor: 'FFEEEE',
+          borderColor: '660000'
+        }
+      }, 0);
+    };
   });
 
 }());

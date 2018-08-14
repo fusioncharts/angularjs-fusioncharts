@@ -105,22 +105,17 @@ myApp.controller('MyController', ['$scope', function($scope){
     $scope.myDataSource = DataSource;
     // handler for initialized event
     $scope.initialized = function(chartObj){
-        // store the reference of chart instance for further usage
         chart = chartObj;
-      }
-      // handler for rendercomplete event
-      $scope.renderComplete = function () {
-          // using the stored chart instance reference
-          chart.configureLink({
-            type: "pie2d",
-            renderAt: "myChart",
-            overlayButton: {
-              message: 'Back',
-              fontColor: '880000',
-              bgColor: 'FFEEEE',
-              borderColor: '660000'
-            }
-          }, 0)
+        chart.configureLink({
+          type: "pie2d",
+          renderAt: "myChart",
+          overlayButton: {
+            message: 'Back',
+            fontColor: '880000',
+            bgColor: 'FFEEEE',
+            borderColor: '660000'
+          }
+        }, 0);
       };
 }]);
 <% } else if(src==="html") { %>
@@ -146,7 +141,6 @@ myApp.controller('MyController', ['$scope', function($scope){
             dataformat="json"
             datasource="{{myDataSource}}"
             initialized="initialized(chart)" 
-            fcevent-rendercomplete="renderComplete()"
             id="myChart">
         </fusioncharts>
     </div>
