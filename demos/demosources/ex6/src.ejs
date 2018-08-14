@@ -31,8 +31,9 @@ myApp.controller('MyController', ['$scope', function($scope){
     }
     
     $scope.updateMyChartData = function () {
-        // update chart by changing the scope
+        //This function generates random number to update the chart data.
         $scope.dataSource.data[2].value = getRandomNumber();
+        //This function generates random number to update the chart data.
         $scope.dataSource.data[3].value = getRandomNumber();
     };
 }]);

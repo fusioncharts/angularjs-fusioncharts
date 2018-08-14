@@ -16,7 +16,7 @@
         var vm = this;
         $scope.total = 0;
 
-        $scope.logMessage = 'Click on the  plot to see the percentage of a column wrt total';
+        $scope.logMessage = 'Hover on the plot to see the percentage along with the label';
 
         // Save the function reference in global object so that FusionCharts link can call 
         // it when called
@@ -24,7 +24,7 @@
             // Since the update is happening outside angular execution context we need 
             // the digest cycle to run to make sure that the view is updated.   
             $scope.$apply(function(){
-                $scope.logMessage = `${label} is ${value}% of the total`;                 
+                $scope.logMessage = `<b>${label}</b> is <b>${value}%</b> of the total`;                 
             });
         }
         
@@ -56,7 +56,7 @@
         }
         $scope.total = total;
 
-        $scope.dataPlotClick = function(e,a){
+        $scope.dataPlotRollOver = function(e,a){
                 var ratio=(parseFloat(a.dataValue/$scope.total)*100).toFixed(2);
                 $scope.log(a.categoryLabel, ratio);
         };

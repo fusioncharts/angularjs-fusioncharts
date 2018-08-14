@@ -11,7 +11,7 @@
           fcevent-dataplotdragend="dataPlotDragend(event)"
           datasource="{{myDataSource}}">
         </fusioncharts>
-        <p style="font-size:16px;font-weight: 300;">You have dragged a plot of {{selectedDataset || "______"}} dataset, its previous value was {{selectedStartValue || "_______"}} and its current value is {{selectedEndValue || "_______"}} </p>
+        <p style="font-size:16px;font-weight:300;padding:10px;background:#f5f2f0">You have dragged a plot of <span style="font-weight:bold">{{selectedDataset || "______"}}</span> dataset, its previous value was <span style="font-weight:bold">{{selectedStartValue || "_______"}}</span> and its current value is <span style="font-weight:bold">{{selectedEndValue || "_______"}}</span> </p>
       </div>
     </div>
   </div>
