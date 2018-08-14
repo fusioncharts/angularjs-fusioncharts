@@ -24,16 +24,14 @@ myApp.controller('MyController', ['$scope', function($scope){
         { "label": "China", "value": "30"}
         ]
     };
-    
+    // This function generates random number to update the chart data.
     let getRandomNumber = function () {
         var max = 290, min = 30;
         return Math.round(((max - min) * Math.random()) + min);
     }
     
     $scope.updateMyChartData = function () {
-        //This function generates random number to update the chart data.
         $scope.dataSource.data[2].value = getRandomNumber();
-        //This function generates random number to update the chart data.
         $scope.dataSource.data[3].value = getRandomNumber();
     };
 }]);
