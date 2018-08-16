@@ -78,8 +78,12 @@ myApp.controller('MyController', ['$scope', function($scope){
   $scope.dataPlotDragend = function(event){ 
     $scope.$apply(function(){
        $scope.selectedDataset = event.data.datasetName;
-       $scope.selectedStartValue= FusionCharts.formatNumber(startValue);
-       $scope.selectedEndValue = FusionCharts.formatNumber(event.data.endValue);
+       $scope.selectedStartValue= FusionCharts.formatNumber(startValue, {
+        "decimals": "2"
+       });
+       $scope.selectedEndValue = FusionCharts.formatNumber(event.data.endValue,{
+        "decimals": "2"
+       });
     });
   }
 }]);
