@@ -84,7 +84,7 @@ myApp.controller('MyController', ['$scope', function($scope){
                  id="ex10" 
                  type="column2d" 
                  datasource="{{myDataSource}}" 
-                 fcevent-dataplotclick="dataPlotRollOver(event, args)">
+                 fcevent-dataplotrollover="dataPlotRollOver(event, args)">
 			</div>
 
 			<div ng-bind-html="logMessage" class='log-pane' style="padding: 10px;background:#f5f2f0"></div>
