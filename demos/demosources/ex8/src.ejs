@@ -32,6 +32,11 @@ myApp.controller('MyController', ['$scope', function($scope){
         // changing caption alignment through scope
         $scope.dataSource.chart.captionAlignment = 'left';
     };
+
+    $scope.reset = function(){
+        $scope.dataSource.chart.captionAlignment = 'center';
+        $scope.dataSource.chart.bgColor = 'ffffff';
+    }
 }]);
 <% } else if(src==="html") { %>
 <!-- 
@@ -68,6 +73,7 @@ myApp.controller('MyController', ['$scope', function($scope){
         <div style="display: flex; justify-content: center" class='demo8-controls'>
             <a class="btn btn-primary" ng-click="changeBackgroundColor()">Change chart background color</a>
             <a class="btn btn-primary" ng-click="changeCaptionTextAlignment()">Make Caption text left-aligned</a>
+            <a class="btn btn-outline-secondary btn-sm" ng-click="reset()">Reset</a>
         </div>
     </div>
 </div>
