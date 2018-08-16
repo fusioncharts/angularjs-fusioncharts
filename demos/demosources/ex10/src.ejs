@@ -6,8 +6,7 @@ myApp.controller('MyController', ['$scope', function($scope){
 
     $scope.logMessage = 'Hover on the plot to see the percentage along with the label';
 
-    // Save the function reference in global object so that FusionCharts link can call 
-    // it when called
+    // Save the function reference in global object, which will be called inside dataplotrollover event handler
     $scope.log = function(label, value){ 
         // Since the update is happening outside angular execution context we need 
         // the digest cycle to run to make sure that the view is updated.   
