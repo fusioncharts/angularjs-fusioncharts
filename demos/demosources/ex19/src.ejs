@@ -1,8 +1,8 @@
 <% if(src=== "js") { %>
-var myApp = angular.module('myApp', ['ng-fusioncharts']);
-myApp.controller('MyController', ['$scope', function($scope){
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
   var chart;
-  $scope.message = 'Click on <b>TRACK DATA PLOT CLICK</b>  button to listen to dataplotclick event';
+  $scope.message = "Click on <b>TRACK DATA PLOT CLICK</b>  button to listen to dataplotclick event";
   // datasource
   $scope.myDataSource = {
     "chart": {
@@ -27,22 +27,22 @@ myApp.controller('MyController', ['$scope', function($scope){
   
   $scope.clickHandler = function(e){
     $scope.$apply(function(){
-      $scope.message = 'You have clicked on plot <b>'+  e.data.categoryLabel + '</b> whose value is <b>' + e.data.displayValue + '</b>';
+      $scope.message = "You have clicked on plot <b>"+  e.data.categoryLabel + "</b> whose value is <b>"" + e.data.displayValue + "</b>";
     });
   };
   $scope.track = function(){
     // listen to dataplotclick event
-    FusionCharts.addEventListener('dataplotclick', $scope.clickHandler);
-    $scope.message = 'Click on the plot to see the value along with the label';
+    FusionCharts.addEventListener("dataplotclick", $scope.clickHandler);
+    $scope.message = "Click on the plot to see the value along with the label";
   };
   $scope.reset = function(){
     // unlisten dataplotclick event
-    FusionCharts.removeEventListener('dataplotclick', $scope.clickHandler);
-    $scope.message = 'Click on <b>TRACK DATA PLOT CLICK</b>  button to listen to dataplotclick event';
+    FusionCharts.removeEventListener("dataplotclick", $scope.clickHandler);
+    $scope.message = "Click on <b>TRACK DATA PLOT CLICK</b>  button to listen to dataplotclick event";
   }
-  $scope.$on('$destroy', function() {
+  $scope.$on("$destroy", function() {
     // unlisten dataplotclick event when the view gets destroyed
-    FusionCharts.removeEventListener('dataplotclick', $scope.clickHandler);
+    FusionCharts.removeEventListener("dataplotclick", $scope.clickHandler);
   });
 }]);
 <% } else if(src==="html") { %>
@@ -56,8 +56,8 @@ myApp.controller('MyController', ['$scope', function($scope){
    
     
 -->
-<div ng-app='myApp'>
-  <div ng-controller='MyController'> 
+<div ng-app="myApp">
+  <div ng-controller="MyController"> 
       <div id="chart-container">
           <fusioncharts
               type="column2d"
@@ -67,8 +67,8 @@ myApp.controller('MyController', ['$scope', function($scope){
               datasource="{{myDataSource}}">
             </fusioncharts>
       </div>
-      <p ng-bind-html="message" style='padding: 10px; background: #f5f2f0'></p>
-      <div style='display: flex; justify-content: center'>
+      <p ng-bind-html="message" style="padding: 10px; background: #f5f2f0"></p>
+      <div style="display: flex; justify-content: center">
           <a class="btn btn-outline-secondary btn-sm" ng-click="track()">Track Data Plot Clicks</a>
           <a class="btn btn-outline-secondary btn-sm" ng-click="reset()">Reset</a>
       </div>

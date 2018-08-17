@@ -1,23 +1,23 @@
 <% if(src=== "js") { %>
-var myApp = angular.module('myApp', ['ng-fusioncharts']);
-myApp.controller('MyController', ['$scope', function($scope){
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
   var selectedDimension,
       dimensionMap = {
-        '400X250': {
-          width: '400px',
-          height: '250px'
+        "400X250": {
+          width: "400px",
+          height: "250px"
         },
-        '600X350': {
-          width: '600px',
-          height: '350px'
+        "600X350": {
+          width: "600px",
+          height: "350px"
         },
-        '700X400': {
-          width: '700px',
-          height: '400px'
+        "700X400": {
+          width: "700px",
+          height: "400px"
         }
       };
-  $scope.dimensionType = '600X350';    
-  $scope.containerStyle = {height: '350px', width: '600px'};
+  $scope.dimensionType = "600X350";    
+  $scope.containerStyle = {height: "350px", width: "600px"};
   // datasource   
   $scope.myDataSource = {
     "chart": {
@@ -56,8 +56,8 @@ myApp.controller('MyController', ['$scope', function($scope){
    
     
 -->
-<div ng-app='myApp'>
-  <div ng-controller='MyController'> 
+<div ng-app="myApp">
+  <div ng-controller="MyController"> 
       <div id="chart-container" ng-style="containerStyle">
           <fusioncharts
             type="column2d"
@@ -67,7 +67,7 @@ myApp.controller('MyController', ['$scope', function($scope){
             datasource="{{myDataSource}}">
           </fusioncharts>
       </div>
-      <div style='display: flex; justify-content: center'>
+      <div style="display: flex; justify-content: center">
           <span id="select-text">Choose a dimension:</span>
               <div class="change-type">
                   <div>

@@ -1,6 +1,6 @@
 <% if(src=== "js") { %>
-var myApp = angular.module('myApp', ['ng-fusioncharts']);
-myApp.controller('MyController', ['$scope', function($scope){
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
     var chart,
         DataSource = {
         "chart": {
@@ -110,10 +110,10 @@ myApp.controller('MyController', ['$scope', function($scope){
           type: "pie2d",
           renderAt: "myChart",
           overlayButton: {
-            message: 'Back',
-            fontColor: '880000',
-            bgColor: 'FFEEEE',
-            borderColor: '660000'
+            message: "Back",
+            fontColor: "880000",
+            bgColor: "FFEEEE",
+            borderColor: "660000"
           }
         }, 0);
       };
@@ -131,8 +131,8 @@ myApp.controller('MyController', ['$scope', function($scope){
     ------------------------------------------
     <link rel="stylesheet" href="path/to/fusioncharts/themes/fusioncharts.theme.fusion.css"/>
 -->
-<div ng-app='myApp'>
-    <div ng-controller='MyController'> 
+<div ng-app="myApp">
+    <div ng-controller="MyController"> 
         <!--To get the reference of chart instance listen to initialized event-->
         <fusioncharts
             type="column2d"

@@ -1,6 +1,6 @@
 <% if(src=== "js") { %>
-var myApp = angular.module('myApp', ['ng-fusioncharts']);
-myApp.controller('MyController', ['$scope', function($scope){
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
   // datasource for first chart
   $scope.firstDataSource  = {
     "chart": {
@@ -193,7 +193,7 @@ myApp.controller('MyController', ['$scope', function($scope){
   $scope.exportChart = function(){
     // export charts
     FusionCharts.batchExport({
-      exportFormat:'pdf'
+      exportFormat:"pdf"
     })
   }
 }]);
@@ -210,14 +210,8 @@ myApp.controller('MyController', ['$scope', function($scope){
     ------------------------------------------
     <link rel="stylesheet" href="path/to/fusioncharts/themes/fusioncharts.theme.fusion.css"/>
 -->
-<style >
-    .btn { font-family: 'Source Sans Pro'; }
-    .btn.btn-primary { background: #4a4d8c;  transition: all 300ms;}
-    .btn.btn-primary:hover{ background: #5c62b5; }
-    .btn.btn-primary:active{ background:#4a4d8c }
-</style>
-<div ng-app='myApp'>
-  <div ng-controller='MyController'> 
+<div ng-app="myApp">
+  <div ng-controller="MyController"> 
     <fusioncharts
         width="700"
         height="400"

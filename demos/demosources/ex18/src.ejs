@@ -1,7 +1,7 @@
 <% if(src=== "js") { %>
-var myApp = angular.module('myApp', ['ng-fusioncharts']);
-myApp.controller('MyController', ['$scope', function($scope){
-  $scope.message = 'You will see a notification here after chart completes rendering';
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
+  $scope.message = "You will see a notification here after chart completes rendering";
     // datasource
     $scope.myDataSource = {
       "chart": {
@@ -26,7 +26,7 @@ myApp.controller('MyController', ['$scope', function($scope){
     // handler for rendered event
     $scope.renderComplete = function(){
       $scope.$apply(function(){
-        $scope.message = 'Chart has completed rendering';
+        $scope.message = "Chart has completed rendering";
       });
     }
 }]);
@@ -41,8 +41,8 @@ myApp.controller('MyController', ['$scope', function($scope){
    
     
 -->
-<div ng-app='myApp'>
-  <div ng-controller='MyController'>
+<div ng-app="myApp">
+  <div ng-controller="MyController">
   <!--Listen to FusionCharts events by using "fcevent-<fc-event-name>" attribute. In this case the event name is rendered-->   
       <fusioncharts 
         type="column2d" 
@@ -52,7 +52,7 @@ myApp.controller('MyController', ['$scope', function($scope){
         fcevent-rendered="renderComplete()" 
         datasource="{{myDataSource}}">
       </fusioncharts>
-      <p style='padding: 10px; background: #f5f2f0'>{{message}}</p>
+      <p style="padding: 10px; background: #f5f2f0">{{message}}</p>
   </div>
 </div>
 <% } %>

@@ -1,6 +1,6 @@
 <% if(src=== "js") { %>
-var myApp = angular.module('myApp', ['ng-fusioncharts']);
-myApp.controller('MyController', ['$scope', function($scope){
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
   var chart;
   // datasource
   $scope.myDataSource = {
@@ -52,8 +52,8 @@ myApp.controller('MyController', ['$scope', function($scope){
    
     
 -->
-<div ng-app='myApp'>
-  <div ng-controller='MyController'> 
+<div ng-app="myApp">
+  <div ng-controller="MyController"> 
     <!--To get the reference of chart instance listen to initialized event-->
       <div>
           <fusioncharts
@@ -65,7 +65,7 @@ myApp.controller('MyController', ['$scope', function($scope){
             datasource="{{myDataSource}}">
           </fusioncharts>
       </div>
-      <div style='display: flex; justify-content: center'>
+      <div style="display: flex; justify-content: center">
           <a class="btn btn-outline-secondary btn-sm" ng-click="slice()">SLICE OUT MICROSOFT</a>
           <a class="btn btn-outline-secondary btn-sm" ng-click="reset()">RESET</a>
       </div>

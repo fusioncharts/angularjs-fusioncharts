@@ -1,8 +1,8 @@
 <% if(src=== "js") { %>
-var myApp = angular.module('myApp', ['ng-fusioncharts']);
-myApp.controller('MyController', ['$scope', function($scope){
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
     var chart;
-    $scope.chartType = 'column2d'; 
+    $scope.chartType = "column2d"; 
     // datasource
     $scope.myDataSource = {
         "chart": {
@@ -45,8 +45,8 @@ myApp.controller('MyController', ['$scope', function($scope){
    
     
 -->
-<div ng-app='myApp'>
-  <div ng-controller='MyController'> 
+<div ng-app="myApp">
+  <div ng-controller="MyController"> 
         <div id="chart-container">
             <!--To get the reference of chart instance listen to initialized event-->
             <fusioncharts
@@ -59,7 +59,7 @@ myApp.controller('MyController', ['$scope', function($scope){
                 datasource="{{myDataSource}}">
             </fusioncharts>
         </div></br>
-        <div style='display: flex; justify-content: center'>
+        <div style="display: flex; justify-content: center">
             <span>Choose a chart type:</span>
                 <div class="change-type">
                     <div>

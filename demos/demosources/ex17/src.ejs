@@ -1,6 +1,6 @@
 <% if(src=== "js") { %>
-var myApp = angular.module('myApp', ['ng-fusioncharts']);
-myApp.controller('MyController', ['$scope', function($scope){
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
   var startValue;
   // datasource
   $scope.myDataSource = {
@@ -98,8 +98,8 @@ myApp.controller('MyController', ['$scope', function($scope){
    
     
 -->
-<div ng-app='myApp'>
-  <div ng-controller='MyController'>
+<div ng-app="myApp">
+  <div ng-controller="MyController">
   <!--Listen to FusionCharts events by using "fcevent-<fc-event-name>" attribute. In this case the events used are dataplotdragstart and dataplotdragend-->   
       <fusioncharts
       type="dragcolumn2d"

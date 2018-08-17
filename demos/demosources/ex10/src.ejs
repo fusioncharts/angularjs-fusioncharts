@@ -1,10 +1,10 @@
 <% if(src=== "js") { %>
-var myApp = angular.module('myApp', ['ng-fusioncharts']);
-myApp.controller('MyController', ['$scope', function($scope){
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
 
     $scope.total = 0;
 
-    $scope.logMessage = 'Hover on the plot to see the percentage along with the label';
+    $scope.logMessage = "Hover on the plot to see the percentage along with the label";
 
     // Save the function reference in global object, which will be called inside dataplotrollover event handler
     $scope.log = function(label, value){ 
@@ -59,23 +59,10 @@ myApp.controller('MyController', ['$scope', function($scope){
     <script type="text/javascript" src="path/to/fusioncharts/fusioncharts.js"></script>
     <script type="text/javascript" src="path/to/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>
     <script type="text/javascript" src="path/to/angularjs-fusioncharts.min.js"></script>
-   
-    Include Theme CSS File
-    ------------------------------------------
-    <link rel="stylesheet" href="path/to/fusioncharts/themes/fusioncharts.theme.fusion.css"/>
+
 -->    
-<style type="text/css">
-.log-pane{
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    border: 2px solid black;
-    font-size: 20px;
-}
-</style>
-<div ng-app='myApp'>
-    <div ng-controller='MyController'>
+<div ng-app="myApp">
+    <div ng-controller="MyController">
     <!--Listen to FusionCharts events by using "fcevent-<fc-event-name>" attribute. In this case the event name is dataplotrollover-->   
             <div fusionCharts 
                  width="100%"
@@ -86,7 +73,7 @@ myApp.controller('MyController', ['$scope', function($scope){
                  fcevent-dataplotrollover="dataPlotRollOver(event, args)">
 			</div>
 
-			<div ng-bind-html="logMessage" class='log-pane' style="padding: 10px;background:#f5f2f0"></div>
+			<div ng-bind-html="logMessage" class="log-pane" style="padding: 10px;background:#f5f2f0"></div>
     </div>
 </div>
 <% } %>
