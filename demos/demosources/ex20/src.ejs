@@ -8,6 +8,7 @@ myApp.controller("MyController", ["$scope", function($scope){
       "caption": "Market Share of Web Servers",
       "plottooltext": "<b>$percentValue</b> of web servers run on $label servers",
       "showLegend": "1",
+      "enableMultiSlicing": "0",
       "showPercentValues": "1",
       "legendPosition": "bottom",
       "useDataPlotColorForLabels": "1",
@@ -32,13 +33,24 @@ myApp.controller("MyController", ["$scope", function($scope){
     // store the reference of chart instance for further usage
     chart = chartObj;
   };
-  $scope.slice = function(){
-    // using the stored chart instance reference to call slicePlotItem API.
+  $scope.selectedItem = "none";
+  $scope.noneChecked = function(){
+    chart.slicePlotItem(0,false);
+    chart.slicePlotItem(1,false);
+    chart.slicePlotItem(2,false);
+    chart.slicePlotItem(3,false);
+  }
+  $scope.apacheChecked = function(){
+    chart.slicePlotItem(0,true);
+  }
+  $scope.microsoftChecked = function(){
     chart.slicePlotItem(1,true);
   }
-  $scope.reset = function(){
-    // using the stored chart instance reference to call slicePlotItem API.
-    chart.slicePlotItem(1,false);
+  $scope.zeusChecked = function(){
+    chart.slicePlotItem(2,true);
+  }
+  $scope.otherChecked = function(){
+    chart.slicePlotItem(3,true);
   }
 }]);
 <% } else if(src==="html") { %>
@@ -65,9 +77,29 @@ myApp.controller("MyController", ["$scope", function($scope){
             datasource="{{myDataSource}}">
           </fusioncharts>
       </div>
-      <div style="display: flex; justify-content: center">
-          <a class="btn btn-outline-secondary btn-sm" ng-click="slice()">SLICE OUT MICROSOFT</a>
-          <a class="btn btn-outline-secondary btn-sm" ng-click="reset()">RESET</a>
+      <div style='position:relative;bottom:2px;left:0px'>
+          <div class="change-type">
+              <div>
+                  <input type="radio" value="none" ng-click="noneChecked()" ng-model="selectedItem"/>
+                  <label>None</label>
+              </div>
+              <div>
+                  <input type="radio" value="apache" ng-click="apacheChecked()" ng-model="selectedItem"/>
+                  <label>Apache</label>
+              </div>
+              <div>
+                  <input type="radio" value="microsoft" ng-click="microsoftChecked()" ng-model="selectedItem"/>
+                  <label>Microsoft</label>
+              </div>
+              <div>
+                  <input type="radio" value="zeus" ng-click="zeusChecked()" ng-model="selectedItem"/>
+                  <label>Zeus</label>
+              </div>
+              <div>
+                  <input type="radio" value="value" ng-click="otherChecked()" ng-model="selectedItem"/>
+                  <label>Other</label>
+              </div>
+          </div>
       </div>
   </div>
 </div>

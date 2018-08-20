@@ -12,13 +12,14 @@
   app.controller('ex20Controller', function ($scope, $rootScope) {
     $rootScope.demoId = 'ex20';
     $rootScope.currentTitle = 'Slice data plots';   
-    var chart;   
+    var chart; 
     
     $scope.myDataSource = {
       "chart": {
         "caption": "Market Share of Web Servers",
         "plottooltext": "<b>$percentValue</b> of web servers run on $label servers",
         "showLegend": "1",
+        "enableMultiSlicing": "0",
         "showPercentValues": "1",
         "legendPosition": "bottom",
         "useDataPlotColorForLabels": "1",
@@ -38,15 +39,29 @@
         "value": "18674221"
       }]
     };
+    $scope.selectedItem = "none";
     $scope.initialized = function(chartObj){
       chart = chartObj;
     };
-    $scope.slice = function(){
+    $scope.noneChecked = function(){
+      chart.slicePlotItem(0,false);
+      chart.slicePlotItem(1,false);
+      chart.slicePlotItem(2,false);
+      chart.slicePlotItem(3,false);
+    }
+    $scope.apacheChecked = function(){
+      chart.slicePlotItem(0,true);
+    }
+    $scope.microsoftChecked = function(){
       chart.slicePlotItem(1,true);
     }
-    $scope.reset = function(){
-      chart.slicePlotItem(1,false);
+    $scope.zeusChecked = function(){
+      chart.slicePlotItem(2,true);
     }
+    $scope.otherChecked = function(){
+      chart.slicePlotItem(3,true);
+    }
+
 
   });
 
