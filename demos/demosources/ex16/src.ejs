@@ -1,6 +1,7 @@
 <% if(src=== "js") { %>
 var myApp = angular.module("myApp", ["ng-fusioncharts"]);
 myApp.controller("MyController", ["$scope", function($scope){
+  var chart;
   // datasource
   $scope.myDataSource = {
     "chart": {
@@ -9,7 +10,7 @@ myApp.controller("MyController", ["$scope", function($scope){
       "xAxisName": "Country",
       "yAxisName": "Reserves (MMbbl)",
       "numberSuffix": "K",
-      "theme": "gammel" // <- add theme here
+      "theme": "fusion"
     },
     "data": [
         { "label": "Venezuela", "value": "290" },
@@ -22,6 +23,15 @@ myApp.controller("MyController", ["$scope", function($scope){
         { "label": "China", "value": "30"}
     ]
   };
+  $scope.selectedTheme = "fusion";
+  // initialized event handler
+  $scope.initialized = function(chartObj){
+    // store the reference of chart instance for further usage
+    chart = chartObj;
+  };
+  $scope.applyTheme = function(e){
+    chart.setChartAttribute('theme', e.target.value);
+  }
 }]);
 <% } else if(src==="html") { %>
 <!-- 
@@ -36,13 +46,38 @@ myApp.controller("MyController", ["$scope", function($scope){
 -->
 <div ng-app="myApp">
   <div ng-controller="MyController"> 
-    <fusioncharts
-      type="column2d"
-      width="700"
-      height="500"
-      dataFormat="json"
-      datasource="{{myDataSource}}">
-    </fusioncharts>
+      <div id="chart-container">
+          <fusioncharts type="column2d" width="100%" height="500" dataFormat="json" initialized="initialized(chart)" datasource="{{myDataSource}}"></fusioncharts>
+      </div>
+      <div style='position:relative;bottom:2px;text-align:center'>
+        <span id="select-text">Choose a theme:</span>
+        <div class="change-type">
+            <div>
+                <input type="radio" value="fusion" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
+                <label>Fusion</label>
+            </div>
+            <div>
+                <input type="radio" value="gammel" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
+                <label>Gammel</label>
+            </div>
+            <div>
+                <input type="radio" value="candy" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
+                <label>Candy</label>
+            </div>
+            <div>
+                <input type="radio" value="zune" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
+                <label>Zune</label>
+            </div>
+            <div>
+                <input type="radio" value="ocean" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
+                <label>Ocean</label>
+            </div>
+            <div>
+                <input type="radio" value="carbon" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
+                <label>Carbon</label>
+            </div>
+        </div>
+      </div>
   </div>
 </div>
 <% } %>

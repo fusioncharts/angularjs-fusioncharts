@@ -11,14 +11,9 @@
 
   app.controller('ex16Controller', function ($scope, $rootScope) {
     $rootScope.demoId = 'ex16';
-    var vm = this;
+    var vm = this,
+    chart;
     $rootScope.currentTitle = 'Applying a different theme';        
-    $scope.variable = 'hello world';
-    setTimeout(function(){
-      $scope.$apply(function(){
-        $scope.variable = "MyWorld";
-      })
-    }, 2000);
     
     $scope.myDataSource = {
       "chart": {
@@ -27,7 +22,7 @@
         "xAxisName": "Country",
         "yAxisName": "Reserves (MMbbl)",
         "numberSuffix": "K",
-        "theme": "gammel"
+        "theme": "fusion"
       },
       "data": [
           { "label": "Venezuela", "value": "290" },
@@ -40,6 +35,14 @@
           { "label": "China", "value": "30"}
       ]
     };
+    $scope.selectedTheme = "fusion";
+    $scope.initialized = function(chartObj){
+      chart = chartObj;
+    };
+
+    $scope.applyTheme = function(e){
+      chart.setChartAttribute('theme', e.target.value);
+    }
 
 
   });
