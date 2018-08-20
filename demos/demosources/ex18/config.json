@@ -1,4 +1,4 @@
 {
-  "title": "Render Alert",
-  "desc": "Show a message that the chart is rendered on the 'rendered' event"
+  "title": "Lifecycle events",
+  "desc": "This sample shows the basic lifecycle events of FusionCharts"
 }

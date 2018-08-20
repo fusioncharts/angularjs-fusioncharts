@@ -1,7 +1,6 @@
 <% if(src=== "js") { %>
 var myApp = angular.module("myApp", ["ng-fusioncharts"]);
 myApp.controller("MyController", ["$scope", function($scope){
-  $scope.message = "You will see a notification here after chart completes rendering";
     // datasource
     $scope.myDataSource = {
       "chart": {
@@ -23,10 +22,28 @@ myApp.controller("MyController", ["$scope", function($scope){
           { "label": "China", "value": "30"}
       ]
     };
-    // handler for rendered event
+    // handler for rendercomplete event
     $scope.renderComplete = function(){
       $scope.$apply(function(){
-        $scope.message = "Chart has completed rendering";
+        $scope.message = "render complete";
+      });
+    }
+    // handler for drawcomplete event
+    $scope.drawComplete = function(){
+      $scope.$apply(function(){
+        $scope.message = "draw complete";
+      });
+    }
+    // handler for beforedataupdate event
+    $scope.beforeDataUpdate = function(){
+      $scope.$apply(function(){
+        $scope.message = "before data update";
+      });
+    }
+    // handler for dataupdated event
+    $scope.dataUpdated = function(){
+      $scope.$apply(function(){
+        $scope.message = "data updated";
       });
     }
 }]);
@@ -44,15 +61,16 @@ myApp.controller("MyController", ["$scope", function($scope){
 <div ng-app="myApp">
   <div ng-controller="MyController">
   <!--Listen to FusionCharts events by using "fcevent-<fc-event-name>" attribute. In this case the event name is rendered-->   
-      <fusioncharts 
-        type="column2d" 
-        width="100%" 
-        height="500" 
-        dataFormat="json" 
-        fcevent-rendered="renderComplete()" 
-        datasource="{{myDataSource}}">
-      </fusioncharts>
-      <p style="padding: 10px; background: #f5f2f0">{{message}}</p>
+    <fusioncharts type="column2d" 
+      width="100%" 
+      height="500" 
+      dataFormat="json" 
+      fcevent-rendered="renderComplete()" 
+      fcevent-beforedataupdate="beforeDataUpdate()"
+      fcevent-dataupdated="dataUpdated()"
+      fcevent-drawcomplete="drawComplete()"
+      datasource="{{myDataSource}}"></fusioncharts>
+    <p style="padding: 10px; background: #f5f2f0"><b>Status: </b>{{message}}</p>
   </div>
 </div>
 <% } %>

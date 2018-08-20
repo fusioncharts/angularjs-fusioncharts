@@ -13,8 +13,6 @@
     $rootScope.demoId = 'ex18';
     var vm = this;
     $rootScope.currentTitle = 'Render Alert';
-    
-    $scope.message = 'You will see a notification here after chart completes rendering';
 
     $scope.myDataSource = {
       "chart": {
@@ -38,11 +36,24 @@
     };
     $scope.renderComplete = function(){
       $scope.$apply(function(){
-        $scope.message = 'Chart has completed rendering';
+        $scope.message = 'render complete';
       });
     }
-
-
+    $scope.drawComplete = function(){
+      $scope.$apply(function(){
+        $scope.message = 'draw complete';
+      });
+    }
+    $scope.beforeDataUpdate = function(){
+      $scope.$apply(function(){
+        $scope.message = 'before data update';
+      });
+    }
+    $scope.dataUpdated = function(){
+      $scope.$apply(function(){
+        $scope.message = 'data updated';
+      });
+    }
   });
 
 }());
