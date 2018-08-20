@@ -26,12 +26,22 @@ myApp.controller("MyController", ["$scope", function($scope){
     };
     // initialized event handler
     $scope.initialized = function(chartObj){
-       // store the reference of chart instance for further usage
+      // store the reference of chart instance for further usage
       chart = chartObj;
     };
-    $scope.buttonClick = function(e){
-        // using the stored chart instance reference to change the theme of the chart.
-        chart.setChartAttribute("theme", e.target.value);
+    $scope.changeCaption = function(){
+      chart.setChartAttribute('caption', 'Test Caption');
+    }
+    $scope.changeXAxisName = function(e){
+      chart.setChartAttribute('xAxisName', 'Test X-Axis');
+    }
+    $scope.changeYAxisName = function(e){
+      chart.setChartAttribute('yAxisName', 'Test Y-Axis');
+    }
+    $scope.reset = function(e){
+      chart.setChartAttribute('caption', 'Countries With Most Oil Reserves [2017-18]');
+      chart.setChartAttribute('xAxisName', 'Country');
+      chart.setChartAttribute('yAxisName', 'Reserves (MMbbl)');
     }
 }]);
 <% } else if(src==="html") { %>
@@ -59,35 +69,11 @@ myApp.controller("MyController", ["$scope", function($scope){
                   datasource="{{myDataSource}}">
                 </fusioncharts>
         </div></br>
-        <div style="display: flex; justify-content: center">
-            <span id="select-text">Choose a theme:</span>
-                <div class="change-type">
-                    <div>
-                        <input type="radio" value="fusion" ng-click="buttonClick($event)" ng-model="themeName"/>
-                        <label>Fusion</label>
-                    </div>
-                    <div>
-                        <input type="radio" value="gammel" ng-click="buttonClick($event)" ng-model="themeName"/>
-                        <label>Gammel</label>
-                    </div>
-                    <div>
-                        <input type="radio" value="candy" ng-click="buttonClick($event)" ng-model="themeName"/>
-                        <label>Candy</label>
-                    </div>
-                    <div>
-                        <input type="radio" value="zune" ng-click="buttonClick($event)" ng-model="themeName"/>
-                        <label>Zune</label>
-                    </div>
-                    <div>
-                        <input type="radio" value="ocean" ng-click="buttonClick($event)" ng-model="themeName"/>
-                        <label>Ocean</label>
-                    </div>
-                    <div>
-                        <input type="radio" value="carbon" ng-click="buttonClick($event)" ng-model="themeName"/>
-                        <label>Carbon</label>
-                    </div>
-                </div>
-            </span>
+        <div style='display: flex; justify-content: center'>
+                <a class="btn btn-outline-secondary btn-sm" ng-click="changeCaption()">Change Caption: Test Caption</a>
+                <a class="btn btn-outline-secondary btn-sm" ng-click="changeXAxisName()">Change X-Axis Name: Test X-Axis</a>
+                <a class="btn btn-outline-secondary btn-sm" ng-click="changeYAxisName()">Change Y-Axis Name: Test Y-Axis</a>
+                <a class="btn btn-outline-secondary btn-sm" ng-click="reset()">Reset</a>
         </div>
   </div>
 </div>

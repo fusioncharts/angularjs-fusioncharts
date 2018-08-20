@@ -38,8 +38,19 @@
     $scope.initialized = function(chartObj){
       chart = chartObj;
     };
-    $scope.buttonClick = function(e){
-        chart.setChartAttribute('theme', e.target.value);
+    $scope.changeCaption = function(){
+      chart.setChartAttribute('caption', 'Test Caption');
+    }
+    $scope.changeXAxisName = function(e){
+      chart.setChartAttribute('xAxisName', 'Test X-Axis');
+    }
+    $scope.changeYAxisName = function(e){
+      chart.setChartAttribute('yAxisName', 'Test Y-Axis');
+    }
+    $scope.reset = function(e){
+      chart.setChartAttribute('caption', 'Countries With Most Oil Reserves [2017-18]');
+      chart.setChartAttribute('xAxisName', 'Country');
+      chart.setChartAttribute('yAxisName', 'Reserves (MMbbl)');
     }
   });
 
