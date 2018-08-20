@@ -18,7 +18,7 @@
       "chart": {
         "caption": "Market Share of Web Servers",
         "plottooltext": "<b>$percentValue</b> of web servers run on $label servers",
-        "showLegend": "1",
+        "showLegend": "0",
         "enableMultiSlicing": "0",
         "showPercentValues": "1",
         "legendPosition": "bottom",
