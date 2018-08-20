@@ -12,10 +12,6 @@
     .btn.btn-primary:hover {
         background: #5c62b5;
     }
-
-    .btn.btn-primary:active {
-        background: #4a4d8c
-    }
 </style>
 <div class="card shadow">
   <div class="card-body chart-wrapper">
@@ -31,8 +27,8 @@
         </div>
         <p ng-bind-html="message" style='padding: 10px; background: #f5f2f0'></p>
         <div style='display: flex; justify-content: center'>
-            <a class="btn btn-outline-secondary btn-sm" ng-click="track()">Track Data Plot Clicks</a>
-            <a class="btn btn-outline-secondary btn-sm" ng-click="reset()">Reset</a>
+            <a class="btn btn-outline-secondary btn-sm" ng-click="track()" ng-style="trackButton">LISTEN TO DATAPLOTCLICK EVENT</a>
+            <a class="btn btn-outline-secondary btn-sm" ng-click="reset()" ng-style="resetButton">REMOVE DATAPLOTCLICK EVENT</a>
         </div>
     </div>
   </div>
