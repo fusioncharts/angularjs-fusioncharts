@@ -1,91 +1,98 @@
 <% if(src=== "js") { %>
 var myApp = angular.module("myApp", ["ng-fusioncharts"]);
 myApp.controller("MyController", ["$scope", function($scope){
-  var startValue;
-  // datasource
-  $scope.myDataSource = {
-    "chart": {
-      "caption": "App Publishing Trend",
-      "subCaption": "2012-2016",
-      "xAxisName": "Years",
-      "yAxisName" : "Total number of apps in store",
-      "formatnumberscale": "1",
-      "drawCrossLine":"1",
-      "plotToolText" : "<b>$dataValue</b> apps on $seriesName in $label",
-      "theme": "fusion"
-    },
-
-    "categories": [{
-      "category": [{
-        "label": "2012"
+  var datasetName,
+    startValue,
+    endValue;      
+    $scope.myDataSource = {
+      "chart": {
+        "caption": "Android and iOS Devices Sales Projections",
+        "subCaption": "Drag the top of columns to adjust projections for 2017 & 2018",
+        "numberPrefix": "$",
+        "numberSuffix": "M",
+        "yaxismaxvalue": "200",
+        "theme": "fusion",
+        "plotToolText": "<b>$label</b><br>$seriesName: <b>$dataValue</b>"
+      },
+      "categories": [{
+        "category": [{
+          "label": "2014",
+          "fontItalic": "0"
+        }, {
+          "label": "2015",
+          "fontItalic": "0"
+        }, {
+          "label": "2016",
+          "fontItalic": "0"
+        }, {
+          "label": "2017 (Projected)"
+        }, {
+          "label": "2018 (Projected)"
+        }]
+      }],
+      "dataset": [{
+        "seriesname": "Android Devices",
+        "data": [{
+          "value": "73",
+          "alpha": "100",
+          "allowDrag": "0"
+        }, {
+          "value": "80",
+          "alpha": "100",
+          "allowDrag": "0"
+        }, {
+          "value": "97",
+          "alpha": "100",
+          "allowDrag": "0"
+        }, {
+          "value": "110",
+          "toolText": "<b>$label</b><br>$seriesName: <b>$dataValue</b>"
+        }, {
+          "value": "180",
+          "toolText": "<b>$label</b><br>$seriesName: <b>$dataValue</b>"
+        }]
       }, {
-        "label": "2013"
-      }, {
-        "label": "2014"
-      }, {
-        "label": "2015"
-      },{
-      "label": "2016"
-      }
-      ]
-    }],
-    "dataset": [{
-      "seriesname": "iOS App Store",
-      "data": [{
-        "value": "125000"
-      }, {
-        "value": "300000"
-      }, {
-        "value": "480000"
-      }, {
-        "value": "800000"
-      }, {
-        "value": "1100000"
+        "seriesname": "iOS Devices",
+        "data": [{
+          "value": "63.2",
+          "alpha": "100",
+          "allowDrag": "0"
+        }, {
+          "value": "68",
+          "alpha": "100",
+          "allowDrag": "0"
+        }, {
+          "value": "82",
+          "alpha": "100",
+          "allowDrag": "0"
+        }, {
+          "value": "99",
+          "toolText": "<b>$label</b><br>$seriesName: <b>$dataValue</b>"
+        }, {
+          "value": "150",
+          "toolText": "<b>$label</b><br>$seriesName: <b>$dataValue</b>"
+        }]
       }]
-    }, {
-      "seriesname": "Google Play Store",
-      "data": [{
-        "value": "70000"
-      }, {
-        "value": "150000"
-      }, {
-        "value": "350000"
-      }, {
-        "value": "600000"
-      },{
-        "value": "1400000"
-      }]
-    }, {
-      "seriesname": "Amazon AppStore",
-      "data": [{
-        "value": "10000"
-      }, {
-        "value": "100000"
-      }, {
-        "value": "300000"
-      }, {
-        "value": "600000"
-      },{
-        "value": "900000"
-      }]
-    }]
-  };
-  // handler for dataplotdragstart event
-  $scope.dataPlotDragstart = function(event){
-     startValue = event.data.startValue; 
-  }
-  // handler for dataplotdragend event
-  $scope.dataPlotDragend = function(event){ 
-    $scope.$apply(function(){
-       $scope.selectedDataset = event.data.datasetName;
-       $scope.selectedStartValue= FusionCharts.formatNumber(startValue, {
-        "decimals": "2"
-       });
-       $scope.selectedEndValue = FusionCharts.formatNumber(event.data.endValue,{
-        "decimals": "2"
-       });
-    });
-  }
+    };
+    $scope.message = "Drag any column for years 2017 or 2018 to see updated value along with the label"; 
+    $scope.dataPlotDragstart = function(event){
+       startValue = FusionCharts.formatNumber(event.data.startValue, {
+                      "decimals": "2",
+                      "numberPrefix": "$",
+                      "numberSuffix": "M"
+                     });;     
+    }
+    $scope.dataPlotDragend = function(event){ 
+      $scope.$apply(function(){
+         datasetName = event.data.datasetName;
+         endValue = FusionCharts.formatNumber(event.data.endValue,{
+              "decimals": "2",
+              "numberPrefix": "$",
+              "numberSuffix": "M"
+         });
+         $scope.message = `<b>${datasetName}</b> is modified to <b>${endValue}</b> from <b>${startValue}</b>`;
+      });
+    }
 }]);
 <% } else if(src==="html") { %>
 <!-- 
@@ -110,9 +117,7 @@ myApp.controller("MyController", ["$scope", function($scope){
       fcevent-dataplotdragend="dataPlotDragend(event)"
       datasource="{{myDataSource}}">
     </fusioncharts>
-    <p style="font-size:16px;font-weight: 300;padding:10px;background:#f5f2f0">
-        You have dragged a plot of <span style="font-weight:bold">{{selectedDataset || "______"}}</span> dataset, its previous value was <span style="font-weight:bold">{{selectedStartValue || "_______"}}</span> and its current value is <span style="font-weight:bold">{{selectedEndValue || "_______"}}</span>
-    </p>
+    <p style="font-size:16px;padding:10px;background:#f5f2f0" ng-bind-html="message"></p>
   </div>
 </div>
 <% } %>
