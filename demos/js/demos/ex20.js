@@ -12,7 +12,8 @@
   app.controller('ex20Controller', function ($scope, $rootScope) {
     $rootScope.demoId = 'ex20';
     $rootScope.currentTitle = 'Slice data plots';   
-    var chart; 
+    var chart,
+    clickedPlot; 
     
     $scope.myDataSource = {
       "chart": {
@@ -41,10 +42,15 @@
     };
     $scope.selectedItem = "none";
     $scope.plotClickHandler = function(event){
-       $scope.$apply(function(){
-         $scope.selectedItem = (event.data.categoryLabel).toLowerCase();
-       });
-    }
+      $scope.$apply(function(){
+        clickedPlot = (event.data.categoryLabel).toLowerCase();
+        if ($scope.selectedItem !== clickedPlot) {
+          $scope.selectedItem = clickedPlot;
+        } else{
+          $scope.selectedItem = 'none';
+        }
+      });
+    };
     $scope.initialized = function(chartObj){
       chart = chartObj;
     };

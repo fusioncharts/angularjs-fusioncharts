@@ -1,7 +1,8 @@
 <% if(src=== "js") { %>
 var myApp = angular.module("myApp", ["ng-fusioncharts"]);
 myApp.controller("MyController", ["$scope", function($scope){
-  var chart;
+  var chart,
+  clickedPlot;
   // datasource
   $scope.myDataSource = {
     "chart": {
@@ -31,7 +32,12 @@ myApp.controller("MyController", ["$scope", function($scope){
   // handler for daplotclick event
   $scope.plotClickHandler = function(event){
     $scope.$apply(function(){
-      $scope.selectedItem = (event.data.categoryLabel).toLowerCase();
+      clickedPlot = (event.data.categoryLabel).toLowerCase();
+      if ($scope.selectedItem !== clickedPlot) {
+        $scope.selectedItem = clickedPlot;
+      } else{
+        $scope.selectedItem = 'none';
+      }
     });
   };
   // handler for initialzed event
