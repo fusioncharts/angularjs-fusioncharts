@@ -40,6 +40,11 @@
       }]
     };
     $scope.selectedItem = "none";
+    $scope.plotClickHandler = function(event){
+       $scope.$apply(function(){
+         $scope.selectedItem = (event.data.categoryLabel).toLowerCase();
+       });
+    }
     $scope.initialized = function(chartObj){
       chart = chartObj;
     };

@@ -28,6 +28,12 @@ myApp.controller("MyController", ["$scope", function($scope){
       "value": "18674221"
     }]
   };
+  // handler for daplotclick event
+  $scope.plotClickHandler = function(event){
+    $scope.$apply(function(){
+      $scope.selectedItem = (event.data.categoryLabel).toLowerCase();
+    });
+  };
   // handler for initialzed event
   $scope.initialized = function(chartObj){
     // store the reference of chart instance for further usage
@@ -74,6 +80,7 @@ myApp.controller("MyController", ["$scope", function($scope){
             height="500"
             dataFormat="json"
             initialized="initialized(chart)"
+            fcevent-dataplotclick="plotClickHandler(event)"
             datasource="{{myDataSource}}">
           </fusioncharts>
       </div>
@@ -96,7 +103,7 @@ myApp.controller("MyController", ["$scope", function($scope){
                   <label>Zeus</label>
               </div>
               <div>
-                  <input type="radio" value="value" ng-click="otherChecked()" ng-model="selectedItem"/>
+                  <input type="radio" value="other" ng-click="otherChecked()" ng-model="selectedItem"/>
                   <label>Other</label>
               </div>
           </div>

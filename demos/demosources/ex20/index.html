@@ -69,6 +69,7 @@
            height="400"
            dataFormat="json"
            initialized="initialized(chart)"
+           fcevent-dataplotclick="plotClickHandler(event)"
            datasource="{{myDataSource}}">
          </fusioncharts>
          </div>
@@ -91,7 +92,7 @@
                     <label>Zeus</label>
                 </div>
                 <div>
-                    <input type="radio" value="value" ng-click="otherChecked()" ng-model="selectedItem"/>
+                    <input type="radio" value="other" ng-click="otherChecked()" ng-model="selectedItem"/>
                     <label>Other</label>
                 </div>
             </div>
