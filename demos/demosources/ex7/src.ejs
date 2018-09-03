@@ -29,6 +29,13 @@ myApp.controller("MyController", ["$scope", function($scope){
             $scope.selectedLabel = event.data.categoryLabel;
         });
     }
+    // handler for dataplotrollout event.
+    $scope.plotRollOut = function(event){
+        $scope.$apply(function () {
+            $scope.selectedValue = '_______';
+            $scope.selectedLabel = '_______';
+        });
+    }
 }]);
 <% } else if(src==="html") { %>
 <!-- 
@@ -48,7 +55,8 @@ myApp.controller("MyController", ["$scope", function($scope){
 <div ng-app="myApp">
     <div ng-controller="MyController">  
         <!--Listen to FusionCharts events by using "fcevent-<fc-event-name>" attribute. In this case the event name is dataplotrollover-->  
-        <div fusioncharts width="100%" height="400" type="column2d" , datasource="{{dataSource}}" fcevent-dataplotrollover="plotRollOver(event)"></div>
+        <div fusioncharts width="100%" height="400" type="column2d" , datasource="{{dataSource}}" fcevent-dataplotrollover="plotRollOver(event)"
+        fcevent-dataplotrollout="plotRollOut()"></div>
         <p style="font-size:20px;font-weight: 300;padding:10px;background:#f5f2f0">
             You are currently hovering over
             <span style="font-weight: bold">{{selectedLabel || "______"}}</span> whose value is

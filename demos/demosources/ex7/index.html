@@ -2,7 +2,8 @@
     <div class="card-body chart-wrapper">
         <div class="chart-wrapper-inner">
             <div id="chart-container">
-                <div fusioncharts width="100%" height="400" type="column2d" , datasource="{{dataSource}}" fcevent-dataplotrollover="plotRollOver(event)"></div>
+                <div fusioncharts width="100%" height="400" type="column2d" , datasource="{{dataSource}}" fcevent-dataplotrollover="plotRollOver(event)"
+                fcevent-dataplotrollout="plotRollOut()"></div>
                 <p style="font-size:20px;font-weight: 300;margin:0px;position:relative;padding:10px;background:#f5f2f0">
                     You are currently hovering over
                     <span style="font-weight: bold">{{selectedLabel || "______"}}</span> whose value is

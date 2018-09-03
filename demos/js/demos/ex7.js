@@ -38,6 +38,12 @@
                 $scope.selectedLabel = event.data.categoryLabel;
             });
         }
+        $scope.plotRollOut = function(event){
+            $scope.$apply(function () {
+                $scope.selectedValue = '_______';
+                $scope.selectedLabel = '_______';
+            });
+        }
     });
         
 }());
