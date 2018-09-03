@@ -80,16 +80,16 @@
             <span id="select-text">Choose a chart type:</span>
                 <div class="change-type">
                     <div>
-                        <input type="radio" value="column2d" ng-click="buttonClick($event)" ng-model="chartType"/>
-                        <label>Column 2D Chart</label>
+                        <input type="radio" value="column2d" id="column_chart_button" ng-click="buttonClick($event)" ng-model="chartType"/>
+                        <label for="column_chart_button">Column 2D Chart</label>
                     </div>
                     <div>
-                        <input type="radio" value="bar2d" ng-click="buttonClick($event)" ng-model="chartType"/>
-                        <label>Bar 2D Chart</label>
+                        <input type="radio" value="bar2d" id="bar_chart_button" ng-click="buttonClick($event)" ng-model="chartType"/>
+                        <label for="bar_chart_button">Bar 2D Chart</label>
                     </div>
                     <div>
-                        <input type="radio" value="pie2d" ng-click="buttonClick($event)" ng-model="chartType"/>
-                        <label>Pie 2D Chart</label>
+                        <input type="radio" value="pie2d" id="pie_chart_button" ng-click="buttonClick($event)" ng-model="chartType"/>
+                        <label for="pie_chart_button">Pie 2D Chart</label>
                     </div>
                 </div>
             </span>

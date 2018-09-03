@@ -35,6 +35,7 @@ myApp.controller("MyController", ["$scope", function($scope){
   $scope.trackButton = activeStyle;
   $scope.resetButton = disableStyle;
   
+  // handler for dataplotclick event
   $scope.clickHandler = function(e){
     $scope.$apply(function(){
       $scope.message = "You have clicked on plot <b>"+  e.data.categoryLabel + "</b> whose value is <b>" + e.data.displayValue + "</b>";
@@ -52,6 +53,7 @@ myApp.controller("MyController", ["$scope", function($scope){
     $scope.trackButton = activeStyle;
     $scope.resetButton = disableStyle;
   }
+  // unlisten to dataplotclick event when the view gets destroyed.
   $scope.$on("$destroy", function() {
     FusionCharts.removeEventListener("dataplotclick", $scope.clickHandler);
   });
@@ -80,8 +82,8 @@ myApp.controller("MyController", ["$scope", function($scope){
       </div>
       <p ng-bind-html="message" style="padding: 10px; background: #f5f2f0"></p>
       <div style="display: flex; justify-content: center">
-          <a class="btn btn-outline-secondary btn-sm" ng-click="track()" ng-style="trackButton">LISTEN TO DATAPLOTCLICK EVENT</a>
-          <a class="btn btn-outline-secondary btn-sm" ng-click="reset()" ng-style="resetButton">REMOVE DATAPLOTCLICK EVENT</a>
+          <a ng-click="track()" ng-style="trackButton">LISTEN TO DATAPLOTCLICK EVENT</a>
+          <a ng-click="reset()" ng-style="resetButton">REMOVE DATAPLOTCLICK EVENT</a>
       </div>
   </div>
 </div>

@@ -69,19 +69,19 @@ myApp.controller("MyController", ["$scope", function($scope){
       </div>
       <div style="display: flex; justify-content: center">
           <span id="select-text">Choose a dimension:</span>
-              <div class="change-type">
-                  <div>
-                      <input type="radio" value="400X250" ng-click="buttonClick($event)" ng-model="dimensionType"/>
-                      <label>400 &#10005; 250</label>
-                  </div>
-                  <div>
-                      <input type="radio" value="600X350" ng-click="buttonClick($event)" ng-model="dimensionType"/>
-                      <label>600 &#10005; 350</label>
-                  </div>
-                  <div>
-                      <input type="radio" value="700X400" ng-click="buttonClick($event)" ng-model="dimensionType"/>
-                      <label>700 &#10005; 400</label>
-                  </div>
+              <div>
+                <div>
+                    <input type="radio" value="400X250" id="dimension1_button" ng-click="buttonClick($event)" ng-model="dimensionType"/>
+                    <label for="dimension1_button">400 &#10005; 250</label>
+                </div>
+                <div>
+                    <input type="radio" value="600X350" id="dimension2_button" ng-click="buttonClick($event)" ng-model="dimensionType"/>
+                    <label for="dimension2_button">600 &#10005; 350</label>
+                </div>
+                <div>
+                    <input type="radio" value="700X400" id="dimension3_button" ng-click="buttonClick($event)" ng-model="dimensionType"/>
+                    <label for="dimension3_button">700 &#10005; 400</label>
+                </div>
               </div>
           </span>
       </div>

@@ -91,27 +91,27 @@ myApp.controller("MyController", ["$scope", function($scope){
           </fusioncharts>
       </div>
       <div style='position:relative;bottom:2px;text-align:center'>
-          <div class="change-type">
-              <div>
-                  <input type="radio" value="none" ng-click="noneChecked()" ng-model="selectedItem"/>
-                  <label>None</label>
-              </div>
-              <div>
-                  <input type="radio" value="apache" ng-click="apacheChecked()" ng-model="selectedItem"/>
-                  <label>Apache</label>
-              </div>
-              <div>
-                  <input type="radio" value="microsoft" ng-click="microsoftChecked()" ng-model="selectedItem"/>
-                  <label>Microsoft</label>
-              </div>
-              <div>
-                  <input type="radio" value="zeus" ng-click="zeusChecked()" ng-model="selectedItem"/>
-                  <label>Zeus</label>
-              </div>
-              <div>
-                  <input type="radio" value="other" ng-click="otherChecked()" ng-model="selectedItem"/>
-                  <label>Other</label>
-              </div>
+          <div>
+            <div>
+              <input type="radio" value="none" id="none_button" ng-click="noneChecked()" ng-model="selectedItem"/>
+              <label for="none_button">None</label>
+            </div>
+            <div>
+                <input type="radio" value="apache" id="apache_button" ng-click="apacheChecked()" ng-model="selectedItem"/>
+                <label for="apache_button">Apache</label>
+            </div>
+            <div>
+                <input type="radio" value="microsoft" id="microsoft_button" ng-click="microsoftChecked()" ng-model="selectedItem"/>
+                <label for="microsoft_button">Microsoft</label>
+            </div>
+            <div>
+                <input type="radio" value="zeus" id="zeus_button" ng-click="zeusChecked()" ng-model="selectedItem"/>
+                <label for="zeus_button">Zeus</label>
+            </div>
+            <div>
+                <input type="radio" value="other" id="other_button" ng-click="otherChecked()" ng-model="selectedItem"/>
+                <label for="other_button">Other</label>
+            </div>
           </div>
       </div>
   </div>

@@ -53,28 +53,28 @@ myApp.controller("MyController", ["$scope", function($scope){
         <span id="select-text">Choose a theme:</span>
         <div class="change-type">
             <div>
-                <input type="radio" value="fusion" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
-                <label>Fusion</label>
+                <input type="radio" value="fusion" id="fusion_theme_button" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
+                <label for="fusion_theme_button">Fusion</label>
             </div>
             <div>
-                <input type="radio" value="gammel" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
-                <label>Gammel</label>
+                <input type="radio" value="gammel" id ="gammel_theme_button" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
+                <label for="gammel_theme_button">Gammel</label>
             </div>
             <div>
-                <input type="radio" value="candy" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
-                <label>Candy</label>
+                <input type="radio" value="candy" id="candy_theme_button" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
+                <label for="candy_theme_button">Candy</label>
             </div>
             <div>
-                <input type="radio" value="zune" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
-                <label>Zune</label>
+                <input type="radio" value="zune" id="zune_theme_button" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
+                <label for="zune_theme_button">Zune</label>
             </div>
             <div>
-                <input type="radio" value="ocean" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
-                <label>Ocean</label>
+                <input type="radio" value="ocean" id="ocean_theme_button" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
+                <label for="ocean_theme_button">Ocean</label>
             </div>
             <div>
-                <input type="radio" value="carbon" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
-                <label>Carbon</label>
+                <input type="radio" value="carbon" id="carbon_theme_button" ng-click="applyTheme($event)" ng-model="selectedTheme"/>
+                <label for="carbon_theme_button">Carbon</label>
             </div>
         </div>
       </div>
