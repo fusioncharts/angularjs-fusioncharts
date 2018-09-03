@@ -59,6 +59,11 @@
                 var ratio=(parseFloat(a.dataValue/$scope.total)*100).toFixed(2);
                 $scope.log(a.categoryLabel, ratio);
         };
+        $scope.dataPlotRollOut = function(){
+             $scope.$apply(function(){
+                $scope.logMessage = 'Hover on the plot to see the percentage along with the label';                 
+            });
+        };
         
         $scope.myDataSource=DataSource;
     
