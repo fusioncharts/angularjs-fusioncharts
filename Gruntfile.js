@@ -28,7 +28,8 @@ module.exports = function(grunt) {
         copy: {
             core: {
                 files: [
-                    {src:'dist/angular-fusioncharts.min.js', dest: 'demos/js/angular-fusioncharts.min.js'}
+					{src:'dist/angular-fusioncharts.min.js', dest: 'demos/js/angular-fusioncharts.min.js'},
+					{src:'src/angular-fusioncharts.js', dest: 'dist/angular-fusioncharts.js'}
                 ]
             }
         }
@@ -36,6 +37,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadTasks('./grunt-tasks');
+    grunt.registerTask('buildCode', ['uglify', 'copy']);
     grunt.registerTask('default', ['makeDemos:demos', 'uglify', 'copy']); // For gh-pages branch only
     //grunt.registerTask('default', ['uglify', 'copy']); // For other branches
 };

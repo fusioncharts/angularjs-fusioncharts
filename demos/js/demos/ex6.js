@@ -40,7 +40,9 @@
         };
 
         $scope.updateMyChartData = function () {
+            //This function generates random number to update the chart data.
             $scope.dataSource.data[2].value = getRandomNumber();
+            //This function generates random number to update the chart data.
             $scope.dataSource.data[3].value = getRandomNumber();
         };
     });

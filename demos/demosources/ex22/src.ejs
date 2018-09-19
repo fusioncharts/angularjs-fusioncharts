@@ -1,0 +1,89 @@
+<% if(src=== "js") { %>
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
+    var chart;
+    $scope.chartType = "column2d"; 
+    // datasource
+    $scope.myDataSource = {
+        "chart": {
+          "caption": "Recommended Portfolio Split",
+          "subCaption": "For a net-worth of $1M",
+          "showValues": "1",
+          "showPercentInTooltip": "0",
+          "numberPrefix": "$",
+          "enableMultiSlicing": "1",
+          "theme": "fusion"
+        },
+        "data": [{
+          "label": "Equity",
+          "value": "300000"
+        }, {
+          "label": "Debt",
+          "value": "230000"
+        }, {
+          "label": "Bullion",
+          "value": "180000"
+        }, {
+          "label": "Real-estate",
+          "value": "270000"
+        }, {
+          "label": "Insurance",
+          "value": "20000"
+        }]
+    };
+    // handler for initialized event
+    $scope.initialized = function(chartObj){
+        // store the reference of chart instance for further usage
+        chart = chartObj;
+    };
+    $scope.buttonClick = function(e){
+        // using the stored chart instance reference to change the chart type
+        chart.chartType(e.target.value);
+    }
+}]);
+<% } else if(src==="html") { %>
+<!-- 
+    Include script files in your index.html
+    ------------------------------------------
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/fusioncharts.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/themes/fusioncharts.theme.gammel.js"></script>
+    <script type="text/javascript" src="path/to/angularjs-fusioncharts.min.js"></script>
+   
+    
+-->
+<div ng-app="myApp">
+  <div ng-controller="MyController"> 
+        <div id="chart-container">
+            <!--To get the reference of chart instance listen to initialized event-->
+            <fusioncharts
+                type="column2d"
+                width="100%"
+                id="id1"
+                height=500
+                dataFormat="json"
+                initialized="initialized(chart)"
+                datasource="{{myDataSource}}">
+            </fusioncharts>
+        </div></br>
+        <div style="display: flex; justify-content: center">
+            <span>Choose a chart type:</span>
+                <div>
+                    <div>
+                        <input type="radio" value="column2d" id="column_chart_button" ng-click="buttonClick($event)" ng-model="chartType"/>
+                        <label for="column_chart_button">Column 2D Chart</label>
+                    </div>
+                    <div>
+                        <input type="radio" value="bar2d" id="bar_chart_button" ng-click="buttonClick($event)" ng-model="chartType"/>
+                        <label for="bar_chart_button">Bar 2D Chart</label>
+                    </div>
+                    <div>
+                        <input type="radio" value="pie2d" id="pie_chart_button" ng-click="buttonClick($event)" ng-model="chartType"/>
+                        <label for="pie_chart_button">Pie 2D Chart</label>
+                    </div>
+                </div>
+            </span>
+        </div>
+  </div>
+</div>
+<% } %>

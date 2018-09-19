@@ -1,14 +1,15 @@
 <% if(src=== "js") { %>
-var myApp = angular.module('myApp', ['ng-fusioncharts']);
-myApp.controller('MyController', ['$scope', function($scope){
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
+    // datasource
     $scope.dataSource = {
         "chart": {
-            "caption": "Countries With Most Oil Reserves [2017-18]",
-            "subCaption": "In MMbbl = One Million barrels",
-            "xAxisName": "Country",
-            "yAxisName": "Reserves (MMbbl)",
-            "numberSuffix": "K",
-            "theme": "fusion"
+          "caption": "Countries With Most Oil Reserves [2017-18]",
+          "subCaption": "In MMbbl = One Million barrels",
+          "xAxisName": "Country",
+          "yAxisName": "Reserves (MMbbl)",
+          "numberSuffix": "K",
+          "theme": "fusion"
         },
         "data": [
             { "label": "Venezuela", "value": "290" },
@@ -20,15 +21,22 @@ myApp.controller('MyController', ['$scope', function($scope){
             { "label": "US", "value": "30" },
             { "label": "China", "value": "30"}
         ]
-    };
+      };
 
     $scope.changeBackgroundColor = function () {
-        $scope.dataSource.chart.bgColor = '#efefef';
+        // changing background color through scope
+        $scope.dataSource.chart.bgColor = "#efefef";
     };
 
     $scope.changeCaptionTextAlignment = function () {
-        $scope.dataSource.chart.captionAlignment = 'left';
+        // changing caption alignment through scope
+        $scope.dataSource.chart.captionAlignment = "left";
     };
+
+    $scope.reset = function(){
+        $scope.dataSource.chart.captionAlignment = "center";
+        $scope.dataSource.chart.bgColor = "ffffff";
+    }
 }]);
 <% } else if(src==="html") { %>
 <!-- 
@@ -44,28 +52,21 @@ myApp.controller('MyController', ['$scope', function($scope){
     <link rel="stylesheet" href="path/to/fusioncharts/themes/fusioncharts.theme.fusion.css"/>
 -->
 
-<style >
-    .btn { font-family: 'Source Sans Pro'; }
-    .btn.btn-primary { background: #4a4d8c;  transition: all 300ms;}
-    .btn.btn-primary:hover{ background: #5c62b5; }
-    .btn.btn-primary:active{ background:#4a4d8c }
-    div.demo8-controls > a.btn.btn-primary { margin : 10px }
-</style>
-<div ng-app='myApp'>
-    <div ng-controller='MyController'> 
+<div ng-app="myApp">
+    <div ng-controller="MyController"> 
         <div style="display: flex;justify-content: center">
-            <div fusioncharts
-                width="600" 
-                height="400"
-                type="column2d",
-                datasource="{{dataSource}}"
-                >
+            <div fusioncharts 
+                 width="100%" 
+                 height="400" 
+                 type="column2d" 
+                 datasource="{{dataSource}}">
             </div>
         </div>
 
-        <div style="display: flex; justify-content: center" class='demo8-controls'>
-            <a class="btn btn-primary" ng-click="changeBackgroundColor()">Change chart background color</a>
-            <a class="btn btn-primary" ng-click="changeCaptionTextAlignment()">Make Caption text left-aligned</a>
+        <div id="button-container">
+            <a ng-click="changeBackgroundColor()">Change chart background color</a>
+            <a ng-click="changeCaptionTextAlignment()">Make Caption text left-aligned</a>
+            <a ng-click="reset()">Reset</a>
         </div>
     </div>
 </div>

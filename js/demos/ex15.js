@@ -209,7 +209,6 @@
         exportFormat:'pdf'
       })
     }
-    // $scope.myDataSource = DataSource;
 
 
   });

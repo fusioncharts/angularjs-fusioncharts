@@ -1,6 +1,7 @@
 <% if(src=== "js") { %>
-var myApp = angular.module('myApp', ['ng-fusioncharts']);
-myApp.controller('MyController', ['$scope', function($scope){
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
+    // datasource
     $scope.dataSource =  {
         "chart": {
             "caption": "Expense Analysis",
@@ -70,8 +71,8 @@ myApp.controller('MyController', ['$scope', function($scope){
 -->
 
 <!-- In the HTML file -->
-<div ng-app='myApp'>
-    <div ng-controller='MyController'>
+<div ng-app="myApp">
+    <div ng-controller="MyController">
         <div fusioncharts
             width="600" 
             height="400"

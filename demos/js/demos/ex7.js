@@ -32,14 +32,17 @@
                 { "label": "China", "value": "30"}
             ]
         };
-
-        $scope.events = {
-            dataplotrollover: function (ev, props) {
-                $scope.$apply(function () {
-                    $scope.selectedValue = props.displayValue;
-                    $scope.selectedLabel = props.categoryLabel;
-                });
-            }
+        $scope.plotRollOver = function(event){
+            $scope.$apply(function () {
+                $scope.selectedValue = event.data.displayValue;
+                $scope.selectedLabel = event.data.categoryLabel;
+            });
+        }
+        $scope.plotRollOut = function(event){
+            $scope.$apply(function () {
+                $scope.selectedValue = '_______';
+                $scope.selectedLabel = '_______';
+            });
         }
     });
         

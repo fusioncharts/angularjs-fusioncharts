@@ -1,73 +1,201 @@
 <% if(src=== "js") { %>
-var myApp = angular.module('myApp', ['ng-fusioncharts']);
-myApp.controller('MyController', ['$scope', function($scope){
-  $scope.myDataSource = {
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
+  // datasource for first chart
+  $scope.firstDataSource  = {
     "chart": {
-      "caption": "Average Annual Population Growth",
-      "subcaption": " 1955-2015",
-      "numbersuffix": "%",
-      "includevalueinlabels": "1",
-      "labelsepchar": ": ",
-      "entityFillHoverColor": "#FFF9C4",
-      "theme": "fusion"
-    },
-    "colorrange": {
-      "minvalue": "0",
-      "code": "#FFE0B2",
-      "gradient": "1",
-      "color": [
-  
-        {
-          "minvalue": "0.5",
-          "maxvalue": "1.0",
-          "color": "#FFD74D"
-        },
-        {
-          "minvalue": "1.0",
-          "maxvalue": "2.0",
-          "color": "#FB8C00"
-        },
-        {
-          "minvalue": "2.0",
-          "maxvalue": "3.0",
-          "color": "#E65100"
-        }
-      ]
+      "caption": "Countries With Most Oil Reserves [2017-18]",
+      "subCaption": "In MMbbl = One Million barrels",
+      "xAxisName": "Country",
+      "yAxisName": "Reserves (MMbbl)",
+      "numberSuffix": "K",
+      "theme": "fusion",
     },
     "data": [{
-        "id": "NA",
-        "value": ".82",
-        "showLabel": "1"
-        
+      "label": "Venezuela",
+      "value": "290"
+    }, {
+      "label": "Saudi",
+      "value": "260"
+    }, {
+      "label": "Canada",
+      "value": "180"
+    }, {
+      "label": "Iran",
+      "value": "140"
+    }, {
+      "label": "Russia",
+      "value": "115"
+    }, {
+      "label": "UAE",
+      "value": "100"
+    }, {
+      "label": "US",
+      "value": "30"
+    }, {
+      "label": "China",
+      "value": "30"
+    }]
+  };
+  //datasource for second chart 
+  $scope.secondDataSource  = {
+    chart: {
+      caption: "Yearly Energy Production Rate",
+      subCaption: " Top 5 Developed Countries",
+      numbersuffix: " TWh",
+      showSum: "1",
+      plotToolText: "$label produces <b>$dataValue</b> of energy from $seriesName",
+      theme: "fusion"
+    },
+    categories: [
+      {
+        category: [
+          {
+            label: "Canada"
+          },
+          {
+            label: "China"
+          },
+          {
+            label: "Russia"
+          },
+          {
+            label: "Australia"
+          },
+          {
+            label: "United States"
+          },
+          {
+            label: "France"
+          }
+        ]
+      }
+    ],
+    dataSet: [
+      {
+        seriesName: "Coal",
+        data: [
+          {
+            value: "400"
+          },
+          {
+            value: "830"
+          },
+          {
+            value: "500"
+          },
+          {
+            value: "420"
+          },
+          {
+            value: "790"
+          },
+          {
+            value: "380"
+          }
+        ]
       },
       {
-        "id": "SA",
-        "value": "2.04",
-        "showLabel": "1"
+        seriesName: "Hydro",
+        data: [
+          {
+            value: "350"
+          },
+          {
+            value: "620"
+          },
+          {
+            value: "410"
+          },
+          {
+            value: "370"
+          },
+          {
+            value: "720"
+          },
+          {
+            value: "310"
+          }
+        ]
       },
       {
-        "id": "AS",
-        "value": "1.78",
-        "showLabel": "1"
-        
+        seriesName: "Nuclear",
+        data: [
+          {
+            value: "210"
+          },
+          {
+            value: "400"
+          },
+          {
+            value: "450"
+          },
+          {
+            value: "180"
+          },
+          {
+            value: "570"
+          },
+          {
+            value: "270"
+          }
+        ]
       },
       {
-        "id": "EU",
-        "value": ".40",
-        "showLabel": "1"
+        seriesName: "Gas",
+        data: [
+          {
+            value: "180"
+          },
+          {
+            value: "330"
+          },
+          {
+            value: "230"
+          },
+          {
+            value: "160"
+          },
+          {
+            value: "440"
+          },
+          {
+            value: "350"
+          }
+        ]
       },
       {
-        "id": "AF",
-        "value": "2.58",
-        "showLabel": "1"
-      },
-      {
-        "id": "AU",
-        "value": "1.30",
-        "showLabel": "1"
+        seriesName: "Oil",
+        data: [
+          {
+            value: "60"
+          },
+          {
+            value: "200"
+          },
+          {
+            value: "200"
+          },
+          {
+            value: "50"
+          },
+          {
+            value: "230"
+          },
+          {
+            value: "150"
+          }
+        ]
       }
     ]
   };
+
+  $scope.exportChart = function(){
+    // export charts
+    FusionCharts.batchExport({
+      exportFormat:"pdf"
+    })
+  }
 }]);
 <% } else if(src==="html") { %>
 <!-- 
@@ -82,14 +210,8 @@ myApp.controller('MyController', ['$scope', function($scope){
     ------------------------------------------
     <link rel="stylesheet" href="path/to/fusioncharts/themes/fusioncharts.theme.fusion.css"/>
 -->
-<style >
-    .btn { font-family: 'Source Sans Pro'; }
-    .btn.btn-primary { background: #4a4d8c;  transition: all 300ms;}
-    .btn.btn-primary:hover{ background: #5c62b5; }
-    .btn.btn-primary:active{ background:#4a4d8c }
-</style>
-<div ng-app='myApp'>
-  <div ng-controller='MyController'> 
+<div ng-app="myApp">
+  <div ng-controller="MyController"> 
     <fusioncharts
         width="700"
         height="400"
@@ -106,7 +228,7 @@ myApp.controller('MyController', ['$scope', function($scope){
     </fusioncharts>
       
     <div style="display: flex;justify-content: center">
-        <button ng-click="exportChart()" class="btn btn-primary">Export both charts as a single PDF</button>
+        <button ng-click="exportChart()">Export both charts as a single PDF</button>
     </div>
   </div>
 </div>

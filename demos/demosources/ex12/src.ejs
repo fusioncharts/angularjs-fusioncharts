@@ -1,7 +1,8 @@
 <% if(src=== "js") { %>
-var myApp = angular.module('myApp', ['ng-fusioncharts']);
-myApp.controller('MyController', ['$scope', function($scope){
-    var DataSource = {
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
+    var chart,
+        DataSource = {
         "chart": {
             "caption": "Sales of top 3 juice flavors last year",
             "subcaption": "Click on a column to see details",
@@ -100,22 +101,22 @@ myApp.controller('MyController', ['$scope', function($scope){
             }
         ]
     };
+    // datasource
     $scope.myDataSource = DataSource;
-
-    $scope.events = {
-        renderComplete: function (e, a) {
-            e.sender.configureLink({
-            type: "pie2d",
-            renderAt: "myChart",
-            overlayButton: {
-                message: 'Back',
-                fontColor: '880000',
-                bgColor: 'FFEEEE',
-                borderColor: '660000'
-            }
-            }, 0)
-        }
-    };
+    // handler for initialized event
+    $scope.initialized = function(chartObj){
+        chart = chartObj;
+        chart.configureLink({
+          type: "pie2d",
+          renderAt: "myChart",
+          overlayButton: {
+            message: "Back",
+            fontColor: "880000",
+            bgColor: "FFEEEE",
+            borderColor: "660000"
+          }
+        }, 0);
+      };
 }]);
 <% } else if(src==="html") { %>
 <!-- 
@@ -130,15 +131,16 @@ myApp.controller('MyController', ['$scope', function($scope){
     ------------------------------------------
     <link rel="stylesheet" href="path/to/fusioncharts/themes/fusioncharts.theme.fusion.css"/>
 -->
-<div ng-app='myApp'>
-    <div ng-controller='MyController'> 
+<div ng-app="myApp">
+    <div ng-controller="MyController"> 
+        <!--To get the reference of chart instance listen to initialized event-->
         <fusioncharts
             type="column2d"
             width="700"
             height="400"
             dataformat="json"
             datasource="{{myDataSource}}"
-            events="events"
+            initialized="initialized(chart)" 
             id="myChart">
         </fusioncharts>
     </div>

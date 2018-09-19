@@ -13,7 +13,8 @@
     $rootScope.demoId = 'ex12';
     $rootScope.currentTitle = 'Add drill-down to chart';        
 
-    var vm = this;
+    var vm = this,
+    chart;
 
 
 
@@ -128,20 +129,19 @@
       ]
     };
     $scope.myDataSource = DataSource;
-
-    $scope.events = {
-      renderComplete: function (e, a) {
-        e.sender.configureLink({
-          type: "pie2d",
-          renderAt: "myChart",
-          overlayButton: {
-            message: 'Back',
-            fontColor: '880000',
-            bgColor: 'FFEEEE',
-            borderColor: '660000'
-          }
-        }, 0)
-      }
+    
+    $scope.initialized = function(chartObj){
+      chart = chartObj;
+      chart.configureLink({
+        type: "pie2d",
+        renderAt: "myChart",
+        overlayButton: {
+          message: 'Back',
+          fontColor: '880000',
+          bgColor: 'FFEEEE',
+          borderColor: '660000'
+        }
+      }, 0);
     };
   });
 

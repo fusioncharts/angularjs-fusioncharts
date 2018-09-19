@@ -10,7 +10,7 @@
     app.controller('ex9Controller', function ($scope, $rootScope) {
         $rootScope.demoId = 'ex9';
         $rootScope.currentTitle = 'Separate objects for attributes';        
-
+        // the chart object in datasource
         $scope.attrs = {
             "caption": "Twitter Mentions",
             "yAxisName": "Number of mentions",
@@ -20,7 +20,7 @@
             "plottooltext": "$seriesName was mentioned <b>$dataValue</b> times on Twitter in $label",
             "theme": "fusion"
         };
-
+       // the category object in datasource
         $scope.categories = [
             { 
                 "category": 
@@ -37,8 +37,7 @@
                 ]
             }
         ]
-
-
+        // the dataset object in  datasource
         $scope.dataset = [
             {
               "seriesname": "iPhone",

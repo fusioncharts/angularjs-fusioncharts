@@ -1,20 +1,20 @@
 <% if(src=== "js") { %>
-var myApp = angular.module('myApp', ['ng-fusioncharts']);
-myApp.controller('MyController', ['$scope', function($scope){
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
 
     $scope.total = 0;
 
-    $scope.logMessage = 'Click on the  plot to see the percentage of a column wrt total';
+    $scope.logMessage = "Hover on the plot to see the percentage along with the label";
 
-    
+    // Save the function reference in global object, which will be called inside dataplotrollover event handler
     $scope.log = function(label, value){ 
         // Since the update is happening outside angular execution context we need 
         // the digest cycle to run to make sure that the view is updated.   
         $scope.$apply(function(){
-            $scope.logMessage = `${label} is ${value}% of the total`;                 
+            $scope.logMessage = `<b>${label}</b> is <b>${value}%</b> of the total`;                 
         });
     }
-    
+    // datasource
     var DataSource = {
         "chart": {
             "caption": "Countries With Most Oil Reserves [2017-18]",
@@ -42,13 +42,17 @@ myApp.controller('MyController', ['$scope', function($scope){
         total+=Number(myData[i].value);
     }
     $scope.total = total;
-
-    $scope.events = {
-        dataplotclick: function(e,a){
+    // handler for dataplotrollover event
+    $scope.dataPlotRollOver = function(e,a){
             var ratio=(parseFloat(a.dataValue/$scope.total)*100).toFixed(2);
             $scope.log(a.categoryLabel, ratio);
-        }
-    }
+    };
+    // handler for dataplotrollout event
+    $scope.dataPlotRollOut = function(){
+        $scope.$apply(function(){
+           $scope.logMessage = 'Hover on the plot to see the percentage along with the label';                 
+       });
+    };
     
     $scope.myDataSource=DataSource;
 }]);
@@ -61,33 +65,22 @@ myApp.controller('MyController', ['$scope', function($scope){
     <script type="text/javascript" src="path/to/fusioncharts/fusioncharts.js"></script>
     <script type="text/javascript" src="path/to/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>
     <script type="text/javascript" src="path/to/angularjs-fusioncharts.min.js"></script>
-   
-    Include Theme CSS File
-    ------------------------------------------
-    <link rel="stylesheet" href="path/to/fusioncharts/themes/fusioncharts.theme.fusion.css"/>
+
 -->    
-<style type="text/css">
-.log-pane{
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    border: 2px solid black;
-    font-size: 20px;
-}
-</style>
-<div ng-app='myApp'>
-    <div ng-controller='MyController'> 
-        <div 
-            fusionCharts
-            width="600"
-            height="400"
-            id="ex10"
-            type="column2d"
-            datasource="{{myDataSource}}"
-            events="events">
-        </div>
-        <div class='log-pane'>{{logMessage}}</div>
+<div ng-app="myApp">
+    <div ng-controller="MyController">
+    <!--Listen to FusionCharts events by using "fcevent-<fc-event-name>" attribute. In this case the event name is dataplotrollover-->   
+            <div fusionCharts 
+                 width="100%"
+                 height="400" 
+                 id="ex10" 
+                 type="column2d" 
+                 datasource="{{myDataSource}}" 
+                 fcevent-dataplotrollover="dataPlotRollOver(event, args)"
+                 fcevent-dataplotrollout="dataPlotRollOut()">
+			</div>
+
+			<div ng-bind-html="logMessage" style="padding: 10px;background:#f5f2f0"></div>
     </div>
 </div>
 <% } %>

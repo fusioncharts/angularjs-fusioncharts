@@ -1,0 +1,90 @@
+<% if(src=== "js") { %>
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
+  var selectedDimension,
+      dimensionMap = {
+        "400X250": {
+          width: "400px",
+          height: "250px"
+        },
+        "600X350": {
+          width: "600px",
+          height: "350px"
+        },
+        "700X400": {
+          width: "700px",
+          height: "400px"
+        }
+      };
+  $scope.dimensionType = "600X350";    
+  $scope.containerStyle = {height: "350px", width: "600px"};
+  // datasource   
+  $scope.myDataSource = {
+    "chart": {
+      "caption": "Countries With Most Oil Reserves [2017-18]",
+      "subCaption": "In MMbbl = One Million barrels",
+      "xAxisName": "Country",
+      "yAxisName": "Reserves (MMbbl)",
+      "numberSuffix": "K",
+      "theme": "fusion"
+    },
+    "data": [
+        { "label": "Venezuela", "value": "290" },
+        { "label": "Saudi", "value": "260" },
+        { "label": "Canada", "value": "180" },
+        { "label": "Iran", "value": "140" },
+        { "label": "Russia", "value": "115" },
+        { "label": "UAE", "value": "100" },
+        { "label": "US", "value": "30" },
+        { "label": "China", "value": "30"}
+    ]
+  };
+  $scope.buttonClick = function(e){
+    selectedDimension = dimensionMap[e.target.value];
+    $scope.containerStyle.width = selectedDimension.width;
+    $scope.containerStyle.height = selectedDimension.height;
+  }
+}]);
+<% } else if(src==="html") { %>
+<!-- 
+    Include script files in your index.html
+    ------------------------------------------
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/fusioncharts.js"></script>
+    <script type="text/javascript" src="path/to/fusioncharts/themes/fusioncharts.theme.gammel.js"></script>
+    <script type="text/javascript" src="path/to/angularjs-fusioncharts.min.js"></script>
+   
+    
+-->
+<div ng-app="myApp">
+  <div ng-controller="MyController"> 
+      <div id="chart-container" ng-style="containerStyle">
+          <fusioncharts
+            type="column2d"
+            width="100%"
+            height="100%"
+            dataFormat="json"
+            datasource="{{myDataSource}}">
+          </fusioncharts>
+      </div>
+      <div style="display: flex; justify-content: center">
+          <span id="select-text">Choose a dimension:</span>
+              <div>
+                <div>
+                    <input type="radio" value="400X250" id="dimension1_button" ng-click="buttonClick($event)" ng-model="dimensionType"/>
+                    <label for="dimension1_button">400 &#10005; 250</label>
+                </div>
+                <div>
+                    <input type="radio" value="600X350" id="dimension2_button" ng-click="buttonClick($event)" ng-model="dimensionType"/>
+                    <label for="dimension2_button">600 &#10005; 350</label>
+                </div>
+                <div>
+                    <input type="radio" value="700X400" id="dimension3_button" ng-click="buttonClick($event)" ng-model="dimensionType"/>
+                    <label for="dimension3_button">700 &#10005; 400</label>
+                </div>
+              </div>
+          </span>
+      </div>
+  </div>
+</div>
+<% } %>

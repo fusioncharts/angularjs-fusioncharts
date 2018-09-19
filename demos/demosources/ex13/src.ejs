@@ -1,6 +1,7 @@
 <% if(src=== "js") { %>
-var myApp = angular.module('myApp', ['ng-fusioncharts']);
-myApp.controller('MyController', ['$scope', function($scope){
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
+  // datasource
   $scope.myDataSource = {
     "chart": {
       "caption": "Nordstorm's Customer Satisfaction Score for 2017",
@@ -46,8 +47,8 @@ myApp.controller('MyController', ['$scope', function($scope){
     ------------------------------------------
     <link rel="stylesheet" href="path/to/fusioncharts/themes/fusioncharts.theme.fusion.css"/>
 -->
-<div ng-app='myApp'>
-  <div ng-controller='MyController'>
+<div ng-app="myApp">
+  <div ng-controller="MyController">
     <fusioncharts
       type="angulargauge"
       width="450"

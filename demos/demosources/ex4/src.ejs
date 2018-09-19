@@ -1,6 +1,7 @@
 <% if(src=== "js") { %>
-var myApp = angular.module('myApp', ['ng-fusioncharts']);
-myApp.controller('MyController', ['$scope', function($scope){
+var myApp = angular.module("myApp", ["ng-fusioncharts"]);
+myApp.controller("MyController", ["$scope", function($scope){
+    // datasource
     $scope.myDataSource = {
         "chart": {
             "caption": "Countries With Most Oil Reserves [2017-18]",
@@ -37,8 +38,8 @@ myApp.controller('MyController', ['$scope', function($scope){
 -->
 
 <!-- In the HTML file -->
-<div ng-app='myApp'>
-    <div ng-controller='MyController'>
+<div ng-app="myApp">
+    <div ng-controller="MyController">
         <!-- As Element directive -->
         <fusioncharts
             width="600" 

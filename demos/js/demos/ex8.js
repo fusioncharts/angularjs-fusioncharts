@@ -30,15 +30,21 @@
                 { "label": "US", "value": "30" },
                 { "label": "China", "value": "30"}
             ]
-          };
+          };      
 
         $scope.changeBackgroundColor = function () {
-            $scope.dataSource.chart.bgColor = "#efefef";
+            $scope.dataSource.chart.bgColor = '#efefef';
         };
 
         $scope.changeCaptionTextAlignment = function () {
-            $scope.dataSource.chart.captionAlignment = "left";
+            $scope.dataSource.chart.captionAlignment = 'left';
         };
+
+        $scope.reset = function(){
+            $scope.dataSource.chart.captionAlignment = 'center';
+            $scope.dataSource.chart.bgColor = 'ffffff';
+        }
+
     });
         
 }());
