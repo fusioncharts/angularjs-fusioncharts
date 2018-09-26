@@ -474,6 +474,12 @@
 
                 createFCChart();
 
+                scope.$on('$destroy', function () {
+                   // on destroy free used resources to avoid memory leaks
+                   if (chart && chart.dispose) {
+                      chart.dispose();
+                   }
+                });
             }
         };
     }]);
