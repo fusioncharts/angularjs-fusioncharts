@@ -69,8 +69,9 @@ app.controller('MyController', function($scope) {
       data,
       schema
     );
-    $scope.timeSeriesDS.data = fusionTable;
-    $scope.$apply();
+    $scope.$apply(function() {
+      $scope.timeSeriesDS.data = fusionTable;
+    });
   });
 });
 
