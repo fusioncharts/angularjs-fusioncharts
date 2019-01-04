@@ -399,7 +399,7 @@ Again in your `index.html`
         width="600"
         height="400"
         type="timeseries"
-        datasource-dt="{{dataSource}}">
+        datasource-dt="dataSource">
         // When using TimeSeries pass your dataSource in "datasource-dt" attribute not in "datasource".
       </div>
     </div>
