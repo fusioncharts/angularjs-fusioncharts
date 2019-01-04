@@ -8,19 +8,6 @@ var schemaFetch = fetch(
 
 var app = angular.module('myApp', ['ng-fusioncharts']);
 
-function getData() {
-  Promise.all([dataFetch, schemaFetch]).then(res => {
-    const data = res[0];
-    const schema = res[1];
-    fusionTable = new FusionCharts.DataStore().createDataTable(data, schema);
-    console.log('Done');
-    app.controller('MyController', function($scope) {
-      $scope.timeSeriesDS.data = fusionTable;
-      $scope.$apply();
-    });
-  });
-}
-
 app.controller('MyController', function($scope) {
   $scope.timeSeriesDS = {
     caption: { text: 'Online Sales of a SuperStore in the US' },
