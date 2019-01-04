@@ -1,157 +1,184 @@
 # angularjs-fusioncharts
 
-Simple and effective AngularJS charts plugin for FusionCharts.
+A simple and lightweight official AngularJS component for FusionCharts JavaScript charting library. angularjs-fusioncharts enables you to add JavaScript charts in your AngularJS application without any hassle.
 
-### Details
-Use this AngularJS charts plugin to add interactive charts to your web and mobile applications using just a single directive. Choose from 90+ charts & 900+ maps from FusionCharts' core [JavaScript charts](http://www.fusioncharts.com/) library.
+## [Demo](https://fusioncharts.github.io/angular-fusioncharts/)
 
- You can access all the rich charting features like events, annotations, macros, themes, image-export etc. to make your visualizations stand-out.
+- Github Repo: [https://github.com/fusioncharts/angularjs-fusioncharts](https://github.com/fusioncharts/angularjs-fusioncharts)
+- Documentation: [https://www.fusioncharts.com/dev/getting-started/angular/angularjs/your-first-chart-using-angularjs](https://www.fusioncharts.com/dev/getting-started/angular/angularjs/your-first-chart-using-angularjs)
+- Support: [https://www.fusioncharts.com/contact-support](https://www.fusioncharts.com/contact-support)
+- FusionCharts
+  - Official Website: [https://www.fusioncharts.com/](https://www.fusioncharts.com/)
+  - Official NPM Package: [https://www.npmjs.com/package/fusioncharts](https://www.npmjs.com/package/fusioncharts)
+- Issues: [https://github.com/fusioncharts/angularjs-fusioncharts/issues](https://github.com/fusioncharts/angularjs-fusioncharts/issues)
 
- ### Installation
- 
+---
 
- Install fusioncharts library
- ```bash
- $ npm install fusioncharts --save
- ```  
- Alternatively you can use downloaded fusioncharts files.
+## Table of Contents
 
+- [Getting Started](#getting-started)
+  - [Requirements](#requirements)
+  - [Installation](#installation)
+  - [Working with chart API](#working-with-apis)
+  - [Working with events](#working-with-events)
+- [Quick Start](#quick-start)
+- [Going Beyond Charts](#going-beyond-charts)
+- [Usage and Integration of FusionTime](#usage-and-integration-of-fusiontime)
+- [For Contributors](#for-contributors)
+- [Licensing](#licensing)
 
- Install angular 1.x.x 
- ```bash
- # Any angular 1.x version is compatible
- $ npm install angular@1.7.2 --save 
- ```
- 
- Install angularjs-fusioncharts module
- ```bash
- $ npm install angularjs-fusioncharts --save
- ```
- Alternatively you can use downloaded angularjs-fusioncharts wrapper.
- 
+## Getting Started
 
-### Demos
-To learn what you can do using this Angular charts plugin, explore some [live demos](http://www.fusioncharts.com/angularjs-charts/).
+### Requirements
 
-### Usage
+- **Node.js**, **NPM/Yarn** installed globally in your OS.
+- You've an **AngularJS** Application.
+- **FusionCharts** installed in your project, as detailed below:
+
+### Installation
+
+To install `angularjs-fusioncharts` library, run:
+
+```bash
+$ npm install angular-fusioncharts --save
+```
+
+To install `fusioncharts` library:
+
+```bash
+$ npm install fusioncharts --save
+```
+
+## Quick Start
+
 #### Step 1: Include angular-fusioncharts.js and fusioncharts
+
 In your index.html
+
 ```xml
   <script type="text/javascript" src="node_modules/fusioncharts/fusioncharts.js"></script>
+  <script type="text/javascript" src="node_modules/fusioncharts/fusioncharts.charts.js"></script>
   <script type="text/javascript" src="node_modules/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>
   <script type="text/javascript" src="node_modules/angular/angular.js"></script>
   <script type="text/javascript" src="node_modules/angularjs-fusioncharts/dist/angular-fusioncharts.js"></script>
 ```
 
 ### Step 2: Include ng-fusioncharts in your module
+
 In the app, include ng-fusioncharts as a dependency. If you looking for where to add the dependency, look for the call to angular.module in your code.
 
 ```javascript
-angular.module("myApp", ["ng-fusioncharts"]);
+angular.module('myApp', ['ng-fusioncharts']);
 ```
 
 ### Step 3: Add the fusioncharts directive
+
 In your HTML, find the section where you wish to add the chart and add a <div> with the fusioncharts directive. We are assuming it's inside a controller called MyController which would change based on your usage.
 
 ```xml
-  <div ng-controller="MyController">
-    <div
-      fusioncharts
-      width="600"
-      height="400"
-      type="column2d"
-      datasource="{{myDataSource}}">
+  <body ng-app='myApp'>
+    ...
+    <div  ng-controller="MyController">
+      <div
+        fusioncharts
+        width="600"
+        height="400"
+        type="column2d"
+        datasource="{{dataSource}}">
+      </div>
     </div>
-  </div>
+    ...
+  </body>
 ```
 
-### Step 4:Populate required variables in controller
+### Step 4: Populate required variables in controller
+
 In the previous code, we are binding to a scope variable myDataSource, but that hasn't been defined yet. In your controller, set the DataSource as you would for a regular FusionCharts JSON format DataSource ([see this](http://docs.fusioncharts.com/tutorial-getting-started-your-first-charts-building-your-first-chart.html) tutorial for a general introduction to this format).
 
-
 ```javascript
-app.controller('MyController', function($scope){
+app.controller('MyController', function($scope) {
   $scope.dataSource = {
-    "chart": {
-      "caption": "Countries With Most Oil Reserves [2017-18]",
-      "subCaption": "In MMbbl = One Million barrels",
-      "xAxisName": "Country",
-      "yAxisName": "Reserves (MMbbl)",
-      "numberSuffix": "K",
-      "theme": "fusion"
+    chart: {
+      caption: 'Countries With Most Oil Reserves [2017-18]',
+      subCaption: 'In MMbbl = One Million barrels',
+      xAxisName: 'Country',
+      yAxisName: 'Reserves (MMbbl)',
+      numberSuffix: 'K',
+      theme: 'fusion'
     },
-    "data": [
-      { "label": "Venezuela", "value": "290" },
-      { "label": "Saudi", "value": "260" },
-      { "label": "Canada", "value": "180" },
-      { "label": "Iran", "value": "140" },
-      { "label": "Russia", "value": "115" },
-      { "label": "UAE", "value": "100" },
-      { "label": "US", "value": "30" },
-      { "label": "China", "value": "30" }
+    data: [
+      { label: 'Venezuela', value: '290' },
+      { label: 'Saudi', value: '260' },
+      { label: 'Canada', value: '180' },
+      { label: 'Iran', value: '140' },
+      { label: 'Russia', value: '115' },
+      { label: 'UAE', value: '100' },
+      { label: 'US', value: '30' },
+      { label: 'China', value: '30' }
     ]
   };
-
 });
 ```
+
 And your chart should display when you load the page.
 
 ### Using `require()` syntax
+
 In script.js
+
 ```javascript
-//  Require AngularJS 
+//  Require AngularJS
 var angular = require('angular');
 
-// Require FusionCharts 
+// Require FusionCharts
 var FusionCharts = require('fusioncharts');
 
-// Include angularjs-fusioncharts 
+// Include angularjs-fusioncharts
 require('angularjs-fusioncharts');
 
-// Require Chart modules 
+// Require Chart modules
 var Charts = require('fusioncharts/fusioncharts.charts');
-
-// Require Fusion theme
-var FusionTheme = require('fusioncharts/themes/fusioncharts.theme.fusion');
 
 // Initialize Charts with FusionCharts instance
 Charts(FusionCharts);
 
-// Initialize FusionTheme with FusionCharts instance
-FusionTheme(FusionCharts);
+var app = angular.module('myApp', ['ng-fusioncharts']);
 
-var app = angular.module('myApp', [ 'ng-fusioncharts' ]);
-
-app.controller('MyController', ['$scope', function($scope) {
-  $scope.dataSource = {
-    "chart": {
-      "caption": "Countries With Most Oil Reserves [2017-18]",
-      "subCaption": "In MMbbl = One Million barrels",
-      "xAxisName": "Country",
-      "yAxisName": "Reserves (MMbbl)",
-      "numberSuffix": "K",
-      "theme": "fusion"
-    },
-    "data": [
-      { "label": "Venezuela", "value": "290" },
-      { "label": "Saudi", "value": "260" },
-      { "label": "Canada", "value": "180" },
-      { "label": "Iran", "value": "140" },
-      { "label": "Russia", "value": "115" },
-      { "label": "UAE", "value": "100" },
-      { "label": "US", "value": "30" },
-      { "label": "China", "value": "30" }
-    ]
-  };
-}]);
+app.controller('MyController', [
+  '$scope',
+  function($scope) {
+    $scope.dataSource = {
+      chart: {
+        caption: 'Countries With Most Oil Reserves [2017-18]',
+        subCaption: 'In MMbbl = One Million barrels',
+        xAxisName: 'Country',
+        yAxisName: 'Reserves (MMbbl)',
+        numberSuffix: 'K'
+      },
+      data: [
+        { label: 'Venezuela', value: '290' },
+        { label: 'Saudi', value: '260' },
+        { label: 'Canada', value: '180' },
+        { label: 'Iran', value: '140' },
+        { label: 'Russia', value: '115' },
+        { label: 'UAE', value: '100' },
+        { label: 'US', value: '30' },
+        { label: 'China', value: '30' }
+      ]
+    };
+  }
+]);
 ```
-Use a bundler like `browserify` to bundle the script   
+
+Use a bundler like `browserify` to bundle the script  
 See the installation docs [here](http://browserify.org/)
 
 ```bash
 $ browserify script.js -o bundle.js
 ```
+
 In `index.html`
+
 ```xml
 <html>
   <head>
@@ -167,26 +194,25 @@ In `index.html`
         width="600"
         height="400"
         type="column2d"
-        datasource="{{myDataSource}}">
+        datasource="{{dataSource}}">
       </div>
     </div>
   </body>
 </html>
-
-
 ```
-Load  it in browser , Chart should get displayed
 
-### Listening to events
+Load it in browser , Chart should get displayed
+
+## Working with Events
 
 Fusincharts events can be subscribed by attaching scope functions to event attributes.
 All the events attributes start with `fcevent-`
-followed by the event name in lowercase  
+followed by the event name in lowercase
 
 Usage in template :
 
 ```xml
-<fusioncharts 
+<fusioncharts
   width="400"
   height="400"
   type="column2d"
@@ -194,48 +220,49 @@ Usage in template :
   fcevent-dataplotrollover="rollover(event, args)">
 </fusioncharts>
 ```
+
 In the given above template, `rollover` is the scope function that needs to be defined in the controller's code.
 
 For more on this read [here](https://www.fusioncharts.com/dev/api/fusioncharts/fusioncharts-events)
 
-```
+```js
 var app = angular.module('myApp', ['ng-fusioncharts']);
 
-app.controller('MyController', function($scope){
-    $scope.myDataSource = {
-        "chart": {
-          "caption": "Countries With Most Oil Reserves [2017-18]",
-          "subCaption": "In MMbbl = One Million barrels",
-          "xAxisName": "Country",
-          "yAxisName": "Reserves (MMbbl)",
-          "numberSuffix": "K",
-          "theme": "fusion"
-        },
-        "data": [
-          { "label": "Venezuela", "value": "290" },
-          { "label": "Saudi", "value": "260" },
-          { "label": "Canada", "value": "180" },
-          { "label": "Iran", "value": "140" },
-          { "label": "Russia", "value": "115" },
-          { "label": "UAE", "value": "100" },
-          { "label": "US", "value": "30" },
-          { "label": "China", "value": "30" }
-        ]
-      };
+app.controller('MyController', function($scope) {
+  $scope.myDataSource = {
+    chart: {
+      caption: 'Countries With Most Oil Reserves [2017-18]',
+      subCaption: 'In MMbbl = One Million barrels',
+      xAxisName: 'Country',
+      yAxisName: 'Reserves (MMbbl)',
+      numberSuffix: 'K',
+      theme: 'fusion'
+    },
+    data: [
+      { label: 'Venezuela', value: '290' },
+      { label: 'Saudi', value: '260' },
+      { label: 'Canada', value: '180' },
+      { label: 'Iran', value: '140' },
+      { label: 'Russia', value: '115' },
+      { label: 'UAE', value: '100' },
+      { label: 'US', value: '30' },
+      { label: 'China', value: '30' }
+    ]
+  };
 
-      $scope.rollover = function(event, name){
-          console.log(event, name);
-      }
+  $scope.rollover = function(event, data) {
+    console.log(event, data);
+  };
 });
 ```
 
 Get the list of fusioncharts' [events](https://www.fusioncharts.com/dev/advanced-chart-configurations/events/classifying-events)
 
-### Chart API
+## Working with APIs
 
-FusionCharts chart instance is made available from the ```initialized``` event. It provides the chart instance as a parameter which can be used to call FusionCharts methods.
+FusionCharts chart instance is made available from the `initialized` event. It provides the chart instance as a parameter which can be used to call FusionCharts methods.
 
-In template, we add ```initialized``` event
+In template, we add `initialized` event
 
 ```xml
 <fusioncharts
@@ -250,11 +277,11 @@ In template, we add ```initialized``` event
 
 In order to use the chart instance, we need to store it.
 
-```
+```js
 var app = angular.module('myApp', ['ng-fusioncharts']);
 
 app.controller('MyController', function($scope){
-    var chart; 
+    var chart;
     $scope.datasource = {
        ...// same data as above
       };
@@ -268,26 +295,141 @@ app.controller('MyController', function($scope){
       }
 });
 ```
-In the given above example, clicking the button changes the caption text to ```Caption changed```
+
+In the given above example, clicking the button changes the caption text to `Caption changed`
 
 Get the list of fusioncharts' [methods](https://www.fusioncharts.com/dev/api/fusioncharts/fusioncharts-methods)
 
+## Usage and integration of FusionTime
 
-### Tutorial
+From `fusioncharts@3.13.3-sr.1` and `angularjs-fusioncharts@5.0.0`, You can visualize timeseries data easily with angular.
 
-Following tutorials will help you get started:
+Learn more about FusionTime [here](https://www.fusioncharts.com/fusiontime).
 
-- Tutorial by a user of this plugin: [How to Build Charts in Angular](https://davidwalsh.name/angular-charts)
+### Sample code for FusionTime
 
-### Documentation
-To dive deeper, please view the [official documentation](http://www.fusioncharts.com/dev/using-with-javascript-libraries/angularjs/introduction.html).
+If you've included angular-fusioncharts.js and fusioncharts in your `html`
+then add the following `script` tag:
 
+In your `index.html`
 
-### Features
+```xml
+  ...
+  <script type="text/javascript" src="node_modules/fusioncharts/fusioncharts.timeseries.js"></script>
+  ...
+```
 
- - Add a chart using just a single directive.
- - Auto-updates your chart object on modifying scope.
- - Angular-friendly events let you call controller functions directly from the chart.
- - Offers advanced control by giving you access to full FusionCharts object.
- - Has variety of ways to add a chart, from JSON URL to Scope Array Binding.
- - Plenty of examples and good documentation.
+In your `script.js`
+
+```js
+// If you haven't imported angulajs, angularjs-fusioncharts and fusioncharts in your html file and used require() syntax instead then add the following code from START to END:
+
+// START
+var angular = require('angular');
+var FusionCharts = require('fusioncharts');
+require('angularjs-fusioncharts');
+
+// Require TimeSeries module
+var TimeSeries = require('fusioncharts/fusioncharts.timeseries');
+
+// Initialize Charts with FusionCharts instance
+TimeSeries(FusionCharts);
+var app = angular.module('myApp', ['ng-fusioncharts']);
+// END
+
+var jsonify = res => res.json();
+var dataFetch = fetch(
+  'https://raw.githubusercontent.com/fusioncharts/dev_centre_docs/fusiontime-beta-release/charts-resources/fusiontime/online-sales-single-series/data.json'
+).then(jsonify);
+var schemaFetch = fetch(
+  'https://raw.githubusercontent.com/fusioncharts/dev_centre_docs/fusiontime-beta-release/charts-resources/fusiontime/online-sales-single-series/schema.json'
+).then(jsonify);
+
+var app = angular.module('myApp', ['ng-fusioncharts']);
+
+app.controller('MyController', function($scope) {
+  $scope.dataSource = {
+    caption: { text: 'Online Sales of a SuperStore in the US' },
+    data: null,
+    yAxis: [
+      {
+        plot: [
+          {
+            value: 'Sales ($)'
+          }
+        ]
+      }
+    ]
+  };
+
+  Promise.all([dataFetch, schemaFetch]).then(res => {
+    const data = res[0];
+    const schema = res[1];
+    const fusionTable = new FusionCharts.DataStore().createDataTable(
+      data,
+      schema
+    );
+    $scope.$apply(function() {
+      $scope.dataSource.data = fusionTable;
+    });
+  });
+});
+```
+
+Use a bundler like `browserify` to bundle the script  
+See the installation docs [here](http://browserify.org/)
+
+```bash
+$ browserify script.js -o bundle.js
+```
+
+Again in your `index.html`
+
+```xml
+<html>
+  <head>
+    <!-- Include compiled bundle in script tag -->
+    <script type="text/javascript" src="./bundle.js"></script>
+  </head>
+
+  <body ng-app="myApp">
+    <div ng-controller="MyController">
+      <div
+        fusioncharts
+        width="600"
+        height="400"
+        type="timeseries"
+        datasource-dt="{{dataSource}}">
+        // When using TimeSeries pass your dataSource in "datasource-dt" attribute not in "datasource".
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+**Important note :- If the chart's datasource has an instance of dataStore like in case of timeseries then you must use the new `datasource-dt` attribute for passing the data in html**
+
+Useful links for FusionTime
+
+- [How FusionTime works](https://www.fusioncharts.com/dev/fusiontime/getting-started/how-fusion-time-works)
+- [Create your first chart](https://www.fusioncharts.com/dev/fusiontime/getting-started/create-your-first-chart-in-fusiontime)
+
+## For Contributors
+
+- Clone the repository and install dependencies
+
+```
+$ git clone https://github.com/fusioncharts/angularjs-fusioncharts.git
+$ cd angularjs-fusioncharts
+$ npm i
+$ npm run dev
+```
+
+## Going Beyond Charts
+
+- Explore 20+ pre-built business specific dashboards for different industries like energy and manufacturing to business functions like sales, marketing and operations [here](https://www.fusioncharts.com/explore/dashboards).
+- See [Data Stories](https://www.fusioncharts.com/explore/data-stories) built using FusionCharts’ interactive JavaScript visualizations and learn how to communicate real-world narratives through underlying data to tell compelling stories.
+
+## Licensing
+
+The FusionCharts React component is open-source and distributed under the terms of the MIT/X11 License. However, you will need to download and include FusionCharts library in your page separately, which has a [separate license](https://www.fusioncharts.com/buy).
