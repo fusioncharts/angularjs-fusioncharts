@@ -1,6 +1,6 @@
 {
   "name": "angularjs-fusioncharts",
-  "version": "4.0.3",
+  "version": "5.0.0",
   "description": "Angular plugin for FusionCharts",
   "main": "dist/angular-fusioncharts.js",
   "repository": {
