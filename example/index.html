@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="../node_modules/fusioncharts/fusioncharts.js"></script>
+    <script
+      type="text/javascript"
+      src="../node_modules/fusioncharts/fusioncharts.charts.js"
+    ></script>
+    <script src="../node_modules/fusioncharts/fusioncharts.timeseries.js"></script>
+    <script
+      type="text/javascript"
+      src="../node_modules/angular/angular.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../dist/angular-fusioncharts.js"
+    ></script>
+    <script src="./index.js"></script>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="MyController">
+      <div
+        fusioncharts
+        datasource-dt="timeSeriesDS"
+        width="600"
+        height="400"
+        type="timeseries"
+      ></div>
+      <div
+        fusioncharts
+        datasource="{{ columnDS }}"
+        width="600"
+        height="400"
+        type="column2d"
+      ></div>
+      <button ng-click="update()">update</button>
+    </div>
+  </body>
+</html>
