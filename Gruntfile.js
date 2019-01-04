@@ -44,7 +44,7 @@ module.exports = function(grunt) {
         livereload: true
       },
       taskName: {
-        files: ['src/*.js', 'example/*.html'],
+        files: ['src/*.js', 'example/*.*'],
         tasks: ['default']
       }
     },
