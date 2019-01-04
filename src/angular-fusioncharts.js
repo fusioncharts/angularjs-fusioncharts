@@ -393,6 +393,7 @@
                     dataStringStore = {},
                     i,
                     attr,
+                    attrConfig,
                     _eobj,
                     key,
                     observableAttr,
