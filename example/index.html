@@ -30,22 +30,21 @@
 
       var app = angular.module('myApp', ['ng-fusioncharts']);
 
-      let ft = {};
-
       function getData() {
         Promise.all([dataFetch, schemaFetch]).then(res => {
           const data = res[0];
           const schema = res[1];
-          const fusionTable = new FusionCharts.DataStore().createDataTable(
+          fusionTable = new FusionCharts.DataStore().createDataTable(
             data,
             schema
           );
-          ft = fusionTable;
-          console.log(ft);
+          console.log('Done');
+          app.controller('MyController', function($scope) {
+            $scope.timeSeriesDS.data = fusionTable;
+            $scope.$apply();
+          });
         });
       }
-
-      getData();
 
       app.controller('MyController', function($scope) {
         $scope.timeSeriesDS = {
@@ -62,14 +61,7 @@
           ]
         };
 
-        $scope.update = function() {
-          $scope.timeSeriesDS.data = ft;
-        };
-      });
-
-      /*
-      app.controller('MyController', function($scope) {
-        $scope.dataSource = {
+        $scope.columnDS = {
           chart: {
             caption: 'Countries With Most Oil Reserves [2017-18]',
             subCaption: 'In MMbbl = One Million barrels',
@@ -79,7 +71,7 @@
             theme: 'fusion'
           },
           data: [
-            { label: 'Venezuela', value: '29' },
+            { label: 'Venezuela', value: '290' },
             { label: 'Saudi', value: '260' },
             { label: 'Canada', value: '180' },
             { label: 'Iran', value: '140' },
@@ -90,38 +82,41 @@
           ]
         };
 
-        $scope.timeSeriesDS = {
-          caption: { text: 'Online Sales of a SuperStore in the US' },
-          data: null,
-          yAxis: [
-            {
-              plot: [
-                {
-                  value: 'Sales ($)'
-                }
-              ]
-            }
-          ]
+        $scope.update = function() {
+          $scope.timeSeriesDS.caption.text = 'Something Else';
+          $scope.columnDS.chart.caption = 'Something Else';
         };
-      })
-      */
+
+        Promise.all([dataFetch, schemaFetch]).then(res => {
+          const data = res[0];
+          const schema = res[1];
+          const fusionTable = new FusionCharts.DataStore().createDataTable(
+            data,
+            schema
+          );
+          $scope.timeSeriesDS.data = fusionTable;
+          $scope.$apply();
+        });
+      });
+
+      // getData();
     </script>
   </head>
   <body ng-app="myApp">
     <div ng-controller="MyController">
-      <!-- <div
-        fusioncharts
-        width="600"
-        height="400"
-        type="column2d"
-        datasource="{{ dataSource }}"
-      ></div> -->
       <div
         fusioncharts
+        datasource-dt="timeSeriesDS"
         width="600"
         height="400"
         type="timeseries"
-        datasource="timeSeriesDS"
+      ></div>
+      <div
+        fusioncharts
+        datasource="{{ columnDS }}"
+        width="600"
+        height="400"
+        type="column2d"
       ></div>
       <button ng-click="update()">update</button>
     </div>
