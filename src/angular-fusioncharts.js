@@ -44,7 +44,8 @@
       columns: '@',
       map: '@',
       markers: '@',
-      initialized: '&'
+      initialized: '&',
+      datasourceDt: '=datasourceDt'
     },
     fcEvents = [
       'beforelinkeditemopen',
@@ -197,6 +198,36 @@
       return {
         scope: scope,
         link: function(scope, element, attrs) {
+          function updateData(key, data) {
+            scope.datasourceDt.key = data;
+            chart.setJSONData(scope.datasourceDt);
+          }
+
+          function createWatchersForAttrs(datasource) {
+            const keys = Object.keys(datasource);
+            keys.forEach(function(key) {
+              const isDeep = key !== 'data';
+              scope.$watch(
+                'datasourceDt.' + key,
+                function(newData, oldData) {
+                  if (newData !== oldData && isDeep) updateData(key, newData);
+                },
+                isDeep
+              );
+            });
+          }
+
+          if (scope.datasourceDt) {
+            scope.$watch(
+              'datasourceDt.data',
+              function(newData, oldData) {
+                if (newData !== oldData) updateData(newData, 'data');
+              },
+              false
+            );
+            createWatchersForAttrs(scope.datasourceDt);
+          }
+
           var observeConf = {
               // non-data componenet observers
               NDCObserver: {
@@ -221,7 +252,6 @@
                 datasource: {
                   ifExist: true,
                   observer: function(newVal) {
-                    console.log('datasource');
                     if (dataStringStore.dataSource != newVal) {
                       dataStringStore.dataSource = newVal;
                       if (chartConfigObject.dataFormat === 'json') {
@@ -291,7 +321,6 @@
                 data: {
                   ifExist: true,
                   observer: function(newVal) {
-                    console.log('data');
                     if (
                       chartConfigObject.dataFormat === 'json' &&
                       typeof chartConfigObject.dataSource == 'object' &&
@@ -587,7 +616,6 @@
             },
             setDataTimer,
             setChartData = function() {
-              console.log('setChartData');
               // clear previous dataUpdate timer
               if (setDataTimer) {
                 clearTimeout(setDataTimer);
@@ -603,7 +631,6 @@
               // chart.setJSONData(chartConfigObject.dataSource);
             },
             createFCChart = function() {
-              console.log('createFCChart');
               // dispose if previous chart exists
               if (chart && chart.dispose) {
                 chart.dispose();
@@ -687,8 +714,6 @@
               attrs.$observe(observableAttr, attrConfig.observer);
             }
           }
-
-          console.log(attrs.datasource);
 
           if (attrs.datasource) {
             chartConfigObject.dataSource =
