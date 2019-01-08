@@ -689,6 +689,7 @@
               }
             }
           }
+
           for (i = 0; i < attribs.length; i++) {
             attr = attribs[i];
             if (attr.match(/^on/i)) {
@@ -719,7 +720,7 @@
             if (scope.datasource) {
               attrs.datasource = scope.datasource;
               chartConfigObject.dataSource = scope.datasource;
-              dataStringStore.dataSource = attrs.datasource;
+              dataStringStore.dataSource = scope.datasource;
 
               scope.$watch(
                 'datasource',
