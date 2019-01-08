@@ -720,7 +720,11 @@
             if (scope.datasource) {
               attrs.datasource = scope.datasource;
               chartConfigObject.dataSource = scope.datasource;
+<<<<<<< HEAD
               dataStringStore.dataSource = scope.datasource;
+=======
+              dataStringStore.dataSource = attrs.datasource;
+>>>>>>> b6d1bf9a31a2f9085dd3fd8d061da68057349af8
 
               scope.$watch(
                 'datasource',
