@@ -200,8 +200,10 @@
         scope: scope,
         link: function(scope, element, attrs) {
           function updateData(key, data) {
-            scope.datasourceDt.key = data;
-            chart.setJSONData(scope.datasourceDt);
+            if (key) {
+              scope.datasourceDt.key = data;
+              chart.setJSONData(scope.datasourceDt);
+            }
           }
 
           function createWatchersForAttrs(datasource) {
