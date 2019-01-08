@@ -728,6 +728,17 @@
                     chartConfigObject.dataSource = scope.datasource;
                     dataStringStore.dataSource = scope.datasource;
                     setChartData();
+                    if (chartConfigObject.dataFormat === 'json') {
+                      setChartData();
+                    } else {
+                      if (chartConfigObject.dataFormat === 'xml') {
+                        chart.setXMLData(newData);
+                      } else if (chartConfigObject.dataFormat === 'jsonurl') {
+                        chart.setJSONUrl(newData);
+                      } else if (chartConfigObject.dataFormat === 'xmlurl') {
+                        chart.setXMLUrl(newData);
+                      }
+                    }
                   }
                 },
                 true
