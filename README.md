@@ -2,7 +2,7 @@
 
 A simple and lightweight official AngularJS component for FusionCharts JavaScript charting library. angularjs-fusioncharts enables you to add JavaScript charts in your AngularJS application without any hassle.
 
-## [Demo](https://fusioncharts.github.io/angular-fusioncharts/)
+## [Demo](https://fusioncharts.github.io/angularjs-fusioncharts/)
 
 - Github Repo: [https://github.com/fusioncharts/angularjs-fusioncharts](https://github.com/fusioncharts/angularjs-fusioncharts)
 - Documentation: [https://www.fusioncharts.com/dev/getting-started/angular/angularjs/your-first-chart-using-angularjs](https://www.fusioncharts.com/dev/getting-started/angular/angularjs/your-first-chart-using-angularjs)
@@ -40,7 +40,7 @@ A simple and lightweight official AngularJS component for FusionCharts JavaScrip
 To install `angularjs-fusioncharts` library, run:
 
 ```bash
-$ npm install angular-fusioncharts --save
+$ npm install angularjs-fusioncharts --save
 ```
 
 To install `fusioncharts` library:
@@ -84,7 +84,7 @@ In your HTML, find the section where you wish to add the chart and add a <div> w
         width="600"
         height="400"
         type="column2d"
-        datasource="{{dataSource}}">
+        datasource="dataSource">
       </div>
     </div>
     ...
@@ -194,7 +194,7 @@ In `index.html`
         width="600"
         height="400"
         type="column2d"
-        datasource="{{dataSource}}">
+        datasource="dataSource">
       </div>
     </div>
   </body>
@@ -216,7 +216,7 @@ Usage in template :
   width="400"
   height="400"
   type="column2d"
-  datasource="{{myDataSource}}"
+  datasource="myDataSource"
   fcevent-dataplotrollover="rollover(event, args)">
 </fusioncharts>
 ```
@@ -269,7 +269,7 @@ In template, we add `initialized` event
   width="400"
   height="400"
   type="column2d"
-  datasource="{{myDataSource}}"
+  datasource="myDataSource"
   initialized="onInitialized(chart)">
 </fusioncharts>
 <button ng-click="changeCaption()">Change Chart Caption</button>
@@ -282,7 +282,7 @@ var app = angular.module('myApp', ['ng-fusioncharts']);
 
 app.controller('MyController', function($scope){
     var chart;
-    $scope.datasource = {
+    $scope.myDataSource = {
        ...// same data as above
       };
 
