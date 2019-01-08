@@ -45,7 +45,8 @@
       map: '@',
       markers: '@',
       initialized: '&',
-      datasourceDt: '=datasourceDt'
+      datasourceDt: '=datasourceDt',
+      datasource: '=datasource'
     },
     fcEvents = [
       'beforelinkeditemopen',
@@ -199,8 +200,10 @@
         scope: scope,
         link: function(scope, element, attrs) {
           function updateData(key, data) {
-            scope.datasourceDt.key = data;
-            chart.setJSONData(scope.datasourceDt);
+            if (key) {
+              scope.datasourceDt.key = data;
+              chart.setJSONData(scope.datasourceDt);
+            }
           }
 
           function createWatchersForAttrs(datasource) {
@@ -627,7 +630,6 @@
                   chart.setJSONData(chartConfigObject.dataSource);
                 }
               }, 0);
-
               // chart.setJSONData(chartConfigObject.dataSource);
             },
             createFCChart = function() {
@@ -689,6 +691,7 @@
               }
             }
           }
+
           for (i = 0; i < attribs.length; i++) {
             attr = attribs[i];
             if (attr.match(/^on/i)) {
@@ -715,12 +718,43 @@
             }
           }
 
-          if (attrs.datasource) {
-            chartConfigObject.dataSource =
-              chartConfigObject.dataFormat === 'json'
-                ? JSON.parse(attrs.datasource)
-                : attrs.datasource;
-            dataStringStore.dataSource = attrs.datasource;
+          if (chartConfigObject.dataFormat === 'json') {
+            if (scope.datasource) {
+              attrs.datasource = scope.datasource;
+              chartConfigObject.dataSource = scope.datasource;
+              dataStringStore.dataSource = scope.datasource;
+
+              scope.$watch(
+                'datasource',
+                function(newData, oldData) {
+                  if (newData !== oldData) {
+                    chartConfigObject.dataSource = scope.datasource;
+                    dataStringStore.dataSource = scope.datasource;
+                    setChartData();
+                    if (chartConfigObject.dataFormat === 'json') {
+                      setChartData();
+                    } else {
+                      if (chartConfigObject.dataFormat === 'xml') {
+                        chart.setXMLData(newData);
+                      } else if (chartConfigObject.dataFormat === 'jsonurl') {
+                        chart.setJSONUrl(newData);
+                      } else if (chartConfigObject.dataFormat === 'xmlurl') {
+                        chart.setXMLUrl(newData);
+                      }
+                    }
+                  }
+                },
+                true
+              );
+            }
+          } else {
+            if (attrs.datasource) {
+              chartConfigObject.dataSource =
+                chartConfigObject.dataFormat === 'json'
+                  ? JSON.parse(attrs.datasource)
+                  : attrs.datasource;
+              dataStringStore.dataSource = attrs.datasource;
+            }
           }
 
           for (observableAttr in observeConf.DCObserver) {
