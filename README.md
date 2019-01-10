@@ -84,12 +84,15 @@ In your HTML, find the section where you wish to add the chart and add a <div> w
         width="600"
         height="400"
         type="column2d"
+        // See special note
         datasource="dataSource">
       </div>
     </div>
     ...
   </body>
 ```
+
+**Special Note:** Prior to `angularjs-fusioncharts` version `5.0.1`, in order to bind `datasource` we used `datasource={{datasource}}` but from version `5.0.1` we will be passing like this `datasource="datasource"`
 
 ### Step 4: Populate required variables in controller
 
@@ -194,6 +197,7 @@ In `index.html`
         width="600"
         height="400"
         type="column2d"
+        // Special Note
         datasource="dataSource">
       </div>
     </div>
@@ -202,6 +206,8 @@ In `index.html`
 ```
 
 Load it in browser , Chart should get displayed
+
+**Special Note:** Prior to `angularjs-fusioncharts` version `5.0.1`, in order to bind `datasource` we used `datasource={{datasource}}` but from version `5.0.1` we will be passing like this `datasource="datasource"`
 
 ## Working with Events
 
@@ -339,10 +345,10 @@ var app = angular.module('myApp', ['ng-fusioncharts']);
 
 var jsonify = res => res.json();
 var dataFetch = fetch(
-  'https://raw.githubusercontent.com/fusioncharts/dev_centre_docs/fusiontime-beta-release/charts-resources/fusiontime/online-sales-single-series/data.json'
+  'https://s3.eu-central-1.amazonaws.com/fusion.store/ft/data/line-chart-with-time-axis-data.json'
 ).then(jsonify);
 var schemaFetch = fetch(
-  'https://raw.githubusercontent.com/fusioncharts/dev_centre_docs/fusiontime-beta-release/charts-resources/fusiontime/online-sales-single-series/schema.json'
+  'https://s3.eu-central-1.amazonaws.com/fusion.store/ft/schema/line-chart-with-time-axis-schema.json'
 ).then(jsonify);
 
 var app = angular.module('myApp', ['ng-fusioncharts']);
