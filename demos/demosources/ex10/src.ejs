@@ -66,21 +66,25 @@ myApp.controller("MyController", ["$scope", function($scope){
     <script type="text/javascript" src="path/to/fusioncharts/themes/fusioncharts.theme.fusion.js"></script>
     <script type="text/javascript" src="path/to/angularjs-fusioncharts.min.js"></script>
 
--->    
+-->
 <div ng-app="myApp">
-    <div ng-controller="MyController">
-    <!--Listen to FusionCharts events by using "fcevent-<fc-event-name>" attribute. In this case the event name is dataplotrollover-->   
-            <div fusionCharts 
-                 width="100%"
-                 height="400" 
-                 id="ex10" 
-                 type="column2d" 
-                 datasource="{{myDataSource}}" 
-                 fcevent-dataplotrollover="dataPlotRollOver(event, args)"
-                 fcevent-dataplotrollout="dataPlotRollOut()">
-			</div>
+  <div ng-controller="MyController">
+    <!--Listen to FusionCharts events by using "fcevent-<fc-event-name>" attribute. In this case the event name is dataplotrollover-->
+    <div
+      fusionCharts
+      width="100%"
+      height="400"
+      id="ex10"
+      type="column2d"
+      datasource="myDataSource"
+      fcevent-dataplotrollover="dataPlotRollOver(event, args)"
+      fcevent-dataplotrollout="dataPlotRollOut()"
+    ></div>
 
-			<div ng-bind-html="logMessage" style="padding: 10px;background:#f5f2f0"></div>
-    </div>
+    <div
+      ng-bind-html="logMessage"
+      style="padding: 10px;background:#f5f2f0"
+    ></div>
+  </div>
 </div>
 <% } %>

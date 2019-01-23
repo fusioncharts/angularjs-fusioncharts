@@ -39,24 +39,24 @@ myApp.controller("MyController", ["$scope", function($scope){
 
 <!-- In the HTML file -->
 <div ng-app="myApp">
-    <div ng-controller="MyController">
-        <!-- As Element directive -->
-        <fusioncharts
-            width="600" 
-            height="400"
-            type="column2d",
-            datasource="{{dataSource}}">
-        </fusioncharts>
-        <!-- As Attribute directive-->
-        <div
-            fusioncharts
-            width="600" 
-            height="400"
-            type="column2d",
-            datasource="{{dataSource}}">
-        </div>
-    </div>
-</div>     
-
+  <div ng-controller="MyController">
+    <!-- As Element directive -->
+    <fusioncharts
+      width="600"
+      height="400"
+      type="column2d"
+      datasource="dataSource"
+    >
+    </fusioncharts>
+    <!-- As Attribute directive-->
+    <div
+      fusioncharts
+      width="600"
+      height="400"
+      type="column2d"
+      datasource="dataSource"
+    ></div>
+  </div>
+</div>
 
 <% } %>

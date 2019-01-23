@@ -44,20 +44,13 @@ myApp.controller("MyController", ["$scope", function($scope){
   $scope.track = function(){
     FusionCharts.addEventListener("dataplotclick", $scope.clickHandler);
     $scope.message = "Click on the plot to see the value along with the label";
-    $scope.trackButton = disableStyle;
-    $scope.resetButton = activeStyle;
-  };
-  $scope.reset = function(){
-    FusionCharts.removeEventListener("dataplotclick", $scope.clickHandler);
-    $scope.message = "Click the below buttons to add an event dynamically to the chart";
-    $scope.trackButton = activeStyle;
-    $scope.resetButton = disableStyle;
-  }
-  // unlisten to dataplotclick event when the view gets destroyed.
-  $scope.$on("$destroy", function() {
-    FusionCharts.removeEventListener("dataplotclick", $scope.clickHandler);
-  });
-}]);
+$scope.trackButton = disableStyle; $scope.resetButton = activeStyle; };
+$scope.reset = function(){ FusionCharts.removeEventListener("dataplotclick",
+$scope.clickHandler); $scope.message = "Click the below buttons to add an event
+dynamically to the chart"; $scope.trackButton = activeStyle; $scope.resetButton
+= disableStyle; } // unlisten to dataplotclick event when the view gets
+destroyed. $scope.$on("$destroy", function() {
+FusionCharts.removeEventListener("dataplotclick", $scope.clickHandler); }); }]);
 <% } else if(src==="html") { %>
 <!-- 
     Include script files in your index.html
@@ -70,21 +63,26 @@ myApp.controller("MyController", ["$scope", function($scope){
     
 -->
 <div ng-app="myApp">
-  <div ng-controller="MyController"> 
-      <div id="chart-container">
-          <fusioncharts
-            type="column2d"
-            width="100%"
-            height="500"
-            dataFormat="json"
-            datasource="{{myDataSource}}">
-          </fusioncharts>
-      </div>
-      <p ng-bind-html="message" style="padding: 10px; background: #f5f2f0"></p>
-      <div style="display: flex; justify-content: center">
-          <a ng-click="track()" ng-style="trackButton">LISTEN TO DATAPLOTCLICK EVENT</a>
-          <a ng-click="reset()" ng-style="resetButton">REMOVE DATAPLOTCLICK EVENT</a>
-      </div>
+  <div ng-controller="MyController">
+    <div id="chart-container">
+      <fusioncharts
+        type="column2d"
+        width="100%"
+        height="500"
+        dataFormat="json"
+        datasource="myDataSource"
+      >
+      </fusioncharts>
+    </div>
+    <p ng-bind-html="message" style="padding: 10px; background: #f5f2f0"></p>
+    <div style="display: flex; justify-content: center">
+      <a ng-click="track()" ng-style="trackButton"
+        >LISTEN TO DATAPLOTCLICK EVENT</a
+      >
+      <a ng-click="reset()" ng-style="resetButton"
+        >REMOVE DATAPLOTCLICK EVENT</a
+      >
+    </div>
   </div>
 </div>
 <% } %>

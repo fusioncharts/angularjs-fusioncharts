@@ -9,7 +9,7 @@
     }
   ]);
 
-  var FusionCharts = require('fusioncharts');
+  // var FusionCharts = require('fusioncharts');
 
   var jsonify = res => res.json();
   var dataFetch = fetch(
@@ -21,17 +21,26 @@
 
   app.controller('ex25Controller', function($scope, $rootScope) {
     $rootScope.demoId = 'ex25';
-    $rootScope.currentTitle = 'Update chart attribute through methods';
+    $rootScope.currentTitle = 'A Simple TimeSeries';
+    $scope.themeName = 'fusion';
     $scope.myDataSource = {
-      caption: { text: 'Online Sales of a SuperStore in the US' },
       data: null,
+      caption: {
+        text: 'Sales Analysis'
+      },
+      subcaption: {
+        text: 'Grocery'
+      },
       yAxis: [
         {
-          plot: [
-            {
-              value: 'Sales ($)'
-            }
-          ]
+          plot: {
+            value: 'Grocery Sales Value',
+            type: 'line'
+          },
+          format: {
+            prefix: '$'
+          },
+          title: 'Sale Value'
         }
       ]
     };
@@ -44,7 +53,7 @@
         schema
       );
       $scope.$apply(function() {
-        $scope.dataSource.data = fusionTable;
+        $scope.myDataSource.data = fusionTable;
       });
     });
   });

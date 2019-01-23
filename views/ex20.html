@@ -70,7 +70,7 @@
            dataFormat="json"
            initialized="initialized(chart)"
            fcevent-dataplotclick="plotClickHandler(event)"
-           datasource="{{myDataSource}}">
+           datasource="myDataSource">
          </fusioncharts>
          </div>
          <div style='position:relative;bottom:2px;text-align:center'>
@@ -106,4 +106,4 @@
         <tab heading="Javascript"><ng-prism class="language-javascript">{{ js }}</ng-prism></tab>
     </tabset>
 -->
-<tabbed-code ></tabbed-code>
+<tabbed-code obj="{{ false }}"></tabbed-code>

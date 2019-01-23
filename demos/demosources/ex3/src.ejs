@@ -72,13 +72,14 @@ myApp.controller("MyController", ["$scope", function($scope){
 
 <!-- In the HTML file -->
 <div ng-app="myApp">
-    <div ng-controller="MyController">
-        <div fusioncharts
-            width="600" 
-            height="400"
-            type="mscombi2d",
-            datasource="{{dataSource}}">
-        </div>
-    </div>
-</div>        
+  <div ng-controller="MyController">
+    <div
+      fusioncharts 
+      width="600"
+      height="400"
+      type="mscombi2d"
+      datasource="dataSource"
+    ></div>
+  </div>
+</div>
 <% } %>

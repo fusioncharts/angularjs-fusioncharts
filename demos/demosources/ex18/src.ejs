@@ -60,17 +60,23 @@ myApp.controller("MyController", ["$scope", function($scope){
 -->
 <div ng-app="myApp">
   <div ng-controller="MyController">
+    <!--Listen to FusionCharts events by using "fcevent-<fc-event-name>" attribute. In this case the event name is rendered-->
   <!--Listen to FusionCharts events by using "fcevent-<fc-event-name>" attribute. In this case the event name is rendered-->   
-    <fusioncharts type="column2d" 
-      width="100%" 
-      height="500" 
-      dataFormat="json" 
-      fcevent-rendered="renderComplete()" 
+    <!--Listen to FusionCharts events by using "fcevent-<fc-event-name>" attribute. In this case the event name is rendered-->
+    <fusioncharts
+      type="column2d"
+      width="100%"
+      height="500"
+      dataFormat="json"
+      fcevent-rendered="renderComplete()"
       fcevent-beforedataupdate="beforeDataUpdate()"
       fcevent-dataupdated="dataUpdated()"
       fcevent-drawcomplete="drawComplete()"
-      datasource="{{myDataSource}}"></fusioncharts>
-    <p style="padding: 10px; background: #f5f2f0"><b>Status: </b>{{message}}</p>
+      datasource="myDataSource"
+    ></fusioncharts>
+    <p style="padding: 10px; background: #f5f2f0">
+      <b>Status: </b>{{ message }}
+    </p>
   </div>
 </div>
 <% } %>

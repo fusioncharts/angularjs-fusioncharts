@@ -32,10 +32,8 @@ myApp.controller("MyController", ["$scope", function($scope){
     
     $scope.updateMyChartData = function () {
         $scope.dataSource.data[2].value = getRandomNumber();
-        $scope.dataSource.data[3].value = getRandomNumber();
-    };
-}]);
-<% } else if(src==="html") { %>
+$scope.dataSource.data[3].value = getRandomNumber(); }; }]); <% } else
+if(src==="html") { %>
 <!-- 
     Include script files in your index.html
     ------------------------------------------
@@ -52,18 +50,20 @@ myApp.controller("MyController", ["$scope", function($scope){
 <!-- In the HTML file -->
 
 <div ng-app="myApp">
+  <div ng-controller="MyController">
     <div ng-controller="MyController">    
-        <div
-            fusioncharts
-            width="600" 
-            height="400"
-            type="column2d"
-            datasource="{{dataSource}}">
-        </div>
-        <div style="display: flex; justify-content: center">
-            <a ng-click="updateMyChartData()">Click me to change data</a>
-        </div>
+  <div ng-controller="MyController">
+    <div
+      fusioncharts
+      width="600"
+      height="400"
+      type="column2d"
+      datasource="dataSource"
+    ></div>
+    <div style="display: flex; justify-content: center">
+      <a ng-click="updateMyChartData()">Click me to change data</a>
     </div>
-</div>     
-   
+  </div>
+</div>
+
 <% } %>

@@ -1,0 +1,5 @@
+{
+  "title": "Date range event overlay",
+  "desc": "Plotting an event marker as a band, to indicate an event that spans a data range.",
+  "fusiontime": true
+}

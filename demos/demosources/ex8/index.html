@@ -1,60 +1,71 @@
 <style>
-    .btn {
-        font-family: 'Source Sans Pro';
-    }
+  .btn {
+    font-family: 'Source Sans Pro';
+  }
 
-    .btn.btn-primary {
-        background: #4a4d8c;
-        transition: all 300ms;
-    } 
+  .btn.btn-primary {
+    background: #4a4d8c;
+    transition: all 300ms;
+  }
 
-    .btn.btn-primary:hover {
-        background: #5c62b5;
-        color: white;
-    }
+  .btn.btn-primary:hover {
+    background: #5c62b5;
+    color: white;
+  }
 
-    .btn.btn-primary:active {
-        background: #4a4d8c
-    }
+  .btn.btn-primary:active {
+    background: #4a4d8c;
+  }
 
-    div.demo8-controls>a.btn.btn-primary {
-        margin: 10px
-    }
+  div.demo8-controls > a.btn.btn-primary {
+    margin: 10px;
+  }
 
-    .demo8-controls{
-        display: flex;
-        justify-content: center;
-    }
+  .demo8-controls {
+    display: flex;
+    justify-content: center;
+  }
 
-    .demo8-controls > a{
-        margin:5px;
+  .demo8-controls > a {
+    margin: 5px;
+  }
+  @media (max-width: 460px) {
+    .demo8-controls {
+      flex-direction: column;
     }
-    @media (max-width: 460px){
-        .demo8-controls {
-            flex-direction: column;
-        }
-        .demo8-controls > a{
-            margin-bottom: 10px;
-        }
+    .demo8-controls > a {
+      margin-bottom: 10px;
     }
+  }
 </style>
 
 <div class="card shadow">
-    <div class="card-body chart-wrapper">
-        <div class="chart-wrapper-inner">
-            <div id="chart-container">
-                <div style="display: flex;justify-content: center">
-                    <div fusioncharts width="100%" height="400" type="column2d" datasource="{{dataSource}}">
-                    </div>
-                </div>
-
-                
-            </div>
-            <div class='demo8-controls'>
-                    <a class="btn btn-outline-secondary btn-sm" ng-click="changeBackgroundColor()">Change chart background color</a>
-                    <a class="btn btn-outline-secondary btn-sm" ng-click="changeCaptionTextAlignment()">Make Caption text left-aligned</a>
-                    <a class="btn btn-outline-secondary btn-sm" ng-click="reset()">Reset</a>
-                </div>
+  <div class="card-body chart-wrapper">
+    <div class="chart-wrapper-inner">
+      <div id="chart-container">
+        <div style="display: flex;justify-content: center">
+          <div
+            fusioncharts
+            width="100%"
+            height="400"
+            type="column2d"
+            datasource="dataSource"
+          ></div>
         </div>
+      </div>
+      <div class="demo8-controls">
+        <a
+          class="btn btn-outline-secondary btn-sm"
+          ng-click="changeBackgroundColor()"
+          >Change chart background color</a
+        >
+        <a
+          class="btn btn-outline-secondary btn-sm"
+          ng-click="changeCaptionTextAlignment()"
+          >Make Caption text left-aligned</a
+        >
+        <a class="btn btn-outline-secondary btn-sm" ng-click="reset()">Reset</a>
+      </div>
     </div>
+  </div>
 </div>

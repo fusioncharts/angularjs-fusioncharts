@@ -29,7 +29,10 @@
     <script type="text/javascript" src="demos/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script type="text/javascript" src="demos/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script type="text/javascript" src="demos/bower_components/prism/prism.js"></script>
-    <script type="text/javascript" src="https://static.fusioncharts.com/code/latest/fusioncharts.js"></script>
+    <script type="text/javascript" src="../../node_modules/fusioncharts/fusioncharts.js"></script>
+    <script type="text/javascript" src="../../node_modules/fusioncharts/fusioncharts.maps.js"></script>
+    <script type="text/javascript" src="../../node_modules/fusioncharts/maps/fusioncharts.world.js"></script>
+    <script type="text/javascript" src="../../node_modules/fusioncharts/fusioncharts.timeseries.js"></script>
     <script type="text/javascript" src="https://static.fusioncharts.com/code/latest/themes/fusioncharts.theme.ocean.js"></script>
     <script type="text/javascript" src="demos/themes/fusioncharts.theme.fusion.js"></script>
     <script type="text/javascript" src="demos/themes/fusioncharts.theme.gammel.js"></script>
@@ -48,7 +51,9 @@
                 <% for(var i=0; i<demos.length; i++) { %>
                 window.fcDemos['<%= demos[i].id %>'] = {
                     js: <%- demos[i].jsCode %>,
-                    html: <%- demos[i].htmlCode %>
+                    html: <%- demos[i].htmlCode %>,
+                    schema: <%- demos[i].schemaCode %>,
+                    data: <%- demos[i].dataCode %>
                 };
                 <% } %>
             </script>
@@ -242,7 +247,10 @@
                                 <% for(var i=0; i<demos.length; i++) { %>
                                     <a href="#/demos/<%=demos[i].id %>" >
                                         <div class="nav-item" ng-class="{ selected : '<%=demos[i].id %>' === demoId}">
-                                            <div class="h5"><%= demos[i].title %></div>
+                                            <div class="nav-group">
+                                                <div class="h5"><%= demos[i].title %></div>
+                                                <div class="h5 badge badge-normal" ng-if="<%= demos[i].fusiontime %>" class="p item-desc">FusionTime</div>
+                                            </div>
                                             <div class="p item-desc"><%= demos[i].desc %></div>
                                         </div>
 
@@ -256,8 +264,7 @@
                             </div>
                         </div>
                         <div class="col-md-9 col-12" ng-controller="DemoController">
-                                <ng-view></ng-view>
-                           
+                          <ng-view></ng-view> 
                         </div>
                     </div>
                 </div>
@@ -387,7 +394,95 @@
                 </div>
                 <!-- steps end -->
 
-
+                <div class="row">
+                  <div class="col">
+                    <div class="h2 mt-2">Usage and integration of FusionTime</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-12 pt-3">
+                    <p class="code-desc">In the app, include
+                      <code>ng-fusioncharts</code> as a dependency. If you looking for where to add the dependency, look
+                        for the call to
+                      <code>angular.module</code> in your code.</p>
+                    <div className="h3 mt-2" style="font-size: 20px;
+                    font-weight: 600;">
+                      Consider the example below for integration of FusionTime
+                    </div>
+                    <p class="code-desc">
+                      If you've included <code>angular-fusioncharts.js</code> and fusioncharts in your <code>html</code> then add the following <code>script</code> tag:
+                    </p>
+                    <p class="code-desc">
+                      In your <code>index.html</code>
+                    </p>
+                    <div class="code-view mt-2">
+                      <div class="card-shadow">
+                        <div class="card-body p-0">
+                          <div class="code-panel">
+                            <div class="codeMirrorDiv" id="c3">
+                              <div ui-codemirror ui-codemirror-opts="{
+                                lineNumbers: true,
+                                theme:'dracula',
+                                readOnly: 'nocursor',
+                                lineWrapping : true,
+                                mode: 'htmlembedded'
+                              }" ng-model="ftScriptTag"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="code-desc">
+                      In your <code>script.js</code>
+                    </p>
+                    <div class="code-view mt-2">
+                      <div class="card-shadow">
+                        <div class="card-body p-0">
+                          <div class="code-panel">
+                            <div class="codeMirrorDiv" id="c3">
+                              <div ui-codemirror ui-codemirror-opts="editorOptionsJs" ng-model="fusiontimeCode"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="code-desc">
+                      Use a bundler like browserify to bundle the script<br>
+                      See the installation docs <a href="http://browserify.org/">here</a>
+                    </p>
+                    <div class="code-view mt-2">
+                      <div class="card-shadow">
+                        <div class="card-body p-0">
+                          <div class="code-panel">
+                            <div class="codeMirrorDiv" id="c3">
+                              <div ui-codemirror ui-codemirror-opts="editorOptionsJs" ng-model="browserifyCode"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="code-desc">
+                      Again in your <code>index.html</code>
+                    </p>
+                    <div class="code-view mt-2">
+                      <div class="card-shadow">
+                        <div class="card-body p-0">
+                          <div class="code-panel">
+                            <div class="codeMirrorDiv" id="c3">
+                              <div ui-codemirror ui-codemirror-opts="{
+                                lineNumbers: true,
+                                theme:'dracula',
+                                readOnly: 'nocursor',
+                                lineWrapping : true,
+                                mode: 'htmlembedded'
+                              }" ng-model="fusionTimeHtml"></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div class="row">
                     <div class="col-12 pt-3">
                         <div class="h5">Support</div>

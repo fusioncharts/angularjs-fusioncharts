@@ -53,21 +53,26 @@ myApp.controller("MyController", ["$scope", function($scope){
 -->
 
 <div ng-app="myApp">
+  <div ng-controller="MyController">
     <div ng-controller="MyController"> 
-        <div style="display: flex;justify-content: center">
-            <div fusioncharts 
-                 width="100%" 
-                 height="400" 
-                 type="column2d" 
-                 datasource="{{dataSource}}">
-            </div>
-        </div>
-
-        <div id="button-container">
-            <a ng-click="changeBackgroundColor()">Change chart background color</a>
-            <a ng-click="changeCaptionTextAlignment()">Make Caption text left-aligned</a>
-            <a ng-click="reset()">Reset</a>
-        </div>
+  <div ng-controller="MyController">
+    <div style="display: flex;justify-content: center">
+      <div
+        fusioncharts
+        width="100%"
+        height="400"
+        type="column2d"
+        datasource="dataSource"
+      ></div>
     </div>
+
+    <div id="button-container">
+      <a ng-click="changeBackgroundColor()">Change chart background color</a>
+      <a ng-click="changeCaptionTextAlignment()"
+        >Make Caption text left-aligned</a
+      >
+      <a ng-click="reset()">Reset</a>
+    </div>
+  </div>
 </div>
 <% } %>
