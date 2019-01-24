@@ -216,7 +216,7 @@ myApp.controller("MyController", ["$scope", function($scope){
       width="700"
       height="400"
       type="column2D"
-      datasource="firstDataSource"
+      datasource="{{firstDataSource}}"
     >
     </fusioncharts>
 
@@ -224,7 +224,7 @@ myApp.controller("MyController", ["$scope", function($scope){
       width="600"
       height="600"
       type="stackedcolumn2d"
-      datasource="secondDataSource"
+      datasource="{{secondDataSource}}"
     >
     </fusioncharts>
 

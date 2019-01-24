@@ -72,7 +72,7 @@ myApp.controller("MyController", ["$scope", function($scope){
       fcevent-beforedataupdate="beforeDataUpdate()"
       fcevent-dataupdated="dataUpdated()"
       fcevent-drawcomplete="drawComplete()"
-      datasource="myDataSource"
+      datasource="{{myDataSource}}"
     ></fusioncharts>
     <p style="padding: 10px; background: #f5f2f0">
       <b>Status: </b>{{ message }}
