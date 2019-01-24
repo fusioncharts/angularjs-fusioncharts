@@ -2,7 +2,7 @@
 
 A simple and lightweight official AngularJS component for FusionCharts JavaScript charting library. angularjs-fusioncharts enables you to add JavaScript charts in your AngularJS application without any hassle.
 
-## [Demo](https://fusioncharts.github.io/angular-fusioncharts/)
+## [Demo](https://fusioncharts.github.io/angularjs-fusioncharts/)
 
 - Github Repo: [https://github.com/fusioncharts/angularjs-fusioncharts](https://github.com/fusioncharts/angularjs-fusioncharts)
 - Documentation: [https://www.fusioncharts.com/dev/getting-started/angular/angularjs/your-first-chart-using-angularjs](https://www.fusioncharts.com/dev/getting-started/angular/angularjs/your-first-chart-using-angularjs)
@@ -40,7 +40,7 @@ A simple and lightweight official AngularJS component for FusionCharts JavaScrip
 To install `angularjs-fusioncharts` library, run:
 
 ```bash
-$ npm install angular-fusioncharts --save
+$ npm install angularjs-fusioncharts --save
 ```
 
 To install `fusioncharts` library:
@@ -339,25 +339,33 @@ var app = angular.module('myApp', ['ng-fusioncharts']);
 
 var jsonify = res => res.json();
 var dataFetch = fetch(
-  'https://raw.githubusercontent.com/fusioncharts/dev_centre_docs/fusiontime-beta-release/charts-resources/fusiontime/online-sales-single-series/data.json'
+  'https://s3.eu-central-1.amazonaws.com/fusion.store/ft/data/line-chart-with-time-axis-data.json'
 ).then(jsonify);
 var schemaFetch = fetch(
-  'https://raw.githubusercontent.com/fusioncharts/dev_centre_docs/fusiontime-beta-release/charts-resources/fusiontime/online-sales-single-series/schema.json'
+  'https://s3.eu-central-1.amazonaws.com/fusion.store/ft/schema/line-chart-with-time-axis-schema.json'
 ).then(jsonify);
 
 var app = angular.module('myApp', ['ng-fusioncharts']);
 
 app.controller('MyController', function($scope) {
   $scope.dataSource = {
-    caption: { text: 'Online Sales of a SuperStore in the US' },
     data: null,
+    caption: {
+      text: 'Sales Analysis'
+    },
+    subcaption: {
+      text: 'Grocery'
+    },
     yAxis: [
       {
-        plot: [
-          {
-            value: 'Sales ($)'
-          }
-        ]
+        plot: {
+          value: 'Grocery Sales Value',
+          type: 'line'
+        },
+        format: {
+          prefix: '$'
+        },
+        title: 'Sale Value'
       }
     ]
   };
