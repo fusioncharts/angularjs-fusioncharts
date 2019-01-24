@@ -199,8 +199,10 @@
         scope: scope,
         link: function(scope, element, attrs) {
           function updateData(key, data) {
-            scope.datasourceDt.key = data;
-            chart.setJSONData(scope.datasourceDt);
+            if (key) {
+              scope.datasourceDt.key = data;
+              chart.setJSONData(scope.datasourceDt);
+            }
           }
 
           function createWatchersForAttrs(datasource) {
@@ -215,17 +217,6 @@
                 isDeep
               );
             });
-          }
-
-          if (scope.datasourceDt) {
-            scope.$watch(
-              'datasourceDt.data',
-              function(newData, oldData) {
-                if (newData !== oldData) updateData(newData, 'data');
-              },
-              false
-            );
-            createWatchersForAttrs(scope.datasourceDt);
           }
 
           var observeConf = {
@@ -627,7 +618,6 @@
                   chart.setJSONData(chartConfigObject.dataSource);
                 }
               }, 0);
-
               // chart.setJSONData(chartConfigObject.dataSource);
             },
             createFCChart = function() {
@@ -689,6 +679,7 @@
               }
             }
           }
+
           for (i = 0; i < attribs.length; i++) {
             attr = attribs[i];
             if (attr.match(/^on/i)) {
@@ -751,6 +742,44 @@
           }
 
           createFCChart();
+
+          if (attrs.type.toLowerCase() === 'timeseries' && scope.datasourceDt) {
+            scope.$watch(
+              'datasourceDt.data',
+              function(newData, oldData) {
+                if (newData !== oldData) updateData(newData, 'data');
+              },
+              false
+            );
+            createWatchersForAttrs(scope.datasourceDt);
+          } else if (scope.datasourceDt) {
+            attrs.datasourceDt = scope.datasourceDt;
+            chartConfigObject.dataSource = scope.datasourceDt;
+            dataStringStore.dataSource = scope.datasourceDt;
+            setChartData();
+            scope.$watch(
+              'datasourceDt',
+              function(newData, oldData) {
+                if (newData !== oldData) {
+                  chartConfigObject.dataSource = scope.datasourceDt;
+                  dataStringStore.dataSource = scope.datasourceDt;
+                  setChartData();
+                  if (chartConfigObject.dataFormat === 'json') {
+                    setChartData();
+                  } else {
+                    if (chartConfigObject.dataFormat === 'xml') {
+                      chart.setXMLData(newData);
+                    } else if (chartConfigObject.dataFormat === 'jsonurl') {
+                      chart.setJSONUrl(newData);
+                    } else if (chartConfigObject.dataFormat === 'xmlurl') {
+                      chart.setXMLUrl(newData);
+                    }
+                  }
+                }
+              },
+              true
+            );
+          }
 
           scope.$on('$destroy', function() {
             // on destroy free used resources to avoid memory leaks
