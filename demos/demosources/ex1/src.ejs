@@ -39,14 +39,15 @@ myApp.controller("MyController," ["$scope", function($scope){
 
 <!-- In the HTML file -->
 <div ng-app="myApp">
-    <div ng-controller="MyController">
-        <fusioncharts 
-            width="600" 
-            height="400"
-            type="column2d"
-            datasource="{{myDataSource}}">
-        </fusioncharts>
-    </div>
+  <div ng-controller="MyController">
+    <fusioncharts
+      width="600"
+      height="400"
+      type="column2d"
+      datasource="{{myDataSource}}"
+    >
+    </fusioncharts>
+  </div>
 </div>
 
 <% } %>

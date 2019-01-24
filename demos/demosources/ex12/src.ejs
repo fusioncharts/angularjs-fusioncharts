@@ -132,17 +132,19 @@ myApp.controller("MyController", ["$scope", function($scope){
     <link rel="stylesheet" href="path/to/fusioncharts/themes/fusioncharts.theme.fusion.css"/>
 -->
 <div ng-app="myApp">
-    <div ng-controller="MyController"> 
-        <!--To get the reference of chart instance listen to initialized event-->
-        <fusioncharts
-            type="column2d"
-            width="700"
-            height="400"
-            dataformat="json"
-            datasource="{{myDataSource}}"
-            initialized="initialized(chart)" 
-            id="myChart">
-        </fusioncharts>
-    </div>
+  <div ng-controller="MyController">
+    <!--To get the reference of chart instance listen to initialized event-->
+    <fusioncharts
+      type="column2d"
+      width="700"
+      height="400"
+      dataformat="json"
+      datasource="{{myDataSource}}"
+      initialized="initialized(chart)"
+      id="myChart"
+    >
+    </fusioncharts>
+  </div>
 </div>
-  <% } %>
+<% } %>
+

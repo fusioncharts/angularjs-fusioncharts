@@ -1,0 +1,41 @@
+<style>
+  .btn {
+       font-family: 'Source Sans Pro';
+       margin: 5px;
+   }
+
+   .btn.btn-primary {
+       background: #4a4d8c;
+       transition: all 300ms;
+   }
+
+   .btn.btn-primary:hover {
+       background: #5c62b5;
+   }
+
+   .btn.btn-primary:active {
+       background: #4a4d8c
+   }
+</style>
+<div class="card shadow">
+<div class="card-body chart-wrapper">
+  <div class="chart-wrapper-inner">
+      <div id="chart-container">
+          <fusioncharts
+            type="timeseries"
+            width="100%"
+            id="id1"
+            height=500
+            dataFormat="json"
+            datasource-dt="{{myDataSource}}">
+          </fusioncharts>
+      </div></br>
+  </div>
+</div>
+</div><!--
+    <tabset>
+        <tab heading="HTML"><ng-prism class="language-markup">{{ html }}</ng-prism></tab>
+        <tab heading="Javascript"><ng-prism class="language-javascript">{{ js }}</ng-prism></tab>
+    </tabset>
+-->
+<tabbed-code obj="{{ true }}"></tabbed-code>

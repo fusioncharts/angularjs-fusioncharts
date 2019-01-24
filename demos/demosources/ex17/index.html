@@ -9,9 +9,13 @@
           dataFormat="json"
           fcevent-dataplotdragstart="dataPlotDragstart(event)"
           fcevent-dataplotdragend="dataPlotDragend(event)"
-          datasource="{{myDataSource}}">
+          datasource="{{myDataSource}}"
+        >
         </fusioncharts>
-        <p style="font-size:16px;padding:10px;background:#f5f2f0" ng-bind-html='message'></p>
+        <p
+          style="font-size:16px;padding:10px;background:#f5f2f0"
+          ng-bind-html="message"
+        ></p>
       </div>
     </div>
   </div>

@@ -1,19 +1,21 @@
-
-
 <div class="card shadow">
-    <div class="card-body chart-wrapper">
-        <div class="chart-wrapper-inner">
-            <div id="chart-container">
-                    <fusioncharts width="100%" height="400" type="column2d" datasource="{{myDataSource}}"></fusioncharts>
-            </div>
-        </div>
+  <div class="card-body chart-wrapper">
+    <div class="chart-wrapper-inner">
+      <div id="chart-container">
+        <fusioncharts
+          width="100%"
+          height="400"
+          type="column2d"
+          datasource="{{myDataSource}}"
+        ></fusioncharts>
+      </div>
     </div>
+  </div>
 </div>
-
 <!--
     <tabset>
         <tab heading="HTML"><ng-prism class="language-markup">{{ html }}</ng-prism></tab>
         <tab heading="Javascript"><ng-prism class="language-javascript">{{ js }}</ng-prism></tab>
     </tabset>
 -->
-<tabbed-code ></tabbed-code>
+<tabbed-code obj="{{ false }}"></tabbed-code>

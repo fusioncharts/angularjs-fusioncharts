@@ -211,24 +211,27 @@ myApp.controller("MyController", ["$scope", function($scope){
     <link rel="stylesheet" href="path/to/fusioncharts/themes/fusioncharts.theme.fusion.css"/>
 -->
 <div ng-app="myApp">
-  <div ng-controller="MyController"> 
+  <div ng-controller="MyController">
     <fusioncharts
-        width="700"
-        height="400"
-        type="column2D"
-        datasource="{{firstDataSource}}"
-        >
+      width="700"
+      height="400"
+      type="column2D"
+      datasource="{{firstDataSource}}"
+    >
     </fusioncharts>
-      
+
     <fusioncharts
-        width="600"
-        height="600"
-        type="stackedcolumn2d"
-        datasource="{{secondDataSource}}">
+      width="600"
+      height="600"
+      type="stackedcolumn2d"
+      datasource="{{secondDataSource}}"
+    >
     </fusioncharts>
-      
+
     <div style="display: flex;justify-content: center">
-        <button ng-click="exportChart()">Export both charts as a single PDF</button>
+      <button ng-click="exportChart()">
+        Export both charts as a single PDF
+      </button>
     </div>
   </div>
 </div>
