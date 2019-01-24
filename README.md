@@ -24,6 +24,7 @@ A simple and lightweight official AngularJS component for FusionCharts JavaScrip
 - [Quick Start](#quick-start)
 - [Going Beyond Charts](#going-beyond-charts)
 - [Usage and Integration of FusionTime](#usage-and-integration-of-fusiontime)
+- [Special note for IE Users](#special-note)
 - [For Contributors](#for-contributors)
 - [Licensing](#licensing)
 
@@ -421,6 +422,30 @@ Useful links for FusionTime
 
 - [How FusionTime works](https://www.fusioncharts.com/dev/fusiontime/getting-started/how-fusion-time-works)
 - [Create your first chart](https://www.fusioncharts.com/dev/fusiontime/getting-started/create-your-first-chart-in-fusiontime)
+
+## Special Note
+
+If you want to support your application on IE(11 and below), then you need to take following steps:
+
+### Firstly
+
+You have to update your `angularjs-fusioncharts` and `fusioncharts` modules to latest versions. For `angularjs-fusioncharts` install `v5.0.1` and above; for `fusioncharts` install `v3.13.3-sr.1` and above.
+
+### Secondly
+
+In your template, modify your code like so,
+
+```html
+<div
+  fusioncharts
+  width="600"
+  height="400"
+  type="ANY_CHART_TYPE"
+  datasource-dt="dataSource"
+>
+  // Instead of passing data in datasouce, use datasource-dt.
+</div>
+```
 
 ## For Contributors
 
