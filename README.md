@@ -85,12 +85,15 @@ In your HTML, find the section where you wish to add the chart and add a <div> w
         width="600"
         height="400"
         type="column2d"
-        datasource="{{dataSource}}">
+        // See special note
+        datasource="dataSource">
       </div>
     </div>
     ...
   </body>
 ```
+
+**Special Note:** Prior to `angularjs-fusioncharts` version `5.0.1`, in order to bind `datasource` we used `datasource={{datasource}}` but from version `5.0.1` we will be passing like this `datasource="datasource"`
 
 ### Step 4: Populate required variables in controller
 
@@ -195,7 +198,8 @@ In `index.html`
         width="600"
         height="400"
         type="column2d"
-        datasource="{{dataSource}}">
+        // Special Note
+        datasource="dataSource">
       </div>
     </div>
   </body>
@@ -203,6 +207,8 @@ In `index.html`
 ```
 
 Load it in browser , Chart should get displayed
+
+**Special Note:** Prior to `angularjs-fusioncharts` version `5.0.1`, in order to bind `datasource` we used `datasource={{datasource}}` but from version `5.0.1` we will be passing like this `datasource="datasource"`
 
 ## Working with Events
 
@@ -217,7 +223,7 @@ Usage in template :
   width="400"
   height="400"
   type="column2d"
-  datasource="{{myDataSource}}"
+  datasource="myDataSource"
   fcevent-dataplotrollover="rollover(event, args)">
 </fusioncharts>
 ```
@@ -270,7 +276,7 @@ In template, we add `initialized` event
   width="400"
   height="400"
   type="column2d"
-  datasource="{{myDataSource}}"
+  datasource="myDataSource"
   initialized="onInitialized(chart)">
 </fusioncharts>
 <button ng-click="changeCaption()">Change Chart Caption</button>
@@ -283,7 +289,7 @@ var app = angular.module('myApp', ['ng-fusioncharts']);
 
 app.controller('MyController', function($scope){
     var chart;
-    $scope.datasource = {
+    $scope.myDataSource = {
        ...// same data as above
       };
 
