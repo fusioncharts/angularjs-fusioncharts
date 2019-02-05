@@ -752,6 +752,8 @@
               false
             );
             createWatchersForAttrs(scope.datasourceDt);
+            // set the data anyway, initially.
+            chart.setJSONData(scope.datasourceDt);
           } else if (scope.datasourceDt) {
             attrs.datasourceDt = scope.datasourceDt;
             chartConfigObject.dataSource = scope.datasourceDt;
