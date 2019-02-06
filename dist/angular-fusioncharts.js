@@ -198,11 +198,10 @@
       return {
         scope: scope,
         link: function(scope, element, attrs) {
-          function updateData(key, data) {
-            if (key) {
-              scope.datasourceDt.key = data;
-              chart.setJSONData(scope.datasourceDt);
-            }
+          function updateData() {
+            // no need to check for key. datasourceDt is 2 way binded.
+            // also scope.datasourceDt.key = data; is logically wrong.
+            chart.setJSONData(scope.datasourceDt);
           }
 
           function createWatchersForAttrs(datasource) {
@@ -212,7 +211,7 @@
               scope.$watch(
                 'datasourceDt.' + key,
                 function(newData, oldData) {
-                  if (newData !== oldData && isDeep) updateData(key, newData);
+                  if (newData !== oldData && isDeep) updateData();
                 },
                 isDeep
               );
@@ -747,11 +746,13 @@
             scope.$watch(
               'datasourceDt.data',
               function(newData, oldData) {
-                if (newData !== oldData) updateData(newData, 'data');
+                if (newData !== oldData) updateData();
               },
               false
             );
             createWatchersForAttrs(scope.datasourceDt);
+            // set the data anyway, initially.
+            chart.setJSONData(scope.datasourceDt);
           } else if (scope.datasourceDt) {
             attrs.datasourceDt = scope.datasourceDt;
             chartConfigObject.dataSource = scope.datasourceDt;
