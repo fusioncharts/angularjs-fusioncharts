@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 //
-// Copyright (c) 2014 FusionCharts Technologies
+// Copyright (c) 2014 InfoSoft Global Pvt. Ltd.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -45,8 +45,7 @@
       map: '@',
       markers: '@',
       initialized: '&',
-      datasourceDt: '=datasourceDt',
-      datasource: '=datasource'
+      datasourceDt: '=datasourceDt'
     },
     fcEvents = [
       'beforelinkeditemopen',
@@ -199,11 +198,10 @@
       return {
         scope: scope,
         link: function(scope, element, attrs) {
-          function updateData(key, data) {
-            if (key) {
-              scope.datasourceDt.key = data;
-              chart.setJSONData(scope.datasourceDt);
-            }
+          function updateData() {
+            // no need to check for key. datasourceDt is 2 way binded.
+            // also scope.datasourceDt.key = data; is logically wrong.
+            chart.setJSONData(scope.datasourceDt);
           }
 
           function createWatchersForAttrs(datasource) {
@@ -213,22 +211,11 @@
               scope.$watch(
                 'datasourceDt.' + key,
                 function(newData, oldData) {
-                  if (newData !== oldData && isDeep) updateData(key, newData);
+                  if (newData !== oldData && isDeep) updateData();
                 },
                 isDeep
               );
             });
-          }
-
-          if (scope.datasourceDt) {
-            scope.$watch(
-              'datasourceDt.data',
-              function(newData, oldData) {
-                if (newData !== oldData) updateData(newData, 'data');
-              },
-              false
-            );
-            createWatchersForAttrs(scope.datasourceDt);
           }
 
           var observeConf = {
@@ -718,43 +705,12 @@
             }
           }
 
-          if (chartConfigObject.dataFormat === 'json') {
-            if (scope.datasource) {
-              attrs.datasource = scope.datasource;
-              chartConfigObject.dataSource = scope.datasource;
-              dataStringStore.dataSource = scope.datasource;
-
-              scope.$watch(
-                'datasource',
-                function(newData, oldData) {
-                  if (newData !== oldData) {
-                    chartConfigObject.dataSource = scope.datasource;
-                    dataStringStore.dataSource = scope.datasource;
-                    setChartData();
-                    if (chartConfigObject.dataFormat === 'json') {
-                      setChartData();
-                    } else {
-                      if (chartConfigObject.dataFormat === 'xml') {
-                        chart.setXMLData(newData);
-                      } else if (chartConfigObject.dataFormat === 'jsonurl') {
-                        chart.setJSONUrl(newData);
-                      } else if (chartConfigObject.dataFormat === 'xmlurl') {
-                        chart.setXMLUrl(newData);
-                      }
-                    }
-                  }
-                },
-                true
-              );
-            }
-          } else {
-            if (attrs.datasource) {
-              chartConfigObject.dataSource =
-                chartConfigObject.dataFormat === 'json'
-                  ? JSON.parse(attrs.datasource)
-                  : attrs.datasource;
-              dataStringStore.dataSource = attrs.datasource;
-            }
+          if (attrs.datasource) {
+            chartConfigObject.dataSource =
+              chartConfigObject.dataFormat === 'json'
+                ? JSON.parse(attrs.datasource)
+                : attrs.datasource;
+            dataStringStore.dataSource = attrs.datasource;
           }
 
           for (observableAttr in observeConf.DCObserver) {
@@ -785,6 +741,46 @@
           }
 
           createFCChart();
+
+          if (attrs.type.toLowerCase() === 'timeseries' && scope.datasourceDt) {
+            scope.$watch(
+              'datasourceDt.data',
+              function(newData, oldData) {
+                if (newData !== oldData) updateData();
+              },
+              false
+            );
+            createWatchersForAttrs(scope.datasourceDt);
+            // set the data anyway, initially.
+            chart.setJSONData(scope.datasourceDt);
+          } else if (scope.datasourceDt) {
+            attrs.datasourceDt = scope.datasourceDt;
+            chartConfigObject.dataSource = scope.datasourceDt;
+            dataStringStore.dataSource = scope.datasourceDt;
+            setChartData();
+            scope.$watch(
+              'datasourceDt',
+              function(newData, oldData) {
+                if (newData !== oldData) {
+                  chartConfigObject.dataSource = scope.datasourceDt;
+                  dataStringStore.dataSource = scope.datasourceDt;
+                  setChartData();
+                  if (chartConfigObject.dataFormat === 'json') {
+                    setChartData();
+                  } else {
+                    if (chartConfigObject.dataFormat === 'xml') {
+                      chart.setXMLData(newData);
+                    } else if (chartConfigObject.dataFormat === 'jsonurl') {
+                      chart.setJSONUrl(newData);
+                    } else if (chartConfigObject.dataFormat === 'xmlurl') {
+                      chart.setXMLUrl(newData);
+                    }
+                  }
+                }
+              },
+              true
+            );
+          }
 
           scope.$on('$destroy', function() {
             // on destroy free used resources to avoid memory leaks

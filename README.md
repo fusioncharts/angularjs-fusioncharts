@@ -2,7 +2,7 @@
 
 A simple and lightweight official AngularJS component for FusionCharts JavaScript charting library. angularjs-fusioncharts enables you to add JavaScript charts in your AngularJS application without any hassle.
 
-## [Demo](https://fusioncharts.github.io/angular-fusioncharts/)
+## [Demo](https://fusioncharts.github.io/angularjs-fusioncharts/)
 
 - Github Repo: [https://github.com/fusioncharts/angularjs-fusioncharts](https://github.com/fusioncharts/angularjs-fusioncharts)
 - Documentation: [https://www.fusioncharts.com/dev/getting-started/angular/angularjs/your-first-chart-using-angularjs](https://www.fusioncharts.com/dev/getting-started/angular/angularjs/your-first-chart-using-angularjs)
@@ -24,6 +24,7 @@ A simple and lightweight official AngularJS component for FusionCharts JavaScrip
 - [Quick Start](#quick-start)
 - [Going Beyond Charts](#going-beyond-charts)
 - [Usage and Integration of FusionTime](#usage-and-integration-of-fusiontime)
+- [Special note for IE Users](#special-note)
 - [For Contributors](#for-contributors)
 - [Licensing](#licensing)
 
@@ -40,7 +41,7 @@ A simple and lightweight official AngularJS component for FusionCharts JavaScrip
 To install `angularjs-fusioncharts` library, run:
 
 ```bash
-$ npm install angular-fusioncharts --save
+$ npm install angularjs-fusioncharts --save
 ```
 
 To install `fusioncharts` library:
@@ -339,25 +340,33 @@ var app = angular.module('myApp', ['ng-fusioncharts']);
 
 var jsonify = res => res.json();
 var dataFetch = fetch(
-  'https://raw.githubusercontent.com/fusioncharts/dev_centre_docs/fusiontime-beta-release/charts-resources/fusiontime/online-sales-single-series/data.json'
+  'https://s3.eu-central-1.amazonaws.com/fusion.store/ft/data/line-chart-with-time-axis-data.json'
 ).then(jsonify);
 var schemaFetch = fetch(
-  'https://raw.githubusercontent.com/fusioncharts/dev_centre_docs/fusiontime-beta-release/charts-resources/fusiontime/online-sales-single-series/schema.json'
+  'https://s3.eu-central-1.amazonaws.com/fusion.store/ft/schema/line-chart-with-time-axis-schema.json'
 ).then(jsonify);
 
 var app = angular.module('myApp', ['ng-fusioncharts']);
 
 app.controller('MyController', function($scope) {
   $scope.dataSource = {
-    caption: { text: 'Online Sales of a SuperStore in the US' },
     data: null,
+    caption: {
+      text: 'Sales Analysis'
+    },
+    subcaption: {
+      text: 'Grocery'
+    },
     yAxis: [
       {
-        plot: [
-          {
-            value: 'Sales ($)'
-          }
-        ]
+        plot: {
+          value: 'Grocery Sales Value',
+          type: 'line'
+        },
+        format: {
+          prefix: '$'
+        },
+        title: 'Sale Value'
       }
     ]
   };
@@ -413,6 +422,30 @@ Useful links for FusionTime
 
 - [How FusionTime works](https://www.fusioncharts.com/dev/fusiontime/getting-started/how-fusion-time-works)
 - [Create your first chart](https://www.fusioncharts.com/dev/fusiontime/getting-started/create-your-first-chart-in-fusiontime)
+
+## Special Note
+
+If you want to support your application on IE(11 and below), then you need to take following steps:
+
+### Firstly
+
+You have to update your `angularjs-fusioncharts` and `fusioncharts` modules to latest versions. For `angularjs-fusioncharts` install `v5.0.1` and above; for `fusioncharts` install `v3.13.3-sr.1` and above.
+
+### Secondly
+
+In your template, modify your code like so,
+
+```html
+<div
+  fusioncharts
+  width="600"
+  height="400"
+  type="ANY_CHART_TYPE"
+  datasource-dt="dataSource"
+>
+  // Instead of passing data in datasouce, use datasource-dt.
+</div>
+```
 
 ## For Contributors
 
